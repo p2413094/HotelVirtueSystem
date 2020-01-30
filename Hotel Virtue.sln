@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelVirtueBackOffice", "HotelVirtueBackOffice\HotelVirtueBackOffice.csproj", "{81FFD184-778C-40C2-85F8-05BF9FE289DC}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HotelVirtueFrontOffice", "HotelVirtueFrontOffice\", "{282D220D-E229-4F55-9339-1F908309EE80}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50299"
+		Debug.AspNetCompiler.PhysicalPath = "HotelVirtueFrontOffice\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50299\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50299"
+		Release.AspNetCompiler.PhysicalPath = "HotelVirtueFrontOffice\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50299\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50299"
+		SlnRelativePath = "HotelVirtueFrontOffice\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelVirtueClasses", "HotelVirtueClasses\HotelVirtueClasses.csproj", "{4B06639B-F509-44D4-B1D0-557F831CD580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel Virtue Testing", "Hotel Virtue Testing\Hotel Virtue Testing.csproj", "{404252CA-F0D8-4A85-98B8-C119C6F69743}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81FFD184-778C-40C2-85F8-05BF9FE289DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81FFD184-778C-40C2-85F8-05BF9FE289DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81FFD184-778C-40C2-85F8-05BF9FE289DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81FFD184-778C-40C2-85F8-05BF9FE289DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{282D220D-E229-4F55-9339-1F908309EE80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{282D220D-E229-4F55-9339-1F908309EE80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{282D220D-E229-4F55-9339-1F908309EE80}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{282D220D-E229-4F55-9339-1F908309EE80}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{4B06639B-F509-44D4-B1D0-557F831CD580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B06639B-F509-44D4-B1D0-557F831CD580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B06639B-F509-44D4-B1D0-557F831CD580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B06639B-F509-44D4-B1D0-557F831CD580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{404252CA-F0D8-4A85-98B8-C119C6F69743}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{404252CA-F0D8-4A85-98B8-C119C6F69743}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{404252CA-F0D8-4A85-98B8-C119C6F69743}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{404252CA-F0D8-4A85-98B8-C119C6F69743}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B1D6D0C-33F4-4C52-9674-DDD07F23BB72}
+	EndGlobalSection
+EndGlobal
