@@ -12,6 +12,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HotelVirtueFrontOffice(1)", "HotelVirtueFrontOffice\", "{3C7D0E11-81D8-440C-8080-F73316BD6C0B}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{4b06639b-f509-44d4-b1d0-557f831cd580}|HotelVirtueClasses.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_51078"
 		Debug.AspNetCompiler.PhysicalPath = "HotelVirtueFrontOffice\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51078\"
