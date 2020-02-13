@@ -51,7 +51,7 @@
             Single bed    
             <div class="clearfix">
                 <br />
-                <img src="HotelRoom1.jpg" class="image"/>
+                <img src="Images/HotelRoom1.jpg" class="image" />
                 <p class="subHeader">Choose rate</p>
                     <asp:RadioButtonList ID="rateOptions" runat="server" CssClass="rateOptions">
                         <asp:ListItem>Saver rate only</asp:ListItem>
@@ -70,7 +70,7 @@
             <div class="clearfix">
                 <br />
                 <div class="body">Gym access</div>
-                <img src="Gym.png" class="image"/>
+                <img src="Images/Gym.png" class="image"/>
                 <p class="subHeader">Add to booking?</p>
                     <asp:RadioButtonList ID="RadioButtonList1" runat="server" CssClass="rateOptions">
                         <asp:ListItem>Yes - +£10.00</asp:ListItem>
@@ -82,7 +82,7 @@
 
             <div class="clearfix">
                 <div class="body">Breakfast</div>
-                <img src="Breakfast.jpg" class="image"/>
+                <img src="Images/Breakfast.jpg" class="image"/>
                     <asp:RadioButtonList ID="RadioButtonList2" runat="server" CssClass="rateOptions">
                         <asp:ListItem>Yes - +£10.00</asp:ListItem>
                         <asp:ListItem>No - +£0.00</asp:ListItem>
