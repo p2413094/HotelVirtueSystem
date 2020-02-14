@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using HotelVirtueClasses;
 
 namespace Hotel_Virtue_Testing
 {
@@ -7,8 +8,10 @@ namespace Hotel_Virtue_Testing
     public class tstCancellation
     {
         [TestMethod]
-        public void TestMethod1()
+        public void InstanceOk()
         {
+            clsCancellation aCancellation = new clsCancellation();
+            Assert.IsNotNull(aCancellation);
         }
     }
 }
