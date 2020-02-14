@@ -300,8 +300,7 @@ namespace Hotel_Virtue_Testing
             clsPayment aPayment = new clsPayment();
             string error = "";
             string cardNumber = "1234123412341234";
-            string nameOnCard = "";
-            nameOnCard = nameOnCard.PadRight(12, 'M');
+            string nameOnCard = "MR JOHN SMIT";
             string expiryDate = "09/23";
             string securityCode = "123";
             error = aPayment.Valid(cardNumber, nameOnCard, expiryDate, securityCode);
@@ -351,6 +350,19 @@ namespace Hotel_Virtue_Testing
             string securityCode = "123";
             error = aPayment.Valid(cardNumber, nameOnCard, expiryDate, securityCode);
             Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void testFunction()
+        {
+            clsPayment aPayment = new clsPayment();
+            string error = "";
+            string cardNumber = "1234123412341234";
+            string nameOnCard = "MR ";
+            string expiryDate = "09/21";
+            string securityCode = "123";
+            error = aPayment.Valid(cardNumber, nameOnCard, expiryDate, securityCode);
+            Assert.AreEqual(error, "");
         }
     }
 }
