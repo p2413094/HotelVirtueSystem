@@ -7,12 +7,12 @@ using System.Data.OleDb;
 using System.Data;
 //using ClassControlLib; -> class lib 
 
+///This class uses the ado.net sql classes to provide a connection to an Azure sql server database.
+///it is free for use by anybody so long as you give credit to the original author i.e me
+///Matthew Dean mjdean@dmu.ac.uk De Montfort University 2019
+
 namespace HotelVirtueClasses
 {
-    ///This class uses the ado.net sql classes to provide a connection to an Azure sql server database.
-    ///it is free for use by anybody so long as you give credit to the original author i.e me
-    ///Matthew Dean mjdean@dmu.ac.uk De Montfort University 2019
-
     public class clsDataConnection
     {
         //connection object used to connect to the database
@@ -30,7 +30,7 @@ namespace HotelVirtueClasses
 
         public clsDataConnection()
         {
-            connectionString = GetConnectionString();
+            connectionString = "Server=tcp:rmpserver.database.windows.net,1433;Initial Catalog=HotelVirtue;Persist Security Info=False;User ID=admin1;Password=M1CH43LN0TFU55N%;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
         }
 
         private string GetConnectionString()
@@ -215,6 +215,7 @@ namespace HotelVirtueClasses
                 dataTable = value;
             }
         }
-    }
 
+
+    }
 }
