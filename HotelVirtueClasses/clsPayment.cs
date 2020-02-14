@@ -38,11 +38,7 @@ namespace HotelVirtueClasses
             foreach (char number in cardNumber)
             {
                 bool numberCheck = char.IsDigit(number);
-                if (numberCheck == true)
-                {
-
-                }
-                else
+                if (numberCheck == false)
                 {
                     error += "Card number must contain only digits";
                 }
