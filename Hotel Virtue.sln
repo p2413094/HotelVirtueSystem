@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1000
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelVirtueBackOffice", "HotelVirtueBackOffice\HotelVirtueBackOffice.csproj", "{81FFD184-778C-40C2-85F8-05BF9FE289DC}"
 EndProject
@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelVirtueClasses", "Hotel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hotel Virtue Testing", "Hotel Virtue Testing\Hotel Virtue Testing.csproj", "{404252CA-F0D8-4A85-98B8-C119C6F69743}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HotelVirtueFrontOffice(1)", "HotelVirtueFrontOffice\", "{3C7D0E11-81D8-440C-8080-F73316BD6C0B}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HotelVirtueFrontOffice", "HotelVirtueFrontOffice\", "{403C4955-D84A-4BF3-8F35-4F29986A05E7}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
 		ProjectReferences = "{4b06639b-f509-44d4-b1d0-557f831cd580}|HotelVirtueClasses.dll;"
@@ -32,6 +32,26 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HotelVirtueFrontOffice(1)",
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HotelBookingSite", "..\..\Documents\Project Management\HotelBookingSite\", "{2140A8FD-C30B-4397-B07B-62815B46CAD5}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_55102"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\Documents\Project Management\HotelBookingSite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55102\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_55102"
+		Release.AspNetCompiler.PhysicalPath = "..\..\Documents\Project Management\HotelBookingSite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55102\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "55102"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,10 +70,14 @@ Global
 		{404252CA-F0D8-4A85-98B8-C119C6F69743}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{404252CA-F0D8-4A85-98B8-C119C6F69743}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{404252CA-F0D8-4A85-98B8-C119C6F69743}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C7D0E11-81D8-440C-8080-F73316BD6C0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C7D0E11-81D8-440C-8080-F73316BD6C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C7D0E11-81D8-440C-8080-F73316BD6C0B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C7D0E11-81D8-440C-8080-F73316BD6C0B}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{403C4955-D84A-4BF3-8F35-4F29986A05E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{403C4955-D84A-4BF3-8F35-4F29986A05E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{403C4955-D84A-4BF3-8F35-4F29986A05E7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{403C4955-D84A-4BF3-8F35-4F29986A05E7}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{2140A8FD-C30B-4397-B07B-62815B46CAD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2140A8FD-C30B-4397-B07B-62815B46CAD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2140A8FD-C30B-4397-B07B-62815B46CAD5}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2140A8FD-C30B-4397-B07B-62815B46CAD5}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
