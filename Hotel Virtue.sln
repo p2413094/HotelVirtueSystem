@@ -50,6 +50,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HotelBookingSite", "..\..\D
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "55102"
+		SlnRelativePath = "..\..\Documents\Project Management\HotelBookingSite\"
 	EndProjectSection
 EndProject
 Global
