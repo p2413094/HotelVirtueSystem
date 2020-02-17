@@ -33,6 +33,15 @@ namespace Hotel_Virtue_Testing
         }
 
         [TestMethod]
+        public void DateTimeOfCancellationPropertyOk()
+        {
+            clsCancellation aCancellation = new clsCancellation();
+            DateTime dateTimeOfCancellation = DateTime.Now;
+            aCancellation.DateTimeOfCancellation = dateTimeOfCancellation;
+            Assert.AreEqual(aCancellation.DateTimeOfCancellation, dateTimeOfCancellation);
+        }
+
+        [TestMethod]
         public void ReasonMinLessOne()
         {
             clsCancellation aCancellation = new clsCancellation();

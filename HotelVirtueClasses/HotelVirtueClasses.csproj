@@ -44,6 +44,7 @@
     <Compile Include="clsBooking.cs" />
     <Compile Include="clsBookingCollection.cs" />
     <Compile Include="clsCancellation.cs" />
+    <Compile Include="clsCancellationCollection.cs" />
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsPayment.cs" />
     <Compile Include="clsPaymentCollection.cs" />

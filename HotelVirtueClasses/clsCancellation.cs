@@ -4,9 +4,11 @@ namespace HotelVirtueClasses
 {
     public class clsCancellation
     {
+
         public int CancellationId { get; set; }
         public int BookingLineId { get; set; }
         public string Reason { get; set; }
+        public DateTime DateTimeOfCancellation { get; set; }
 
         public string Valid(string reason)
         {
