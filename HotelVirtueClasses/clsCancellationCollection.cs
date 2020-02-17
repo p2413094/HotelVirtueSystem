@@ -5,14 +5,22 @@ namespace HotelVirtueClasses
 {
     public class clsCancellationCollection
     {
+
+        private List<clsCancellation> mCancellationList = new List<clsCancellation>();
+        clsCancellation mThisCancellation = new clsCancellation();
+
         public List<clsCancellation> CancellationList
         {
             get { return mCancellationList; }
             set { mCancellationList = value; }
         }
 
-        private List<clsCancellation> mCancellationList = new List<clsCancellation>();
-        public clsCancellation thisCancellation;
+        public clsCancellation thisCancellation
+        {
+            get { return mThisCancellation; }
+            set { mThisCancellation = value; }
+        }
+
 
         public clsCancellationCollection()
         {
@@ -43,6 +51,13 @@ namespace HotelVirtueClasses
             }
         }
 
-       
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BookingLineId", mThisCancellation.BookingLineId);
+            DB.AddParameter("@DateTimeOfCancellation", mThisCancellation.DateTimeOfCancellation);
+            DB.AddParameter("@Reason", mThisCancellation.Reason);
+            return DB.Execute("sproc_tblCancellation_Insert");
+        }
     }
 }

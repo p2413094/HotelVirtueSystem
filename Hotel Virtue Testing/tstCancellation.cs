@@ -42,6 +42,21 @@ namespace Hotel_Virtue_Testing
         }
 
         [TestMethod]
+        public void AddMethodOk()
+        {
+            clsCancellationCollection AllCancellations = new clsCancellationCollection();
+            clsCancellation testItem = new clsCancellation();
+            Int32 primaryKey = 0;
+            testItem.BookingLineId = 3;
+            testItem.DateTimeOfCancellation = DateTime.Now;
+            testItem.Reason = "TEST3";
+            AllCancellations.thisCancellation = testItem;
+            primaryKey = AllCancellations.Add();
+            testItem.CancellationId = primaryKey;
+            Assert.AreEqual(AllCancellations.thisCancellation, testItem);
+        }
+
+        [TestMethod]
         public void ReasonMinLessOne()
         {
             clsCancellation aCancellation = new clsCancellation();
