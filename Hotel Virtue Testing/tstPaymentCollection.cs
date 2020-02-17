@@ -79,8 +79,8 @@ namespace Hotel_Virtue_Testing
             clsPaymentCollection AllPayments = new clsPaymentCollection();
             clsPayment testPayment = new clsPayment();
             Int32 primaryKey = 0;
-            testPayment.Amount = 79.99m;
-            testPayment.BookingLineId = 1;
+            testPayment.Amount = 68m;
+            testPayment.BookingLineId = 3;
             testPayment.CardNumber = "1234123412341234";
             testPayment.CardType = "VISA";
             testPayment.CustomerId = 1;

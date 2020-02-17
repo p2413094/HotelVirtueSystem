@@ -51,8 +51,17 @@ namespace HotelVirtueClasses
 
         public int Add()
         {
-            mThisPayment.PaymentId = 123;
-            return ThisPayment.PaymentId;
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CustomerId", mThisPayment.CustomerId);
+            DB.AddParameter("@BookingLineId", mThisPayment.BookingLineId);
+            DB.AddParameter("@DateTimeOfPayment", mThisPayment.DateTimeOfPayment);
+            DB.AddParameter("@Amount", mThisPayment.Amount);
+            DB.AddParameter("@CardNumber", mThisPayment.CardNumber);
+            DB.AddParameter("@NameOnCard", mThisPayment.NameOnCard);
+            DB.AddParameter("@ExpiryDate", mThisPayment.ExpiryDate);
+            DB.AddParameter("@SecurityCode", mThisPayment.SecurityCode);
+            DB.AddParameter("@CardType", mThisPayment.CardType);
+            return DB.Execute("sproc_tblPayment_Insert");
         }
     }
 }
