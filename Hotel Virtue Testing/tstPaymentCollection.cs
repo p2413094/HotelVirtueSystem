@@ -11,14 +11,14 @@ namespace Hotel_Virtue_Testing
         [TestMethod]
         public void InstanceOk()
         {
-            clsPaymentColection AllPayments = new clsPaymentColection();
+            clsPaymentCollection AllPayments = new clsPaymentCollection();
             Assert.IsNotNull(AllPayments);
         }
 
         [TestMethod]
         public void PaymentListOk()
         {
-            clsPaymentColection AllPayments = new clsPaymentColection();
+            clsPaymentCollection AllPayments = new clsPaymentCollection();
             List<clsPayment> testList = new List<clsPayment>();
             clsPayment testItem = new clsPayment();
             testItem.Amount = 79.99m;
@@ -36,9 +36,9 @@ namespace Hotel_Virtue_Testing
         }   
 
         [TestMethod]
-        public void ThisPaymentOk()
+        public void ThisPaymentPropertyOk()
         {
-            clsPaymentColection AllPayments = new clsPaymentColection();
+            clsPaymentCollection AllPayments = new clsPaymentCollection();
             clsPayment testPayment = new clsPayment();
             testPayment.Amount = 79.99m;
             testPayment.BookingLineId = 1;
@@ -56,7 +56,7 @@ namespace Hotel_Virtue_Testing
         [TestMethod]
         public void ListAndCountOk()
         {
-            clsPaymentColection AllPayments = new clsPaymentColection();
+            clsPaymentCollection AllPayments = new clsPaymentCollection();
             List<clsPayment> testList = new List<clsPayment>();
             clsPayment testItem = new clsPayment();
             testItem.Amount = 79.99m;
@@ -71,6 +71,28 @@ namespace Hotel_Virtue_Testing
             testList.Add(testItem);
             AllPayments.PaymentList = testList;
             Assert.AreEqual(AllPayments.Count, testList.Count);
+        }
+
+        [TestMethod]
+        public void AddMethodOk()
+        {
+            clsPaymentCollection AllPayments = new clsPaymentCollection();
+            clsPayment testPayment = new clsPayment();
+            Int32 primaryKey = 0;
+            testPayment.Amount = 79.99m;
+            testPayment.BookingLineId = 1;
+            testPayment.CardNumber = "1234123412341234";
+            testPayment.CardType = "VISA";
+            testPayment.CustomerId = 1;
+            testPayment.DateTimeOfPayment = DateTime.Now;
+            testPayment.ExpiryDate = "07/21";
+            testPayment.NameOnCard = "MR JOHN SMITH";
+            testPayment.SecurityCode = "733";
+            AllPayments.ThisPayment = testPayment;
+            primaryKey = AllPayments.Add();
+            testPayment.PaymentId = primaryKey;
+            AllPayments.ThisPayment.Find(primaryKey);
+            Assert.AreEqual(AllPayments.ThisPayment, testPayment);
         }
     }
 }

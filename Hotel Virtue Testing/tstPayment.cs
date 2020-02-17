@@ -115,7 +115,16 @@ namespace Hotel_Virtue_Testing
             string expiryDate = "09/23";
             string securityCode = "123";
             error = aPayment.Valid(cardNumber, nameOnCard, expiryDate, securityCode);
+        }
 
+        [TestMethod]
+        public void FindMethodOk()
+        {
+            clsPayment aPayment = new clsPayment();
+            Boolean found = false;
+            Int32 PaymentId = 3;
+            found = aPayment.Find(PaymentId);
+            Assert.IsTrue(found);
         }
 
         [TestMethod]
@@ -364,5 +373,158 @@ namespace Hotel_Virtue_Testing
             error = aPayment.Valid(cardNumber, nameOnCard, expiryDate, securityCode);
             Assert.AreEqual(error, "");
         }
+
+        [TestMethod]
+        public void testPaymentIdFound()
+        {
+            clsPayment aPayment = new clsPayment();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 PaymentId = 3;
+            found = aPayment.Find(PaymentId);
+            if (aPayment.PaymentId != 3)
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void testCustomerIdFound()
+        {
+            clsPayment aPayment = new clsPayment();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 PaymentId = 3;
+            found = aPayment.Find(PaymentId);
+            if (aPayment.CustomerId != 1)
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void testBookingLineIdFound()
+        {
+            clsPayment aPayment = new clsPayment();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 PaymentId = 3;
+            found = aPayment.Find(PaymentId);
+            if (aPayment.BookingLineId != 3)
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void testDateTimeOfPaymentFound()
+        {
+            clsPayment aPayment = new clsPayment();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 PaymentId = 3;
+            found = aPayment.Find(PaymentId);
+            if (aPayment.DateTimeOfPayment != Convert.ToDateTime("2020-02-16 17:09:09.1500000"))
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+            
+        }
+
+        [TestMethod]
+        public void testCardNumberFound()
+        {
+            clsPayment aPayment = new clsPayment();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 PaymentId = 3;
+            found = aPayment.Find(PaymentId);
+            if (aPayment.CardNumber != "1234123412341234")
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void testNameOnCardFound()
+        {
+            clsPayment aPayment = new clsPayment();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 PaymentId = 3;
+            found = aPayment.Find(PaymentId);
+            if (aPayment.NameOnCard != "MR JOHN SMITH")
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void testExpiryDateFound()
+        {
+            clsPayment aPayment = new clsPayment();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 PaymentId = 3;
+            found = aPayment.Find(PaymentId);
+            if (aPayment.ExpiryDate != "02/21")
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void testSecurityCodeFound()
+        {
+            clsPayment aPayment = new clsPayment();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 PaymentId = 3;
+            found = aPayment.Find(PaymentId);
+            if (aPayment.SecurityCode != "123")
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void testCardTypeFound()
+        {
+            clsPayment aPayment = new clsPayment();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 PaymentId = 3;
+            found = aPayment.Find(PaymentId);
+            if (aPayment.CardType != "VISA")
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void testAmountFound()
+        {
+            clsPayment aPayment = new clsPayment();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 PaymentId = 3;
+            found = aPayment.Find(PaymentId);
+            if (aPayment.Amount != 80)
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        
     }
 }

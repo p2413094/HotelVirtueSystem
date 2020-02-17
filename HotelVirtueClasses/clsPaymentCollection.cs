@@ -3,9 +3,10 @@ using System;
 
 namespace HotelVirtueClasses
 {
-    public class clsPaymentColection
+    public class clsPaymentCollection
     {
         List<clsPayment> mPaymentList = new List<clsPayment>();
+        clsPayment mThisPayment = new clsPayment();
 
         public List<clsPayment> PaymentList
         {
@@ -17,9 +18,13 @@ namespace HotelVirtueClasses
             get { return mPaymentList.Count; }
             set { }
         }
-        public clsPayment ThisPayment { get; set; }
+        public clsPayment ThisPayment
+        {
+            get { return mThisPayment; }
+            set { mThisPayment = value; }
+        }
 
-        public clsPaymentColection()
+        public clsPaymentCollection()
         {
             Int32 index = 0;
             Int32 recordCount = 0;
@@ -42,6 +47,12 @@ namespace HotelVirtueClasses
                 mPaymentList.Add(aPayment);
                 index++;
             }
+        }
+
+        public int Add()
+        {
+            mThisPayment.PaymentId = 123;
+            return ThisPayment.PaymentId;
         }
     }
 }

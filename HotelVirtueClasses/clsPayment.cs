@@ -4,16 +4,75 @@ namespace HotelVirtueClasses
 {
     public class clsPayment
     {
-        public int PaymentId { get; set; }
-        public int CustomerId { get; set; }
-        public int BookingLineId { get; set; }
-        public DateTime DateTimeOfPayment { get; set; }
-        public decimal Amount { get; set; }
-        public string CardNumber { get; set; }
-        public string NameOnCard { get; set; }
-        public string ExpiryDate { get; set; }
-        public string SecurityCode { get; set; }
-        public string CardType { get; set; }
+        private Int32 mPaymentId;
+        private Int32 mCustomerId;
+        private Int32 mBookingLineId;
+        private DateTime mDateTimeOfPayment;
+        private decimal mAmount;
+        private string mCardNumber;
+        private string mNameOnCard;
+        private string mExpiryDate;
+        private string mSecurityCode;
+        private string mCardType;
+        public int PaymentId
+        {
+            get { return mPaymentId; }
+            set { mPaymentId = value; }
+        }
+
+        public int CustomerId
+        {
+            get { return mCustomerId; }
+            set { mCustomerId = value; }
+        }
+
+        public int BookingLineId
+        {
+            get { return mBookingLineId; }
+            set { mBookingLineId = value; }
+        }
+
+        public DateTime DateTimeOfPayment
+        {
+            get { return mDateTimeOfPayment; }
+            set { mDateTimeOfPayment = value; }
+        }
+
+        public decimal Amount
+        {
+            get { return mAmount; }
+            set { mAmount = value; }
+        }
+
+        public string CardNumber
+        {
+            get { return mCardNumber; }
+            set { mCardNumber = value; }
+        }
+
+        public string NameOnCard
+        {
+            get { return mNameOnCard; }
+            set { mNameOnCard = value; }
+        }
+
+        public string ExpiryDate
+        {
+            get { return mExpiryDate; }
+            set { mExpiryDate = value; }
+        }
+
+        public string SecurityCode
+        {
+            get { return mSecurityCode; }
+            set { mSecurityCode = value; }
+        }
+
+        public string CardType
+        {
+            get { return mCardType; }
+            set { mCardType = value; }
+        }      
 
         public string Valid(string cardNumber, string nameOnCard, string expiryDate, string securityCode)
         {
@@ -112,11 +171,32 @@ namespace HotelVirtueClasses
                 error += "Security code must be exactly 3 characters";
             }
 
-
-
-
-
             return error;
+        }
+
+        public bool Find(int paymentId)
+        {          
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@PaymentId", paymentId);
+            DB.Execute("sproc_tblPayment_FilterByPaymentId");
+            if (DB.Count == 1)
+            {
+                mPaymentId = Convert.ToInt32(DB.DataTable.Rows[0]["PaymentId"]);
+                mCustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
+                mBookingLineId = Convert.ToInt32(DB.DataTable.Rows[0]["BookingLineId"]);
+                mDateTimeOfPayment = Convert.ToDateTime(DB.DataTable.Rows[0]["DateTimeOfPayment"]);
+                mAmount = Convert.ToDecimal(DB.DataTable.Rows[0]["Amount"]);
+                mCardNumber = Convert.ToString(DB.DataTable.Rows[0]["CardNumber"]);
+                mNameOnCard = Convert.ToString(DB.DataTable.Rows[0]["NameOnCard"]);
+                mExpiryDate = Convert.ToString(DB.DataTable.Rows[0]["ExpiryDate"]);
+                mSecurityCode = Convert.ToString(DB.DataTable.Rows[0]["SecurityCode"]);
+                mCardType = Convert.ToString(DB.DataTable.Rows[0]["CardType"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
