@@ -63,5 +63,12 @@ namespace HotelVirtueClasses
             DB.AddParameter("@CardType", mThisPayment.CardType);
             return DB.Execute("sproc_tblPayment_Insert");
         }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@PaymentId", mThisPayment.PaymentId);
+            DB.Execute("sproc_tblPayment_Delete");
+        }
     }
 }

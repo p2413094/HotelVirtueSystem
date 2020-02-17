@@ -94,5 +94,28 @@ namespace Hotel_Virtue_Testing
             AllPayments.ThisPayment.Find(primaryKey);
             Assert.AreEqual(AllPayments.ThisPayment, testPayment);
         }
+
+        [TestMethod]
+        public void DeleteMethodOk()
+        {
+            clsPaymentCollection AllPayments = new clsPaymentCollection();
+            clsPayment testItem = new clsPayment();
+            Int32 primaryKey = 0;
+            testItem.Amount = 68m;
+            testItem.BookingLineId = 3;
+            testItem.CardNumber = "1234123412341234";
+            testItem.CardType = "VISA";
+            testItem.CustomerId = 1;
+            testItem.DateTimeOfPayment = DateTime.Now;
+            testItem.ExpiryDate = "07/21";
+            testItem.NameOnCard = "MR JOHN SMITH";
+            testItem.SecurityCode = "733";
+            AllPayments.ThisPayment = testItem;
+            primaryKey = AllPayments.Add();
+            testItem.PaymentId = primaryKey;
+            AllPayments.Delete();
+            Boolean found = AllPayments.ThisPayment.Find(primaryKey);
+            Assert.IsFalse(found);
+        }
     }
 }
