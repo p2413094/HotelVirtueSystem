@@ -20,10 +20,11 @@ namespace HotelVirtueClasses
         public int UnderFive { get; set; }
         public int FiveToSixteen { get; set; }
         public int SixteenUpwards { get; set; }
-        public string Extras { get; set; }
         public string Other { get; set; }
+        public bool GymAccess { get; set; }
+        public bool LateCheckout { get; set; }
 
-        public string Valid(DateTime arrivalDate, DateTime departureDate, string extras, string other)
+        public string Valid(DateTime arrivalDate, DateTime departureDate, string other)
         {
             string error = "";
             DateTime todaysDate = DateTime.Now.Date;
@@ -53,16 +54,7 @@ namespace HotelVirtueClasses
             {
                 error += "Departure date must not be more than 100 days into the future";
             }
-
-            if (extras.Length <= 0)
-            {
-                error += "Extras must not be empty";
-            }
-
-            if (extras.Length > 50)
-            {
-                error += "Extras must be 50 characters or less";
-            }
+            
 
             if (other.Length <= 0)
             {

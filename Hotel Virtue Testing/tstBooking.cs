@@ -121,14 +121,23 @@ namespace Hotel_Virtue_Testing
             aBooking.SixteenUpwards = testData;
             Assert.AreEqual(aBooking.SixteenUpwards, testData);
         }
-
+      
         [TestMethod]
-        public void ExtrasPropertyOk()
+        public void GymAccessPropertyOk()
         {
             clsBooking aBooking = new clsBooking();
-            string testData = "Champagne on arrival";
-            aBooking.Extras = testData;
-            Assert.AreEqual(aBooking.Extras, testData);
+            Boolean testData = true;
+            aBooking.GymAccess = testData;
+            Assert.AreEqual(aBooking.GymAccess, testData);
+        }
+
+        [TestMethod]
+        public void LateCheckoutPropertyOk()
+        {
+            clsBooking aBooking = new clsBooking();
+            Boolean testData = true;
+            aBooking.LateCheckout = testData;
+            Assert.AreEqual(aBooking.LateCheckout, testData);
         }
 
         [TestMethod]
@@ -145,11 +154,10 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreEqual(error, "");
         }
 
@@ -158,11 +166,10 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date.AddDays(-100);
             DateTime departureDate = DateTime.Now.Date;
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreNotEqual(error, "");
         }
 
@@ -171,11 +178,10 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date.AddDays(-1);
             DateTime departureDate = DateTime.Now.Date;
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreNotEqual(error, "");
         }
 
@@ -184,11 +190,10 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreEqual(error, "");
         }
 
@@ -197,11 +202,10 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date.AddDays(1);
             DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreNotEqual(error, "");
         }
 
@@ -210,11 +214,10 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date.AddDays(100);
             DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreNotEqual(error, "");
         }
 
@@ -223,11 +226,10 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(-100);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreNotEqual(error, "");
         }
 
@@ -236,11 +238,10 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(-1);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreNotEqual(error, "");
         }
 
@@ -249,11 +250,10 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreEqual(error, "");
         }
 
@@ -262,11 +262,10 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(2);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreEqual(error, "");
         }
 
@@ -275,133 +274,22 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(100);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreNotEqual(error, "");
-        }
-
-        [TestMethod]
-        public void ExtrasMinLessOne()
-        {
-            clsBooking aBooking = new clsBooking();
-            string error = "";
-            string extras = "";
-            string other = "t";
-            DateTime arrivalDate = DateTime.Now.Date;
-            DateTime departureDate = DateTime.Now.Date;
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
-            Assert.AreNotEqual(error, "");
-        }
-
-        [TestMethod]
-        public void ExtrasMinBoundary()
-        {
-            clsBooking aBooking = new clsBooking();
-            string error = "";
-            string extras = "t";
-            string other = "t";
-            DateTime arrivalDate = DateTime.Now.Date;
-            DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
-            Assert.AreEqual(error, "");
-        }
-
-        [TestMethod]
-        public void ExtrasMinBoundaryPlusOne()
-        {
-            clsBooking aBooking = new clsBooking();
-            string error = "";
-            string extras = "tt";
-            string other = "t";
-            DateTime arrivalDate = DateTime.Now.Date;
-            DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
-            Assert.AreEqual(error, "");
-        }
-
-        [TestMethod]
-        public void ExtrasMaxMinusOne()
-        {
-            clsBooking aBooking = new clsBooking();
-            string error = "";
-            string extras = "";
-            string other = "t";
-            extras = extras.PadRight(49, 't');
-            DateTime arrivalDate = DateTime.Now.Date;
-            DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
-            Assert.AreEqual(error, "");
-        }
-
-        [TestMethod]
-        public void ExtrasMaxBoundary()
-        {
-            clsBooking aBooking = new clsBooking();
-            string error = "";
-            string extras = "";
-            string other = "t";
-            extras = extras.PadRight(50, 't');
-            DateTime arrivalDate = DateTime.Now.Date;
-            DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
-            Assert.AreEqual(error, "");
-        }
-
-        [TestMethod]
-        public void ExtrasMaxPlusOne()
-        {
-            clsBooking aBooking = new clsBooking();
-            string error = "";
-            string extras = "";
-            string other = "t";
-            extras = extras.PadRight(51, 't');
-            DateTime arrivalDate = DateTime.Now.Date;
-            DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
-            Assert.AreNotEqual(error, "");
-        }
-
-        [TestMethod]
-        public void ExtrasMid()
-        {
-            clsBooking aBooking = new clsBooking();
-            string error = "";
-            string extras = "";
-            string other = "t";
-            extras = extras.PadRight(25, 't');
-            DateTime arrivalDate = DateTime.Now.Date;
-            DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
-            Assert.AreEqual(error, "");
-        }
-
-        [TestMethod]
-        public void ExtrasExtremeMax()
-        {
-            clsBooking aBooking = new clsBooking();
-            string error = "";
-            string extras = "";
-            string other = "t";
-            extras = extras.PadRight(250, 't');
-            DateTime arrivalDate = DateTime.Now.Date;
-            DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
-            Assert.AreNotEqual(error, "");
-        }
+        }        
 
         [TestMethod]
         public void OtherExtremeMin()
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreNotEqual(error, "");
         }
 
@@ -410,11 +298,10 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreEqual(error, "");
         }
 
@@ -423,11 +310,10 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "te";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreEqual(error, "");
         }
 
@@ -436,12 +322,11 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "";
             other = other.PadRight(49, 't');
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreEqual(error, "");
         }
 
@@ -450,12 +335,11 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "";
             other = other.PadRight(50, 't');
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreEqual(error, "");
         }
 
@@ -464,12 +348,11 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "";
             other = other.PadRight(51, 't');
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreNotEqual(error, "");
         }
 
@@ -478,12 +361,11 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "";
             other = other.PadRight(25, 't');
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreEqual(error, "");
         }
 
@@ -492,12 +374,11 @@ namespace Hotel_Virtue_Testing
         {
             clsBooking aBooking = new clsBooking();
             string error = "";
-            string extras = "t";
             string other = "";
             other = other.PadRight(250, 't');
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBooking.Valid(arrivalDate, departureDate, extras, other);
+            error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreNotEqual(error, "");
         }
     }

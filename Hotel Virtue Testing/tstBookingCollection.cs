@@ -27,13 +27,14 @@ namespace Hotel_Virtue_Testing
             testItem.BookingLineId = 1;
             testItem.CustomerId = 1;
             testItem.DateTimeOfBooking = DateTime.Now;
-            testItem.Extras = "Extras";
             testItem.HotelId = 1;
             testItem.Other = "Other";
             testItem.RoomId = 1;
             testItem.SixteenUpwards = 1;
             testItem.UnderFive = 1;
             testItem.FiveToSixteen = 1;
+            testItem.GymAccess = true;
+            testItem.LateCheckout = true;
             testList.Add(testItem);
             allBookings.BookingList = testList;
             Assert.AreEqual(allBookings.BookingList, testList);
@@ -50,13 +51,14 @@ namespace Hotel_Virtue_Testing
             testBooking.BookingLineId = 1;
             testBooking.CustomerId = 1;
             testBooking.DateTimeOfBooking = DateTime.Now;
-            testBooking.Extras = "Extras";
             testBooking.HotelId = 1;
             testBooking.Other = "Other";
             testBooking.RoomId = 1;
             testBooking.SixteenUpwards = 1;
             testBooking.UnderFive = 1;
             testBooking.FiveToSixteen = 1;
+            testBooking.GymAccess = true;
+            testBooking.LateCheckout = true;
             allBookings.ThisBooking = testBooking;
             Assert.AreEqual(allBookings.ThisBooking, testBooking);
         }
@@ -79,6 +81,8 @@ namespace Hotel_Virtue_Testing
             TestItem.RoomId = 1;
             TestItem.SixteenUpwards = 1;
             TestItem.UnderFive = 1;
+            TestItem.GymAccess = true;
+            TestItem.LateCheckout = true;
             TestList.Add(TestItem);
             allBookings.BookingList = TestList;
             Assert.AreEqual(allBookings.Count, TestList.Count);
@@ -98,10 +102,11 @@ namespace Hotel_Virtue_Testing
             testItem.DepartureDate = DateTime.Now.Date.AddDays(3);
             testItem.FiveToSixteen = 1;
             testItem.Other = "Test2";
-            testItem.Extras = "Extras";
             testItem.RoomId = 1;
             testItem.SixteenUpwards = 1;
             testItem.UnderFive = 1;
+            testItem.GymAccess = true;
+            testItem.LateCheckout = true;
             allBookings.ThisBooking = testItem;
             primaryKey = allBookings.Add();
             testItem.BookingLineId = primaryKey;
