@@ -26,6 +26,12 @@ ul {
     overflow: hidden;
 }
 
+    .menuButton {
+        font-size: 26px;
+        cursor: pointer; 
+        padding: 10px 4px 10px 4px;
+    }
+
     ul li {
         float: left;
         background-color: #1bd6be;
@@ -218,3 +224,25 @@ li a {
         border-top: none;
         border-bottom: none;
     }
+
+.payNowButton {
+    background-color: #1bd6be;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    padding: 14px 16px;
+    float: left;
+    cursor: pointer;
+    width: 25%;
+}
+
+.payLaterButton {
+    background-color: #1bd6be;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    padding: 14px 16px;
+    float: right;
+    cursor: pointer;
+    width: 25%;
+}
