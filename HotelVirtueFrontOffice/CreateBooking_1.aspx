@@ -42,24 +42,31 @@
         <p>
             <asp:Table CssClass="bookingTable" runat="server">
                 <asp:TableRow CssClass="stayHeaders">
-                    <asp:TableCell>
+                    <asp:TableCell CssClass="stayHeaders">
+                        Chosen hotel
+                    </asp:TableCell>
+                    <asp:TableCell CssClass="stayHeaders">
                         Dates of stay
                     </asp:TableCell>
-                    <asp:TableCell>
-                        People
+                    <asp:TableCell CssClass="stayHeaders">
+                        Guests
                     </asp:TableCell>
-                    <asp:TableCell>
+                    <asp:TableCell CssClass="stayHeaders">
                         Sub-total
                     </asp:TableCell>
                 </asp:TableRow>
+                
                 <asp:TableRow>
-                    <asp:TableCell>
+                    <asp:TableCell CssClass="stayGeneralText">
+                        Birmingham
+                    </asp:TableCell>
+                    <asp:TableCell CssClass="stayGeneralText">
                         22/02/2020-26/02/2020
                     </asp:TableCell>
-                    <asp:TableCell>
+                    <asp:TableCell CssClass="stayGeneralText">
                         4 adults, 3 children
                     </asp:TableCell>
-                    <asp:TableCell>
+                    <asp:TableCell CssClass="stayGeneralText">
                         £78.00
                     </asp:TableCell>
                 </asp:TableRow>

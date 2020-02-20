@@ -84,7 +84,7 @@
                 <br />
                 <br />
                 3-digit security code:
-                <asp:TextBox ID="txtSecurityCode" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtSecurityCode" TextMode="Password" runat="server" />
                 <br />
                 <br />
                 <br />

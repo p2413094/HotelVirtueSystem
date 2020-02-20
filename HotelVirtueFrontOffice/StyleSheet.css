@@ -98,7 +98,7 @@ li a {
     padding: 14px 16px;
     float: right;
     cursor: pointer;
-    width: 23%;
+    width: 25%;
 }
 
 .finalButton {
@@ -190,15 +190,31 @@ li a {
     margin-left: 25%;
     margin-right: 25%;
     width: 50%;
-    border-style: solid;
-    border-color: white;
     text-align: center;
+    border: 1px solid white;
+    border-collapse: collapse;
 }
 
-.bookingTable .stayHeaders {
-    font-size: 26px;
-    padding-top: 4px;
-    padding-right: 4px;
-    padding-bottom: 4px;
-    padding-left: 4px;
-}
+    .stayHeaders {
+        font-size: 26px;
+        padding-top: 4px;
+        padding-right: 4px;
+        padding-bottom: 4px;
+        padding-left: 4px;
+        border: 1px solid #fff;
+        border-left: none;
+        border-top: none;
+        border-bottom: none;
+        font-style: italic;
+    }
+
+    .stayGeneralText {
+        padding-top: 4px;
+        padding-right: 4px;
+        padding-bottom: 4px;
+        padding-left: 4px;
+        border: 1px solid #fff;
+        border-left: none;
+        border-top: none;
+        border-bottom: none;
+    }
