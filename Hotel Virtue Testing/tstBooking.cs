@@ -381,5 +381,84 @@ namespace Hotel_Virtue_Testing
             error = aBooking.Valid(arrivalDate, departureDate, other);
             Assert.AreNotEqual(error, "");
         }
+
+        [TestMethod]
+        public void tblBookingTestBookingIdFound()
+        {
+            clsBooking aBooking = new clsBooking();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 bookingId = 1;
+            found = aBooking.Find(bookingId);
+            if (aBooking.BookingId != 1)
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void tblBookingTestCustomerIdFound()
+        {
+            clsBooking aBooking = new clsBooking();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 bookingId = 1;
+            Int32 customerId = 1;
+            found = aBooking.Find(bookingId);
+            if (aBooking.CustomerId != 1)
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void tblBookingTestHotelIdFound()
+        {
+            clsBooking aBooking = new clsBooking();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 bookingId = 1;
+            Int32 hotelId = 1;
+            found = aBooking.Find(bookingId);
+            if (aBooking.HotelId != 1)
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void tblBookingAdminIdFound()
+        {
+            clsBooking aBooking = new clsBooking();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 bookingId = 1;
+            Int32 adminId = 1;
+            found = aBooking.Find(bookingId);
+            if (aBooking.AdminId != 1)
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void tblBookingDateTimeOfBookingFound()
+        {
+            clsBooking aBooking = new clsBooking();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 bookingId = 1;
+            DateTime dateTimeOfBooking = Convert.ToDateTime("02/08/2020 16:13:54");
+            found = aBooking.Find(bookingId);
+            if (aBooking.DateTimeOfBooking != Convert.ToDateTime("02/08/2020 16:13:54"))
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
     }
 }

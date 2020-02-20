@@ -110,11 +110,18 @@ namespace Hotel_Virtue_Testing
             allBookings.ThisBooking = testItem;
             primaryKey = allBookings.Add();
             testItem.BookingLineId = primaryKey;
-
-            ////
             //allBookings.ThisBooking.Find(primaryKey);
-            ////
             Assert.AreEqual(allBookings.ThisBooking, testItem);
         }
+
+        [TestMethod]
+        public void tblBookingFindMethodOk()
+        {
+            clsBooking aBooking = new clsBooking();
+            Boolean found = false;
+            Int32 bookingId = 1;
+            found = aBooking.Find(bookingId);
+            Assert.IsTrue(found);
+        }              
     }
 }

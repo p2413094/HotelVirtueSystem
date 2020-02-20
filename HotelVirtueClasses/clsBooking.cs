@@ -8,15 +8,47 @@ namespace HotelVirtueClasses
 {
     public class clsBooking
     {
-        public int AdminId { get; set; }
+        private Int32 mBookingId;
+        private Int32 mCustomerId;
+        private Int32 mHotelId;
+        private Int32 mAdminId;
+        private DateTime mDateTimeOfBooking;
+
+        public int BookingId
+        {
+            get { return mBookingId; }
+            set { mBookingId = value; }
+        }
+
+        public int CustomerId
+        {
+            get { return mCustomerId; }
+            set { mCustomerId = value; }
+        }
+
+        public int HotelId
+        {
+            get { return mHotelId; }
+            set { mHotelId = value; }
+        }
+        
+        public int AdminId
+        {
+            get { return mAdminId; }
+            set { mAdminId = value; }
+        }
+
+        public DateTime DateTimeOfBooking
+        {
+            get { return mDateTimeOfBooking; }
+            set { mDateTimeOfBooking = value; }
+        }
+
+
         public DateTime ArrivalDate { get; set; }
-        public int BookingId { get; set; }
         public int BookingLineId { get; set; }
         public DateTime DepartureDate { get; set; }
-        public int HotelId { get; set; }
         public int RoomId { get; set; }
-        public int CustomerId { get; set; }
-        public DateTime DateTimeOfBooking { get; set; }
         public int UnderFive { get; set; }
         public int FiveToSixteen { get; set; }
         public int SixteenUpwards { get; set; }
@@ -67,6 +99,27 @@ namespace HotelVirtueClasses
             }
 
             return error;
+        }
+
+        public bool Find(int bookingId)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BookingId", bookingId);
+            DB.Execute("sproc_tblBooking_FilterByBookingId");
+            if (DB.Count == 1)
+            {
+                mBookingId = Convert.ToInt32(DB.DataTable.Rows[0]["BookingId"]);
+                mCustomerId = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerId"]);
+                mHotelId = Convert.ToInt32(DB.DataTable.Rows[0]["HotelId"]);
+                mAdminId = Convert.ToInt32(DB.DataTable.Rows[0]["AdminId"]);
+                mDateTimeOfBooking = Convert.ToDateTime(DB.DataTable.Rows[0]["DateTimeOfBooking"]);
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }          
         }
     }
 }
