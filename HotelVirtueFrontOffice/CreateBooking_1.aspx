@@ -21,12 +21,6 @@
             </ul>
         </div>
 
-        <div>
-            <p class="returnText">
-                <a href="HomePage">Return to home page</a>  
-            </p>   
-        </div>
-
         <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="#">SEARCH FOR HOTEL</a>
@@ -37,13 +31,40 @@
 
         <script>
             function openNav() {
-              document.getElementById("mySidenav").style.width = "30%";
+              document.getElementById("mySidenav").style.width = "25%";
             }
 
             function closeNav() {
               document.getElementById("mySidenav").style.width = "0";
             }
         </script>
+
+        <p>
+            <asp:Table CssClass="bookingTable" runat="server">
+                <asp:TableRow CssClass="stayHeaders">
+                    <asp:TableCell>
+                        Dates of stay
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        People
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        Sub-total
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        22/02/2020-26/02/2020
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        4 adults, 3 children
+                    </asp:TableCell>
+                    <asp:TableCell>
+                        £78.00
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+        </p>
    
         <p class="pageHeader">Room selection</p>
 

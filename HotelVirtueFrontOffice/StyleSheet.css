@@ -144,9 +144,6 @@ li a {
     float: right;
 }
 
-
-
-
 /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
@@ -186,3 +183,22 @@ li a {
         font-size: 36px;
         margin-left: 50px;
     }
+
+
+
+.bookingTable {
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    border-style: solid;
+    border-color: white;
+    text-align: center;
+}
+
+.bookingTable .stayHeaders {
+    font-size: 26px;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+}
