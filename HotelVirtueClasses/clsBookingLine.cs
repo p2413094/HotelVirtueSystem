@@ -124,5 +124,31 @@ namespace HotelVirtueClasses
 
             return error;
         }
+
+        public bool Find(int bookingLineId)
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BookingLineId", bookingLineId);
+            DB.Execute("sproc_tblBookingLine_FilterByBookingLineId");
+            if (DB.Count == 1)
+            {
+                mBookingLineId = Convert.ToInt32(DB.DataTable.Rows[0]["BookingLineId"]);
+                mBookingId = Convert.ToInt32(DB.DataTable.Rows[0]["BookingId"]);
+                mRoomId = Convert.ToInt32(DB.DataTable.Rows[0]["RoomId"]);
+                mUnderFive = Convert.ToInt32(DB.DataTable.Rows[0]["UnderFive"]);
+                mFiveToSixteen = Convert.ToInt32(DB.DataTable.Rows[0]["FiveToSixteen"]);
+                mSixteenUpwards = Convert.ToInt32(DB.DataTable.Rows[0]["SixteenUpwards"]);
+                mArrivalDate = Convert.ToDateTime(DB.DataTable.Rows[0]["ArrivalDate"]);
+                mDepartureDate = Convert.ToDateTime(DB.DataTable.Rows[0]["DepartureDate"]);
+                mGymAccess = Convert.ToBoolean(DB.DataTable.Rows[0]["GymAccess"]);
+                mLateCheckout = Convert.ToBoolean(DB.DataTable.Rows[0]["LateCheckout"]);
+                mOther = Convert.ToString(DB.DataTable.Rows[0]["Other"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
