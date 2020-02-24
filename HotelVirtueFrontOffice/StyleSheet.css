@@ -36,11 +36,13 @@
     left: 800px;
 }
 
-.footer {
-    bottom: 1%;
+#footer {
+    position: absolute;
     width: 100%;
     color: white;
     text-align: center;
+    top: 1000px;
+    left: 40px;
     margin-right: 25%;
 }
 
