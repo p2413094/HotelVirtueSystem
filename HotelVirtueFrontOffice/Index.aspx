@@ -32,11 +32,7 @@
           <a href="#">CONTACT DETAILS</a>
           <a href="#">OTHER OPTION HERE</a>
      </div>
-
-
-        <asp:Panel ID="Panel1" runat="server"></asp:Panel>
-
-
+              
         <script>
             function openNav() {
               document.getElementById("mySidenav").style.width = "30%";
@@ -46,7 +42,12 @@
               document.getElementById("mySidenav").style.width = "0";
             }
         </script>
-    </form>
+
+    <div id="skylinepicture">
+        <img src="Images/skyline.jpg" height="500" width="1900" />
+    </div>
+    
+
     <div class="footer">
             © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
     </div>
