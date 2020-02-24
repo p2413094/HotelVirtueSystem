@@ -17,6 +17,18 @@
     left: 35%;
 }
 
+.search-btn {
+    height: 50px;
+    width: 150px;
+    background: #FFD700;
+    border: none;
+    color: #000;
+    border-radius: 25px;
+    top: 49%;
+    left: 60%;
+    position: absolute;
+}
+
 
 .logo {
     font-size: 80px;
