@@ -19,19 +19,20 @@
         </div>
 
         <div>
-            <ul class="ul" >
+           <ul class="ul" >
                 <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span></li>
                 <li class="right"><a href="#">SIGN IN/ REGISTER</a></li>
             </ul>
         </div>
 
-        <div id="mySidenav" class="sidenav">
+       <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          <a href="#">SEARCH FOR HOTEL</a>
+          <a href="Index.aspx">SEARCH FOR HOTEL</a>
           <a href="#">OFFERS</a>
           <a href="#">CONTACT DETAILS</a>
           <a href="#">OTHER OPTION HERE</a>
-        </div>
+     </div>
+
 
         <asp:Panel ID="Panel1" runat="server"></asp:Panel>
 
