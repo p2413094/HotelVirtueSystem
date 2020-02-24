@@ -55,9 +55,9 @@ ul {
 
     ul li {
         float: left;
-        background-color: #1bd6be;
+        background-color: #FFD700;
+        color: black;
     }
-
 
 li a {
     display: block;
