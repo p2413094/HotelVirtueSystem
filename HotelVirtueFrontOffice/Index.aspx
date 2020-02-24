@@ -47,6 +47,17 @@
         <img src="Images/skyline.jpg" height="500" width="1900" />
     </div>
     
+    <div id="picturetitle">
+        <p>Enjoy a Luxury Experience</p>
+    </div>
+
+    <form>
+        <div class="form-box">
+            <input type="text" class="search-field" placeholder="Destination, City, Postcode..." />
+
+            <button class ="search-btn" type="button">Search</button>
+        </div>
+    </form>
 
     <div class="footer">
             © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
