@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="HomePage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="Index" %>
 
 <!DOCTYPE html>
 
@@ -7,10 +7,15 @@
     <title>Hotel Virtue</title>
     <link rel="stylesheet" = href="StyleSheet.css" />
 </head>
-<body class="body">
+
+<body>
+
     <form runat="server">
-        <div class="logo">
-            Hotel Virtue           
+
+    </form>
+        
+    <div id="Logo">
+           <img src="Images/HotelVirtueLogo.png" alt="HotelVirtueLogo" height="200" width="300"/>       
         </div>
 
         <div>
