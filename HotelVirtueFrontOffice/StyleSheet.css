@@ -238,3 +238,12 @@ li a {
             background-color: #2196F3;
             color: white;
         }
+
+    .topnav input[type=text] {
+        float: right;
+        padding: 6px;
+        margin-top: 8px;
+        margin-right: 16px;
+        border: none;
+        font-size: 17px;
+    }
