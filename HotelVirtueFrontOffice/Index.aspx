@@ -59,8 +59,10 @@
         </div>
     </form>
 
-    <div class="footer">
-            © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
-    </div>
+     <!-- footer -->
+        <div id="footer">
+            <!--Text within footer -->
+            <p>© 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.</p>
+        </div>
 </body>
 </html>
