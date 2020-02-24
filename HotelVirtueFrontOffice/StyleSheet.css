@@ -194,7 +194,7 @@ li a {
         text-decoration: none;
         font-size: 25px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        color: white;
+        color: #ffd700;
         display: block;
         transition: 0.3s;
         cursor: pointer;
@@ -213,3 +213,8 @@ li a {
         font-size: 36px;
         margin-left: 50px;
     }
+
+.topnav {
+    overflow: hidden;
+    background-color: black;
+}
