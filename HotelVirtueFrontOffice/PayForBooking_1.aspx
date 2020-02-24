@@ -67,7 +67,7 @@
 
         <br />
         <br />
-
+        
         <div class="box">
             <p class="payForBookingHeader">Please enter your card details below</p>
             <p class="body">

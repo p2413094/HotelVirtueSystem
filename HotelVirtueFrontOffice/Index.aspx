@@ -12,7 +12,7 @@
 
     <form runat="server">
 
-    </form>
+    <%--</form>--%>
         
     <div id="Logo">
            <img src="Images/HotelVirtueLogo.png" alt="HotelVirtueLogo" height="200" width="300"/>       
@@ -32,7 +32,9 @@
           <a href="#">CONTACT DETAILS</a>
           <a href="#">OTHER OPTION HERE</a>
      </div>
-              
+           
+    <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+        </form>
         <script>
             function openNav() {
               document.getElementById("mySidenav").style.width = "30%";
