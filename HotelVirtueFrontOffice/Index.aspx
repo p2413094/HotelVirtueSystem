@@ -58,6 +58,10 @@
             <input type="text" class="search-field" placeholder="Destination, City, Postcode..." />
 
             <button class ="search-btn" type="button">Search</button>
+
+            <label> Date: </label>
+            <input type="month" min="2020-01-01" max="2025-01-01" /><br />
+            <input type="submit" />
         </div>
     </form>
 
