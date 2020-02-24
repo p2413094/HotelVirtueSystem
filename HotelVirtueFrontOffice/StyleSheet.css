@@ -274,3 +274,11 @@ li a {
     top: 200px;
 }
 
+#picturetitle {
+    font-family: Arial;
+    color: #ffd700;
+    font-size: 200%;
+    top: 30%;
+    left: 40%;
+    position: absolute;
+}
