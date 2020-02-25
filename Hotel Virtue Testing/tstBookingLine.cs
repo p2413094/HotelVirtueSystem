@@ -431,5 +431,22 @@ namespace Hotel_Virtue_Testing
             error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards);
             Assert.AreEqual(error, "");
         }
+
+        [TestMethod]
+        public void MaximumOccupancyBigger()
+        {
+            clsBookingLine aBookingLine = new clsBookingLine();
+            string error = "";
+            string other = "";
+            other = other.PadRight(50, 't');
+            DateTime arrivalDate = DateTime.Now.Date;
+            DateTime departureDate = DateTime.Now.Date.AddDays(3);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 5;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards);
+            Assert.AreNotEqual(error, "");
+        }
     }
 }

@@ -53,7 +53,27 @@ namespace HotelVirtueClasses
 
         public int Add()
         {
-            return mThisBookingLine.BookingLineId;
+            Int32 bookingId;
+            clsBookingCollection bookings = new clsBookingCollection();
+            bookings.ThisBooking.CustomerId = 1;
+            bookings.ThisBooking.HotelId = 1;
+            bookings.ThisBooking.AdminId = 1;
+            bookings.ThisBooking.DateTimeOfBooking = DateTime.Now;
+            bookingId = bookings.Add();
+
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BookingId", bookingId);
+            DB.AddParameter("@RoomId", mThisBookingLine.RoomId);
+            DB.AddParameter("@UnderFive", mThisBookingLine.UnderFive);
+            DB.AddParameter("@FiveToSixteen", mThisBookingLine.FiveToSixteen);
+            DB.AddParameter("@SixteenUpwards", mThisBookingLine.SixteenUpwards);
+            DB.AddParameter("@ArrivalDate", mThisBookingLine.ArrivalDate);
+            DB.AddParameter("@DepartureDate", mThisBookingLine.DepartureDate);
+            DB.AddParameter("@GymAccess", mThisBookingLine.GymAccess);
+            DB.AddParameter("@LateCheckout", mThisBookingLine.LateCheckout);
+            DB.AddParameter("@Other", mThisBookingLine.Other);
+
+            return DB.Execute("sproc_tblBookingLine_Insert");
         }
     }
 }
