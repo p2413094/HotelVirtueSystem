@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default_Booking.aspx.cs" Inherits="Default_Booking" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default_Cancellation.aspx.cs" Inherits="Default_Cancellation" %>
 
 <!DOCTYPE html>
 
@@ -7,7 +7,7 @@
     <title></title>
 </head>
 <body>
-        <form id="form1" runat="server">
+    <form id="form1" runat="server">
         <div>
                         <asp:ListBox ID="lstAddresses" runat="server" style="z-index: 1; height: 197px; width: 327px"></asp:ListBox>
                         <br />

@@ -67,4 +67,9 @@ public partial class Default_Booking : System.Web.UI.Page
         lstAddresses.DataTextField = "BookingLineId";
         lstAddresses.DataBind();
     }
+
+    protected void btnDisplayAll_Click(object sender, EventArgs e)
+    {
+
+    }
 }
