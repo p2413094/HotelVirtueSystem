@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29806.167
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1022
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelVirtueBackOffice", "HotelVirtueBackOffice\HotelVirtueBackOffice.csproj", "{81FFD184-778C-40C2-85F8-05BF9FE289DC}"
 EndProject
@@ -32,26 +32,25 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HotelVirtueFrontOffice", "H
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CustomerWebSite", "..\..\Documents\Project Management\Online\Week 8\Lab\Address Book Starter\Address Book Starter\CustomerWebSite\", "{7CE72848-D057-424C-81CB-E98D6CE7E49B}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CustomerWebSite(1)", "CustomerWebSite\", "{122AD28F-9136-40FE-B6AD-FFF8AEFE82B5}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
-		ProjectReferences = "{4b06639b-f509-44d4-b1d0-557f831cd580}|HotelVirtueClasses.dll;"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_60645"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\Documents\Project Management\Online\Week 8\Lab\Address Book Starter\Address Book Starter\CustomerWebSite\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60645\"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_61405"
+		Debug.AspNetCompiler.PhysicalPath = "CustomerWebSite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61405\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_60645"
-		Release.AspNetCompiler.PhysicalPath = "..\..\Documents\Project Management\Online\Week 8\Lab\Address Book Starter\Address Book Starter\CustomerWebSite\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60645\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_61405"
+		Release.AspNetCompiler.PhysicalPath = "CustomerWebSite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61405\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "60645"
-		SlnRelativePath = "..\..\Documents\Project Management\Online\Week 8\Lab\Address Book Starter\Address Book Starter\CustomerWebSite\"
+		VWDPort = "61405"
+		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
 Global
@@ -76,10 +75,10 @@ Global
 		{403C4955-D84A-4BF3-8F35-4F29986A05E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{403C4955-D84A-4BF3-8F35-4F29986A05E7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{403C4955-D84A-4BF3-8F35-4F29986A05E7}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{7CE72848-D057-424C-81CB-E98D6CE7E49B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CE72848-D057-424C-81CB-E98D6CE7E49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7CE72848-D057-424C-81CB-E98D6CE7E49B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{7CE72848-D057-424C-81CB-E98D6CE7E49B}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{122AD28F-9136-40FE-B6AD-FFF8AEFE82B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{122AD28F-9136-40FE-B6AD-FFF8AEFE82B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{122AD28F-9136-40FE-B6AD-FFF8AEFE82B5}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{122AD28F-9136-40FE-B6AD-FFF8AEFE82B5}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
