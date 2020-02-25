@@ -113,7 +113,11 @@ namespace Hotel_Virtue_Testing
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards);
             Assert.AreEqual(error, "");
         }
 
@@ -125,7 +129,11 @@ namespace Hotel_Virtue_Testing
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date.AddDays(-100);
             DateTime departureDate = DateTime.Now.Date;
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards);
             Assert.AreNotEqual(error, "");
         }
 
@@ -138,7 +146,11 @@ namespace Hotel_Virtue_Testing
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date.AddDays(-1);
             DateTime departureDate = DateTime.Now.Date;
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards);
             Assert.AreNotEqual(error, "");
         }
 
@@ -150,7 +162,11 @@ namespace Hotel_Virtue_Testing
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards); 
             Assert.AreEqual(error, "");
         }
 
@@ -162,7 +178,11 @@ namespace Hotel_Virtue_Testing
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date.AddDays(1);
             DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards); 
             Assert.AreNotEqual(error, "");
         }
 
@@ -174,7 +194,11 @@ namespace Hotel_Virtue_Testing
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date.AddDays(100);
             DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards); 
             Assert.AreNotEqual(error, "");
         }
 
@@ -186,7 +210,11 @@ namespace Hotel_Virtue_Testing
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(-100);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards); 
             Assert.AreNotEqual(error, "");
         }
 
@@ -198,7 +226,11 @@ namespace Hotel_Virtue_Testing
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(-1);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards); 
             Assert.AreNotEqual(error, "");
         }
 
@@ -210,7 +242,11 @@ namespace Hotel_Virtue_Testing
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(1);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards); 
             Assert.AreEqual(error, "");
         }
 
@@ -222,7 +258,11 @@ namespace Hotel_Virtue_Testing
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(2);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards); 
             Assert.AreEqual(error, "");
         }
 
@@ -234,7 +274,11 @@ namespace Hotel_Virtue_Testing
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(100);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards); 
             Assert.AreNotEqual(error, "");
         }
 
@@ -246,7 +290,11 @@ namespace Hotel_Virtue_Testing
             string other = "";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards);
             Assert.AreNotEqual(error, "");
         }
 
@@ -258,7 +306,11 @@ namespace Hotel_Virtue_Testing
             string other = "t";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards);
             Assert.AreEqual(error, "");
         }
 
@@ -270,7 +322,11 @@ namespace Hotel_Virtue_Testing
             string other = "te";
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards);
             Assert.AreEqual(error, "");
         }
 
@@ -283,7 +339,11 @@ namespace Hotel_Virtue_Testing
             other = other.PadRight(49, 't');
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards);
             Assert.AreEqual(error, "");
         }
 
@@ -296,7 +356,11 @@ namespace Hotel_Virtue_Testing
             other = other.PadRight(50, 't');
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards);
             Assert.AreEqual(error, "");
         }
 
@@ -309,7 +373,11 @@ namespace Hotel_Virtue_Testing
             other = other.PadRight(51, 't');
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards);
             Assert.AreNotEqual(error, "");
         }
 
@@ -322,7 +390,11 @@ namespace Hotel_Virtue_Testing
             other = other.PadRight(25, 't');
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards);
             Assert.AreEqual(error, "");
         }
 
@@ -335,8 +407,29 @@ namespace Hotel_Virtue_Testing
             other = other.PadRight(250, 't');
             DateTime arrivalDate = DateTime.Now.Date;
             DateTime departureDate = DateTime.Now.Date.AddDays(3);
-            error = aBookingLine.Valid(arrivalDate, departureDate, other);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards);
             Assert.AreNotEqual(error, "");
+        }
+
+        [TestMethod]
+        public void MaximumOccupancySmallest()
+        {
+            clsBookingLine aBookingLine = new clsBookingLine();
+            string error = "";
+            string other = "";
+            other = other.PadRight(50, 't');
+            DateTime arrivalDate = DateTime.Now.Date;
+            DateTime departureDate = DateTime.Now.Date.AddDays(3);
+            Int32 roomId = 1;
+            Int32 underFive = 1;
+            Int32 fiveToSixteen = 1;
+            Int32 SixteenUpwards = 1;
+            error = aBookingLine.Valid(arrivalDate, departureDate, other, roomId, underFive, fiveToSixteen, SixteenUpwards);
+            Assert.AreEqual(error, "");
         }
     }
 }

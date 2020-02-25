@@ -35,6 +35,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CustomerWebSite", "..\..\Documents\Project Management\Online\Week 8\Lab\Address Book Starter\Address Book Starter\CustomerWebSite\", "{7CE72848-D057-424C-81CB-E98D6CE7E49B}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{4b06639b-f509-44d4-b1d0-557f831cd580}|HotelVirtueClasses.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_60645"
 		Debug.AspNetCompiler.PhysicalPath = "..\..\Documents\Project Management\Online\Week 8\Lab\Address Book Starter\Address Book Starter\CustomerWebSite\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60645\"
@@ -50,6 +51,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CustomerWebSite", "..\..\Do
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "60645"
+		SlnRelativePath = "..\..\Documents\Project Management\Online\Week 8\Lab\Address Book Starter\Address Book Starter\CustomerWebSite\"
 	EndProjectSection
 EndProject
 Global

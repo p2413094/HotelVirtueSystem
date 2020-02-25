@@ -80,7 +80,7 @@ namespace HotelVirtueClasses
             set { mOther = value; }
         }
 
-        public string Valid(DateTime arrivalDate, DateTime departureDate, string other)
+        public string Valid(DateTime arrivalDate, DateTime departureDate, string other, Int32 roomId, Int32 underFive, Int32 FiveToSixteen, Int32 SixteenUpwards)
         {
             string error = "";
             DateTime todaysDate = DateTime.Now.Date;
@@ -120,6 +120,16 @@ namespace HotelVirtueClasses
             if (other.Length > 50)
             {
                 error += "Other must not be more than 50 characters";
+            }
+
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@RoomId", roomId);
+            DB.Execute("sproc_tblRoom_GetMaximumOccupancy");
+            Int32 maximumOccupancy = Convert.ToInt32(DB.DataTable.Rows[0]["MaximumOccupancy"]);
+            Int32 numberOfGuests = underFive + FiveToSixteen + SixteenUpwards;
+            if (numberOfGuests > maximumOccupancy)
+            {
+                error += "Number of guests is bigger than the room occupancy";
             }
 
             return error;
