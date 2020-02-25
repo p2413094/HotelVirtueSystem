@@ -32,26 +32,24 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HotelVirtueFrontOffice", "H
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HotelBookingSite", "..\..\Documents\Project Management\HotelBookingSite\", "{2140A8FD-C30B-4397-B07B-62815B46CAD5}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CustomerWebSite", "..\..\Documents\Project Management\Online\Week 8\Lab\Address Book Starter\Address Book Starter\CustomerWebSite\", "{7CE72848-D057-424C-81CB-E98D6CE7E49B}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
-		ProjectReferences = "{4b06639b-f509-44d4-b1d0-557f831cd580}|HotelVirtueClasses.dll;"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_55102"
-		Debug.AspNetCompiler.PhysicalPath = "..\..\Documents\Project Management\HotelBookingSite\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55102\"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_60645"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\Documents\Project Management\Online\Week 8\Lab\Address Book Starter\Address Book Starter\CustomerWebSite\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60645\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_55102"
-		Release.AspNetCompiler.PhysicalPath = "..\..\Documents\Project Management\HotelBookingSite\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_55102\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_60645"
+		Release.AspNetCompiler.PhysicalPath = "..\..\Documents\Project Management\Online\Week 8\Lab\Address Book Starter\Address Book Starter\CustomerWebSite\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_60645\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "55102"
-		SlnRelativePath = "..\..\Documents\Project Management\HotelBookingSite\"
+		VWDPort = "60645"
 	EndProjectSection
 EndProject
 Global
@@ -76,10 +74,10 @@ Global
 		{403C4955-D84A-4BF3-8F35-4F29986A05E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{403C4955-D84A-4BF3-8F35-4F29986A05E7}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{403C4955-D84A-4BF3-8F35-4F29986A05E7}.Release|Any CPU.Build.0 = Debug|Any CPU
-		{2140A8FD-C30B-4397-B07B-62815B46CAD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2140A8FD-C30B-4397-B07B-62815B46CAD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2140A8FD-C30B-4397-B07B-62815B46CAD5}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{2140A8FD-C30B-4397-B07B-62815B46CAD5}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{7CE72848-D057-424C-81CB-E98D6CE7E49B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CE72848-D057-424C-81CB-E98D6CE7E49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CE72848-D057-424C-81CB-E98D6CE7E49B}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CE72848-D057-424C-81CB-E98D6CE7E49B}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
