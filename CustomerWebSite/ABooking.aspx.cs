@@ -12,6 +12,13 @@ public partial class ABooking : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         bookingLineId = Convert.ToInt32(Session["bookingLineId"]);
+        if (IsPostBack == false)
+        {
+            if (bookingLineId != -1)
+            {
+                DisplayBookingLine();
+            }
+        }
     }
 
     protected void btnOK_Click(object sender, EventArgs e)
@@ -59,5 +66,20 @@ public partial class ABooking : System.Web.UI.Page
 
         bookingLines.Update();
         Response.Redirect("Default_Booking.aspx");
+    }
+
+    void DisplayBookingLine()
+    {
+        clsBookingLineCollection bookingLines = new clsBookingLineCollection();
+        bookingLines.thisBookingLine.Find(bookingLineId);
+        txtRoomId.Text = Convert.ToString(bookingLines.thisBookingLine.RoomId);
+        txtUnderFive.Text = Convert.ToString(bookingLines.thisBookingLine.UnderFive);
+        txtFiveToSixteen.Text = Convert.ToString(bookingLines.thisBookingLine.FiveToSixteen);
+        txtSixteenUpwards.Text = Convert.ToString(bookingLines.thisBookingLine.SixteenUpwards);
+        txtArrivalDate.Text = Convert.ToString(bookingLines.thisBookingLine.ArrivalDate);
+        txtDepartureDate.Text = Convert.ToString(bookingLines.thisBookingLine.DepartureDate);
+        chkGymAccess.Checked = bookingLines.thisBookingLine.GymAccess;
+        chkLateCheckout.Checked = bookingLines.thisBookingLine.LateCheckout;
+        txtOther.Text = Convert.ToString(bookingLines.thisBookingLine.Other);
     }
 }
