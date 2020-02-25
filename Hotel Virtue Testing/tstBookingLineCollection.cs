@@ -279,8 +279,6 @@ namespace Hotel_Virtue_Testing
         [TestMethod]
         public void BookingAndBookingLineAddMethodOk()
         {
-
-
             clsBookingCollection allBookings = new clsBookingCollection();
             clsBooking testBooking = new clsBooking();
             testBooking.CustomerId = 1;
@@ -290,7 +288,6 @@ namespace Hotel_Virtue_Testing
             allBookings.ThisBooking = testBooking;
             Int32 bookingIdPrimaryKey = allBookings.Add();
             testBooking.BookingId = bookingIdPrimaryKey;
-
 
             clsBookingLineCollection allBookingLines = new clsBookingLineCollection();
             clsBookingLine testItem = new clsBookingLine();
@@ -310,6 +307,43 @@ namespace Hotel_Virtue_Testing
             testItem.BookingLineId = primaryKey;
             allBookingLines.thisBookingLine.Find(primaryKey);
             Assert.AreEqual(allBookingLines.thisBookingLine, testItem);
+        }
+
+        [TestMethod]
+        public void DeleteBothBookingandBookingLine()
+        {
+            clsBookingCollection allBookings = new clsBookingCollection();
+            clsBooking testBooking = new clsBooking();
+            testBooking.CustomerId = 1;
+            testBooking.HotelId = 1;
+            testBooking.AdminId = 1;
+            testBooking.DateTimeOfBooking = DateTime.Now;
+            allBookings.ThisBooking = testBooking;
+            Int32 bookingIdPrimaryKey = allBookings.Add();
+            testBooking.BookingId = bookingIdPrimaryKey;
+
+            clsBookingLineCollection allBookingLines = new clsBookingLineCollection();
+            clsBookingLine testItem = new clsBookingLine();
+            Int32 primaryKey = 0;
+            testItem.BookingId = bookingIdPrimaryKey;
+            testItem.RoomId = 1;
+            testItem.UnderFive = 2;
+            testItem.FiveToSixteen = 2;
+            testItem.SixteenUpwards = 2;
+            testItem.ArrivalDate = DateTime.Now.Date;
+            testItem.DepartureDate = DateTime.Now.Date.AddDays(2);
+            testItem.GymAccess = true;
+            testItem.LateCheckout = false;
+            testItem.Other = "Test25/02/2020";
+            allBookingLines.thisBookingLine = testItem;
+            primaryKey = allBookingLines.Add();
+            testItem.BookingLineId = primaryKey;
+
+            allBookings.Delete();
+            allBookingLines.Delete();
+
+            Boolean found = allBookingLines.thisBookingLine.Find(primaryKey);
+            Assert.IsFalse(found);
         }
     }
 }

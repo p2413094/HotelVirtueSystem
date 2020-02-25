@@ -75,5 +75,16 @@ namespace HotelVirtueClasses
 
             return DB.Execute("sproc_tblBookingLine_Insert");
         }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BookingLineId", mThisBookingLine.BookingLineId);
+            DB.Execute("sproc_tblBookingLine_Delete");
+
+            clsBookingCollection bookings = new clsBookingCollection();
+            bookings.ThisBooking.BookingId = mThisBookingLine.BookingId;
+            bookings.Delete();
+        }
     }
 }

@@ -86,6 +86,6 @@ namespace Hotel_Virtue_Testing
             Int32 bookingId = 1;
             found = aBooking.Find(bookingId);
             Assert.IsTrue(found);
-        }              
+        }           
     }
 }
