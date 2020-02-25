@@ -23,5 +23,15 @@ namespace HotelVirtueClasses
             }
             return Error;
         }
+
+        public void Add()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Find(int primaryKey)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

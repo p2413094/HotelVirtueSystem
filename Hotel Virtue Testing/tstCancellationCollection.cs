@@ -53,5 +53,19 @@ namespace Hotel_Virtue_Testing
             Assert.AreEqual(allPayments.Count, testList.Count);
         }
 
+        [TestMethod]
+        public void AddMethodOk()
+        {
+            clsCancellationCollection allCancellations = new clsCancellationCollection();
+            clsCancellation testCancellation = new clsCancellation();
+            Int32 primaryKey = 0;
+            testCancellation.BookingLineId = 3;
+            testCancellation.DateTimeOfCancellation = DateTime.Now;
+            testCancellation.Reason = "19:15";
+            allCancellations.thisCancellation.Add();
+            testCancellation.CancellationId = primaryKey;
+            allCancellations.thisCancellation.Find(primaryKey);
+            Assert.AreEqual(allCancellations.thisCancellation, testCancellation);
+        }
     }
 }
