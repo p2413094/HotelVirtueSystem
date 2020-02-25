@@ -345,5 +345,42 @@ namespace Hotel_Virtue_Testing
             Boolean found = allBookingLines.thisBookingLine.Find(primaryKey);
             Assert.IsFalse(found);
         }
+
+        [TestMethod]
+        public void UpdateMethodOk()
+        {
+            clsBookingLineCollection allBookings = new clsBookingLineCollection();
+            clsBookingLine testBookingLine = new clsBookingLine();
+            Int32 primaryKey = 0;
+            testBookingLine.BookingId = 3;
+            testBookingLine.RoomId = 1;
+            testBookingLine.UnderFive = 1;
+            testBookingLine.FiveToSixteen = 1;
+            testBookingLine.SixteenUpwards = 1;
+            testBookingLine.ArrivalDate = DateTime.Now.Date;
+            testBookingLine.DepartureDate = DateTime.Now.Date.AddDays(3);
+            testBookingLine.GymAccess = true;
+            testBookingLine.LateCheckout = true;
+            testBookingLine.Other = "Test1";
+            allBookings.thisBookingLine = testBookingLine;
+            primaryKey = allBookings.Add();
+            testBookingLine.BookingLineId = primaryKey;
+
+            testBookingLine.BookingId = 3;
+            testBookingLine.RoomId = 1;
+            testBookingLine.UnderFive = 1;
+            testBookingLine.FiveToSixteen = 1;
+            testBookingLine.SixteenUpwards = 1;
+            testBookingLine.ArrivalDate = DateTime.Now.Date;
+            testBookingLine.DepartureDate = DateTime.Now.Date.AddDays(3);
+            testBookingLine.GymAccess = true;
+            testBookingLine.LateCheckout = true;
+            testBookingLine.Other = "Test18:17 25/02/2020";
+            allBookings.thisBookingLine = testBookingLine;
+            allBookings.Update();
+            allBookings.thisBookingLine.Find(primaryKey);
+            Assert.AreEqual(allBookings.thisBookingLine, testBookingLine);
+        }
+        
     }
 }

@@ -23,12 +23,24 @@ public partial class Default_Booking : System.Web.UI.Page
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-
+        Session["bookingLineId"] = -1;
+        Response.Redirect("ABooking.aspx");
     }
 
     protected void btnEdit_Click(object sender, EventArgs e)
     {
+        Int32 bookingLineId;
 
+        if (lstAddresses.SelectedIndex != -1)
+        {
+            bookingLineId = Convert.ToInt32(lstAddresses.SelectedValue);
+            Session["bookingLineId"] = bookingLineId;
+            Response.Redirect("ABooking.aspx");
+        }
+        else
+        {
+            lblError.Text = "Select an item first";
+        }
     }
 
     protected void btnDelete_Click(object sender, EventArgs e)
