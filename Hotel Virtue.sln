@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.1022
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotelVirtueBackOffice", "HotelVirtueBackOffice\HotelVirtueBackOffice.csproj", "{81FFD184-778C-40C2-85F8-05BF9FE289DC}"
 EndProject
@@ -32,9 +32,10 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "HotelVirtueFrontOffice", "H
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CustomerWebSite(1)", "CustomerWebSite\", "{122AD28F-9136-40FE-B6AD-FFF8AEFE82B5}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CustomerWebSite", "CustomerWebSite\", "{122AD28F-9136-40FE-B6AD-FFF8AEFE82B5}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{4b06639b-f509-44d4-b1d0-557f831cd580}|HotelVirtueClasses.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_61405"
 		Debug.AspNetCompiler.PhysicalPath = "CustomerWebSite\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_61405\"
@@ -50,6 +51,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CustomerWebSite(1)", "Custo
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "61405"
+		SlnRelativePath = "CustomerWebSite\"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
