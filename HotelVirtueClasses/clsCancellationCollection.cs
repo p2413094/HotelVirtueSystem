@@ -58,5 +58,12 @@ namespace HotelVirtueClasses
             DB.AddParameter("@Reason", mThisCancellation.Reason);
             return DB.Execute("sproc_tblCancellation_Insert");
         }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CancellationID", mThisCancellation.CancellationId);
+            DB.Execute("sproc_tblCancellation_Delete");
+        }
     }
 }

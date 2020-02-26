@@ -67,5 +67,23 @@ namespace Hotel_Virtue_Testing
             allCancellations.thisCancellation.Find(primaryKey);
             Assert.AreEqual(allCancellations.thisCancellation, testCancellation);
         }
+
+        [TestMethod]
+        public void DeleteMethodOk()
+        {
+            clsCancellationCollection allCancellations = new clsCancellationCollection();
+            clsCancellation testCancellation = new clsCancellation();
+            Int32 primaryKey = 0;
+            testCancellation.BookingLineId = 3;
+            testCancellation.DateTimeOfCancellation = DateTime.Now;
+            testCancellation.Reason = "11:48";
+            allCancellations.thisCancellation = testCancellation;
+            primaryKey = allCancellations.Add();
+            testCancellation.CancellationId = primaryKey;
+            allCancellations.thisCancellation.Find(primaryKey);
+            allCancellations.Delete();
+            Boolean found = allCancellations.thisCancellation.Find(primaryKey);
+            Assert.IsFalse(found);
+        }
     }
 }

@@ -28,7 +28,8 @@ public partial class Default_Cancellation : System.Web.UI.Page
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
-
+        Session["CancellationId"] = -1;
+        Response.Redirect("ACancellation.aspx");
     }
 
     protected void btnEdit_Click(object sender, EventArgs e)
@@ -38,7 +39,17 @@ public partial class Default_Cancellation : System.Web.UI.Page
 
     protected void btnDelete_Click(object sender, EventArgs e)
     {
-
+        Int32 cancellationId;
+        if (lstAddresses.SelectedIndex != -1)
+        {
+            cancellationId = Convert.ToInt32(lstAddresses.SelectedValue);
+            Session["CancellationId"] = cancellationId;
+            Response.Redirect("Delete_Cancellation.aspx");
+        }
+        else
+        {
+            lblError.Text = "Select an item first";
+        }
     }
 
     void DisplayCancellations()
