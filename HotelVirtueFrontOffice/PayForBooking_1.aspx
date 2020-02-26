@@ -54,14 +54,28 @@
         <div class="box">
             Hotel number 1
             <p class="body">
-                Booking reference: #001
                 <br />
                 <br />
-                Check-in: 26/01/2020
+                <asp:Label ID="lblBookingId" runat="server" Text=""></asp:Label>
                 <br />
-                Check-out: 27/01/2020 
+                <asp:Label ID="lblArrivalDate" runat="server" Text=""></asp:Label>
                 <br />
-                Room type: single bed 
+                <asp:Label ID="lblDepartureDate" runat="server" Text=""></asp:Label>
+                <br />
+                <asp:Label ID="lblUnderFive" runat="server" Text=""></asp:Label>
+                <br />
+                <asp:Label ID="lblFiveToSixteen" runat="server" Text=""></asp:Label>
+                <br />
+                <asp:Label ID="lblSixteenUpwards" runat="server" Text=""></asp:Label>
+                <br />
+                <br />
+                <asp:Label ID="lblExtras" runat="server" Text="Extras:"></asp:Label>
+                <br />
+                <br />
+                <asp:Label ID="lblGymAccess" runat="server" Text=""></asp:Label>
+                <br />
+                <asp:Label ID="lblLateCheckout" runat="server" Text=""></asp:Label>
+                <br />
                 <p class="body" style="float: right;">Total: £x</p>
                 <br />
             </p>

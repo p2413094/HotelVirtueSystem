@@ -16,7 +16,7 @@
         <div>
             <ul class="ul" >
                 <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span></li>
-                <li class="right"><a href="#">SIGN IN/ REGISTER</a></li>
+                <li class="signInRight"><a href="#">SIGN IN/ REGISTER</a></li>
             </ul>
         </div>
 

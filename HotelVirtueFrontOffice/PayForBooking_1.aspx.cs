@@ -11,6 +11,18 @@ public partial class PayForBooking_1 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         errorPanel.Visible = false;
+
+        Int32 bookingLineId = 3;
+        clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
+        aBookingLine.thisBookingLine.Find(bookingLineId);
+        lblBookingId.Text = "BookingLineId: " + aBookingLine.thisBookingLine.BookingLineId;
+        lblArrivalDate.Text = "Arrival date: " + aBookingLine.thisBookingLine.ArrivalDate.ToShortDateString();
+        lblDepartureDate.Text = "Departure date: " + aBookingLine.thisBookingLine.DepartureDate.ToShortDateString();
+        lblUnderFive.Text = "Under five: " + aBookingLine.thisBookingLine.UnderFive;
+        lblFiveToSixteen.Text = "Five to sixteen: " + aBookingLine.thisBookingLine.FiveToSixteen;
+        lblSixteenUpwards.Text = "Sixteen upwards: " + aBookingLine.thisBookingLine.SixteenUpwards;
+        lblGymAccess.Text = "Gym access: " + aBookingLine.thisBookingLine.GymAccess;
+        lblLateCheckout.Text = "Late checkout: " + aBookingLine.thisBookingLine.LateCheckout;
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
