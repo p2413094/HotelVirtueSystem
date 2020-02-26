@@ -16,7 +16,7 @@
         <div>
             <ul class="ul" >
                 <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span></li>
-                <li class="right"><a href="#">SIGN IN/ REGISTER</a></li>
+                <li class="signInRight"><a href="#">SIGN IN/ REGISTER</a></li>
             </ul>
         </div>
 
@@ -43,6 +43,8 @@
               document.getElementById("mySidenav").style.width = "0";
             }
         </script>
+
+        <asp:Panel ID="errorPanel" CssClass="box" runat="server"></asp:Panel>
 
         <p class="pageHeader">Cancel booking</p>
 
@@ -71,7 +73,7 @@
                 <br />       
             </p>
             <p> Please enter a booking reason or choose from one of the pre-selected options:</p>
-            <asp:DropDownList ID="ddlCancellationReason" name="ddl1" runat="server" AutoPostBack="True">
+            <asp:DropDownList ID="ddlCancellationReason" runat="server" OnSelectedIndexChanged="ddlCancellationReason_SelectedIndexChanged">
                 <asp:listitem text="Room cheaper elsewhere" value="0"></asp:listitem>
                 <asp:listitem text="Booked accidentally" value="1"></asp:listitem>
                 <asp:listitem text="Chose wrong hotel" value="2"></asp:listitem>
@@ -79,20 +81,15 @@
                 <asp:listitem text="Wrong payment method" value="4"></asp:listitem>
                 <asp:listitem text="Other" value="5"></asp:listitem>
             </asp:DropDownList>
+            <br />
+            <br />
+            <asp:Label ID="lblEnterReason" CssClass="body" runat="server" Text="Please enter reason in box below"></asp:Label>
+            <br />
+            <asp:TextBox ID="txtReason" CssClass="cancellationReasonField" TextMode="MultiLine" runat="server"></asp:TextBox>
+
             <asp:Button CssClass="continueButton" ID="btnCancelBooking" runat="server" Text="CANCEL BOOKING" OnClick="btnCancelBooking_Click" />
-
-            <%
-                if(ddlCancellationReason.SelectedIndex == 5)
-                {
-                    Response.Write("<p class='body'>");
-                    Response.Write("Please enter reason in box below:");
-                    Response.Write("</p>");
-                    Response.Write("<textarea rows = '4' cols='50'></textarea>");
-                }
-            %>
             <br />
             <br />
-
         </div>
     </form>
 

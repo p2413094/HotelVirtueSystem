@@ -25,14 +25,13 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         string error = newPayment.Valid(cardNumber, nameOnCard, cardExpiryDate, cardSecurityCode);
 
 
-        errorPanel.Visible = true;
-
         Label lblError = new Label();
         lblError.Text = "Error";
         errorPanel.Controls.Add(lblError);
 
         if (newPayment.ErrorList.Count != 0)
         {
+            errorPanel.Visible = true;
             foreach (string errorItem in newPayment.ErrorList)
             {
                 errorPanel.Controls.Add(new LiteralControl("<br />"));

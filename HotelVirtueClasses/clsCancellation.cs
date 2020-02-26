@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace HotelVirtueClasses
 {
@@ -33,16 +34,20 @@ namespace HotelVirtueClasses
             set { mReason = value; }
         }
 
+        public List<string> ErrorList = new List<string>();
+
         public string Valid(string reason)
         {
             string Error = "";
             if (reason.Length > 50)
             {
                 Error = "Cancellation reason must not be longer than 50 characters";
+                ErrorList.Add(Error);
             }
             if (reason.Length == 0)
             {
                 Error = "Cancellation reason must not be blank";
+                ErrorList.Add(Error);
             }
             return Error;
         }
