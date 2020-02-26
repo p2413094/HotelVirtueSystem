@@ -46,7 +46,7 @@ li a {
     text-decoration: none;
 }
 
-.ul .right {
+.ul .signInRight {
     float: right;
 }
 
@@ -74,11 +74,29 @@ li a {
     font-size: 26px;
 }
 
-.subHeader {
+    .subHeader {
+        text-align: right;
+        font-style: italic;
+        font-size: 20px;
+    }
+
+.box .left {
+    width: 15%;
+    float: left;
     text-align: right;
-    font-style: italic;
-    font-size: 20px;
 }
+
+.box .right {
+    width: 15%;
+    margin-left: 2%;
+    float: left;
+}
+
+.box .fieldBoxSize {
+    width: 100%;
+}
+
+
 
 .image {
     width: 40%;

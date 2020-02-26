@@ -16,7 +16,7 @@
         <div>
             <ul class="ul" >
                 <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span></li>
-                <li class="right"><a href="#">SIGN IN/ REGISTER</a></li>
+                <li class="signInRight"><a href="#">SIGN IN/ REGISTER</a></li>
             </ul>
         </div>
 
@@ -59,7 +59,6 @@
                 Check-out: 27/01/2020 
                 <br />
                 Room type: single bed 
-
                 <p class="body" style="float: right;">Total: £x</p>
                 <br />
             </p>
@@ -70,28 +69,54 @@
 
         <div class="box">
             <p class="payForBookingHeader">Please enter your card details below</p>
-            <p class="body">
-                16-digit card number: 
-                <asp:TextBox ID="txtCardNumber" runat="server"></asp:TextBox>
-                <br />
-                <br />
-                Name on card: 
-                <asp:TextBox ID="txtNameOnCard" runat="server"></asp:TextBox>
-                <br />
-                <br />
-                Expiry date:
-                <asp:TextBox ID="txtExpiryDate" runat="server"></asp:TextBox>
-                <br />
-                <br />
-                3-digit security code:
-                <asp:TextBox ID="txtSecurityCode" TextMode="Password" runat="server" />
-                <br />
-                <br />
-                <br />
-                <asp:Button CssClass="continueButton" ID="btnSubmit" Text="Submit" runat="server" OnClick="btnSubmit_Click" />
-                <br />
-                <br />
-            </p>
+            <div class="body">
+                <div>
+                    <div class="left">
+                        16-digit card number: 
+                    </div>
+                    <div class="right">
+                        <asp:TextBox ID="txtCardNumber" CssClass="fieldBoxSize" runat="server"></asp:TextBox>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="left">
+                        Name on card: 
+                    </div>
+                    <div class="right">
+                        <asp:TextBox ID="txtNameOnCard" CssClass="fieldBoxSize" runat="server"></asp:TextBox>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="left">
+                        Expiry date:
+                    </div>
+                    <div class="right">
+                        <asp:TextBox ID="txtExpiryDate" CssClass="fieldBoxSize" runat="server"></asp:TextBox>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="left">
+                        3-digit security code:
+                    </div>
+                    <div class="right">
+                        <asp:TextBox ID="txtSecurityCode" CssClass="fieldBoxSize" TextMode="Password" runat="server" />
+                    </div>
+                    <br />
+                    <br />
+                    <div class="left">
+                        Card type
+                    </div>
+                    <div class="right">
+                        <asp:DropDownList ID="ddlCardType" CssClass="fieldBoxSize" runat="server">
+                            <asp:ListItem>VISA</asp:ListItem>
+                            <asp:ListItem>MasterCard</asp:ListItem>
+                        </asp:DropDownList>
+                    </div>
+            </div>
+         </div>
+            <asp:Button CssClass="continueButton" ID="btnSubmit" Text="Submit" runat="server" OnClick="btnSubmit_Click" />
+            <br />
+            <br />
         </div>
     </form>
 </body>
