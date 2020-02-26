@@ -44,6 +44,9 @@
             }
         </script>
 
+
+        <asp:Panel ID="errorPanel" CssClass="box" runat="server"></asp:Panel>
+
         <p class="pageHeader">Pay for booking</p>
 
         <br />
