@@ -5,8 +5,7 @@ namespace HotelVirtueClasses
 {
     public class clsCancellationCollection
     {
-
-        private List<clsCancellation> mCancellationList = new List<clsCancellation>();
+        List<clsCancellation> mCancellationList = new List<clsCancellation>();
         clsCancellation mThisCancellation = new clsCancellation();
 
         public List<clsCancellation> CancellationList

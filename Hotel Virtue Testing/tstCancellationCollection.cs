@@ -61,9 +61,9 @@ namespace Hotel_Virtue_Testing
             Int32 primaryKey = 0;
             testCancellation.BookingLineId = 3;
             testCancellation.DateTimeOfCancellation = DateTime.Now;
-            testCancellation.Reason = "19:15";
-            allCancellations.thisCancellation.Add();
-            testCancellation.CancellationId = primaryKey;
+            testCancellation.Reason = "11:48";
+            allCancellations.thisCancellation = testCancellation;
+            primaryKey = allCancellations.Add();
             allCancellations.thisCancellation.Find(primaryKey);
             Assert.AreEqual(allCancellations.thisCancellation, testCancellation);
         }

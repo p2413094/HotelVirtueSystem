@@ -136,5 +136,75 @@ namespace Hotel_Virtue_Testing
             Error = aCancellation.Valid(reason);
             Assert.AreNotEqual(Error, "");
         }
+
+        [TestMethod]
+        public void FindMethodOk()
+        {
+            clsCancellation aCancellation = new clsCancellation();
+            Boolean found = false;
+            Int32 cancellationId = 3;
+            found = aCancellation.Find(cancellationId);
+            Assert.IsTrue(found);
+        }
+
+        [TestMethod]
+        public void CancellationIdFound()
+        {
+            clsCancellation aCancellation = new clsCancellation();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 cancellationId = 3;
+            found = aCancellation.Find(cancellationId);
+            if (aCancellation.CancellationId != 3)
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void BookingLineIdFound()
+        {
+            clsCancellation aCancellation = new clsCancellation();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 cancellationId = 3;
+            found = aCancellation.Find(cancellationId);
+            if (aCancellation.BookingLineId != 3)
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void DateTimeOfCancellationFound()
+        {
+            clsCancellation aCancellation = new clsCancellation();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 cancellationId = 3;
+            found = aCancellation.Find(cancellationId);
+            if (aCancellation.DateTimeOfCancellation != Convert.ToDateTime("17/02/2020 17:59:11"))
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
+
+        [TestMethod]
+        public void ReasonFound()
+        {
+            clsCancellation aCancellation = new clsCancellation();
+            Boolean found = false;
+            Boolean ok = true;
+            Int32 cancellationId = 3;
+            found = aCancellation.Find(cancellationId);
+            if (aCancellation.Reason != "Cheaper elsewhere")
+            {
+                ok = false;
+            }
+            Assert.IsTrue(ok);
+        }
     }
 }

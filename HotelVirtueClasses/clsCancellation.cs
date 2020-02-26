@@ -4,11 +4,34 @@ namespace HotelVirtueClasses
 {
     public class clsCancellation
     {
+        private Int32 mCancellationId;
+        private Int32 mBookingLineId;
+        private DateTime mDateTimeOfCancellation;
+        private string mReason;
 
-        public int CancellationId { get; set; }
-        public int BookingLineId { get; set; }
-        public string Reason { get; set; }
-        public DateTime DateTimeOfCancellation { get; set; }
+        public int CancellationId
+        {
+            get { return mCancellationId; }
+            set { mCancellationId = value; }
+        }
+
+        public int BookingLineId
+        {
+            get { return mBookingLineId; }
+            set { mBookingLineId = value; }
+        }
+
+        public DateTime DateTimeOfCancellation
+        {
+            get { return mDateTimeOfCancellation; }
+            set { mDateTimeOfCancellation = value; }
+        }
+
+        public string Reason
+        {
+            get { return mReason; }
+            set { mReason = value; }
+        }
 
         public string Valid(string reason)
         {
@@ -24,14 +47,23 @@ namespace HotelVirtueClasses
             return Error;
         }
 
-        public void Add()
+        public bool Find(int cancellationId)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Find(int primaryKey)
-        {
-            throw new NotImplementedException();
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@CancellationId", cancellationId);
+            DB.Execute("sproc_tblCancellation_FilterByCancellationId");
+            if (DB.Count == 1)
+            {
+                mCancellationId = Convert.ToInt32(DB.DataTable.Rows[0]["CancellationId"]);
+                mBookingLineId = Convert.ToInt32(DB.DataTable.Rows[0]["BookingLineId"]);
+                mDateTimeOfCancellation = Convert.ToDateTime(DB.DataTable.Rows[0]["DateTimeOfCancellation"]);
+                mReason = Convert.ToString(DB.DataTable.Rows[0]["Reason"]);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
