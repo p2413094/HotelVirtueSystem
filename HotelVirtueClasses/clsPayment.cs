@@ -77,12 +77,54 @@ namespace HotelVirtueClasses
         public string Valid(string cardNumber, string nameOnCard, string expiryDate, string securityCode)
         {
             string error = "";
-            string expiryDateFirstCharacter = expiryDate[0].ToString();
-            string expiryDateSecondCharacter = expiryDate[1].ToString();
-            string expiryDateThirdCharacter = expiryDate[3].ToString();
-            string expiryDateFourthCharacter = expiryDate[4].ToString();
-            string year = DateTime.Now.Year.ToString();
-            string yearFourthNumber = year[3].ToString();
+            string expiryDateFirstCharacter;
+            string expiryDateSecondCharacter;
+            string expiryDateThirdCharacter;
+            string expiryDateFourthCharacter;
+            string year;
+            string yearFourthNumber;
+
+            try
+            {
+                expiryDateFirstCharacter = expiryDate[0].ToString();
+                expiryDateSecondCharacter = expiryDate[1].ToString();
+                expiryDateThirdCharacter = expiryDate[3].ToString();
+                expiryDateFourthCharacter = expiryDate[4].ToString();
+                year = DateTime.Now.Year.ToString();
+                yearFourthNumber = year[3].ToString();
+
+                if (expiryDateFirstCharacter != "0" && expiryDateFirstCharacter != "1")
+                {
+                    error += "Expiry date first character must be either 0 or 1";
+                }
+
+                if (expiryDateFirstCharacter != "1")
+                {
+                    if (expiryDateSecondCharacter == "0")
+                    {
+                        error += "Expiry date second character must be between 1 and 9";
+                    }
+                }
+
+                if (expiryDateThirdCharacter != "2")
+                {
+                    error += "Expiry date third character must be a 2";
+                }
+
+                if (yearFourthNumber == "0")
+                {
+                    if (expiryDateFourthCharacter == "0")
+                    {
+                        error += "Expiry date last character must not be 0";
+                    }
+                }
+            }
+
+            catch
+            {
+                error += "Could not decompose expiry date";
+            }
+            
 
             if (cardNumber.Length < 16)
             {
@@ -138,33 +180,7 @@ namespace HotelVirtueClasses
                     }
                     error += "Name on card must start with M";
                 }
-            }
-    
-            if (expiryDateFirstCharacter != "0" && expiryDateFirstCharacter != "1")
-            {
-                error += "Expiry date first character must be either 0 or 1";               
-            }
-
-            if (expiryDateFirstCharacter != "1") 
-            {
-                if (expiryDateSecondCharacter == "0")
-                {
-                    error += "Expiry date second character must be between 1 and 9";
-                }
-            }
-
-            if (expiryDateThirdCharacter != "2")
-            {
-                error += "Expiry date third character must be a 2";
-            }
-
-            if (yearFourthNumber == "0")
-            {
-                if (expiryDateFourthCharacter == "0")
-                {
-                    error += "Expiry date last character must not be 0";
-                }
-            }
+            }             
 
             if (securityCode.Length < 3 | securityCode.Length > 3)
             {
