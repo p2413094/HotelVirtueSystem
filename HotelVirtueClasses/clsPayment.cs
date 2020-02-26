@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace HotelVirtueClasses
 {
@@ -72,7 +73,9 @@ namespace HotelVirtueClasses
         {
             get { return mCardType; }
             set { mCardType = value; }
-        }      
+        }
+
+        public List<string> ErrorList = new List<string>();
 
         public string Valid(string cardNumber, string nameOnCard, string expiryDate, string securityCode)
         {
@@ -95,45 +98,54 @@ namespace HotelVirtueClasses
 
                 if (expiryDateFirstCharacter != "0" && expiryDateFirstCharacter != "1")
                 {
-                    error += "Expiry date first character must be either 0 or 1";
+                    error = "Expiry date first character must be either 0 or 1";
+                    ErrorList.Add(error);
                 }
 
                 if (expiryDateFirstCharacter != "1")
                 {
                     if (expiryDateSecondCharacter == "0")
                     {
-                        error += "Expiry date second character must be between 1 and 9";
+                        error = "Expiry date second character must be between 1 and 9";
+                        ErrorList.Add(error);
                     }
                 }
 
                 if (expiryDateThirdCharacter != "2")
                 {
-                    error += "Expiry date third character must be a 2";
+                    error = "Expiry date third character must be a 2";
+                    ErrorList.Add(error);
                 }
 
                 if (yearFourthNumber == "0")
                 {
                     if (expiryDateFourthCharacter == "0")
                     {
-                        error += "Expiry date last character must not be 0";
+                        error = "Expiry date last character must not be 0";
+                        ErrorList.Add(error);
                     }
                 }
             }
 
             catch
             {
-                error += "Could not decompose expiry date";
+                error = "Could not decompose expiry date";
+                ErrorList.Add(error);
             }
-            
+
 
             if (cardNumber.Length < 16)
             {
-                error += "Card number must not be less than 16 digits";
+                error = "Card number must not be less than 16 digits";
+                ErrorList.Add(error);
+
             }
 
             if (cardNumber.Length > 16)
             {
-                error += "Card number must not be longer than 16 digits";
+                error = "Card number must not be longer than 16 digits";
+                ErrorList.Add(error);
+
             }
 
             foreach (char number in cardNumber)
@@ -141,20 +153,24 @@ namespace HotelVirtueClasses
                 bool numberCheck = char.IsDigit(number);
                 if (numberCheck == false)
                 {
-                    error += "Card number must contain only digits";
+                    error = "Card number must contain only digits";
+                    ErrorList.Add(error);
+
                 }
             }
 
             if (nameOnCard.Length < 2)
             {
-                error += "The name on the card must not shorter than 2 characters";
+                error = "The name on the card must not shorter than 2 characters";
+                ErrorList.Add(error);
             }
 
             if (CardType == "VISA")
             {
                 if (nameOnCard.Length > 21)
                 {
-                    error += "VISA name on card must be 21 characters or less";
+                    error = "VISA name on card must be 21 characters or less";
+                    ErrorList.Add(error);
                 }
             }
 
@@ -162,7 +178,8 @@ namespace HotelVirtueClasses
             {
                 if (nameOnCard.Length > 22)
                 {
-                    error += "MasterCard name on card must be 22 characters or less";
+                    error = "MasterCard name on card must be 22 characters or less";
+                    ErrorList.Add(error);
                 }
             }
 
@@ -176,15 +193,18 @@ namespace HotelVirtueClasses
                 {
                     if (nameOnCardSecondCharacter != "i" | nameOnCardSecondCharacter != "r" | nameOnCardSecondCharacter != "")
                     {
-                        error += "Name on card second character must be either 'i', 'r' or 's'";
+                        error = "Name on card second character must be either 'i', 'r' or 's'";
+                        ErrorList.Add(error);
                     }
-                    error += "Name on card must start with M";
+                    error = "Name on card must start with M";
+                    ErrorList.Add(error);
                 }
             }             
 
             if (securityCode.Length < 3 | securityCode.Length > 3)
             {
-                error += "Security code must be exactly 3 characters";
+                error = "Security code must be exactly 3 characters";
+                ErrorList.Add(error);
             }
 
             return error;
