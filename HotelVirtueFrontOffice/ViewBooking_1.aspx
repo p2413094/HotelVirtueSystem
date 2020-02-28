@@ -16,7 +16,7 @@
         <div>
             <ul class="ul" >
                 <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span></li>
-                <li class="right"><a href="#">SIGN IN/ REGISTER</a></li>
+                <li class="signInRight"><a href="#">SIGN IN/ REGISTER</a></li>
             </ul>
         </div>
 
@@ -46,37 +46,10 @@
 
         <p class="pageHeader">Current bookings</p>
 
-        <br />
-        <br />
-        <div class="box">
-            Hotel number 1
-            <p class="body">
-                Booking reference: #001
-                <br />
-                <br />
-                Check-in: 26/01/2020
-                <br />
-                Check-out: 27/01/2020 
-                <br />
-                Room type: single bed 
+        <asp:Panel ID="pnlBookings" CssClass="box" runat="server"></asp:Panel>
 
-                <p class="body" style="float: right;">Total: £x</p>
-                <br />
-                <br />
-                <asp:Button CssClass="continueButton" ID="btnViewBooking" runat="server" Text="VIEW BOOKING" OnClick="btnViewBooking_Click" />
-                <br />
-                <br />
-                <asp:Button ID="btnCancel" CssClass="continueButton" runat="server" Text="CANCEL BOOKING" OnClick="btnCancel_Click" />
-                <br />
-                <br />
-                <asp:Button ID="btnPayForBooking" CssClass="continueButton" runat="server" Text="PAY FOR BOOKING" OnClick="btnPayForBooking_Click" />
-                <br />
-                <br />
-            </p>
-        </div>
         <br />
-        <br />
-
+        <br />  
     </form>
 </body>
 </html>

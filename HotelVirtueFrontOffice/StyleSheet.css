@@ -147,6 +147,9 @@ li a {
     width: 25%;
 }
 
+
+
+
 .finalButton {
     background-color: #1bd6be;
     color: white;
@@ -273,7 +276,7 @@ li a {
     padding: 14px 16px;
     float: left;
     cursor: pointer;
-    width: 25%;
+    width: 30%;
 }
 
 .payLaterButton {
@@ -284,10 +287,14 @@ li a {
     padding: 14px 16px;
     float: right;
     cursor: pointer;
-    width: 25%;
+    width: 30%;
 }
 
 .cancellationReasonField {
     width: 50%;
     height: 60%;
+}
+
+.leftAlignCost{
+    float: right;
 }
