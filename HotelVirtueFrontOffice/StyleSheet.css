@@ -58,6 +58,23 @@ li a {
 .pageHeader {
     font-size: 40px;
     margin-left: 25%;
+    margin-right: 25%;
+}
+
+
+.payForBookingHeader {
+    font-size: 40px;
+    margin-left: 25%;
+    width: 25%;
+    float: left;
+}
+
+.welcomeName {
+    font-size: 40px;
+    margin-right: 25%;
+    text-align: right;
+    width: 25%;
+    float: left;
 }
 
 .pageInformation {
@@ -96,7 +113,12 @@ li a {
     width: 100%;
 }
 
-
+.guestInformationFields {
+    width: 15%;
+    margin-left: 2%;
+    float: left;
+    width: 100%;
+}
 
 .image {
     width: 40%;
@@ -149,7 +171,7 @@ li a {
     margin-left: 25%;
 }
 
-.payForBookingHeader {
+.centreSlantedHeader {
     font-style: italic;
     text-align: center;
 }

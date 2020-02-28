@@ -44,15 +44,22 @@
             }
         </script>
 
-
         <asp:Panel ID="errorPanel" CssClass="box" runat="server"></asp:Panel>
 
-        <p class="pageHeader">Pay for booking</p>
-
         <br />
         <br />
+        <br />
+        <div class="payForBookingHeader">Pay for booking</div>
+        <div class="welcomeName">
+            <asp:Label ID="lblFullName" runat="server" Text=""></asp:Label>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+ 
         <div class="box">
-            Hotel number 1
+            <asp:Label ID="lblHotelName" runat="server" Text=""></asp:Label>
             <p class="body">
                 <br />
                 <br />
@@ -85,7 +92,7 @@
         <br />
 
         <div class="box">
-            <p class="payForBookingHeader">Please enter your card details below</p>
+            <p class="centreSlantedHeader">Please enter your details below</p>
             <div class="body">
                 <div>
                     <div class="left">
@@ -129,8 +136,29 @@
                             <asp:ListItem>MasterCard</asp:ListItem>
                         </asp:DropDownList>
                     </div>
+                    <br />
+                    <br />
             </div>
          </div>
+            <br />
+            <asp:Label ID="lblBillingDetails" runat="server" Text="Billing details"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="lblFirstName" CssClass="body left" runat="server" Text="First name: "></asp:Label>
+            <asp:TextBox ID="txtFirstName" CssClass="right" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lblLastName" CssClass="body left" runat="server" Text="Last name: "></asp:Label>
+            <asp:TextBox ID="txtLastName" CssClass="right" runat="server"></asp:TextBox>
+            <br />
+            <asp:Label ID="lblEmailAddress" CssClass="body left" runat="server" Text="Email address: "></asp:Label>
+            <asp:TextBox ID="txtEmailAddress" CssClass="right" runat="server"></asp:TextBox>
+
+
+
+
+
+            <br />
+            <br />
             <asp:Button CssClass="continueButton" ID="btnSubmit" Text="Submit" runat="server" OnClick="btnSubmit_Click" />
             <br />
             <br />

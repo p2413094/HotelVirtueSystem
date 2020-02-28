@@ -8,9 +8,59 @@ using HotelVirtueClasses;
 
 public partial class PayForBooking_1 : System.Web.UI.Page
 {
+    Boolean guest;
+    string firstName;
+    string lastName;
+    string hotelName;
+    Int32 customerId;
+    Int32 newBookingLineId;
+
+
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        guest = Convert.ToBoolean(Session["Guest"]);
+        firstName = Convert.ToString(Session["firstName"]);
+        lastName = Convert.ToString(Session["LastName"]);
+        hotelName = Convert.ToString(Session["Name"]);
+        customerId = Convert.ToInt32(Session["customerId"]);
+        newBookingLineId = Convert.ToInt32(Session["bookingLineId"]);
+
+        //guest = true;
+        guest = false;
+
+        if (guest == true)
+        {
+            lblFullName.Text = "Welcome, Guest";
+            lblFullName.CssClass = "centreSlantedHeader";
+            lblFullName.Visible = true;
+
+            lblFirstName.Visible = true;
+            txtFirstName.Visible = true;
+            lblLastName.Visible = true;
+            txtFirstName.Visible = true;
+            lblEmailAddress.Visible = true;
+            lblEmailAddress.Visible = true;
+            lblBillingDetails.Visible = true;
+        }
+        else
+        {
+            lblBillingDetails.Visible = false;
+            lblFirstName.Visible = false;
+            txtFirstName.Visible = false;
+            lblLastName.Visible = false;
+            txtLastName.Visible = false;
+            lblEmailAddress.Visible = false;
+            txtEmailAddress.Visible = false;
+
+            firstName = Convert.ToString(Session["FirstName"]);
+            lastName = Convert.ToString(Session["LastName"]);
+            customerId = Convert.ToInt32(Session["CustomerId"]);
+            //bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
+        } 
+
         errorPanel.Visible = false;
+
 
         Int32 bookingLineId = 3;
         clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
@@ -27,7 +77,6 @@ public partial class PayForBooking_1 : System.Web.UI.Page
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
-
         string cardNumber = txtCardNumber.Text;
         string nameOnCard = txtNameOnCard.Text;
         string cardExpiryDate = txtExpiryDate.Text;
@@ -55,9 +104,8 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         }
         else
         {
-
             clsPaymentCollection payments = new clsPaymentCollection();
-            payments.ThisPayment.CustomerId = 1;
+            payments.ThisPayment.CustomerId = customerId;
             payments.ThisPayment.BookingLineId = 3;
             payments.ThisPayment.DateTimeOfPayment = DateTime.Now;
             payments.ThisPayment.Amount = 79.99m;
