@@ -76,8 +76,8 @@
                 <br />
             </p>
 
-            <asp:Button ID="btnPayNow" CssClass="payNowButton" runat="server" Text="PAY NOW" />
-            <asp:Button ID="btnPayLater" CssClass="payLaterButton" runat="server" Text="PAY LATER" />
+            <asp:Button ID="btnPayNow" CssClass="payNowButton" runat="server" Text="PAY NOW" OnClick="btnPayNow_Click" />
+            <asp:Button ID="btnPayLater" CssClass="payLaterButton" runat="server" Text="PAY LATER" OnClick="btnPayLater_Click" />
             <br />
             <br />
             <br />

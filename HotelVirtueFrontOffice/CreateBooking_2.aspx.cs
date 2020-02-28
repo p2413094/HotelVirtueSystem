@@ -11,4 +11,14 @@ public partial class CreateBooking_2 : System.Web.UI.Page
     {
 
     }
+
+    protected void btnPayNow_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("PayForBooking_1.aspx");
+    }
+
+    protected void btnPayLater_Click(object sender, EventArgs e)
+    {
+
+    }
 }
