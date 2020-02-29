@@ -58,16 +58,16 @@
                 
                 <asp:TableRow>
                     <asp:TableCell CssClass="stayGeneralText">
-                        Birmingham
+                        <asp:Label ID="lblHotelName" runat="server" Text=""></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell CssClass="stayGeneralText">
-                        22/02/2020-26/02/2020
+                        <asp:Label ID="lblArrivalDepartureDate" runat="server" Text=""></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell CssClass="stayGeneralText">
-                        4 adults, 3 children
+                        <asp:Label ID="lblbreakdownOfGuests" runat="server" Text=""></asp:Label>
                     </asp:TableCell>
                     <asp:TableCell CssClass="stayGeneralText">
-                        £78.00
+                        <asp:Label ID="lblCost" runat="server" Text=""></asp:Label>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
