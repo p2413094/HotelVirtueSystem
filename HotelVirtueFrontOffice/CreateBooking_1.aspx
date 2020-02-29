@@ -75,24 +75,12 @@
    
         <p class="pageHeader">Room selection</p>
 
-        <div class="box">
-            Single bed    
-            <div class="clearfix">
-                <br />
-                <img src="Images/HotelRoom1.jpg" class="image" />
-                <p class="subHeader">Choose rate</p>
-                    <asp:RadioButtonList ID="rateOptions" runat="server" CssClass="rateOptions">
-                        <asp:ListItem>Saver rate only</asp:ListItem>
-                        <asp:ListItem>Saver rate including breakfast</asp:ListItem>
-                        <asp:ListItem>Flexible rate only</asp:ListItem>
-                        <asp:ListItem>Flexible rate including breakfast</asp:ListItem>
-                    </asp:RadioButtonList>  
-                    <br />
-            </div>    
-        </div>
-
         <br />
 
+        <asp:Panel ID="pnlBooking" CssClass="box clearfix" runat="server"></asp:Panel>
+
+        <br />
+        
         <div class="box">
             Optional extras    
             <div class="clearfix">

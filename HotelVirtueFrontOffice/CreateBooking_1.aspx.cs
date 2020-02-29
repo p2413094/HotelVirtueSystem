@@ -30,10 +30,10 @@ public partial class CreateBooking_1 : System.Web.UI.Page
 
         calculatedTotalNumberOfGuests = underFive + fiveToSixteen + sixteenUpwards;
 
-        lblHotelName.Text = "T Birmingham";
-        lblArrivalDepartureDate.Text = "T 01/03/2020-03/03/2020";
-        lblbreakdownOfGuests.Text = "T 1 under five, 1 between five and sixteen and 3 over sixteen";
-        lblCost.Text = "T 89.00";
+        lblHotelName.Text = "HC Birmingham";
+        lblArrivalDepartureDate.Text = "HC 01/03/2020-03/03/2020";
+        lblbreakdownOfGuests.Text = "HC 1 under five, 1 between five and sixteen and 3 over sixteen";
+        lblCost.Text = "HC 89.00";
 
         hotelId = 1;
 
@@ -53,16 +53,45 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         Int32 doubleBed = Convert.ToInt32(DB2.DataTable.Rows[0]["DoubleBed"]);
         string description = Convert.ToString(DB2.DataTable.Rows[0]["Description "]);
 
-        Response.Write("Accessible: " + accessible);
-        Response.Write("<br />");
-        Response.Write("Cost: " + cost);
-        Response.Write("<br />");
-        Response.Write("Single bed: " + singleBed);
-        Response.Write("<br />");
-        Response.Write("Double bed: " + doubleBed);
-        Response.Write("<br />");
-        Response.Write("Description: " + description);
+        Label lblRoomType = new Label();
+        if (singleBed != 0 && doubleBed != 0)
+        {
+            lblRoomType.Text = "Both single and double beds";
+        }
+        pnlBooking.Controls.Add(lblRoomType);
 
+        pnlBooking.Controls.Add(new LiteralControl("<br />"));
+        Image imgRoom = new Image();
+        imgRoom.ImageUrl = "Images/HotelRoom1.jpg";
+        imgRoom.CssClass = "image";
+        pnlBooking.Controls.Add(imgRoom);
+
+        pnlBooking.Controls.Add(new LiteralControl("<br />"));
+        Label lblAccessible = new Label();
+        lblAccessible.CssClass = "rateOptions";
+        lblAccessible.Text = "Accessible: " + accessible;
+        pnlBooking.Controls.Add(lblAccessible);
+        pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+        Label lblSingleBed = new Label();
+        lblSingleBed.CssClass = "rateOptions";
+        lblSingleBed.Text = "Number of single beds: " + singleBed;
+        pnlBooking.Controls.Add(lblSingleBed);
+        pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+        Label lblDoubleBed = new Label();
+        lblDoubleBed.CssClass = "rateOptions";
+        lblDoubleBed.Text = "Number of double beds: " + doubleBed;
+        pnlBooking.Controls.Add(lblDoubleBed);
+        pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+        Label lblDescription = new Label();
+        lblDescription.CssClass = "rateOptions";
+        lblDescription.Text = "Description: " + description;
+        pnlBooking.Controls.Add(lblDescription);
+        pnlBooking.Controls.Add(new LiteralControl("<br />"));      
+
+        pnlBooking.Visible = true;
     }
 
     protected void btnContinueToPayment_Click(object sender, EventArgs e)
