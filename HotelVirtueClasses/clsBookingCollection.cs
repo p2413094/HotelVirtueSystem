@@ -27,6 +27,7 @@ namespace HotelVirtueClasses
                 ABooking.HotelId = Convert.ToInt32(DB.DataTable.Rows[index]["HotelId"]);
                 ABooking.AdminId = Convert.ToInt32(DB.DataTable.Rows[index]["AdminId"]);
                 ABooking.DateTimeOfBooking = Convert.ToDateTime(DB.DataTable.Rows[index]["DateTimeOfBooking"]);
+                ABooking.Total = Convert.ToDecimal(DB.DataTable.Rows[index]["Total"]);
                 mBookingList.Add(ABooking);
                 index++;
             }
@@ -55,7 +56,8 @@ namespace HotelVirtueClasses
             DB.AddParameter("CustomerId", mThisBooking.CustomerId);
             DB.AddParameter("HotelId", mThisBooking.HotelId);
             DB.AddParameter("AdminId", mThisBooking.AdminId);
-            DB.AddParameter("DateTimeOfBooking", mThisBooking.DateTimeOfBooking);   
+            DB.AddParameter("DateTimeOfBooking", mThisBooking.DateTimeOfBooking);
+            DB.AddParameter("Total", mThisBooking.Total);
             return DB.Execute("sproc_tblBooking_Insert");
         }
 

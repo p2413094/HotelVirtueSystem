@@ -13,6 +13,7 @@ namespace HotelVirtueClasses
         private Int32 mHotelId;
         private Int32 mAdminId;
         private DateTime mDateTimeOfBooking;
+        private decimal mTotal;
 
         public int BookingId
         {
@@ -44,6 +45,12 @@ namespace HotelVirtueClasses
             set { mDateTimeOfBooking = value; }
         }
 
+        public decimal Total
+        {
+            get { return mTotal; }
+            set { mTotal = value; }
+        }
+
         public bool Find(int bookingId)
         {
             clsDataConnection DB = new clsDataConnection();
@@ -56,6 +63,7 @@ namespace HotelVirtueClasses
                 mHotelId = Convert.ToInt32(DB.DataTable.Rows[0]["HotelId"]);
                 mAdminId = Convert.ToInt32(DB.DataTable.Rows[0]["AdminId"]);
                 mDateTimeOfBooking = Convert.ToDateTime(DB.DataTable.Rows[0]["DateTimeOfBooking"]);
+                mTotal = Convert.ToDecimal(DB.DataTable.Rows[0]["Total"]);
                 return true;
             }
 

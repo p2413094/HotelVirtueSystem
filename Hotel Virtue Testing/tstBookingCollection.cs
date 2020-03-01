@@ -55,6 +55,7 @@ namespace Hotel_Virtue_Testing
             TestItem.CustomerId = 1;
             TestItem.HotelId = 1;
             TestItem.AdminId = 1;
+            TestItem.Total = 90m;
             TestItem.DateTimeOfBooking = DateTime.Now;
             TestList.Add(TestItem);
             allBookings.BookingList = TestList;
@@ -71,6 +72,7 @@ namespace Hotel_Virtue_Testing
             testItem.HotelId = 1;
             testItem.AdminId = 1;
             testItem.DateTimeOfBooking = DateTime.Now;
+            testItem.Total = 89.99m;
             allBookings.ThisBooking = testItem;
             primaryKey = allBookings.Add();
             testItem.BookingId = primaryKey;
