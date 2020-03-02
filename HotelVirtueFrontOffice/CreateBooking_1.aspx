@@ -74,6 +74,55 @@
         </p>
    
         <p class="pageHeader">Room selection</p>
+
+
+        <div class="box">
+            <asp:Panel ID="pnlExtras" runat="server">Extras</asp:Panel>
+            <p class="body">
+                <asp:Label ID="lblGymAccess" runat="server" Text="Gym access"></asp:Label>
+                <br />
+                <br />
+                <asp:Image ID="imgGym" CssClass="clearfix image" ImageUrl="~/Images/Gym.png" runat="server" />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+            </p>
+            <p class="body">
+                <asp:Label ID="lblLateCheckout" runat="server" Text="Late check-out"></asp:Label>
+                <br />
+                <br />
+                <asp:Image ID="imgLateCheckout" CssClass="clearfix image" ImageUrl="~/Images/Late-Check-Out.jpg" runat="server" />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+
+            </p>
+        </div>
+        
                      
         <asp:DropDownList ID="ddlRoomId" runat="server"></asp:DropDownList>
 

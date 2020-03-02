@@ -20,7 +20,6 @@ public partial class CreateBooking_1 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        
 
         hotelId = Convert.ToInt32(Session["hotelId"]);
         hotelName = Convert.ToString(Session["hotelName"]);
@@ -182,84 +181,37 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         Boolean gymAccess = Convert.ToBoolean(DBGymAndLateCheckout.DataTable.Rows[0]["GymAccess"]);
         Boolean lateCheckout = Convert.ToBoolean(DBGymAndLateCheckout.DataTable.Rows[0]["LateCheckout"]);
 
-
         if (gymAccess != false || lateCheckout != false)
         {
-            Panel pnlExtras = new Panel();
-            pnlExtras.CssClass = "box";
-
-            Label lblExtras = new Label();
-            lblExtras.Text = "Extras";
-            pnlExtras.Controls.Add(lblExtras);
-            pnlExtras.Controls.Add(new LiteralControl("<br />"));
-
             if (gymAccess == true)
             {
-                Label lblGymAccess = new Label();
-                lblGymAccess.CssClass = "body";
-                lblGymAccess.Text = "Gym access";
-                pnlExtras.Controls.Add(lblGymAccess);
-                pnlExtras.Controls.Add(new LiteralControl("<br />"));
-
-                Image imgGym = new Image();
-                imgGym.ImageUrl = "Images/Gym.png";
-                imgGym.CssClass = "clearfix image";
-                pnlExtras.Controls.Add(imgGym);
-
-                Label lblGymAddToBooking = new Label();
-                lblGymAddToBooking.CssClass = "extrasHeader";
-                lblGymAddToBooking.Text = "Add to booking?";
-                pnlExtras.Controls.Add(lblGymAddToBooking);
-                pnlExtras.Controls.Add(new LiteralControl("<br />"));
-                pnlExtras.Controls.Add(new LiteralControl("<br />"));
-
-
-                Label test1 = new Label();
-                test1.CssClass = "extrasOptions";
-                test1.Text = "Test1";
-                pnlExtras.Controls.Add(test1);
-
-                RadioButtonList rdoBtnListGymOptions = new RadioButtonList();
-                rdoBtnListGymOptions.CssClass = "extrasOptions";
-                rdoBtnListGymOptions.Items.Add("Yes +£5.00");
-                rdoBtnListGymOptions.Items.Add("No +£0.00");
-                rdoBtnListGymOptions.AutoPostBack = true;
-
-                rdoBtnListGymOptions.SelectedIndexChanged += new System.EventHandler(rdoBtnListGymOptions_SelectedIndexChanged);
-                pnlExtras.Controls.Add(rdoBtnListGymOptions);
-
-                Form.Controls.Add(rdoBtnListGymOptions);
+                lblGymAccess.Visible = true;
+                imgGym.Visible = true;
+            }
+            else
+            {
+                lblGymAccess.Visible = false;
+                imgGym.Visible = false;
             }
 
             if (lateCheckout == true)
             {
-                if (gymAccess != false)
-                {
-                    for (int i = 0; i < 7; i += 1)
-                    {
-                        pnlExtras.Controls.Add(new LiteralControl("<br />"));
-                    }
-                }
-                
-                pnlExtras.Controls.Add(new LiteralControl("<br />"));
-                Label lblLateCheckout = new Label();
-                lblLateCheckout.CssClass = "body";
-                lblLateCheckout.Text = "Late checkout";
-                pnlExtras.Controls.Add(lblLateCheckout);
-                pnlExtras.Controls.Add(new LiteralControl("<br />"));
-
-                Image imgRoom = new Image();
-                imgRoom.ImageUrl = "Images/Late-Check-Out.jpg";
-                imgRoom.CssClass = "clearfix image";
-                pnlExtras.Controls.Add(imgRoom);
-
-                for (int i = 0; i < 9; i += 1)
-                {
-                    pnlExtras.Controls.Add(new LiteralControl("<br />"));
-                }
+                lblLateCheckout.Visible = true;
+                imgLateCheckout.Visible = true;
             }
-            this.Controls.Add(pnlExtras);
+            else
+            {
+                lblLateCheckout.Visible = false;
+                lblLateCheckout.Visible = false;
+            }
+
+            pnlExtras.Visible = true;
         }
+        else
+        {
+            pnlExtras.Visible = false;
+        }
+                 
 
         Panel pnlStaySummary = new Panel();
         pnlStaySummary.CssClass = "box";
@@ -292,9 +244,6 @@ public partial class CreateBooking_1 : System.Web.UI.Page
 
         Form.Controls.Add(pnlStaySummary);
 
-
-
-
         //string accessible = Convert.ToString(DB.DataTable.Rows[0]["Accessible"]);
         //decimal cost = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);     
 
@@ -304,7 +253,7 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         //lblAccessible.CssClass = "rateOptions";
         //lblAccessible.Text = "Accessible: " + accessible;
         //pnlBooking.Controls.Add(lblAccessible);
-        //pnlBooking.Controls.Add(new LiteralControl("<br />"));          
+        //pnlBooking.Controls.Add(new LiteralControl("<br />")); 
     }
 
     private void BtnContinue_Click(object sender, EventArgs e)
