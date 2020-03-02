@@ -97,6 +97,26 @@ li a {
         font-size: 20px;
     }
 
+.rateOptions {
+    font-size: 15px;
+    text-align: right;
+    float: right;
+}
+
+.extrasHeader {
+    font-size: 20px;
+    font-style: italic;
+    text-align: right;
+    float: right;
+}
+
+.extrasOptions {
+    font-size: 15px;
+    font-style: italic;
+    text-align: right;
+    float: right;
+}
+
 .box .left {
     width: 15%;
     float: left;
@@ -130,12 +150,6 @@ li a {
     overflow: auto;
 }
 
-.rateOptions {
-    font-size: 15px;
-    text-align: right;
-    float: right;
-}
-
 .continueButton {
     background-color: #1bd6be;
     color: white;
@@ -146,8 +160,6 @@ li a {
     cursor: pointer;
     width: 25%;
 }
-
-
 
 
 .finalButton {
