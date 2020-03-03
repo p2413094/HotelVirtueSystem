@@ -20,6 +20,7 @@ public partial class CreateBooking_1 : System.Web.UI.Page
 
     Int32 roomId;
     DropDownList ddlRoomId = new DropDownList();
+    decimal price;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -52,7 +53,7 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         {
             roomId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["RoomID"]);
             Boolean accessible = Convert.ToBoolean(DB.DataTable.Rows[newIndex]["Accessible"]);
-            decimal price = Convert.ToDecimal(DB.DataTable.Rows[newIndex]["Price"]);     
+            price = Convert.ToDecimal(DB.DataTable.Rows[newIndex]["Price"]);     
 
 
             Int32 roomTypeId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["fk2_RoomTypeId"]);
@@ -256,6 +257,7 @@ public partial class CreateBooking_1 : System.Web.UI.Page
             {
                 lblLateCheckout.Visible = false;
                 lblLateCheckout.Visible = false;
+                
             }
 
             pnlExtras.Visible = true;
@@ -311,13 +313,58 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         
 
         Form.Controls.Add(pnlStaySummary);
+
+        if (IsPostBack == false)
+        {
+            rdobtnlstGymCost.SelectedValue = "No";
+            rdobtnlstLateCheckout.SelectedValue = "No";
+        }
     }
 
     private void BtnContinue_Click(object sender, EventArgs e)
     {
-        Response.Write("RoomId: " + ddlRoomId.SelectedValue);
-        Response.Write("Gym: " + rdobtnlstGymCost.SelectedValue);
-        Response.Write("Late checkout: " + rdobtnlstLateCheckout.SelectedValue);
+        //Response.Write("RoomId: " + ddlRoomId.SelectedValue);
+        //Response.Write("Gym: " + rdobtnlstGymCost.SelectedValue);
+        //Response.Write("Late checkout: " + rdobtnlstLateCheckout.SelectedValue);
+
+        CalculateCost();
+
     }
 
+    void CalculateCost()
+    {
+        arrivalDate = Convert.ToDateTime("03/03/2020");
+        departureDate = Convert.ToDateTime("06/03/2020");
+
+        Response.Write(arrivalDate);
+        Response.Write("<br />");
+        Response.Write(departureDate);
+        Response.Write("<br />");
+
+        Int32 numberOfDays = (departureDate - arrivalDate).Days;
+        Response.Write("Number of days of stay: " + numberOfDays);
+        Response.Write("<br />");
+
+        roomId = Convert.ToInt32(ddlRoomId.SelectedValue);
+
+        clsDataConnection DB = new clsDataConnection();
+        DB.AddParameter("@RoomId", roomId);
+        DB.Execute("sproc_tblRoom_FilterByRoomId");
+        decimal roomCost = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);
+
+        decimal totalCost;
+        totalCost = numberOfDays * roomCost;
+
+        if (rdobtnlstGymCost.SelectedValue != "No")
+        {
+            totalCost += 10.00m;
+        }      
+
+        if (rdobtnlstLateCheckout.SelectedValue != "No")
+        {
+            totalCost += 10.00m;
+        }
+
+        Response.Write("Cost: £" + totalCost);
+    }
 }
