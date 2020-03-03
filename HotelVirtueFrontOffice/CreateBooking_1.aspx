@@ -76,6 +76,8 @@
         <p class="pageHeader">Room selection</p>
 
 
+
+
         <div class="box">
             <asp:Panel ID="pnlExtras" runat="server">Extras</asp:Panel>
             <p class="body">
@@ -123,9 +125,7 @@
             </p>
         </div>
         
-                     
-        <asp:DropDownList ID="ddlRoomId" runat="server"></asp:DropDownList>
-
+                    
     <div class="footer" id="footer">
             © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
     </div>

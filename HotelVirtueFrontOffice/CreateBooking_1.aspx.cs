@@ -42,20 +42,18 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         DB.AddParameter("@HotelId", hotelId);
         DB.Execute("sproc_tblRoom_SelectAllAvailableRooms");
 
-        if (IsPostBack == false)
-        {
-            Int32 index = 0;
-            while (index < DB.Count)
-            {
-                ddlRoomId.Items.Add(DB.DataTable.Rows[index]["RoomId"].ToString());
-                index++;
-            }
-        }
-       
+
+
+        Int32 roomId;
 
         Int32 newIndex = 0;
         while (newIndex < DB.Count)
         {
+
+            roomId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["RoomID"]);
+
+
+
             Int32 roomTypeId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["fk2_RoomTypeId"]);
 
             clsDataConnection DB2 = new clsDataConnection();
@@ -95,6 +93,11 @@ public partial class CreateBooking_1 : System.Web.UI.Page
                 pnlBooking.Controls.Add(lblDescription);
                 pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
+                Label lblRoomId = new Label();
+                lblRoomId.CssClass = "body";
+                lblRoomId.Text = "Room id: " + roomId;
+                pnlBooking.Controls.Add(lblRoomId);
+
                 for (int i = 0; i < 6; i += 1)
                 {
                     pnlBooking.Controls.Add(new LiteralControl("<br />"));
@@ -132,6 +135,11 @@ public partial class CreateBooking_1 : System.Web.UI.Page
                 pnlBooking.Controls.Add(lblDescription);
                 pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
+                Label lblRoomId = new Label();
+                lblRoomId.CssClass = "body";
+                lblRoomId.Text = "Room id: " + roomId;
+                pnlBooking.Controls.Add(lblRoomId);
+
                 for (int i = 0; i < 9; i += 1)
                 {
                     pnlBooking.Controls.Add(new LiteralControl("<br />"));
@@ -168,6 +176,11 @@ public partial class CreateBooking_1 : System.Web.UI.Page
                 lblDescription.Text = "Description: " + description;
                 pnlBooking.Controls.Add(lblDescription);
                 pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                Label lblRoomId = new Label();
+                lblRoomId.CssClass = "body";
+                lblRoomId.Text = "Room id: " + roomId;
+                pnlBooking.Controls.Add(lblRoomId);
 
                 this.Controls.Add(pnlBooking);
             }
@@ -242,6 +255,25 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
         pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
 
+
+        Label lblChooseRoom = new Label();
+        lblChooseRoom.CssClass = "body";
+        lblChooseRoom.Text = "Please choose the room that you would like: ";
+        pnlStaySummary.Controls.Add(lblChooseRoom);
+
+
+        if (IsPostBack == false)
+        {
+            DropDownList ddltest = new DropDownList();
+            Int32 index = 0;
+            while (index < DB.Count)
+            {
+                ddltest.Items.Add(DB.DataTable.Rows[index]["RoomId"].ToString());
+                index++;
+            }
+            pnlStaySummary.Controls.Add(ddltest);
+        }
+
         Form.Controls.Add(pnlStaySummary);
 
         //string accessible = Convert.ToString(DB.DataTable.Rows[0]["Accessible"]);
@@ -260,11 +292,6 @@ public partial class CreateBooking_1 : System.Web.UI.Page
     {
         //redirect to confirmation page
         //on confirmation page, you then out pay now/ later 
-    }
-
-    private void rdoBtnListGymOptions_SelectedIndexChanged(object sender, EventArgs e)
-    {
-
     }
 
     protected void btnContinueToPayment_Click(object sender, EventArgs e)
