@@ -46,8 +46,6 @@
 
         <p class="pageHeader">Current bookings</p>
 
-        <asp:Panel ID="pnlBookings" CssClass="box" runat="server"></asp:Panel>
-
         <br />
         <br />  
     </form>
