@@ -15,46 +15,43 @@ public partial class CreateBooking_1 : System.Web.UI.Page
     Int32 underFive;
     Int32 fiveToSixteen;
     Int32 sixteenUpwards;
-
-    Int32 calculatedTotalNumberOfGuests;
-
+    
     Int32 roomId;
+
     DropDownList ddlRoomId = new DropDownList();
-    decimal price;
+    Label lblTotal = new Label();
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
-        hotelId = Convert.ToInt32(Session["hotelId"]);
-        hotelName = Convert.ToString(Session["hotelName"]);
-        arrivalDate = Convert.ToDateTime(Session["arrivalDate"]);
-        departureDate = Convert.ToDateTime(Session["departureDate"]);
-        underFive = Convert.ToInt32(Session["underFive"]);
-        fiveToSixteen = Convert.ToInt32(Session["fiveToSixteen"]);
-        sixteenUpwards = Convert.ToInt32(Session["sixteenUpwaards"]);
-
-        calculatedTotalNumberOfGuests = underFive + fiveToSixteen + sixteenUpwards;
+        hotelId = Convert.ToInt32(Session["hotelId"]); //fine
+        hotelName = Convert.ToString(Session["hotelName"]); //never changed 
+        arrivalDate = Convert.ToDateTime(Session["arrivalDate"]); //never changed
+        departureDate = Convert.ToDateTime(Session["departureDate"]); //never changed 
+        underFive = Convert.ToInt32(Session["underFive"]); //never changed 
+        fiveToSixteen = Convert.ToInt32(Session["fiveToSixteen"]); //never changed
+        sixteenUpwards = Convert.ToInt32(Session["sixteenUpwards"]); //never changed 
 
         lblHotelName.Text = "HC Birmingham";
         lblArrivalDepartureDate.Text = "HC 01/03/2020-03/03/2020";
         lblbreakdownOfGuests.Text = "HC 1 under five, 1 between five and sixteen and 3 over sixteen";
         lblCost.Text = "HC 89.00";
 
+        //temporarily until Priya inetgration done 
         hotelId = 1;
 
         clsDataConnection DB = new clsDataConnection();
         DB.AddParameter("@HotelId", hotelId);
         DB.Execute("sproc_tblRoom_SelectAllAvailableRooms");
 
-        Int32 roomId;
 
         Int32 newIndex = 0;
         while (newIndex < DB.Count)
         {
+            Int32 roomId;
+            decimal price;
             roomId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["RoomID"]);
             Boolean accessible = Convert.ToBoolean(DB.DataTable.Rows[newIndex]["Accessible"]);
             price = Convert.ToDecimal(DB.DataTable.Rows[newIndex]["Price"]);     
-
 
             Int32 roomTypeId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["fk2_RoomTypeId"]);
 
@@ -187,6 +184,11 @@ public partial class CreateBooking_1 : System.Web.UI.Page
                 pnlBooking.Controls.Add(lblroomType);
                 pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
+                Image imgSingleBed = new Image();
+                imgSingleBed.ImageUrl = "Images/SingleBed.jpg";
+                imgSingleBed.CssClass = "clearfix image";
+                pnlBooking.Controls.Add(imgSingleBed);
+
                 Label lblSingleBed = new Label();
                 lblSingleBed.CssClass = "rateOptions";
                 lblSingleBed.Text = "Number of single beds: " + singleBed;
@@ -217,6 +219,21 @@ public partial class CreateBooking_1 : System.Web.UI.Page
                 lblPrice.CssClass = "rateOptions";
                 lblPrice.Text = "Price: £" + price;
                 pnlBooking.Controls.Add(lblPrice);
+
+                for (int i = 0; i < 3; i += 1)
+                {
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                }
+
+                Image imgDoubleBed = new Image();
+                imgDoubleBed.ImageUrl = "Images/DoubleBed.jpg";
+                imgDoubleBed.CssClass = "clearfix image";
+                pnlBooking.Controls.Add(imgDoubleBed);
+
+                for (int i = 0; i < 6; i += 1)
+                {
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                }
 
                 Label lblRoomId = new Label();
                 lblRoomId.CssClass = "body";
@@ -266,7 +283,7 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         {
             pnlExtras.Visible = false;
         }
-                 
+
 
         Panel pnlStaySummary = new Panel();
         pnlStaySummary.CssClass = "box";
@@ -297,7 +314,6 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
         pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
 
-
         Label lblChooseRoom = new Label();
         lblChooseRoom.CssClass = "body";
         lblChooseRoom.Text = "Please choose the room that you would like: ";
@@ -322,16 +338,12 @@ public partial class CreateBooking_1 : System.Web.UI.Page
     }
 
     private void BtnContinue_Click(object sender, EventArgs e)
-    {
-        //Response.Write("RoomId: " + ddlRoomId.SelectedValue);
-        //Response.Write("Gym: " + rdobtnlstGymCost.SelectedValue);
-        //Response.Write("Late checkout: " + rdobtnlstLateCheckout.SelectedValue);
-
+    {   
         CalculateCost();
-
+        GetValues();
     }
 
-    void CalculateCost()
+    decimal CalculateCost()
     {
         arrivalDate = Convert.ToDateTime("03/03/2020");
         departureDate = Convert.ToDateTime("06/03/2020");
@@ -358,13 +370,30 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         if (rdobtnlstGymCost.SelectedValue != "No")
         {
             totalCost += 10.00m;
-        }      
+        }
 
         if (rdobtnlstLateCheckout.SelectedValue != "No")
         {
             totalCost += 10.00m;
         }
 
-        Response.Write("Cost: £" + totalCost);
+        return totalCost;
+    }
+
+    void GetValues()
+    {
+        Boolean gymAccess = Convert.ToBoolean(rdobtnlstGymCost.SelectedValue);
+        Boolean lateCheckout = Convert.ToBoolean(rdobtnlstLateCheckout.SelectedValue);
+
+        Session["HotelId"] = hotelId;
+        Session["Total"] = CalculateCost();
+        Session["RoomId"] = roomId;
+        Session["UnderFive"] = underFive;
+        Session["FiveToSixteen"] = fiveToSixteen;
+        Session["SixteenUpwards"] = sixteenUpwards;
+        Session["ArrivalDate"] = arrivalDate;
+        Session["DepartureDate"] = departureDate;
+        Session["GymAccess"] = rdobtnlstGymCost.SelectedValue;
+        Session["LateCheckout"] = rdobtnlstLateCheckout.SelectedValue;   
     }
 }

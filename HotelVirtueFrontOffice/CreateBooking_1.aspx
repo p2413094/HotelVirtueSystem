@@ -75,13 +75,10 @@
    
         <p class="pageHeader">Room selection</p>
 
-
-
-
         <div class="box">
             <asp:Panel ID="pnlExtras" runat="server">Extras</asp:Panel>
             <p class="body">
-                <asp:Label ID="lblGymAccess" runat="server" Text="Gym access"></asp:Label>
+                <asp:Label ID="lblGymAccess" CssClass="body" runat="server" Text="Gym access"></asp:Label>
                 <br />
                 <br />
                 <asp:Image ID="imgGym" CssClass="clearfix image" ImageUrl="~/Images/Gym.png" runat="server" />                
@@ -89,8 +86,8 @@
                     <asp:Label ID="lblAddToBooking" CssClass="subHeader" runat="server" Text="Add to booking?"></asp:Label>  
                     <br />
                     <asp:RadioButtonList ID="rdobtnlstGymCost" runat="server" CssClass="rateOptions">
-                        <asp:ListItem Value="Yes">Yes - +£10.00</asp:ListItem>
-                        <asp:ListItem Value="No">No - +£0.00</asp:ListItem>
+                        <asp:ListItem Value="True">Yes - +£10.00</asp:ListItem>
+                        <asp:ListItem Value="False">No - +£0.00</asp:ListItem>
                     </asp:RadioButtonList>  
                 </p>
                     
@@ -113,8 +110,8 @@
                     <asp:Label ID="Label1" CssClass="subHeader" runat="server" Text="Add to booking?"></asp:Label>  
                     <br />
                     <asp:RadioButtonList ID="rdobtnlstLateCheckout" runat="server" CssClass="rateOptions">
-                        <asp:ListItem Value="Yes">Yes - +£10.00</asp:ListItem>
-                        <asp:ListItem Value="No">No - +£0.00</asp:ListItem>
+                        <asp:ListItem Value="True">Yes - +£10.00</asp:ListItem>
+                        <asp:ListItem Value="False">No - +£0.00</asp:ListItem>
                     </asp:RadioButtonList>  
                 </p>
                 <br />
