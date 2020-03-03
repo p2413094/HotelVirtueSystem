@@ -51,6 +51,9 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         while (newIndex < DB.Count)
         {
             roomId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["RoomID"]);
+            Boolean accessible = Convert.ToBoolean(DB.DataTable.Rows[newIndex]["Accessible"]);
+            decimal price = Convert.ToDecimal(DB.DataTable.Rows[newIndex]["Price"]);     
+
 
             Int32 roomTypeId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["fk2_RoomTypeId"]);
 
@@ -90,6 +93,19 @@ public partial class CreateBooking_1 : System.Web.UI.Page
                 lblDescription.Text = "Description: " + description;
                 pnlBooking.Controls.Add(lblDescription);
                 pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                Label lblAccessible = new Label();
+                lblAccessible.CssClass = "rateOptions";
+                lblAccessible.Text = "Accessible: " + accessible;
+                pnlBooking.Controls.Add(lblAccessible);
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                Label lblPrice = new Label();
+                lblPrice.CssClass = "rateOptions";
+                lblPrice.Text = "Price: £" + price;
+                pnlBooking.Controls.Add(lblPrice);
 
                 Label lblRoomId = new Label();
                 lblRoomId.CssClass = "body";
@@ -133,6 +149,19 @@ public partial class CreateBooking_1 : System.Web.UI.Page
                 pnlBooking.Controls.Add(lblDescription);
                 pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
+                Label lblAccessible = new Label();
+                lblAccessible.CssClass = "rateOptions";
+                lblAccessible.Text = "Accessible: " + accessible;
+                pnlBooking.Controls.Add(lblAccessible);
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                Label lblPrice = new Label();
+                lblPrice.CssClass = "rateOptions";
+                lblPrice.Text = "Price: £" + price;
+                pnlBooking.Controls.Add(lblPrice);
+
                 Label lblRoomId = new Label();
                 lblRoomId.CssClass = "body";
                 lblRoomId.Text = "Room id: " + roomId;
@@ -174,6 +203,19 @@ public partial class CreateBooking_1 : System.Web.UI.Page
                 lblDescription.Text = "Description: " + description;
                 pnlBooking.Controls.Add(lblDescription);
                 pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                Label lblAccessible = new Label();
+                lblAccessible.CssClass = "rateOptions";
+                lblAccessible.Text = "Accessible: " + accessible;
+                pnlBooking.Controls.Add(lblAccessible);
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                Label lblPrice = new Label();
+                lblPrice.CssClass = "rateOptions";
+                lblPrice.Text = "Price: £" + price;
+                pnlBooking.Controls.Add(lblPrice);
 
                 Label lblRoomId = new Label();
                 lblRoomId.CssClass = "body";
@@ -269,16 +311,6 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         
 
         Form.Controls.Add(pnlStaySummary);
-
-        //string accessible = Convert.ToString(DB.DataTable.Rows[0]["Accessible"]);
-        //decimal cost = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);     
-
-        //pnlBooking.Controls.Add(new LiteralControl("<br />"));
-        //Label lblAccessible = new Label();
-        //lblAccessible.CssClass = "rateOptions";
-        //lblAccessible.Text = "Accessible: " + accessible;
-        //pnlBooking.Controls.Add(lblAccessible);
-        //pnlBooking.Controls.Add(new LiteralControl("<br />")); 
     }
 
     private void BtnContinue_Click(object sender, EventArgs e)
