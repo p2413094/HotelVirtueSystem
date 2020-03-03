@@ -84,21 +84,24 @@
                 <asp:Label ID="lblGymAccess" runat="server" Text="Gym access"></asp:Label>
                 <br />
                 <br />
-                <asp:Image ID="imgGym" CssClass="clearfix image" ImageUrl="~/Images/Gym.png" runat="server" />
+                <asp:Image ID="imgGym" CssClass="clearfix image" ImageUrl="~/Images/Gym.png" runat="server" />                
+                <p class="subHeader">
+                    <asp:Label ID="lblAddToBooking" CssClass="subHeader" runat="server" Text="Add to booking?"></asp:Label>  
+                    <br />
+                    <asp:RadioButtonList ID="rdobtnlstGymCost" runat="server" CssClass="rateOptions">
+                        <asp:ListItem Value="Yes">Yes - +£10.00</asp:ListItem>
+                        <asp:ListItem Value="No">No - +£0.00</asp:ListItem>
+                    </asp:RadioButtonList>  
+                </p>
+                    
+                <br />
+                <br />
+        
                 <br />
                 <br />
                 <br />
                 <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
+
 
             </p>
             <p class="body">
@@ -106,15 +109,14 @@
                 <br />
                 <br />
                 <asp:Image ID="imgLateCheckout" CssClass="clearfix image" ImageUrl="~/Images/Late-Check-Out.jpg" runat="server" />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
+                <p class="subHeader">
+                    <asp:Label ID="Label1" CssClass="subHeader" runat="server" Text="Add to booking?"></asp:Label>  
+                    <br />
+                    <asp:RadioButtonList ID="rdobtnlstLateCheckout" runat="server" CssClass="rateOptions">
+                        <asp:ListItem Value="Yes">Yes - +£10.00</asp:ListItem>
+                        <asp:ListItem Value="No">No - +£0.00</asp:ListItem>
+                    </asp:RadioButtonList>  
+                </p>
                 <br />
                 <br />
                 <br />

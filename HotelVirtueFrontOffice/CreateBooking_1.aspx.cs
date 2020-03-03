@@ -18,6 +18,9 @@ public partial class CreateBooking_1 : System.Web.UI.Page
 
     Int32 calculatedTotalNumberOfGuests;
 
+    Int32 roomId;
+    DropDownList ddlRoomId = new DropDownList();
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -42,17 +45,12 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         DB.AddParameter("@HotelId", hotelId);
         DB.Execute("sproc_tblRoom_SelectAllAvailableRooms");
 
-
-
         Int32 roomId;
 
         Int32 newIndex = 0;
         while (newIndex < DB.Count)
         {
-
             roomId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["RoomID"]);
-
-
 
             Int32 roomTypeId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["fk2_RoomTypeId"]);
 
@@ -260,25 +258,20 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         lblChooseRoom.CssClass = "body";
         lblChooseRoom.Text = "Please choose the room that you would like: ";
         pnlStaySummary.Controls.Add(lblChooseRoom);
-
-
-        if (IsPostBack == false)
+ 
+        Int32 index = 0;
+        while (index < DB.Count)
         {
-            DropDownList ddltest = new DropDownList();
-            Int32 index = 0;
-            while (index < DB.Count)
-            {
-                ddltest.Items.Add(DB.DataTable.Rows[index]["RoomId"].ToString());
-                index++;
-            }
-            pnlStaySummary.Controls.Add(ddltest);
+            ddlRoomId.Items.Add(DB.DataTable.Rows[index]["RoomId"].ToString());
+            index++;
         }
+        pnlStaySummary.Controls.Add(ddlRoomId);
+        
 
         Form.Controls.Add(pnlStaySummary);
 
         //string accessible = Convert.ToString(DB.DataTable.Rows[0]["Accessible"]);
         //decimal cost = Convert.ToDecimal(DB.DataTable.Rows[0]["Price"]);     
-
 
         //pnlBooking.Controls.Add(new LiteralControl("<br />"));
         //Label lblAccessible = new Label();
@@ -290,13 +283,9 @@ public partial class CreateBooking_1 : System.Web.UI.Page
 
     private void BtnContinue_Click(object sender, EventArgs e)
     {
-        //redirect to confirmation page
-        //on confirmation page, you then out pay now/ later 
-    }
-
-    protected void btnContinueToPayment_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("PayForBooking_1.aspx");
+        Response.Write("RoomId: " + ddlRoomId.SelectedValue);
+        Response.Write("Gym: " + rdobtnlstGymCost.SelectedValue);
+        Response.Write("Late checkout: " + rdobtnlstLateCheckout.SelectedValue);
     }
 
 }
