@@ -9,25 +9,44 @@ namespace HotelVirtueClasses
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
-        public string City { get; set; }
-        public string HouseNumber { get; set; }
-        public string Password { get; set; }
-        public string PostCode { get; set; }
-        public string Street { get; set; }
-        public string Town { get; set; }
+      
 
         public int Valid(int someCustomerId)
         {
-            //if the customer id number is blank
-            if (someCustomerId != 1)
+            //if the number field is not blank
+            if (someCustomerId != 0)
             {
-                //return a blank string
-                return 1;
+                return 0;
             }
             else
             {
-                //otherwise return an error message
-                return 1;
+                return 0;
+            }
+        }
+
+        public long Valid(long someContactNumber)
+        {
+            //if the number field is not blank
+            if (someContactNumber != 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public string Valid(string someFirstName)
+        {
+            //if the number field is not blank
+            if (someFirstName != "")
+            {
+                return "";
+            }
+            else
+            {
+                return "The first name may not be blank";
             }
         }
     }

@@ -19,73 +19,105 @@ namespace Hotel_Virtue_Testing
         [TestMethod]
         public void AccountIdPropertyOk()
         {
+            //create an instance of the class
             clsAccount AAccount = new clsAccount();
-            Int32 testData = 1;
-            AAccount.AccountId = testData;
-            Assert.AreEqual(AAccount.AccountId, testData);
+            //create some test data 
+            Int32 SomeAccountId = 1;
+            //assign the data to the property 
+            AAccount.AccountId = SomeAccountId;
+            //test to see two values are the same
+            Assert.AreEqual(AAccount.AccountId, SomeAccountId);
         }
 
         [TestMethod]
         public void CustomerIdPropertyOk()
         {
+            //create an instance of the class
             clsAccount AAccount = new clsAccount();
-            Int32 testData = 1;
-            AAccount.CustomerId = testData;
-            Assert.AreEqual(AAccount.CustomerId, testData);
+            //create some test data 
+            Int32 SomeCustomerId = 1;
+            //assign the data to the property 
+            AAccount.CustomerId = SomeCustomerId;
+            //test to see two values are the same
+            Assert.AreEqual(AAccount.CustomerId, SomeCustomerId);
         }
 
         [TestMethod]
         public void CityPropertyOk()
         {
-            clsCustomer ACustomer = new clsCustomer();
-            string testData = "Leicestershire";
-            ACustomer.City = testData;
-            Assert.AreEqual(ACustomer.City, testData);
+            //create an instance of the class
+            clsAccount AAccount = new clsAccount();
+            //create some test data 
+            string SomeCity = "Leicestershire";
+            //assign the data to the property 
+            AAccount.City = SomeCity;
+            //test to see two values are the same
+            Assert.AreEqual(AAccount.City, SomeCity);
         }
 
         [TestMethod]
         public void HouseNumberPropertyOk()
         {
-            clsCustomer ACustomer = new clsCustomer();
-            string testData = "2 hopkins haven";
-            ACustomer.HouseNumber = testData;
-            Assert.AreEqual(ACustomer.HouseNumber, testData);
+            //create an instance of the class
+            clsAccount AAccount = new clsAccount();
+            //create some test data 
+            string SomeHouseNumber = "2 hopkins haven";
+            //assign the data to the property
+            AAccount.HouseNumber = SomeHouseNumber;
+            //test to see two values are the same
+            Assert.AreEqual(AAccount.HouseNumber, SomeHouseNumber);
         }
 
         [TestMethod]
         public void PasswordPropertyOk()
         {
-            clsCustomer ACustomer = new clsCustomer();
-            string testData = "Geraldssff3";
-            ACustomer.Password = testData;
-            Assert.AreEqual(ACustomer.Password, testData);
+            //create an instance of the class
+            clsAccount AAccount = new clsAccount();
+            //create some test data 
+            string SomePassword = "Geraldssff3";
+            //assign the data to the property
+            AAccount.Password = SomePassword;
+            //test to see two values are the same
+            Assert.AreEqual(AAccount.Password, SomePassword);
         }
 
         [TestMethod]
         public void PostCodePropertyOk()
         {
-            clsCustomer ACustomer = new clsCustomer();
-            string testData = "Gerald";
-            ACustomer.PostCode = testData;
-            Assert.AreEqual(ACustomer.PostCode, testData);
+            //create an instance of the class
+            clsAccount AAccount = new clsAccount();
+            //create some test data 
+            string SomePostCode = "Gerald";
+            //assign the data to the property
+            AAccount.PostCode = SomePostCode;
+            //test to see two values are the same
+            Assert.AreEqual(AAccount.PostCode, SomePostCode);
         }
 
         [TestMethod]
         public void StreetPropertyOk()
         {
-            clsCustomer ACustomer = new clsCustomer();
-            string testData = "Gerald btown 23";
-            ACustomer.Street = testData;
-            Assert.AreEqual(ACustomer.Street, testData);
+            //create an instance of the class
+            clsAccount AAccount = new clsAccount();
+            //create some test data
+            string SomeStreet = "Gerald btown 23";
+            //assign the data to the property
+            AAccount.Street = SomeStreet;
+            //test to see two values are the same
+            Assert.AreEqual(AAccount.Street, SomeStreet);
         }
 
         [TestMethod]
         public void TownPropertyOk()
         {
-            clsCustomer ACustomer = new clsCustomer();
+            //create an instance of the class
+            clsAccount AAccount = new clsAccount();
+            //create some test data
             string testData = "Leicester";
-            ACustomer.Town = testData;
-            Assert.AreEqual(ACustomer.Town, testData);
+            //assign the data to the property
+            AAccount.Town = testData;
+            //test to see two values are the same
+            Assert.AreEqual(AAccount.Town, testData);
         }
     }
 }
