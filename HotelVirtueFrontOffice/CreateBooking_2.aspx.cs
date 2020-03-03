@@ -9,7 +9,11 @@ public partial class CreateBooking_2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        lblArrivalDate.Text = Convert.ToString(Session["ArrivalDate"]);
+        lblArrivalDate.Visible = true;
 
+        lblDepartureDate.Text = Convert.ToString(Session["DepartureDate"]);
+        lblDepartureDate.Visible = true;
     }
 
     protected void btnPayNow_Click(object sender, EventArgs e)

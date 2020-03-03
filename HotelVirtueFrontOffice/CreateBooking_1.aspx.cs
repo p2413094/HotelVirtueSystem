@@ -385,15 +385,20 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         Boolean gymAccess = Convert.ToBoolean(rdobtnlstGymCost.SelectedValue);
         Boolean lateCheckout = Convert.ToBoolean(rdobtnlstLateCheckout.SelectedValue);
 
+        string shortenedArrivalDate = arrivalDate.ToShortDateString();
+        string shortenedDepartureDate = departureDate.ToShortDateString();
+
         Session["HotelId"] = hotelId;
         Session["Total"] = CalculateCost();
         Session["RoomId"] = roomId;
         Session["UnderFive"] = underFive;
         Session["FiveToSixteen"] = fiveToSixteen;
         Session["SixteenUpwards"] = sixteenUpwards;
-        Session["ArrivalDate"] = arrivalDate;
-        Session["DepartureDate"] = departureDate;
+        Session["ArrivalDate"] = shortenedArrivalDate;
+        Session["DepartureDate"] = shortenedDepartureDate;
         Session["GymAccess"] = rdobtnlstGymCost.SelectedValue;
-        Session["LateCheckout"] = rdobtnlstLateCheckout.SelectedValue;   
+        Session["LateCheckout"] = rdobtnlstLateCheckout.SelectedValue;
+
+        Response.Redirect("CreateBooking_2.aspx");
     }
 }
