@@ -53,28 +53,35 @@
         <div class="box">
             <asp:Label ID="lblHotelName" runat="server" Text=""></asp:Label>
             <p class="body">
-                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                Booking reference: #001
+                <asp:Label ID="lblBookingLineId" runat="server" Text=""></asp:Label>
                 <br />
                 <br />
-                Check-in: 26/01/2020
+                <asp:Label ID="lblCheckIn" runat="server" Text=""></asp:Label>
                 <br />
-                Check-out: 27/01/2020 
+                <asp:Label ID="lblCheckOut" runat="server" Text=""></asp:Label> 
                 <br />
-                Room type: single bed 
+                <asp:Label ID="lblRoomType" runat="server" Text=""></asp:Label>
+                <br />
+                <asp:Label ID="lblUnderFive" runat="server" Text=""></asp:Label>
+                <br />
+                <asp:Label ID="lblFiveToSixteen" runat="server" Text=""></asp:Label>
+                <br />
+                <asp:Label ID="lblSixteenUpwards" runat="server" Text=""></asp:Label>
                 <br />
                 <br />
                 Extras
                 <br />
-                Gym access
                 <br />
-                Breakfast
-                <p class="body" style="float: right;">Total: £x</p>
+                <asp:Label ID="lblGymAccess" runat="server" Text=""></asp:Label>
+                <br />
+                <asp:Label ID="lblLateCheckout" runat="server" Text=""></asp:Label>
+                <br />
+                <asp:Label ID="lblCost" CssClass="leftAlignCost" runat="server" Text=""></asp:Label>
                 <br />
                 <br />       
             </p>
             <p> Please enter a booking reason or choose from one of the pre-selected options:</p>
-            <asp:DropDownList ID="ddlCancellationReason" runat="server" OnSelectedIndexChanged="ddlCancellationReason_SelectedIndexChanged">
+            <asp:DropDownList ID="ddlCancellationReason" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlCancellationReason_SelectedIndexChanged">
                 <asp:listitem text="Room cheaper elsewhere" value="0"></asp:listitem>
                 <asp:listitem text="Booked accidentally" value="1"></asp:listitem>
                 <asp:listitem text="Chose wrong hotel" value="2"></asp:listitem>
@@ -89,6 +96,7 @@
             <asp:TextBox ID="txtReason" CssClass="cancellationReasonField" TextMode="MultiLine" runat="server"></asp:TextBox>
 
             <asp:Button CssClass="continueButton" ID="btnCancelBooking" runat="server" Text="CANCEL BOOKING" OnClick="btnCancelBooking_Click" />
+            <br />
             <br />
             <br />
         </div>

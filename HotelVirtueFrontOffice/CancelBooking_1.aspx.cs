@@ -8,8 +8,38 @@ using HotelVirtueClasses;
 
 public partial class CancelBooking_1 : System.Web.UI.Page
 {
+    Int32 hotelId;
+    string hotelName;
+    Int32 roomId;
+    Int32 customerId;
+    string arrivalDate;
+    string departureDate;
+    Int32 underFive;
+    Int32 fiveToSixteen;
+    Int32 sixteenUpwards;
+    decimal total;
+    Boolean gymAccess;
+    Boolean lateCheckout;
+
+    Int32 bookingId;
+    Int32 bookingLineId;
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        bookingLineId = 3;
+        clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
+        aBookingLine.thisBookingLine.Find(bookingLineId);
+        bookingId = aBookingLine.thisBookingLine.BookingId;
+        lblBookingLineId.Text = "BookingLineId: " + aBookingLine.thisBookingLine.BookingLineId;
+        lblCheckIn.Text = "Check-in: " + aBookingLine.thisBookingLine.ArrivalDate.ToShortDateString();
+        lblCheckOut.Text = "Check out: " + aBookingLine.thisBookingLine.DepartureDate.ToShortDateString();
+        lblUnderFive.Text = "Under Five: " + aBookingLine.thisBookingLine.UnderFive;
+        lblFiveToSixteen.Text = "Five to sixteen: " + aBookingLine.thisBookingLine.FiveToSixteen;
+        lblSixteenUpwards.Text = "Sixteen upwards: " + aBookingLine.thisBookingLine.SixteenUpwards;
+
+        lblGymAccess.Text = "Gym access: " + aBookingLine.thisBookingLine.GymAccess;
+        lblLateCheckout.Text = "Late checkout: " + aBookingLine.thisBookingLine.LateCheckout;
+
         errorPanel.Visible = false;
         lblEnterReason.Visible = false;
         txtReason.Visible = false;
@@ -52,17 +82,22 @@ public partial class CancelBooking_1 : System.Web.UI.Page
             cancellations.thisCancellation.DateTimeOfCancellation = DateTime.Now;
             cancellations.thisCancellation.Reason = reason;
             cancellations.Add();
-            Response.Redirect("CancelBooking_2.aspx");
+
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BookingId", bookingId);
+            DB.Execute("sproc_tblBooking_UpdateBookingToCancelled");
+            //Response.Redirect("CancelBooking_2.aspx");
         }      
     }
 
     protected void ddlCancellationReason_SelectedIndexChanged(object sender, EventArgs e)
     {
+        
         if (ddlCancellationReason.SelectedIndex == 5)
         {
             lblEnterReason.Visible = true;
             txtReason.Visible = true;
-            
         }
+        
     }
 }
