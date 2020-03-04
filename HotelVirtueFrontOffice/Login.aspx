@@ -42,9 +42,24 @@
         </script>
     </form>
 
+    <form>
+         <label for="eddress"></label>
+            <input type="text" id="eddress" name="email address" placeholder="Your Email Address..">
+
+            <label for="pword"></label>
+            <input type="password" id="pword" name="password" placeholder="Your password.."/
+
+
+
+        
+            <input1 type="submit" value="register">
+             <input type="submit" value="Login">
+
+    </form>
 
     <div class="footer">
             © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
     </div>
 </body>
 </html>
+
