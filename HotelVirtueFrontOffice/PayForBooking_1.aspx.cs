@@ -14,17 +14,17 @@ public partial class PayForBooking_1 : System.Web.UI.Page
     string hotelName;
     Int32 customerId;
     Int32 newBookingLineId;
-
+    decimal total;
 
     protected void Page_Load(object sender, EventArgs e)
     {
-
         guest = Convert.ToBoolean(Session["Guest"]);
         firstName = Convert.ToString(Session["firstName"]);
         lastName = Convert.ToString(Session["LastName"]);
         hotelName = Convert.ToString(Session["Name"]);
         customerId = Convert.ToInt32(Session["customerId"]);
         newBookingLineId = Convert.ToInt32(Session["bookingLineId"]);
+        total = Convert.ToDecimal(Session["Total"]);
 
         //guest = true;
         guest = false;
@@ -62,7 +62,9 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         errorPanel.Visible = false;
 
 
-        Int32 bookingLineId = 3;
+        Int32 bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
+        Int32 bookingId = Convert.ToInt32(Session["BookingId"]);
+
         clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
         aBookingLine.thisBookingLine.Find(bookingLineId);
         lblBookingId.Text = "BookingLineId: " + aBookingLine.thisBookingLine.BookingLineId;
@@ -72,7 +74,8 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         lblFiveToSixteen.Text = "Five to sixteen: " + aBookingLine.thisBookingLine.FiveToSixteen;
         lblSixteenUpwards.Text = "Sixteen upwards: " + aBookingLine.thisBookingLine.SixteenUpwards;
         lblGymAccess.Text = "Gym access: " + aBookingLine.thisBookingLine.GymAccess;
-        lblLateCheckout.Text = "Late checkout: " + aBookingLine.thisBookingLine.LateCheckout;
+        lblLateCheckout.Text = "Late checkout: " + aBookingLine.thisBookingLine.LateCheckout;       
+        lblTotal.Text = "Total: £" + total;
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
@@ -105,10 +108,12 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         else
         {
             clsPaymentCollection payments = new clsPaymentCollection();
-            payments.ThisPayment.CustomerId = customerId;
-            payments.ThisPayment.BookingLineId = 3;
+            //
+            payments.ThisPayment.CustomerId = 1;//customerId;
+            //
+            payments.ThisPayment.BookingLineId = newBookingLineId;
             payments.ThisPayment.DateTimeOfPayment = DateTime.Now;
-            payments.ThisPayment.Amount = 79.99m;
+            payments.ThisPayment.Amount = total;
             payments.ThisPayment.CardNumber = txtCardNumber.Text;
             payments.ThisPayment.NameOnCard = txtNameOnCard.Text;
             payments.ThisPayment.ExpiryDate = txtExpiryDate.Text;

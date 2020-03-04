@@ -21,21 +21,24 @@ public partial class CreateBooking_2 : System.Web.UI.Page
     Boolean gymAccess;
     Boolean lateCheckout;
 
+    Int32 createdBookingId;
+    Int32 createdBookingLineId;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         //these are temporary
         hotelId = 1;
         hotelName = "Birmimgham";
-        roomId = 1;
+        roomId = Convert.ToInt32(Session["RoomId"]);
         customerId = 1;
         arrivalDate = Convert.ToDateTime("06/03/2020").ToShortDateString();
         departureDate = Convert.ToDateTime("09/03/2020").ToShortDateString();
-        underFive = 1;
-        fiveToSixteen = 1;
-        sixteenUpwards = 1;
-        total = 250.00m;
-        gymAccess = true;
-        lateCheckout = true;
+        underFive = Convert.ToInt32(Session["UnderFive"]);
+        fiveToSixteen = Convert.ToInt32(Session["FiveToSixteen"]);
+        sixteenUpwards = Convert.ToInt32(Session["SixteenUpwards"]);
+        total = Convert.ToDecimal(Session["Total"]);
+        gymAccess = Convert.ToBoolean(Session["GymAccess"]);
+        lateCheckout = Convert.ToBoolean(Session["LateCheckout"]);
 
         lblHotelName.Text = "Hotel: " + hotelName;
         lblArrivalDate.Text = "Arrival date: " + arrivalDate;
@@ -52,11 +55,22 @@ public partial class CreateBooking_2 : System.Web.UI.Page
 
     protected void btnPayNow_Click(object sender, EventArgs e)
     {
+        Add();
+        Session["BookingId"] = createdBookingId;
+        Session["BookingLineId"] = createdBookingLineId;
+        Session["Total"] = total;
+
         Response.Redirect("PayForBooking_1.aspx");
     }
 
     protected void btnPayLater_Click(object sender, EventArgs e)
-    {        
+    {
+        Add();
+        Response.Redirect("CreateBooking_Confirmation.aspx");
+    }
+
+    void Add()
+    {
         clsBookingCollection allBookings = new clsBookingCollection();
         clsBooking newBooking = new clsBooking();
         newBooking.HotelId = hotelId;
@@ -77,6 +91,7 @@ public partial class CreateBooking_2 : System.Web.UI.Page
         newBookingLine.ArrivalDate = Convert.ToDateTime(arrivalDate);
         newBookingLine.DepartureDate = Convert.ToDateTime(departureDate);
         newBookingLine.BookingId = createdBookingId;
+        newBookingLine.RoomId = roomId;
         newBookingLine.UnderFive = underFive;
         newBookingLine.FiveToSixteen = fiveToSixteen;
         newBookingLine.SixteenUpwards = sixteenUpwards;
@@ -85,11 +100,9 @@ public partial class CreateBooking_2 : System.Web.UI.Page
         newBookingLine.Other = txtOther.Text;
 
         allBookingLines.thisBookingLine = newBookingLine;
-        Int32 createdBookingLineId = allBookingLines.Add();
+        createdBookingLineId = allBookingLines.Add();
 
         Boolean newBookingFound = newBooking.Find(createdBookingId);
         Boolean newBookingLineIdFound = newBookingLine.Find(createdBookingLineId);
-
-        Response.Redirect("CreateBooking_Confirmation.aspx");
     }
 }

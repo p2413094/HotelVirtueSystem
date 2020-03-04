@@ -83,7 +83,7 @@
                 <br />
                 <asp:Label ID="lblLateCheckout" runat="server" Text=""></asp:Label>
                 <br />
-                <p class="body" style="float: right;">Total: £x</p>
+                <asp:Label ID="lblTotal" CssClass="body leftAlignCost" runat="server" Text=""></asp:Label>
                 <br />
             </p>
         </div>
