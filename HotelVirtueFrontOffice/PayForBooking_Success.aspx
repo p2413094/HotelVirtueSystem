@@ -16,7 +16,7 @@
         <div>
             <ul class="ul" >
                 <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span></li>
-                <li class="right"><a href="#">SIGN IN/ REGISTER</a></li>
+                <li class="signInRight"><a href="#">SIGN IN/ REGISTER</a></li>
             </ul>
         </div>     
 
@@ -36,22 +36,26 @@
             function closeNav() {
               document.getElementById("mySidenav").style.width = "0";
             }
-        </script>
+        </script>       
 
-        <div>
-            <p class="returnText">
-                <a href="ViewBooking_1.aspx">Return to view booking page</a>  
-            </p>   
-        </div>
-
-        <p class="pageHeader">Payment success!</p>
         <br />
-        <p class="pageInformation">
-            Your payment was successfully processed.
-            <br />
-            <br />
-        </p>
-        <asp:Button CssClass="returnToHomeScreenButton" ID="btnReturnToHomePage" runat="server" Text="RETURN TO HOME PAGE" OnClick="btnReturnToHomePage_Click" />       
+        <br />
+        <br />
+        <div class="pageHeader">Payment success!</div>
+        <br />
+        <br />
+        <asp:Label ID="lblPaymentSuccess" CssClass="lblSuccessInformation" runat="server" Text="Your payment has been successful"></asp:Label>
+        <br />
+        <br />
+        <asp:Button ID="btnReturnToHomePage" CssClass="returnToHomeScreenButton" runat="server" Text="RETURN TO HOMEPAGE" OnClick="btnReturnToHomePage_Click1" />
+        <br />
+        <br />
+        <br />
+
+
+        <div class="footer">
+            © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
+        </div>
     </form>
 </body>
 </html>

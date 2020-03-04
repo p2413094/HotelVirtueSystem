@@ -21,13 +21,12 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         guest = Convert.ToBoolean(Session["Guest"]);
         firstName = Convert.ToString(Session["firstName"]);
         lastName = Convert.ToString(Session["LastName"]);
-        hotelName = Convert.ToString(Session["Name"]);
+        hotelName = "Birmingham";//Convert.ToString(Session["Name"]);
         customerId = Convert.ToInt32(Session["customerId"]);
         newBookingLineId = Convert.ToInt32(Session["bookingLineId"]);
         total = Convert.ToDecimal(Session["Total"]);
 
-        //guest = true;
-        guest = false;
+        guest = true;
 
         if (guest == true)
         {
@@ -68,6 +67,7 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
         aBookingLine.thisBookingLine.Find(bookingLineId);
         lblBookingId.Text = "BookingLineId: " + aBookingLine.thisBookingLine.BookingLineId;
+        lblHotelName.Text = hotelName;
         lblArrivalDate.Text = "Arrival date: " + aBookingLine.thisBookingLine.ArrivalDate.ToShortDateString();
         lblDepartureDate.Text = "Departure date: " + aBookingLine.thisBookingLine.DepartureDate.ToShortDateString();
         lblUnderFive.Text = "Under five: " + aBookingLine.thisBookingLine.UnderFive;
@@ -108,7 +108,7 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         else
         {
             clsPaymentCollection payments = new clsPaymentCollection();
-            //
+            //this should be added depending upon whether the customer chooses gust or log in checkout 
             payments.ThisPayment.CustomerId = 1;//customerId;
             //
             payments.ThisPayment.BookingLineId = newBookingLineId;

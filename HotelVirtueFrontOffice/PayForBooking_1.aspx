@@ -62,7 +62,6 @@
             <asp:Label ID="lblHotelName" runat="server" Text=""></asp:Label>
             <p class="body">
                 <br />
-                <br />
                 <asp:Label ID="lblBookingId" runat="server" Text=""></asp:Label>
                 <br />
                 <asp:Label ID="lblArrivalDate" runat="server" Text=""></asp:Label>

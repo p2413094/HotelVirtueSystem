@@ -44,13 +44,13 @@
         <div class="pageHeader">Booking success!</div>
         <br />
         <br />
-        <asp:Label ID="lblBookingSuccessInformation" CssClass="lblBookingSuccessInformation" runat="server" Text="Your booking has been created and your chosen hotel has been sent the booking"></asp:Label>
+        <asp:Label ID="lblBookingSuccessInformation" CssClass="lblSuccessInformation" runat="server" Text="Your booking has been created and your chosen hotel has been sent the booking"></asp:Label>
         <br />
         <br />
         <asp:Button ID="btnReturnToHomePage" CssClass="returnToHomeScreenButton" runat="server" Text="RETURN TO HOMEPAGE" />
         <br />
         <br />
-
+        <br />
 
         <div class="footer">
             © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
