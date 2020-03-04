@@ -88,6 +88,8 @@ public partial class CreateBooking_2 : System.Web.UI.Page
         Int32 createdBookingLineId = allBookingLines.Add();
 
         Boolean newBookingFound = newBooking.Find(createdBookingId);
-        Boolean newBookingLineIdFound = newBookingLine.Find(createdBookingLineId);     
+        Boolean newBookingLineIdFound = newBookingLine.Find(createdBookingLineId);
+
+        Response.Redirect("CreateBooking_Confirmation.aspx");
     }
 }

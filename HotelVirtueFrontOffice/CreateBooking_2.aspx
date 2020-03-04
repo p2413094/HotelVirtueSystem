@@ -80,8 +80,8 @@
             </p>
 
             <br />
-            <asp:Button ID="btnPayNow" CssClass="payNowButton" runat="server" Text="PAY NOW" OnClick="btnPayNow_Click" />
-            <asp:Button ID="btnPayLater" CssClass="payLaterButton" runat="server" Text="PAY LATER" OnClick="btnPayLater_Click" />
+            <asp:Button ID="btnPayNow" CssClass="leftButton" runat="server" Text="PAY NOW" OnClick="btnPayNow_Click" />
+            <asp:Button ID="btnPayLater" CssClass="rightButton" runat="server" Text="PAY LATER" OnClick="btnPayLater_Click" />
             <br />
             <br />
         </div>
