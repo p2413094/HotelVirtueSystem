@@ -28,6 +28,7 @@ namespace HotelVirtueClasses
                 ABooking.AdminId = Convert.ToInt32(DB.DataTable.Rows[index]["AdminId"]);
                 ABooking.DateTimeOfBooking = Convert.ToDateTime(DB.DataTable.Rows[index]["DateTimeOfBooking"]);
                 ABooking.Total = Convert.ToDecimal(DB.DataTable.Rows[index]["Total"]);
+                ABooking.Cancelled = Convert.ToBoolean(DB.DataTable.Rows[index]["Cancelled"]);
                 mBookingList.Add(ABooking);
                 index++;
             }

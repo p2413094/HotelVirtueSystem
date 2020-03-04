@@ -26,6 +26,7 @@ namespace Hotel_Virtue_Testing
             testItem.CustomerId = 1;
             testItem.DateTimeOfBooking = DateTime.Now;
             testItem.HotelId = 1;
+            testItem.Cancelled = false;
             testList.Add(testItem);
             allBookings.BookingList = testList;
             Assert.AreEqual(allBookings.BookingList, testList);
@@ -41,6 +42,7 @@ namespace Hotel_Virtue_Testing
             testBooking.CustomerId = 1;
             testBooking.DateTimeOfBooking = DateTime.Now;
             testBooking.HotelId = 1;
+            testBooking.Cancelled = false;
             allBookings.ThisBooking = testBooking;
             Assert.AreEqual(allBookings.ThisBooking, testBooking);
         }
@@ -56,6 +58,7 @@ namespace Hotel_Virtue_Testing
             TestItem.HotelId = 1;
             TestItem.AdminId = 1;
             TestItem.Total = 90m;
+            TestItem.Cancelled = false;
             TestItem.DateTimeOfBooking = DateTime.Now;
             TestList.Add(TestItem);
             allBookings.BookingList = TestList;

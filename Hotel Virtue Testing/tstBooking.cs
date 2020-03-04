@@ -58,6 +58,8 @@ namespace Hotel_Virtue_Testing
             aBooking.DateTimeOfBooking = testData;
             Assert.AreEqual(aBooking.DateTimeOfBooking, testData);
         }
+
+        
      
         [TestMethod]
         public void tblBookingTestBookingIdFound()

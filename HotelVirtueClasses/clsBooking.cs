@@ -14,6 +14,7 @@ namespace HotelVirtueClasses
         private Int32 mAdminId;
         private DateTime mDateTimeOfBooking;
         private decimal mTotal;
+        private Boolean mCancelled;
 
         public int BookingId
         {
@@ -51,6 +52,11 @@ namespace HotelVirtueClasses
             set { mTotal = value; }
         }
 
+        public Boolean Cancelled
+        {
+            get { return mCancelled; }
+            set { mCancelled = value; }
+        }
         public bool Find(int bookingId)
         {
             clsDataConnection DB = new clsDataConnection();
@@ -64,6 +70,7 @@ namespace HotelVirtueClasses
                 mAdminId = Convert.ToInt32(DB.DataTable.Rows[0]["AdminId"]);
                 mDateTimeOfBooking = Convert.ToDateTime(DB.DataTable.Rows[0]["DateTimeOfBooking"]);
                 mTotal = Convert.ToDecimal(DB.DataTable.Rows[0]["Total"]);
+                mCancelled = Convert.ToBoolean(DB.DataTable.Rows[0]["Cancelled"]);
                 return true;
             }
 

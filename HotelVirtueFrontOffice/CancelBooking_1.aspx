@@ -51,8 +51,9 @@
         <br />
         <br />
         <div class="box">
-            Hotel number 1
+            <asp:Label ID="lblHotelName" runat="server" Text=""></asp:Label>
             <p class="body">
+                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                 Booking reference: #001
                 <br />
                 <br />
