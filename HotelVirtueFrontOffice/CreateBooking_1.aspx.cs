@@ -389,6 +389,7 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         string shortenedDepartureDate = departureDate.ToShortDateString();
 
         Session["HotelId"] = hotelId;
+        Session["HotelName"] = "Birmingham";
         Session["Total"] = CalculateCost();
         Session["RoomId"] = roomId;
         Session["UnderFive"] = underFive;

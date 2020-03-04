@@ -310,3 +310,7 @@ li a {
 .leftAlignCost{
     float: right;
 }
+
+.txtOther {
+    width: 40%;
+}

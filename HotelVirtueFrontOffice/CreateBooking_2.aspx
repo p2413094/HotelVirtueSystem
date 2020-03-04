@@ -50,9 +50,6 @@
             <asp:Label ID="lblHotelName" runat="server" Text=""></asp:Label>
             <p class="body">
                 <br />
-                <br />
-                <asp:Label ID="lblBookingId" runat="server" Text=""></asp:Label>
-                <br />
                 <asp:Label ID="lblArrivalDate" runat="server" Text=""></asp:Label>
                 <br />
                 <asp:Label ID="lblDepartureDate" runat="server" Text=""></asp:Label>
@@ -74,11 +71,17 @@
                 <br />
                 <asp:Label ID="lblCost" CssClass="body leftAlignCost" runat="server" Text=""></asp:Label>
                 <br />
+                <br />
+                <asp:Label ID="lblOther" runat="server" Text="Please add any notes for the booking in the field below"></asp:Label>
+                <br />
+                <br />
+                <asp:TextBox ID="txtOther" CssClass="txtOther" TextMode="MultiLine" runat="server"></asp:TextBox>
+                <br />
             </p>
 
+            <br />
             <asp:Button ID="btnPayNow" CssClass="payNowButton" runat="server" Text="PAY NOW" OnClick="btnPayNow_Click" />
             <asp:Button ID="btnPayLater" CssClass="payLaterButton" runat="server" Text="PAY LATER" OnClick="btnPayLater_Click" />
-            <br />
             <br />
             <br />
         </div>
