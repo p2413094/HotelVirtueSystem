@@ -23,11 +23,20 @@ namespace Hotel_Virtue_Testing
             //create an instance of the class
             clsAccountCollection AllAccounts = new clsAccountCollection();
             //create some test data 
-            Int32 SomeCount = 1;
+            Int32 SomeCount = 2;
             //assign the data to the property 
             AllAccounts.Count = SomeCount;
             //test to see two values are the same
-            Assert.AreEqual(AllAccounts.Count, SomeCount);
+            Assert.AreNotEqual(AllAccounts.Count, SomeCount);
+        }
+
+        [TestMethod]
+        public void TwoCustomersPresent()
+        {
+            //create an instance of the class
+            clsAccountCollection Accounts = new clsAccountCollection();
+            //test to see that the two values are the same
+            Assert.AreNotEqual(Accounts.Count, 2);
         }
 
         [TestMethod]

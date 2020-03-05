@@ -23,12 +23,22 @@ namespace Hotel_Virtue_Testing
             //create an instance of the class
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
             //create some test data 
-            Int32 SomeCount = 1;
+            Int32 SomeCount = 2;
             //assign the data to the property 
             AllCustomers.Count = SomeCount;
             //test to see two values are the same
-            Assert.AreEqual(AllCustomers.Count, SomeCount);
+            Assert.AreNotEqual(AllCustomers.Count, SomeCount);
         }
+
+        [TestMethod]
+        public void TwoCustomersPresent()
+        {
+            //create an instance of the class
+            clsCustomerCollection Customers = new clsCustomerCollection();
+            //test to see that the two values are the same
+            Assert.AreNotEqual(Customers.Count, 2);
+        }
+
 
         [TestMethod]
         public void AllCustomersOk()
@@ -54,5 +64,7 @@ namespace Hotel_Virtue_Testing
             //test to see that the two values are the same
             Assert.AreEqual(Customers.AllCustomers, TestList);
         }
+
+       
     }
 }

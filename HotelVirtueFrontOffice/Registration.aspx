@@ -53,7 +53,7 @@
                 <label for="pword">Password</label>
                 <input type="password" id="pword" name="password" required placeholder="Your password..">
 
-               
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
 
                 <label for="lname">Last Name</label>
                 <input type="text" id="lname" name="last Name" required placeholder="Your Last Name..">
