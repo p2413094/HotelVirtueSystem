@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsRoomType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tstBooking.cs" />
     <Compile Include="tstBookingCollection.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="tstCancellationCollection.cs" />
     <Compile Include="tstPayment.cs" />
     <Compile Include="tstPaymentCollection.cs" />
+    <Compile Include="tstRoomType.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
