@@ -41,39 +41,31 @@
             }
         </script>
 
-         <div id="mylogin" class="login">
+         <div id="GuestLogin" class="guestlogin">
 
          
              <br />
-            <asp:TextBox ID="text" runat="server"></asp:TextBox>
+             <asp:TextBox ID="TextBox2" runat="server"  required ="required" placeholder="Your Email Address here.."> </asp:TextBox>
              <br />
              <br />
-            <asp:TextBox ID="Password" runat="server" type="password"></asp:TextBox>
+             <asp:TextBox ID="TextBox1" runat="server"  required ="required" placeholder="Your FirstName here.."> </asp:TextBox>
              <br />
              <br />
-             <asp:Button ID="Button1" runat="server" Text="Login" type="submit"  />
+              <asp:TextBox ID="TextBox3" runat="server"  required ="required" placeholder="Your LastName here.."> </asp:TextBox>
              <br />
              <br />
-             <asp:Button ID="Button2" runat="server" Text="Register" type="submit" />
+              <asp:TextBox ID="TextBox4" runat="server"  required ="required" placeholder=" ContactNumber here.."> </asp:TextBox>
              <br />
              <br />
-             <asp:Button ID="Button3" runat="server" Text="Sign up as Guest" type="submit" />
+             <asp:Button ID="Button2" runat="server" Text="Register" type="submit" value="Register" />
+             <br />
+      
            </div>
 
         <div id="mysignup" class="signup">
-            <asp:Label ID="Label2" runat="server" Text="Sign up"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Guest Login"></asp:Label>
              </div>
     </form>
     
 
     
-     
-
-    
-
-    <div class="footer">
-            © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
-    </div>
-</body>
-</html>
-

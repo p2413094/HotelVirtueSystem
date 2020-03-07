@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="HomePage.aspx.cs" Inherits="HomePage" %>
+﻿<<%@ Page Language="C#" AutoEventWireup="true" CodeFile="HomePage.aspx.cs" Inherits="HomePage" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Hotel Virtue</title>
-    <link rel="stylesheet" = href="StyleSheet.css" />
+    <link rel="stylesheet" = href="StyleSheet2.css" />
 </head>
 <body class="body">
     <form runat="server">
@@ -40,40 +40,27 @@
               document.getElementById("mySidenav").style.width = "0";
             }
         </script>
+    
+          <div id="myregistrationlabel" class="editlabel">
+            <asp:Label ID="Label2" runat="server" Text="Are you sure you want to change these details"></asp:Label>
+               <br />
+             <asp:Button ID="Button2" runat="server" Text="Yes" type="submit" value="Submit" />
 
-         <div id="mylogin" class="login">
-
-         
+             <asp:Button ID="Button1" runat="server" Text="No" type="submit" value="Register" />
+      
+      
              <br />
-            <asp:TextBox ID="text" runat="server"></asp:TextBox>
-             <br />
-             <br />
-            <asp:TextBox ID="Password" runat="server" type="password"></asp:TextBox>
-             <br />
-             <br />
-             <asp:Button ID="Button1" runat="server" Text="Login" type="submit"  />
-             <br />
-             <br />
-             <asp:Button ID="Button2" runat="server" Text="Register" type="submit" />
-             <br />
-             <br />
-             <asp:Button ID="Button3" runat="server" Text="Sign up as Guest" type="submit" />
-           </div>
-
-        <div id="mysignup" class="signup">
-            <asp:Label ID="Label2" runat="server" Text="Sign up"></asp:Label>
+      
              </div>
+
+
+
+           
+
     </form>
-    
-
-    
-     
-
-    
 
     <div class="footer">
             © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
     </div>
 </body>
 </html>
-

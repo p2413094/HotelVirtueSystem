@@ -1,4 +1,4 @@
-﻿<<%@ Page Language="C#" AutoEventWireup="true" CodeFile="HomePage.aspx.cs" Inherits="HomePage" %>
+﻿<<<%@ Page Language="C#" AutoEventWireup="true" CodeFile="HomePage.aspx.cs" Inherits="HomePage" %>
 
 <!DOCTYPE html>
 
@@ -42,41 +42,41 @@
         </script>
     
           <div id="myregistrationlabel" class="registrationlabel">
-            <asp:Label ID="Label2" runat="server" Text="Registration"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Edit Personal Details"></asp:Label>
              </div>
 
 
                <div id="myregistration" class="registration">
 
              <br />
-                   <asp:TextBox ID="TextBox2" runat="server"  required ="required" placeholder="Your Email Address.."> </asp:TextBox>
+                   <asp:TextBox ID="TextBox2" runat="server"  required ="required" placeholder="Edit Email Address.."> </asp:TextBox>
              <br />
              <br />
-                    <asp:TextBox ID="TextBox3" runat="server"  required ="required" placeholder="Your Password here.."> </asp:TextBox>
+                    <asp:TextBox ID="TextBox3" runat="server"  required ="required" placeholder="Edit Password .."> </asp:TextBox>
                    <br />
                    <br />
-                 <asp:TextBox ID="TextBox4" runat="server"  required ="required" placeholder="Your FirstName here.."> </asp:TextBox>
+                 <asp:TextBox ID="TextBox4" runat="server"  required ="required" placeholder="Edit FirstName.."> </asp:TextBox>
                    <br />
                    <br />
-                    <asp:TextBox ID="TextBox5" runat="server"  required ="required" placeholder="Your LastName here.."> </asp:TextBox>
+                    <asp:TextBox ID="TextBox5" runat="server"  required ="required" placeholder="Edit LastName.."> </asp:TextBox>
                    <br />
                    <br />
-                    <asp:TextBox ID="TextBox6" runat="server"  required ="required" placeholder="Your PostCode here.."> </asp:TextBox>
-                   <br />
-                    <br />
-                    <asp:TextBox ID="TextBox1" runat="server"  required ="required" placeholder="Your City here.."> </asp:TextBox>
+                    <asp:TextBox ID="TextBox6" runat="server"  required ="required" placeholder="Edit PostCode.."> </asp:TextBox>
                    <br />
                     <br />
-                    <asp:TextBox ID="TextBox8" runat="server"  required ="required" placeholder="Your Street here.."> </asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server"  required ="required" placeholder="Edit City .."> </asp:TextBox>
+                   <br />
+                    <br />
+                    <asp:TextBox ID="TextBox8" runat="server"  required ="required" placeholder="Edit Street .."> </asp:TextBox>
                    <br />
                    <br />
-                    <asp:TextBox ID="TextBox7" runat="server"  required ="required" placeholder="Your Town here.."> </asp:TextBox>
+                    <asp:TextBox ID="TextBox7" runat="server"  required ="required" placeholder="Edit Town.."> </asp:TextBox>
                    <br />
                    <br />
                    <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
                    <br />
                    <br />
-                   <asp:Button ID="Button1" runat="server" Text="Button" type="submit" value="Register" />
+                   <asp:Button ID="Button1" runat="server" Text="Button" type="submit" value="Confirm" />
                    <br />
 
              </div>

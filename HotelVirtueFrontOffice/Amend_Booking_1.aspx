@@ -68,7 +68,7 @@
                 <br />
                 <br />      
                 <asp:RadioButton CssClass="radioButtonThisBooking" ID="rbThisBooking" Text="Cancel this booking" runat="server" />
-            </p>
+              &nbsp;</p>
 
         </div>
 
