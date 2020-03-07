@@ -35,9 +35,9 @@ public partial class ViewBooking_1 : System.Web.UI.Page
         clsBookingLineCollection allBookingLines = new clsBookingLineCollection();
 
         Int32 index = 0;
-        Int32 recordCount = allBookingLines.BookingLineList.Count;
+        Int32 recordCount = allBookings.BookingList.Count;
     
-        foreach (clsBooking booking in allBookings.BookingList)
+        foreach (clsBookingLine bookingLine in allBookingLines.BookingLineList)
         {
             Int32 calculatedNoOfGuests;
 
@@ -45,35 +45,39 @@ public partial class ViewBooking_1 : System.Web.UI.Page
             pnlBooking.CssClass = "box";
 
             Label lblBookingId = new Label();
-            lblBookingId.Text = "BookingId: " + booking.BookingId;
+            lblBookingId.Text = "BookingId: " + bookingLine.BookingId;
             pnlBooking.Controls.Add(lblBookingId);
+            pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
+            Label lblCheckIn = new Label();
+            lblCheckIn.CssClass = "body";
+            lblCheckIn.Text = "Check-in: " + bookingLine.ArrivalDate.ToShortDateString();
+            pnlBooking.Controls.Add(lblCheckIn);
+            pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+            Label lblCheckout = new Label();
+            lblCheckout.CssClass = "body";
+            lblCheckout.Text = "Check-out: " + bookingLine.DepartureDate.ToShortDateString();
+            pnlBooking.Controls.Add(lblCheckout);
+            pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+            Label lblNoOfGuests = new Label();
+            lblNoOfGuests.CssClass = "body";
+            calculatedNoOfGuests = bookingLine.UnderFive + bookingLine.FiveToSixteen + bookingLine.SixteenUpwards;
+            lblNoOfGuests.Text = "Number of guests: " + Convert.ToString(calculatedNoOfGuests);
+            pnlBooking.Controls.Add(lblNoOfGuests);
+            pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+            Label lblTotal = new Label();
+            lblTotal.CssClass = "extrasHeader";
+            lblTotal.Text = "Total: £" + allBookings.BookingList[index].Total;
+            pnlBooking.Controls.Add(lblTotal);
+            pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
             this.Controls.Add(pnlBooking);
             this.Controls.Add(new LiteralControl("<br />"));
 
-            index++;
-
-            //foreach (clsBookingLine bookingLine in allBookingLines.BookingLineList)
-            //{
-            //    Label lblCheckIn = new Label();
-            //    lblCheckIn.CssClass = "body";
-            //    lblCheckIn.Text = "Check-in: " + Convert.ToString(bookingLine.ArrivalDate.ToShortDateString());
-            //    pnlBookings.Controls.Add(lblCheckIn);
-            //    pnlBookings.Controls.Add(new LiteralControl("<br />"));
-
-            //    Label lblCheckout = new Label();
-            //    lblCheckout.CssClass = "body";
-            //    lblCheckout.Text = "Check-out: " + Convert.ToString(bookingLine.DepartureDate.ToShortDateString());
-            //    pnlBookings.Controls.Add(lblCheckout);
-            //    pnlBookings.Controls.Add(new LiteralControl("<br />"));
-
-            //    Label lblNoOfGuests = new Label();
-            //    lblNoOfGuests.CssClass = "body";
-            //    calculatedNoOfGuests = bookingLine.UnderFive + bookingLine.FiveToSixteen + bookingLine.SixteenUpwards;
-            //    lblNoOfGuests.Text = "Number of guests: " + Convert.ToString(calculatedNoOfGuests);
-            //    pnlBookings.Controls.Add(lblNoOfGuests);
-            //}
+            index++;           
         }
     }
 }
