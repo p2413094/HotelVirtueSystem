@@ -16,6 +16,10 @@ public partial class PayForBooking_1 : System.Web.UI.Page
     Int32 newBookingLineId;
     decimal total;
 
+    //temp
+    Int32 bookingLineId = 141;
+    Int32 bookingId = 265;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         guest = Convert.ToBoolean(Session["Guest"]);
@@ -61,8 +65,8 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         errorPanel.Visible = false;
 
 
-        Int32 bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
-        Int32 bookingId = Convert.ToInt32(Session["BookingId"]);
+        //Int32 bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
+        //Int32 bookingId = Convert.ToInt32(Session["BookingId"]);
 
         clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
         aBookingLine.thisBookingLine.Find(bookingLineId);
@@ -111,7 +115,7 @@ public partial class PayForBooking_1 : System.Web.UI.Page
             //this should be added depending upon whether the customer chooses gust or log in checkout 
             payments.ThisPayment.CustomerId = 1;//customerId;
             //
-            payments.ThisPayment.BookingLineId = newBookingLineId;
+            payments.ThisPayment.BookingLineId = bookingLineId;//newBookingLineId;
             payments.ThisPayment.DateTimeOfPayment = DateTime.Now;
             payments.ThisPayment.Amount = total;
             payments.ThisPayment.CardNumber = txtCardNumber.Text;

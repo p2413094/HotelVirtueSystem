@@ -83,10 +83,12 @@ public partial class CancelBooking_1 : System.Web.UI.Page
             cancellations.thisCancellation.Reason = reason;
             cancellations.Add();
 
+            bookingId = 1;
+
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@BookingId", bookingId);
             DB.Execute("sproc_tblBooking_UpdateBookingToCancelled");
-            //Response.Redirect("CancelBooking_2.aspx");
+            Response.Redirect("CancelBooking_2.aspx");
         }      
     }
 
