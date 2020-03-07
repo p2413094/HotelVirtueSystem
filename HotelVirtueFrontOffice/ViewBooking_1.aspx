@@ -46,7 +46,6 @@
 
         <p class="pageHeader">Current bookings</p>
 
-        <br />
         <br />  
     </form>
 </body>

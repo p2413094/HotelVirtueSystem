@@ -96,8 +96,6 @@ public partial class ViewBooking_1 : System.Web.UI.Page
         lblChooseBooking.Text = "Please choose the booking that you wish to view";
         pnlChooseBooking.Controls.Add(lblChooseBooking);
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
-
-        pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
 
         while (index < recordCount)
@@ -107,18 +105,25 @@ public partial class ViewBooking_1 : System.Web.UI.Page
         }
 
         pnlChooseBooking.Controls.Add(ddlBookingLineId);
+        pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
+        pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
+        pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
+
         Form.Controls.Add(pnlChooseBooking);
+        Form.Controls.Add(new LiteralControl("<br />"));
 
         Button btnViewThisBooking = new Button();
         btnViewThisBooking.CssClass = "continueButton";
-        btnViewThisBooking.Text = "VIEW THIS BOOKING";
+        btnViewThisBooking.Text = "VIEW BOOKING";
         btnViewThisBooking.Click += BtnViewThisBooking_Click;
         pnlChooseBooking.Controls.Add(btnViewThisBooking);
+        pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
     }
 
     private void BtnViewThisBooking_Click(object sender, EventArgs e)
     {
         bookingLineId = Convert.ToInt32(ddlBookingLineId.SelectedValue);
+        Session["BookingLineId"] = bookingLineId;
     }
 }
