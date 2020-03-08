@@ -20,21 +20,6 @@ public partial class ViewBooking_1 : System.Web.UI.Page
         CreateViewBookingSection();
     }
 
-    protected void btnViewBooking_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ViewBooking_2.aspx");
-    }
-
-    protected void btnCancel_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("CancelBooking_1.aspx");
-    }
-
-    protected void btnPayForBooking_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("PayForBooking.aspx");
-    }
-   
     void DisplayBookings()
     {     
         Int32 index = 0;
@@ -125,5 +110,6 @@ public partial class ViewBooking_1 : System.Web.UI.Page
     {
         bookingLineId = Convert.ToInt32(ddlBookingLineId.SelectedValue);
         Session["BookingLineId"] = bookingLineId;
+        Response.Redirect("ViewBooking_2.aspx");
     }
 }

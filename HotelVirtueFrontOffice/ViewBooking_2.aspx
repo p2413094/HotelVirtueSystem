@@ -48,41 +48,8 @@
 
         <br />
         <br />
-        <div class="box">
-            <asp:Label ID="lblHotelName" runat="server" Text="Hotel name: "></asp:Label>
-            <p class="body">
-                <asp:Label ID="lblCheckIn" runat="server" Text="Arrival date: "></asp:Label>
-                <br />
-                <asp:Label ID="lblCheckout" runat="server" Text="Departure date: "></asp:Label>
-                <br />
-                <asp:Label ID="lblRoomType" runat="server" Text="Room type: "></asp:Label>
-                <br />
-                <asp:Label ID="lblUnderFive" runat="server" Text="Under five: "></asp:Label>
-                <br />
-                <asp:Label ID="lblFiveToSixteen" runat="server" Text="Five to sixteen: "></asp:Label>
-                <br />
-                <asp:Label ID="lblSixteenUpwards" runat="server" Text="Sixteen upwards: "></asp:Label>
-                <br />
-                <asp:Label ID="lblOther" runat="server" Text="Other: "></asp:Label>
-                <br />
-                <br />
-                Extras
-                <br />
-                <asp:Label ID="lblGymAccess" runat="server" Text="Gym access: "></asp:Label>
-                <br />
-                <asp:Label ID="lblLateCheckout" runat="server" Text="Late checkout: "></asp:Label>
-                <br />
-                <br />
-            </p>
-
-            <p class="body leftAlignCost">
-                <asp:Label ID="lblStatus" runat="server" Text="Status: "></asp:Label>
-                <br />
-                <asp:Label ID="lblTotal" runat="server" Text="Total: £"></asp:Label>                
-            </p>
-            <br />
-            <br />
-        </div>
+        <asp:Panel ID="pnlBooking" CssClass="box" runat="server"></asp:Panel>
+        
      </form>
 </body>
 </html>
