@@ -45,20 +45,28 @@ namespace HotelVirtueClasses
         public clsCustomerCollection()
         {
             //create an instance of the customer class to store a customer
-            clsCustomer ACustomer = new clsCustomer();
-            //set the customer to 1
-            ACustomer.CustomerId = 1;
-            //add trhe customer to the private list of customers
-            mAllCustomers.Add(ACustomer);
-            //re initialise the ACustomer object to accept new line
-            ACustomer = new clsCustomer();
-            //set the customer to 1
-            ACustomer.CustomerId = 2;
-            //Add the second customer private list of customers
-            mAllCustomers.Add(ACustomer);
-            //add the second customer to the private list 
-            mAllCustomers.Add(ACustomer);
-            //private list now contains two new customers
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure 
+            DB.Execute("sproc_tblCustomer_SelectAll");
+            //get the count of records
+            Int32 RecordCount = DB.Count;
+            //set up the index for the loop
+            Int32 Index = 0;
+            //while there are records to process
+            while (Index < RecordCount) ;
+            {
+                //create a new instance of the customer class
+                clsCustomer ACustomer = new clsCustomer();
+                //get the customer name
+                ACustomer.FirstName = DB.DataTable.Rows[Index]["FirstName"].ToString();
+                //get the primary key
+                ACustomer.CustomerId = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerId"]);
+                //add the customer to the private data member
+                mAllCustomers.Add(ACustomer);
+                //increment the Index
+                Index++;
+            }
+
         }
 
     }
