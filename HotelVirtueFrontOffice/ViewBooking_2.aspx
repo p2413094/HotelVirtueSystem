@@ -6,6 +6,13 @@
 <head runat="server">
     <title>View bookings</title>
     <link rel="stylesheet" = href="StyleSheet.css" />
+    <style type="text/css">
+        .auto-style1 {
+            position: absolute;
+            top: 302px;
+            left: 415px;
+        }
+    </style>
 </head>
 <body class="body">
     <form runat="server">
@@ -38,10 +45,9 @@
             }
         </script>
 
+        <br />
         <div>
-            <p class="returnText">
-                <a href="ViewBooking_1.aspx">Return to bookings</a>  
-            </p>   
+            <asp:HyperLink ID="hyplnkReturnToBookings" CssClass="returnText" NavigateUrl="~/ViewBooking_1.aspx" runat="server">Return to bookings</asp:HyperLink>
         </div>
 
         <asp:Label ID="lblBookingReference" CssClass="pageHeader" runat="server" Text=""></asp:Label>
@@ -49,7 +55,6 @@
         <br />
         <br />
         <asp:Panel ID="pnlBooking" CssClass="box" runat="server"></asp:Panel>
-        
      </form>
 </body>
 </html>

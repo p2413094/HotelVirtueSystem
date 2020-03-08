@@ -118,13 +118,13 @@ li a {
 }
 
 .box .left {
-    width: 15%;
+    width: 30%;
     float: left;
     text-align: right;
 }
 
 .box .right {
-    width: 15%;
+    width: 30%;
     margin-left: 2%;
     float: left;
 }
