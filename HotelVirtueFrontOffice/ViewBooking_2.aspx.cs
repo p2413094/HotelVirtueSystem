@@ -16,33 +16,19 @@ public partial class ViewBooking_2 : System.Web.UI.Page
     Int32 doubleBed;
 
     protected void Page_Load(object sender, EventArgs e)
-    {
-        try
-        {
-            //hard coded for the time being
-            bookingLineId = 30000;
-            //end of hard code
-            
-            //bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
-            clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
-            aBookingLine.thisBookingLine.Find(bookingLineId);
+    {                
+        bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
+        clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
+        aBookingLine.thisBookingLine.Find(bookingLineId);
 
+        Boolean bookingLineFound = aBookingLine.thisBookingLine.Find(bookingLineId);
+
+        if (bookingLineFound == true)
+        {
             Label lblHotelName = new Label();
             lblHotelName.Text += "Hard coded: Birmingham";
             pnlBooking.Controls.Add(lblHotelName);
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
-            pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-            Label lblArrivalDate = new Label();
-            lblArrivalDate.CssClass = "body";
-            lblArrivalDate.Text = "Arrival date: " + aBookingLine.thisBookingLine.ArrivalDate.ToShortDateString();
-            pnlBooking.Controls.Add(lblArrivalDate);
-            pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-            Label lblDepartureDate = new Label();
-            lblDepartureDate.CssClass = "body";
-            lblDepartureDate.Text = "Departure date: " + aBookingLine.thisBookingLine.DepartureDate.ToShortDateString();
-            pnlBooking.Controls.Add(lblDepartureDate);
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
             Label lblRoomType = new Label();
@@ -70,6 +56,19 @@ public partial class ViewBooking_2 : System.Web.UI.Page
             pnlBooking.Controls.Add(lblRoomType);
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
+            Label lblArrivalDate = new Label();
+            lblArrivalDate.CssClass = "body";
+            lblArrivalDate.Text = "Arrival date: " + aBookingLine.thisBookingLine.ArrivalDate.ToShortDateString();
+            pnlBooking.Controls.Add(lblArrivalDate);
+            pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+            Label lblDepartureDate = new Label();
+            lblDepartureDate.CssClass = "body";
+            lblDepartureDate.Text = "Departure date: " + aBookingLine.thisBookingLine.DepartureDate.ToShortDateString();
+            pnlBooking.Controls.Add(lblDepartureDate);
+            pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+
             Label lblUnderFive = new Label();
             lblUnderFive.CssClass = "body";
             lblUnderFive.Text = "Under five: " + aBookingLine.thisBookingLine.UnderFive;
@@ -90,7 +89,17 @@ public partial class ViewBooking_2 : System.Web.UI.Page
 
             Label lblOther = new Label();
             lblOther.CssClass = "body";
-            lblOther.Text = "Other: " + aBookingLine.thisBookingLine.Other;
+            lblOther.Text = "Other: ";
+            string other = aBookingLine.thisBookingLine.Other;
+
+            if (other.Length == 0)
+            {
+                lblOther.Text += "BLANK";
+            }
+            else
+            {
+                lblOther.Text += aBookingLine.thisBookingLine.Other;
+            }
             pnlBooking.Controls.Add(lblOther);
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
@@ -100,7 +109,6 @@ public partial class ViewBooking_2 : System.Web.UI.Page
             lblExtras.Text = "Extras";
             pnlBooking.Controls.Add(lblExtras);
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
 
             Label lblGymAccess = new Label();
             lblGymAccess.CssClass = "body";
@@ -162,37 +170,10 @@ public partial class ViewBooking_2 : System.Web.UI.Page
             pnlBooking.Visible = true;
         }
 
-        catch
+        else
         {
-            
-            Label lblError = new Label();
-            lblError.Text = "There was a problem connecting to the database";
-            pnlBooking.Controls.Add(lblError);
-            pnlBooking.Controls.Add(new LiteralControl("<br />"));
-            pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-            Label lblRedirectQuestion = new Label();
-            lblRedirectQuestion.CssClass = "body";
-            lblRedirectQuestion.Text = "Go to current bookings screen or return to home page?";
-            pnlBooking.Controls.Add(lblRedirectQuestion);
-            pnlBooking.Controls.Add(new LiteralControl("<br />"));
-            pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-            Button btnReturnToBookings = new Button();
-            btnReturnToBookings.CssClass = "leftButton";
-            btnReturnToBookings.Text = "RETURN TO BOOKINGS";
-            btnReturnToBookings.Click += BtnReturnToBookings_Click;
-            pnlBooking.Controls.Add(btnReturnToBookings);
-
-            Button btnReturnToHomePage = new Button();
-            btnReturnToHomePage.CssClass = "rightButton";
-            btnReturnToHomePage.Text = "RETURN TO HOMEPAGE";
-            btnReturnToHomePage.Click += BtnReturnToHomePage_Click;
-            pnlBooking.Controls.Add(btnReturnToHomePage);
-            pnlBooking.Controls.Add(new LiteralControl("<br />"));
-            pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-        }
+            DisplayError();
+        }           
     }
 
     Int32 GetRoomTypeId()
@@ -213,6 +194,36 @@ public partial class ViewBooking_2 : System.Web.UI.Page
 
         singleBed = Convert.ToInt32(DBGetSingleAndDoubleBeds.DataTable.Rows[0]["SingleBed"]);
         doubleBed = Convert.ToInt32(DBGetSingleAndDoubleBeds.DataTable.Rows[0]["DoubleBed"]);
+    }
+
+    void DisplayError()
+    {
+        Label lblError = new Label();
+        lblError.Text = "There was a problem connecting to the database";
+        pnlBooking.Controls.Add(lblError);
+        pnlBooking.Controls.Add(new LiteralControl("<br />"));
+        pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+        Label lblRedirectQuestion = new Label();
+        lblRedirectQuestion.CssClass = "body";
+        lblRedirectQuestion.Text = "Go to current bookings screen or return to home page?";
+        pnlBooking.Controls.Add(lblRedirectQuestion);
+        pnlBooking.Controls.Add(new LiteralControl("<br />"));
+        pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+        Button btnReturnToBookings = new Button();
+        btnReturnToBookings.CssClass = "leftButton";
+        btnReturnToBookings.Text = "RETURN TO BOOKINGS";
+        btnReturnToBookings.Click += BtnReturnToBookings_Click;
+        pnlBooking.Controls.Add(btnReturnToBookings);
+
+        Button btnReturnToHomePage = new Button();
+        btnReturnToHomePage.CssClass = "rightButton";
+        btnReturnToHomePage.Text = "RETURN TO HOMEPAGE";
+        btnReturnToHomePage.Click += BtnReturnToHomePage_Click;
+        pnlBooking.Controls.Add(btnReturnToHomePage);
+        pnlBooking.Controls.Add(new LiteralControl("<br />"));
+        pnlBooking.Controls.Add(new LiteralControl("<br />"));
     }
 
     private void BtnReturnToBookings_Click(object sender, EventArgs e)

@@ -85,6 +85,7 @@ li a {
 .box {
     border: solid;
     border-color: #1bd6be;
+    border-width: 3.5px;
     padding: 1%;
     margin-left: 25%;
     margin-right: 25%;
