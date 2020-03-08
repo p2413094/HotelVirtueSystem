@@ -310,7 +310,7 @@ namespace Hotel_Virtue_Testing
         }
 
         [TestMethod]
-        public void DeleteBothBookingandBookingLine()
+        public void DeleteBookingLine()
         {
             clsBookingCollection allBookings = new clsBookingCollection();
             clsBooking testBooking = new clsBooking();
@@ -334,12 +334,11 @@ namespace Hotel_Virtue_Testing
             testItem.DepartureDate = DateTime.Now.Date.AddDays(2);
             testItem.GymAccess = true;
             testItem.LateCheckout = false;
-            testItem.Other = "Test25/02/2020";
+            testItem.Other = "Test08/03/2020";
             allBookingLines.thisBookingLine = testItem;
             primaryKey = allBookingLines.Add();
             testItem.BookingLineId = primaryKey;
 
-            allBookings.Delete();
             allBookingLines.Delete();
 
             Boolean found = allBookingLines.thisBookingLine.Find(primaryKey);
