@@ -26,7 +26,8 @@ public partial class CancelBooking_1 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        bookingLineId = 3;
+        bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
+        //bookingLineId = 3;
         clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
         aBookingLine.thisBookingLine.Find(bookingLineId);
         bookingId = aBookingLine.thisBookingLine.BookingId;
@@ -78,12 +79,15 @@ public partial class CancelBooking_1 : System.Web.UI.Page
         else
         {
             clsCancellationCollection cancellations = new clsCancellationCollection();
-            cancellations.thisCancellation.BookingLineId = 3;
+            cancellations.thisCancellation.BookingLineId = bookingLineId;
             cancellations.thisCancellation.DateTimeOfCancellation = DateTime.Now;
             cancellations.thisCancellation.Reason = reason;
             cancellations.Add();
 
-            bookingId = 1;
+            //bookingId = 1;
+            clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
+            aBookingLine.thisBookingLine.Find(bookingLineId);
+            bookingId = aBookingLine.thisBookingLine.BookingId;
 
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@BookingId", bookingId);

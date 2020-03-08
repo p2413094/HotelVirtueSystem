@@ -77,9 +77,9 @@ public partial class ViewBooking_1 : System.Web.UI.Page
         Panel pnlChooseBooking = new Panel();
         pnlChooseBooking.CssClass = "box";
 
-        Label lblChooseBooking = new Label();
-        lblChooseBooking.Text = "Please choose the booking that you wish to view";
-        pnlChooseBooking.Controls.Add(lblChooseBooking);
+        Label lblChooseBookingOption = new Label();
+        lblChooseBookingOption.Text = "Please choose the booking that you wish to view/ cancel";
+        pnlChooseBooking.Controls.Add(lblChooseBookingOption);
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
 
@@ -98,18 +98,38 @@ public partial class ViewBooking_1 : System.Web.UI.Page
         Form.Controls.Add(new LiteralControl("<br />"));
 
         Button btnViewThisBooking = new Button();
-        btnViewThisBooking.CssClass = "continueButton";
+        btnViewThisBooking.CssClass = "rightButton";
         btnViewThisBooking.Text = "VIEW BOOKING";
         btnViewThisBooking.Click += BtnViewThisBooking_Click;
         pnlChooseBooking.Controls.Add(btnViewThisBooking);
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
+
+        Button btnCancelThisBooking = new Button();
+        btnCancelThisBooking.CssClass = "rightButton";
+        btnCancelThisBooking.Text = "CANCEL THIS BOOKING";
+        btnCancelThisBooking.Click += BtnCancelThisBooking_Click;
+        pnlChooseBooking.Controls.Add(btnCancelThisBooking);
+        pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
+        pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
+    }
+
+    private void BtnCancelThisBooking_Click(object sender, EventArgs e)
+    {
+        Session["BookingLineId"] = GetBookingLineId();
+        Response.Redirect("CancelBooking_1.aspx");
     }
 
     private void BtnViewThisBooking_Click(object sender, EventArgs e)
     {
-        bookingLineId = Convert.ToInt32(ddlBookingLineId.SelectedValue);
+        bookingLineId = GetBookingLineId();
         Session["BookingLineId"] = bookingLineId;
         Response.Redirect("ViewBooking_2.aspx");
+    }
+
+    Int32 GetBookingLineId()
+    {
+        bookingLineId = Convert.ToInt32(ddlBookingLineId.SelectedValue);
+        return bookingLineId;
     }
 }
