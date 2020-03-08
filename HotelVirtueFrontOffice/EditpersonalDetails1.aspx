@@ -25,7 +25,7 @@
           <a href="#">SEARCH FOR HOTEL</a>
           <a href="#">OFFERS</a>
           <a href="#">CONTACT DETAILS</a>
-          <a href="#">OTHER OPTION HERE</a>
+          <a href="#">OTHER OPT
         </div>
 
         <asp:Panel ID="Panel1" runat="server"></asp:Panel>
@@ -76,7 +76,7 @@
                    <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
                    <br />
                    <br />
-                   <asp:Button ID="Button1" runat="server" Text="Button" type="submit" value="Confirm" />
+                   <asp:Button ID="Button1" runat="server" Text="Edit" type="submit" value="Confirm" OnClick="Button1_Click1" />
                    <br />
 
              </div>
@@ -85,6 +85,7 @@
 
     <div class="footer">
             © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
+    poses.
     </div>
 </body>
 </html>

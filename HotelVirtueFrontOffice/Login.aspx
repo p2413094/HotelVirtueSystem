@@ -51,13 +51,13 @@
             <asp:TextBox ID="Password" runat="server" type="password"></asp:TextBox>
              <br />
              <br />
-             <asp:Button ID="Button1" runat="server" Text="Login" type="submit"  />
+             <asp:Button ID="Button1" runat="server" Text="Login" type="submit" OnClick="Button1_Click"  />
              <br />
              <br />
-             <asp:Button ID="Button2" runat="server" Text="Register" type="submit" />
+             <asp:Button ID="Button2" runat="server" Text="Register" type="submit" OnClick="Button2_Click" />
              <br />
              <br />
-             <asp:Button ID="Button3" runat="server" Text="Sign up as Guest" type="submit" />
+             <asp:Button ID="Button3" runat="server" Text="Sign up as Guest" type="submit" OnClick="Button3_Click" />
            </div>
 
         <div id="mysignup" class="signup">

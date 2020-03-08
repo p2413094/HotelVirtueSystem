@@ -57,7 +57,7 @@
               <asp:TextBox ID="TextBox4" runat="server"  required ="required" placeholder=" ContactNumber here.."> </asp:TextBox>
              <br />
              <br />
-             <asp:Button ID="Button2" runat="server" Text="Register" type="submit" value="Register" />
+             <asp:Button ID="Button2" runat="server" Text="Register" type="submit" value="Register" OnClick="Button2_Click1" />
              <br />
       
            </div>

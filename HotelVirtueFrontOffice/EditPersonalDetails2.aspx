@@ -25,7 +25,7 @@
           <a href="#">SEARCH FOR HOTEL</a>
           <a href="#">OFFERS</a>
           <a href="#">CONTACT DETAILS</a>
-          <a href="#">OTHER OPTION HERE</a>
+          OTHER OPT
         </div>
 
         <asp:Panel ID="Panel1" runat="server"></asp:Panel>
@@ -44,9 +44,9 @@
           <div id="myregistrationlabel" class="editlabel">
             <asp:Label ID="Label2" runat="server" Text="Are you sure you want to change these details"></asp:Label>
                <br />
-             <asp:Button ID="Button2" runat="server" Text="Yes" type="submit" value="Submit" />
+             <asp:Button ID="Button2" runat="server" Text="Yes" type="submit" value="Submit" OnClick="Button2_Click2" />
 
-             <asp:Button ID="Button1" runat="server" Text="No" type="submit" value="Register" />
+             <asp:Button ID="Button1" runat="server" Text="No" type="submit" value="Register" OnClick="Button1_Click2" />
       
       
              <br />
@@ -61,6 +61,8 @@
 
     <div class="footer">
             © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
+    poses.
+    poses.
     </div>
 </body>
 </html>

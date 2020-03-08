@@ -25,7 +25,7 @@
           <a href="#">SEARCH FOR HOTEL</a>
           <a href="#">OFFERS</a>
           <a href="#">CONTACT DETAILS</a>
-          <a href="#">OTHER OPTION HERE</a>
+          OTHER OPT
         </div>
 
         <asp:Panel ID="Panel1" runat="server"></asp:Panel>
@@ -64,7 +64,7 @@
                     <asp:TextBox ID="TextBox6" runat="server"  required ="required" placeholder="Your PostCode here.."> </asp:TextBox>
                    <br />
                     <br />
-                    <asp:TextBox ID="TextBox1" runat="server"  required ="required" placeholder="Your City here.."> </asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server"  required ="required" placeholder="Your HouseNo here.."> </asp:TextBox>
                    <br />
                     <br />
                     <asp:TextBox ID="TextBox8" runat="server"  required ="required" placeholder="Your Street here.."> </asp:TextBox>
@@ -73,10 +73,10 @@
                     <asp:TextBox ID="TextBox7" runat="server"  required ="required" placeholder="Your Town here.."> </asp:TextBox>
                    <br />
                    <br />
-                   <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                   <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
                    <br />
                    <br />
-                   <asp:Button ID="Button1" runat="server" Text="Button" type="submit" value="Register" />
+                   <asp:Button ID="Button1" runat="server" Text="Button" type="submit" value="Register" OnClick="Button1_Click3" />
                    <br />
 
              </div>
@@ -85,6 +85,8 @@
 
     <div class="footer">
             © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
+    poses.
+    poses.
     </div>
 </body>
 </html>
