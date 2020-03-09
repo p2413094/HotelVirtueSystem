@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Contact Details</title>
+    <link rel="stylesheet" = href="StyleSheet.css" />
 </head>
 <body>
      <form runat="server">
