@@ -78,7 +78,7 @@ public partial class ViewBooking_1 : System.Web.UI.Page
         pnlChooseBooking.CssClass = "box";
 
         Label lblChooseBookingOption = new Label();
-        lblChooseBookingOption.Text = "Please choose the booking that you wish to view/ cancel";
+        lblChooseBookingOption.Text = "Please choose the booking that you wish to view/ cancel/ delete";
         pnlChooseBooking.Controls.Add(lblChooseBookingOption);
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
@@ -112,6 +112,20 @@ public partial class ViewBooking_1 : System.Web.UI.Page
         pnlChooseBooking.Controls.Add(btnCancelThisBooking);
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
+
+        Button btnDelete = new Button();
+        btnDelete.CssClass = "rightButton";
+        btnDelete.Text = "DELETE THIS BOOKING";
+        btnDelete.Click += BtnDelete_Click;
+        pnlChooseBooking.Controls.Add(btnDelete);
+        pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
+        pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
+    }
+
+    private void BtnDelete_Click(object sender, EventArgs e)
+    {
+        Session["BookingLineId"] = GetBookingLineId();
+        Response.Redirect("DeleteBookingLine_1.aspx");
     }
 
     private void BtnCancelThisBooking_Click(object sender, EventArgs e)
@@ -122,8 +136,7 @@ public partial class ViewBooking_1 : System.Web.UI.Page
 
     private void BtnViewThisBooking_Click(object sender, EventArgs e)
     {
-        bookingLineId = GetBookingLineId();
-        Session["BookingLineId"] = bookingLineId;
+        Session["BookingLineId"] = GetBookingLineId();
         Response.Redirect("ViewBooking_2.aspx");
     }
 
