@@ -125,7 +125,10 @@ public partial class ViewBooking_1 : System.Web.UI.Page
     private void BtnDelete_Click(object sender, EventArgs e)
     {
         Session["BookingLineId"] = GetBookingLineId();
-        Response.Redirect("DeleteBookingLine_1.aspx");
+        allBookingLines.thisBookingLine.Find(bookingLineId);
+        Int32 bookingId = allBookingLines.thisBookingLine.BookingId;
+        Session["BookingId"] = bookingId;
+        Response.Redirect("DeleteBooking_1.aspx");
     }
 
     private void BtnCancelThisBooking_Click(object sender, EventArgs e)
