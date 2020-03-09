@@ -27,8 +27,8 @@
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="Index.aspx">SEARCH FOR HOTEL</a>
           <a href="#">OFFERS</a>
-          <a href="#">CONTACT DETAILS</a>
-          <a href="#">OTHER OPTION HERE</a>
+          <a href="ContactDetails.aspx">CONTACT DETAILS</a>
+          
      </div>
            
     <asp:Panel ID="Panel1" runat="server"></asp:Panel>
