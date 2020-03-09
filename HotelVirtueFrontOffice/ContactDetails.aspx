@@ -26,7 +26,7 @@
        <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="Index.aspx">SEARCH FOR HOTEL</a>
-          <a href="#">OFFERS</a>
+          <a href="Offers.aspx">OFFERS</a>
           <a href="ContactDetails.aspx">CONTACT DETAILS</a>
           
      </div>
