@@ -93,7 +93,7 @@
             <br />
             <asp:Label ID="lblEnterReason" CssClass="body" runat="server" Text="Please enter reason in box below"></asp:Label>
             <br />
-            <asp:TextBox ID="txtReason" CssClass="cancellationReasonField" TextMode="MultiLine" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtReason" CssClass="multiLineTextField" TextMode="MultiLine" runat="server"></asp:TextBox>
 
             <asp:Button CssClass="continueButton" ID="btnCancelBooking" runat="server" Text="CANCEL BOOKING" OnClick="btnCancelBooking_Click" />
             <br />

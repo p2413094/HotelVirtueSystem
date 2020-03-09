@@ -46,6 +46,9 @@
 
         <br />
         <br />
+        <asp:Panel ID="pnlError" CssClass="box" runat="server"></asp:Panel>
+        <br />
+        <br />
         <asp:Panel ID="pnlBooking" CssClass="box" runat="server"></asp:Panel>
      </form>
 </body>

@@ -303,7 +303,7 @@ li a {
     width: 30%;
 }
 
-.cancellationReasonField {
+.multiLineTextField {
     width: 50%;
     height: 60%;
 }

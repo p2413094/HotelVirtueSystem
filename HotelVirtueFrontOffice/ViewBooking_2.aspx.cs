@@ -14,10 +14,16 @@ public partial class ViewBooking_2 : System.Web.UI.Page
     Int32 roomTypeId;
     Int32 singleBed;
     Int32 doubleBed;
+    Boolean updateBooking;
+    string other;
+    TextBox txtOther = new TextBox();
 
     protected void Page_Load(object sender, EventArgs e)
-    {                
-        bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
+    {
+        updateBooking = true; //Convert.ToBoolean(Session["UpdateBooking"]);
+        bookingLineId = 169;//Convert.ToInt32(Session["BookingLineId"]);
+        pnlError.Visible = false;
+
         clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
         aBookingLine.thisBookingLine.Find(bookingLineId);
 
@@ -68,7 +74,6 @@ public partial class ViewBooking_2 : System.Web.UI.Page
             pnlBooking.Controls.Add(lblDepartureDate);
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
-
             Label lblUnderFive = new Label();
             lblUnderFive.CssClass = "body";
             lblUnderFive.Text = "Under five: " + aBookingLine.thisBookingLine.UnderFive;
@@ -90,17 +95,30 @@ public partial class ViewBooking_2 : System.Web.UI.Page
             Label lblOther = new Label();
             lblOther.CssClass = "body";
             lblOther.Text = "Other: ";
-            string other = aBookingLine.thisBookingLine.Other;
+            pnlBooking.Controls.Add(lblOther);
+            pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
-            if (other.Length == 0)
+            if (updateBooking == true)
             {
-                lblOther.Text += "BLANK";
+                //TextBox txtOther = new TextBox();
+                txtOther.CssClass = "multiLineTextField";
+                txtOther.TextMode = TextBoxMode.MultiLine;
+                pnlBooking.Controls.Add(txtOther);
             }
+
             else
             {
-                lblOther.Text += aBookingLine.thisBookingLine.Other;
+                other = aBookingLine.thisBookingLine.Other;
+                if (other.Length == 0)
+                {
+                    lblOther.Text += "BLANK";
+                }
+                else
+                {
+                    lblOther.Text += aBookingLine.thisBookingLine.Other;
+                }
             }
-            pnlBooking.Controls.Add(lblOther);
+            
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
@@ -166,6 +184,18 @@ public partial class ViewBooking_2 : System.Web.UI.Page
             lblTotal.Text += "Total: £" + Convert.ToString(aBooking.Total);
             pnlBooking.Controls.Add(lblTotal);
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
+            pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+            if (updateBooking == true)
+            {
+                Button btnUpdate = new Button();
+                btnUpdate.CssClass = "rightButton";
+                btnUpdate.Text = "UPDATE BOOKING";
+                btnUpdate.Click += BtnUpdate_Click;
+                pnlBooking.Controls.Add(btnUpdate);
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+            }
 
             pnlBooking.Visible = true;
         }
@@ -174,6 +204,40 @@ public partial class ViewBooking_2 : System.Web.UI.Page
         {
             DisplayError();
         }           
+    }
+
+    private void BtnUpdate_Click(object sender, EventArgs e)
+    {
+        clsBookingLine aBookingLine = new clsBookingLine();
+
+        other = txtOther.Text;
+
+        aBookingLine.OtherValid(other);      
+
+        Label lblError = new Label();
+        lblError.Text = "Error";
+        pnlError.Controls.Add(lblError);
+        
+        if (aBookingLine.ErrorList.Count != 0)
+        {
+            foreach (string errorItem in aBookingLine.ErrorList)
+            {
+                pnlError.Visible = true;
+                pnlError.Controls.Add(new LiteralControl("<br />"));
+                Label lblErrorItem = new Label();
+                lblErrorItem.Text = errorItem;
+                lblErrorItem.CssClass = "body";
+                pnlError.Controls.Add(lblErrorItem);
+            }
+        }
+        else
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@BookingLineId", bookingLineId);
+            DB.AddParameter("@Other", other);
+            DB.Execute("sproc_tblBookingLine_Update");
+           
+        }
     }
 
     Int32 GetRoomTypeId()

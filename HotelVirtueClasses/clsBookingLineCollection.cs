@@ -91,8 +91,6 @@ namespace HotelVirtueClasses
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@BookingLineId", mThisBookingLine.BookingLineId);
-            DB.AddParameter("@GymAccess", mThisBookingLine.GymAccess);
-            DB.AddParameter("@LateCheckout", mThisBookingLine.GymAccess);
             DB.AddParameter("@Other", mThisBookingLine.Other);
             DB.Execute("sproc_tblBookingLine_Update");
         }

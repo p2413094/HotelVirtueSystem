@@ -120,6 +120,20 @@ public partial class ViewBooking_1 : System.Web.UI.Page
         pnlChooseBooking.Controls.Add(btnDelete);
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
+
+        Button btnUpdate = new Button();
+        btnUpdate.CssClass = "rightButton";
+        btnUpdate.Text = "UPDATE THIS BOOKING";
+        btnUpdate.Click += BtnUpdate_Click;
+        pnlChooseBooking.Controls.Add(btnUpdate);
+        pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
+        pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
+
+    }
+
+    private void BtnUpdate_Click(object sender, EventArgs e)
+    {
+        
     }
 
     private void BtnDelete_Click(object sender, EventArgs e)

@@ -111,7 +111,6 @@ namespace HotelVirtueClasses
                 error += "Departure date must not be more than 100 days into the future";
             }
 
-
             if (other.Length <= 0)
             {
                 error += "Other must not be empty";
@@ -159,6 +158,24 @@ namespace HotelVirtueClasses
             {
                 return false;
             }
+        }
+
+        public List<string> ErrorList = new List<string>();
+
+        public string OtherValid(string other)
+        {
+            string Error = "";
+            if (other.Length > 50)
+            {
+                Error = "Other must not be longer than 50 characters";
+                ErrorList.Add(Error);
+            }
+            if (other.Length == 0)
+            {
+                Error = "Other must not be blank";
+                ErrorList.Add(Error);
+            }
+            return Error;
         }
     }
 }
