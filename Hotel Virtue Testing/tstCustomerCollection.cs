@@ -65,6 +65,29 @@ namespace Hotel_Virtue_Testing
             Assert.AreEqual(Customers.AllCustomers, TestList);
         }
 
-       
+       [TestMethod]
+       public void ListAndCountOK()
+        {
+            //create an instance of the class nwe want to create
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create some test data to assign to the property
+            //in this case data needs to be a list of objects
+            List<clsCustomer> TestList = new List<clsCustomer>();
+            //add an item to the list
+            //create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            //set its properties
+            TestItem.CustomerId = 1;
+            TestItem.FirstName = "John";
+            TestItem.LastName = "smith";
+            TestItem.EmailAddress = "jordan@gmail.com";
+            TestItem.ContactNumber = 435365465;
+            //add the item to the test list
+            TestList.Add(TestItem);
+            //assign the data to the property
+            AllCustomers.CustomerList = TestList;
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.Count, TestList.Count);
+        }
     }
 }

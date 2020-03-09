@@ -22,11 +22,11 @@ namespace Hotel_Virtue_Testing
             //create an instance of the class
             clsCustomer ACustomer = new clsCustomer();
             //create some test data 
-            Int32 SomeCustomerId = 1;
+            Int32 TestData = 1;
             //assign the data to the property 
-            ACustomer.CustomerId = SomeCustomerId;
+            ACustomer.CustomerId = TestData;
             //test to see two values are the same
-            Assert.AreEqual(ACustomer.CustomerId, SomeCustomerId);
+            Assert.AreEqual(ACustomer.CustomerId, TestData);
         }
 
         [TestMethod]
@@ -35,11 +35,11 @@ namespace Hotel_Virtue_Testing
             //create an instance of the class
             clsCustomer ACustomer = new clsCustomer();
             //create some test data
-            Int32 SomeContactNumber = 1;
+            Int32 TestData = 1;
             //assign the data to the property
-            ACustomer.ContactNumber = SomeContactNumber;
+            ACustomer.ContactNumber = TestData;
             //test to see two values are the same
-            Assert.AreEqual(ACustomer.ContactNumber, SomeContactNumber);
+            Assert.AreEqual(ACustomer.ContactNumber, TestData);
         }
 
         [TestMethod]
@@ -48,11 +48,11 @@ namespace Hotel_Virtue_Testing
             //create an instance of the class
             clsCustomer ACustomer = new clsCustomer();
             //create some test data
-            string SomeFirstName = "Gerald";
+            string TestData = "Gerald";
             //assign the data to the property
-            ACustomer.FirstName = SomeFirstName;
+            ACustomer.FirstName = TestData;
             //test to see two values are the same
-            Assert.AreEqual(ACustomer.FirstName, SomeFirstName);
+            Assert.AreEqual(ACustomer.FirstName, TestData);
         }
 
         [TestMethod]
@@ -61,11 +61,11 @@ namespace Hotel_Virtue_Testing
             //create an instance of the class
             clsCustomer ACustomer = new clsCustomer();
             //create some test data
-            string SomeLastName = "Johnson";
+            string TestData = "Johnson";
             //assign the data to the property
-            ACustomer.LastName = SomeLastName;
+            ACustomer.LastName = TestData;
             //test to see two values are the same
-            Assert.AreEqual(ACustomer.LastName, SomeLastName);
+            Assert.AreEqual(ACustomer.LastName, TestData);
         }
 
         [TestMethod]
@@ -74,11 +74,11 @@ namespace Hotel_Virtue_Testing
             //create an instance of the class
             clsCustomer ACustomer = new clsCustomer();
             //create some test data
-            string SomeEmailAddress = "Gerald";
+            string TestData = "Gerald";
             //assign the data to the property
-            ACustomer.EmailAddress = SomeEmailAddress;
+            ACustomer.EmailAddress = TestData;
             //test to see two values are the same
-            Assert.AreEqual(ACustomer.EmailAddress, SomeEmailAddress);
+            Assert.AreEqual(ACustomer.EmailAddress, TestData);
         }
 
         [TestMethod]
@@ -89,9 +89,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int32 Error = 0;
             //create some test data to test method
-            Int32 SomeCustomerId = 1;
+            Int32 TestData = 1;
             //invoke the method
-            Error = ACustomer.Valid(SomeCustomerId);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, 0);
         }
@@ -104,9 +104,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int32 Error = 0;
             //create some test data to test method
-            Int32 SomeCustomerId = 0;
+            Int32 TestData = 0;
             //invoke the method
-            Error = ACustomer.Valid(SomeCustomerId);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, 0);
         }
@@ -119,9 +119,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int32 Error = 0;
             //create some test data to test method
-            Int32 SomeCustomerId = 1;
+            Int32 TestData = 1;
             //invoke the method
-            Error = ACustomer.Valid(SomeCustomerId);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, 0);
         }
@@ -134,9 +134,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int32 Error = 2;
             //create some test data to test method
-            Int32 SomeCustomerId = 2;
+            Int32 TestData = 2;
             //invoke the method
-            Error = ACustomer.Valid(SomeCustomerId);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, 0);
         }
@@ -149,9 +149,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int32 Error = 0;
             //create some test data to test method
-            Int32 SomeCustomerId = 99;
+            Int32 TestData = 99;
             //invoke the method
-            Error = ACustomer.Valid(SomeCustomerId);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, 0);
         }
@@ -164,9 +164,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int32 Error = 0;
             //create some test data to test method
-            Int32 SomeCustomerId = 100;
+            Int32 TestData = 100;
             //invoke the method
-            Error = ACustomer.Valid(SomeCustomerId);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, 0);
         }
@@ -179,9 +179,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int32 Error = 0;
             //create some test data to test method
-            Int32 SomeCustomerId = 101;
+            Int32 TestData = 101;
             //invoke the method
-            Error = ACustomer.Valid(SomeCustomerId);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, 0);
         }
@@ -195,9 +195,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int32 Error = 0;
             //create some test data to test method
-            Int32 SomeCustomerId = 50;
+            Int32 TestData = 50;
             //invoke the method
-            Error = ACustomer.Valid(SomeCustomerId);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, 0);
         }
@@ -210,9 +210,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int32 Error = 0;
             //create some test data to test method
-            Int32 SomeCustomerId = 1000000;
+            Int32 TestData = 1000000;
             //invoke the method
-            Error = ACustomer.Valid(SomeCustomerId);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, 0);
         }
@@ -225,9 +225,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int64 Error = 1234567891;
             //create some test data to test method
-            Int64 SomeContactNumber = 12345678910;
+            Int64 TestData = 12345678910;
             //invoke the method
-            Error = ACustomer.Valid(SomeContactNumber);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreNotEqual(Error, 1234567891);
         }
@@ -240,9 +240,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int64 Error = 1234567891;
             //create some test data to test method
-            Int64 SomeContactNumber = 123456789;
+            Int64 TestData = 123456789;
             //invoke the method
-            Error = ACustomer.Valid(SomeContactNumber);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreNotEqual(Error, 1234567891);
         }
@@ -255,9 +255,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int64 Error = 1234567891;
             //create some test data to test method
-            Int64 SomeContactNumber = 12345678910;
+            Int64 TestData = 12345678910;
             //invoke the method       
-            Error = ACustomer.Valid(SomeContactNumber);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreNotEqual(Error, 1234567891);
         }
@@ -270,9 +270,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int64 Error = 1234567891;
             //create some test data to test method
-            Int64 SomeContactNumber = 12345678101;
+            Int64 TestData = 12345678101;
             //invoke the method
-            Error = ACustomer.Valid(SomeContactNumber);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreNotEqual(Error, 1234567891);
         }
@@ -285,9 +285,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int64 Error = 1234567891;
             //create some test data to test method
-            Int64 SomeContactNumber = 123456789101;
+            Int64 TestData = 123456789101;
             //invoke the method
-            Error = ACustomer.Valid(SomeContactNumber);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, 0);
         }
@@ -300,9 +300,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int64 Error = 1234567891;
             //create some test data to test method
-            Int64 SomeContactNumber = 12345678910;
+            Int64 TestData = 12345678910;
             //invoke the method
-            Error = ACustomer.Valid(SomeContactNumber);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreNotEqual(Error, 1234567891);
         }
@@ -315,9 +315,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int64 Error = 1234567891;
             //create some test data to test method
-            Int64 SomeContactNumber = 123456789101;
+            Int64 TestData = 123456789101;
             //invoke the method
-            Error = ACustomer.Valid(SomeContactNumber);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreNotEqual(Error, 1234567891);
         }
@@ -330,9 +330,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int64 Error = 1234567891;
             //create some test data to test method
-            Int64 SomeContactNumber = 123456;
+            Int64 TestData = 123456;
             //invoke the method
-            Error = ACustomer.Valid(SomeContactNumber);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, 0);
         }
@@ -345,9 +345,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             Int64 Error = 1234567891;
             //create some test data to test method
-            Int64 SomeContactNumber = 1234567892341;
+            Int64 TestData = 1234567892341;
             //invoke the method
-            Error = ACustomer.Valid(SomeContactNumber);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreNotEqual(Error, 1234567891);
         }
@@ -361,9 +361,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeFirstName = "Gerald";
+            String TestData  = "Gerald";
             //invoke the method
-            Error = ACustomer.Valid(SomeFirstName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -376,9 +376,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeFirstName = "";
+            String TestData = "";
             //invoke the method
-            Error = ACustomer.Valid(SomeFirstName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreNotEqual(Error, "");
         }
@@ -391,9 +391,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeFirstName = "a";
+            String TestData = "a";
             //invoke the method
-            Error = ACustomer.Valid(SomeFirstName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -406,9 +406,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeFirstName = "aa";
+            String TestData = "aa";
             //invoke the method
-            Error = ACustomer.Valid(SomeFirstName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -421,9 +421,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeFirstName = "aaaaaaaaaaa";
+            String TestData = "aaaaaaaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeFirstName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -436,9 +436,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeFirstName = "aaaaaaaaaaaa";
+            String TestData = "aaaaaaaaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeFirstName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -451,9 +451,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeFirstName = "aaaaaaaaaaaaa";
+            String TestData  = "aaaaaaaaaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeFirstName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -466,9 +466,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeFirstName = "aaaaaa";
+            String TestData = "aaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeFirstName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -481,9 +481,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeFirstName = "aaaaaaaaaaaaaaaaaaaaaaa";
+            String TestData = "aaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeFirstName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -496,9 +496,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeLastName = "Gerald";
+            String TestData = "Gerald";
             //invoke the method
-            Error = ACustomer.Valid(SomeLastName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -511,9 +511,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeLastName = "";
+            String TestData = "";
             //invoke the method
-            Error = ACustomer.Valid(SomeLastName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreNotEqual(Error, "");
         }
@@ -526,9 +526,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeLastName = "a";
+            String TestData = "a";
             //invoke the method
-            Error = ACustomer.Valid(SomeLastName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -541,9 +541,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeLastName = "aa";
+            String TestData = "aa";
             //invoke the method
-            Error = ACustomer.Valid(SomeLastName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -556,9 +556,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeLastName = "aaaaaaaaaaa";
+            String TestData = "aaaaaaaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeLastName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -571,9 +571,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeLastName = "aaaaaaaaaaaa";
+            String TestData = "aaaaaaaaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeLastName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -586,9 +586,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeLastName = "aaaaaaaaaaaaa";
+            String TestData = "aaaaaaaaaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeLastName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -601,9 +601,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeLastName = "aaaaaa";
+            String TestData = "aaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeLastName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -616,9 +616,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeLastName = "aaaaaaaaaaaaaaaaaaaaaaa";
+            String TestData = "aaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeLastName);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -631,9 +631,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeEmailAddress = "Gerald";
+            String TestData = "Gerald";
             //invoke the method
-            Error = ACustomer.Valid(SomeEmailAddress);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -647,9 +647,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeEmailAddress = "";
+            String TestData = "";
             //invoke the method
-            Error = ACustomer.Valid(SomeEmailAddress);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreNotEqual(Error, "");
         }
@@ -662,9 +662,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeEmailAddress = "a";
+            String TestData = "a";
             //invoke the method
-            Error = ACustomer.Valid(SomeEmailAddress);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -677,9 +677,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeEmailAddress = "aa";
+            String TestData = "aa";
             //invoke the method
-            Error = ACustomer.Valid(SomeEmailAddress);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -692,9 +692,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeEmailAddress = "aaaaaaaaaaa";
+            String TestData = "aaaaaaaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeEmailAddress);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -707,9 +707,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeEmailAddress = "aaaaaaaaaaaa";
+            String TestData = "aaaaaaaaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeEmailAddress);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -722,9 +722,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeEmailAddress = "aaaaaaaaaaaaa";
+            String TestData = "aaaaaaaaaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeEmailAddress);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -737,9 +737,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeEmailAddress = "aaaaaa";
+            String TestData = "aaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeEmailAddress);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }
@@ -752,9 +752,9 @@ namespace Hotel_Virtue_Testing
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test method
-            String SomeEmailAddress = "aaaaaaaaaaaaaaaaaaaaaaa";
+            String TestData = "aaaaaaaaaaaaaaaaaaaaaaa";
             //invoke the method
-            Error = ACustomer.Valid(SomeEmailAddress);
+            Error = ACustomer.Valid(TestData);
             //test to see that the result is OK
             Assert.AreEqual(Error, "");
         }

@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
 
 namespace HotelVirtueClasses
 {
@@ -43,20 +47,27 @@ namespace HotelVirtueClasses
         public clsAccountCollection()
         {
             //create an instance of the customer class to store a customer
-            clsAccount AAccount = new clsAccount();
-            //set the customer to 1
-            AAccount.AccountId = 1;
-            //add trhe customer to the private list of customers
-            mAllAccounts.Add(AAccount);
-            //re initialise the ACustomer object to accept new line
-            AAccount = new clsAccount();
-            //set the customer to 1
-            AAccount.AccountId = 2;
-            //Add the second customer private list of customers
-            mAllAccounts.Add(AAccount);
-            //add the second customer to the private list 
-            mAllAccounts.Add(AAccount);
-            //private list now contains two new customers
+            clsDataConnection DB = new clsDataConnection();
+            //execute the stored procedure 
+            DB.Execute("sproc_tblAccount_SelectAll");
+            //get the count of records
+            Int32 RecordCount = DB.Count;
+            //set up the index for the loop
+            Int32 Index = 0;
+            //while there are records to process
+            while (Index < RecordCount) ;
+            {
+                //create a new instance of the customer class
+                clsAccount AAccount = new clsAccount();
+                //get the customer name
+                AAccount.City = DB.DataTable.Rows[Index]["City"].ToString();
+                //get the primary key
+                AAccount.AccountId = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerId"]);
+                //add the customer to the private data member
+                mAllAccounts.Add(AAccount);
+                //increment the Index
+                Index++;
+            }
         }
 
     }

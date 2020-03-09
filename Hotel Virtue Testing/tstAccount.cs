@@ -22,11 +22,11 @@ namespace Hotel_Virtue_Testing
             //create an instance of the class
             clsAccount AAccount = new clsAccount();
             //create some test data 
-            Int32 SomeAccountId = 1;
+            Int32 TestData = 1;
             //assign the data to the property 
-            AAccount.AccountId = SomeAccountId;
+            AAccount.AccountId = TestData;
             //test to see two values are the same
-            Assert.AreEqual(AAccount.AccountId, SomeAccountId);
+            Assert.AreEqual(AAccount.AccountId, TestData);
         }
 
         [TestMethod]
@@ -35,11 +35,11 @@ namespace Hotel_Virtue_Testing
             //create an instance of the class
             clsAccount AAccount = new clsAccount();
             //create some test data 
-            Int32 SomeCustomerId = 1;
+            Int32 TestData = 1;
             //assign the data to the property 
-            AAccount.CustomerId = SomeCustomerId;
+            AAccount.CustomerId = TestData;
             //test to see two values are the same
-            Assert.AreEqual(AAccount.CustomerId, SomeCustomerId);
+            Assert.AreEqual(AAccount.CustomerId, TestData);
         }
 
         [TestMethod]
@@ -48,11 +48,11 @@ namespace Hotel_Virtue_Testing
             //create an instance of the class
             clsAccount AAccount = new clsAccount();
             //create some test data 
-            string SomeCity = "Leicestershire";
+            string TestData = "Leicestershire";
             //assign the data to the property 
-            AAccount.City = SomeCity;
+            AAccount.City = TestData;
             //test to see two values are the same
-            Assert.AreEqual(AAccount.City, SomeCity);
+            Assert.AreEqual(AAccount.City, TestData);
         }
 
         [TestMethod]
@@ -61,11 +61,11 @@ namespace Hotel_Virtue_Testing
             //create an instance of the class
             clsAccount AAccount = new clsAccount();
             //create some test data 
-            string SomeHouseNumber = "2 hopkins haven";
+            string TestData = "2 hopkins haven";
             //assign the data to the property
-            AAccount.HouseNumber = SomeHouseNumber;
+            AAccount.HouseNumber = TestData;
             //test to see two values are the same
-            Assert.AreEqual(AAccount.HouseNumber, SomeHouseNumber);
+            Assert.AreEqual(AAccount.HouseNumber, TestData);
         }
 
         [TestMethod]
@@ -74,11 +74,11 @@ namespace Hotel_Virtue_Testing
             //create an instance of the class
             clsAccount AAccount = new clsAccount();
             //create some test data 
-            string SomePassword = "Geraldssff3";
+            string TestData = "Geraldssff3";
             //assign the data to the property
-            AAccount.Password = SomePassword;
+            AAccount.Password = TestData;
             //test to see two values are the same
-            Assert.AreEqual(AAccount.Password, SomePassword);
+            Assert.AreEqual(AAccount.Password, TestData);
         }
 
         [TestMethod]
@@ -87,11 +87,11 @@ namespace Hotel_Virtue_Testing
             //create an instance of the class
             clsAccount AAccount = new clsAccount();
             //create some test data 
-            string SomePostCode = "Gerald";
+            string TestData = "Gerald";
             //assign the data to the property
-            AAccount.PostCode = SomePostCode;
+            AAccount.PostCode = TestData;
             //test to see two values are the same
-            Assert.AreEqual(AAccount.PostCode, SomePostCode);
+            Assert.AreEqual(AAccount.PostCode, TestData);
         }
 
         [TestMethod]
@@ -100,11 +100,11 @@ namespace Hotel_Virtue_Testing
             //create an instance of the class
             clsAccount AAccount = new clsAccount();
             //create some test data
-            string SomeStreet = "Gerald btown 23";
+            string TestData = "Gerald btown 23";
             //assign the data to the property
-            AAccount.Street = SomeStreet;
+            AAccount.Street = TestData;
             //test to see two values are the same
-            Assert.AreEqual(AAccount.Street, SomeStreet);
+            Assert.AreEqual(AAccount.Street, TestData);
         }
 
         [TestMethod]

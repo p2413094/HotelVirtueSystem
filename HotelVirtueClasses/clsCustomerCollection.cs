@@ -42,25 +42,31 @@ namespace HotelVirtueClasses
             }
         }
 
+        public List<clsCustomer> CustomerList { get; set; }
+
         public clsCustomerCollection()
         {
-            //create an instance of the customer class to store a customer
+            //var for the index 
+            Int32 Index = 0;
+            //var to store the rcord count
+            Int32 RecordCount = 0;
+            //object for data connection
             clsDataConnection DB = new clsDataConnection();
             //execute the stored procedure 
             DB.Execute("sproc_tblCustomer_SelectAll");
             //get the count of records
-            Int32 RecordCount = DB.Count;
-            //set up the index for the loop
-            Int32 Index = 0;
+             RecordCount = DB.Count;
             //while there are records to process
-            while (Index < RecordCount) ;
+            while (Index < RecordCount) 
             {
-                //create a new instance of the customer class
+                //create a blank customer
                 clsCustomer ACustomer = new clsCustomer();
-                //get the customer name
-                ACustomer.FirstName = DB.DataTable.Rows[Index]["FirstName"].ToString();
-                //get the primary key
+                //read in fields from the current record
                 ACustomer.CustomerId = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerId"]);
+                ACustomer.FirstName = Convert.ToString(DB.DataTable.Rows[Index]["FirstName"]);
+                ACustomer.LastName = Convert.ToString(DB.DataTable.Rows[Index]["LastName"]);
+                ACustomer.EmailAddress = Convert.ToString(DB.DataTable.Rows[Index]["EmailAddress"]);
+                ACustomer.ContactNumber = Convert.ToInt32(DB.DataTable.Rows[Index]["ContactNumber"]);
                 //add the customer to the private data member
                 mAllCustomers.Add(ACustomer);
                 //increment the Index
@@ -68,6 +74,8 @@ namespace HotelVirtueClasses
             }
 
         }
+
+        
 
     }
 
