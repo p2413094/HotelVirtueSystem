@@ -44,8 +44,9 @@
         </script>
       
         <p class="pageHeader">Current bookings</p>
-
         <br />  
+        <br />
+        <asp:Panel ID="pnlError" CssClass="box" runat="server"></asp:Panel>
     </form>
 </body>
 </html>

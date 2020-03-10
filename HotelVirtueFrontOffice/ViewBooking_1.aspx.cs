@@ -16,57 +16,87 @@ public partial class ViewBooking_1 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        DisplayBookings();
+        try
+        {
+            pnlError.Visible = false;
+            Int32 index = 0;
+            Int32 recordCount = allBookings.BookingList.Count;
+
+            foreach (clsBookingLine bookingLine in allBookingLines.BookingLineList)
+            {
+                Int32 calculatedNoOfGuests;
+
+                Panel pnlBooking = new Panel();
+                pnlBooking.CssClass = "box";
+
+                Label lblBookingLineId = new Label();
+                lblBookingLineId.Text = "BookingLineId: " + bookingLine.BookingLineId;
+                pnlBooking.Controls.Add(lblBookingLineId);
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                Label lblCheckIn = new Label();
+                lblCheckIn.CssClass = "body";
+                lblCheckIn.Text = "Check-in: " + bookingLine.ArrivalDate.ToShortDateString();
+                pnlBooking.Controls.Add(lblCheckIn);
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                Label lblCheckout = new Label();
+                lblCheckout.CssClass = "body";
+                lblCheckout.Text = "Check-out: " + bookingLine.DepartureDate.ToShortDateString();
+                pnlBooking.Controls.Add(lblCheckout);
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                Label lblNoOfGuests = new Label();
+                lblNoOfGuests.CssClass = "body";
+                calculatedNoOfGuests = bookingLine.UnderFive + bookingLine.FiveToSixteen + bookingLine.SixteenUpwards;
+                lblNoOfGuests.Text = "Number of guests: " + Convert.ToString(calculatedNoOfGuests);
+                pnlBooking.Controls.Add(lblNoOfGuests);
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                Label lblTotal = new Label();
+                lblTotal.CssClass = "extrasHeader";
+                lblTotal.Text = "Total: £" + allBookings.BookingList[index].Total;
+                pnlBooking.Controls.Add(lblTotal);
+                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                this.Controls.Add(pnlBooking);
+                this.Controls.Add(new LiteralControl("<br />"));
+
+                index++;
+            }
+        }
+        catch
+        {
+            Label lblError = new Label();
+            lblError.Text = "There was a problem connecting to the database";
+            pnlError.Controls.Add(lblError);
+            pnlError.Controls.Add(new LiteralControl("<br />"));
+            pnlError.Controls.Add(new LiteralControl("<br />"));
+
+            Label lblRedirectToHomePage = new Label();
+            lblRedirectToHomePage.CssClass = "body";
+            lblRedirectToHomePage.Text = "Click the button below to redirect to the home page";
+            pnlError.Controls.Add(lblRedirectToHomePage);
+            pnlError.Controls.Add(new LiteralControl("<br />"));
+            pnlError.Controls.Add(new LiteralControl("<br />"));
+
+            Button btnReturnToHomePage = new Button();
+            btnReturnToHomePage.CssClass = "leftButton";
+            btnReturnToHomePage.Text = "RETURN TO HOMEPAGE";
+            btnReturnToHomePage.Click += BtnReturnToHomePage_Click;
+            pnlError.Controls.Add(btnReturnToHomePage);
+            pnlError.Controls.Add(new LiteralControl("<br />"));
+            pnlError.Controls.Add(new LiteralControl("<br />"));
+
+            pnlError.Visible = true;
+        }
         CreateViewBookingSection();
     }
 
-    void DisplayBookings()
-    {     
-        Int32 index = 0;
-        Int32 recordCount = allBookings.BookingList.Count;
-    
-        foreach (clsBookingLine bookingLine in allBookingLines.BookingLineList)
-        {
-            Int32 calculatedNoOfGuests;
 
-            Panel pnlBooking = new Panel();
-            pnlBooking.CssClass = "box";
-
-            Label lblBookingLineId = new Label();
-            lblBookingLineId.Text = "BookingLineId: " + bookingLine.BookingLineId;
-            pnlBooking.Controls.Add(lblBookingLineId);
-            pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-            Label lblCheckIn = new Label();
-            lblCheckIn.CssClass = "body";
-            lblCheckIn.Text = "Check-in: " + bookingLine.ArrivalDate.ToShortDateString();
-            pnlBooking.Controls.Add(lblCheckIn);
-            pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-            Label lblCheckout = new Label();
-            lblCheckout.CssClass = "body";
-            lblCheckout.Text = "Check-out: " + bookingLine.DepartureDate.ToShortDateString();
-            pnlBooking.Controls.Add(lblCheckout);
-            pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-            Label lblNoOfGuests = new Label();
-            lblNoOfGuests.CssClass = "body";
-            calculatedNoOfGuests = bookingLine.UnderFive + bookingLine.FiveToSixteen + bookingLine.SixteenUpwards;
-            lblNoOfGuests.Text = "Number of guests: " + Convert.ToString(calculatedNoOfGuests);
-            pnlBooking.Controls.Add(lblNoOfGuests);
-            pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-            Label lblTotal = new Label();
-            lblTotal.CssClass = "extrasHeader";
-            lblTotal.Text = "Total: £" + allBookings.BookingList[index].Total;
-            pnlBooking.Controls.Add(lblTotal);
-            pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-            this.Controls.Add(pnlBooking);
-            this.Controls.Add(new LiteralControl("<br />"));
-
-            index++;           
-        }      
+    private void BtnReturnToHomePage_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Index.aspx");
     }
 
     void CreateViewBookingSection()
@@ -146,7 +176,9 @@ public partial class ViewBooking_1 : System.Web.UI.Page
 
     private void BtnUpdate_Click(object sender, EventArgs e)
     {
-        
+        Session["updateBooking"] = true;
+        Session["BookingLineId"] = bookingLineId;
+        Response.Redirect("ViewBooking_2.aspx");
     }
 
     private void BtnDelete_Click(object sender, EventArgs e)
