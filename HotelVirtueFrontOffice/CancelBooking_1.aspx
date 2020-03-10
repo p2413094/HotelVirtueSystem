@@ -20,6 +20,7 @@
             </ul>
         </div>
        
+        <br />
         <div>
             <asp:HyperLink ID="hyplnkHomePage" CssClass="returnText" NavigateUrl="~/Index.aspx" runat="server">Return to homepage</asp:HyperLink>
         </div>

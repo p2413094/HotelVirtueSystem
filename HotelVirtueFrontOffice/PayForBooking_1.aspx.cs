@@ -36,26 +36,10 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         {
             lblFullName.Text = "Welcome, Guest";
             lblFullName.CssClass = "centreSlantedHeader";
-            lblFullName.Visible = true;
-
-            lblFirstName.Visible = true;
-            txtFirstName.Visible = true;
-            lblLastName.Visible = true;
-            txtFirstName.Visible = true;
-            lblEmailAddress.Visible = true;
-            lblEmailAddress.Visible = true;
-            lblBillingDetails.Visible = true;
+            lblFullName.Visible = true;           
         }
         else
-        {
-            lblBillingDetails.Visible = false;
-            lblFirstName.Visible = false;
-            txtFirstName.Visible = false;
-            lblLastName.Visible = false;
-            txtLastName.Visible = false;
-            lblEmailAddress.Visible = false;
-            txtEmailAddress.Visible = false;
-
+        {          
             firstName = Convert.ToString(Session["FirstName"]);
             lastName = Convert.ToString(Session["LastName"]);
             customerId = Convert.ToInt32(Session["CustomerId"]);

@@ -139,23 +139,6 @@
             </div>
          </div>
             <br />
-            <asp:Label ID="lblBillingDetails" runat="server" Text="Billing details"></asp:Label>
-            <br />
-            <br />
-            <asp:Label ID="lblFirstName" CssClass="body left" runat="server" Text="First name: "></asp:Label>
-            <asp:TextBox ID="txtFirstName" CssClass="right" runat="server"></asp:TextBox>
-            <br />
-            <asp:Label ID="lblLastName" CssClass="body left" runat="server" Text="Last name: "></asp:Label>
-            <asp:TextBox ID="txtLastName" CssClass="right" runat="server"></asp:TextBox>
-            <br />
-            <asp:Label ID="lblEmailAddress" CssClass="body left" runat="server" Text="Email address: "></asp:Label>
-            <asp:TextBox ID="txtEmailAddress" CssClass="right" runat="server"></asp:TextBox>
-
-
-
-
-
-            <br />
             <br />
             <asp:Button CssClass="continueButton" ID="btnSubmit" Text="Submit" runat="server" OnClick="btnSubmit_Click" />
             <br />
