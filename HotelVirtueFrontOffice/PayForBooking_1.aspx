@@ -43,7 +43,6 @@
             }
         </script>
 
-        <asp:Panel ID="errorPanel" CssClass="box" runat="server"></asp:Panel>
 
         <br />
         <br />
@@ -56,8 +55,12 @@
         <br />
         <br />
         <br />
+        
+        <asp:Panel ID="errorPanel" CssClass="box" runat="server"></asp:Panel>
+        <br />
+        <br />
  
-        <div class="box">
+        <asp:Panel ID="pnlBookingInformation" CssClass="box" runat="server">
             <asp:Label ID="lblHotelName" runat="server" Text=""></asp:Label>
             <p class="body">
                 <br />
@@ -84,12 +87,12 @@
                 <asp:Label ID="lblTotal" CssClass="body leftAlignCost" runat="server" Text=""></asp:Label>
                 <br />
             </p>
-        </div>
-
+        </asp:Panel>
+       
         <br />
         <br />
 
-        <div class="box">
+        <asp:Panel ID="pnlCardEntry" CssClass="box" runat="server">
             <p class="centreSlantedHeader">Please enter your details below</p>
             <div class="body">
                 <div>
@@ -143,7 +146,8 @@
             <asp:Button CssClass="continueButton" ID="btnSubmit" Text="Submit" runat="server" OnClick="btnSubmit_Click" />
             <br />
             <br />
-        </div>
+        </asp:Panel>
+   
     </form>
 </body>
 </html>

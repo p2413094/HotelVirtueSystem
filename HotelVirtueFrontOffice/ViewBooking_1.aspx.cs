@@ -129,6 +129,19 @@ public partial class ViewBooking_1 : System.Web.UI.Page
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
 
+        Button btnPayForThisBooking = new Button();
+        btnPayForThisBooking.CssClass = "rightButton";
+        btnPayForThisBooking.Text = "PAY FOR THIS BOOKING";
+        btnPayForThisBooking.Click += BtnPayForThisBooking_Click;
+        pnlChooseBooking.Controls.Add(btnPayForThisBooking);
+        pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
+        pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
+    }
+
+    private void BtnPayForThisBooking_Click(object sender, EventArgs e)
+    {
+        Session["BookingLineId"] = "test1";//GetBookingLineId();
+        Response.Redirect("PayForBooking_1.aspx");
     }
 
     private void BtnUpdate_Click(object sender, EventArgs e)
