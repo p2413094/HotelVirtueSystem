@@ -26,257 +26,293 @@ public partial class CreateBooking_1 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        hotelId = Convert.ToInt32(Session["hotelId"]); //fine
-        hotelName = Convert.ToString(Session["hotelName"]); //never changed 
-        arrivalDate = Convert.ToDateTime(Session["arrivalDate"]); //never changed
-        departureDate = Convert.ToDateTime(Session["departureDate"]); //never changed 
-        underFive = Convert.ToInt32(Session["underFive"]); //never changed 
-        fiveToSixteen = Convert.ToInt32(Session["fiveToSixteen"]); //never changed
-        sixteenUpwards = Convert.ToInt32(Session["sixteenUpwards"]); //never changed 
-
-        lblHotelName.Text = "HC Birmingham";
-        lblArrivalDepartureDate.Text = "HC 01/03/2020-03/03/2020";
-        lblbreakdownOfGuests.Text = "HC 1 under five, 1 between five and sixteen and 3 over sixteen";
-        lblCost.Text = "HC 89.00";
-
-        //temporarily until Priya inetgration done 
-        hotelId = 1;
-
-        clsDataConnection DB = new clsDataConnection();
-        DB.AddParameter("@HotelId", hotelId);
-        DB.Execute("sproc_tblRoom_SelectAllAvailableRooms");
-
-        Int32 newIndex = 0;
-        while (newIndex < DB.Count)
+        try
         {
-            Int32 roomId;
-            decimal price;
-            roomId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["RoomID"]);
-            Boolean accessible = Convert.ToBoolean(DB.DataTable.Rows[newIndex]["Accessible"]);
-            price = Convert.ToDecimal(DB.DataTable.Rows[newIndex]["Price"]);     
+            hotelId = Convert.ToInt32(Session["hotelId"]); //fine
+            hotelName = Convert.ToString(Session["hotelName"]); //never changed 
+            arrivalDate = Convert.ToDateTime(Session["arrivalDate"]); //never changed
+            departureDate = Convert.ToDateTime(Session["departureDate"]); //never changed 
+            underFive = Convert.ToInt32(Session["underFive"]); //never changed 
+            fiveToSixteen = Convert.ToInt32(Session["fiveToSixteen"]); //never changed
+            sixteenUpwards = Convert.ToInt32(Session["sixteenUpwards"]); //never changed 
 
-            Int32 roomTypeId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["fk2_RoomTypeId"]);
+            lblHotelName.Text = "HC Birmingham";
+            lblArrivalDepartureDate.Text = "HC 01/03/2020-03/03/2020";
+            lblbreakdownOfGuests.Text = "HC 1 under five, 1 between five and sixteen and 3 over sixteen";
+            lblCost.Text = "HC 89.00";
 
-            clsDataConnection DB2 = new clsDataConnection();
-            DB2.AddParameter("@RoomTypeId", roomTypeId);
-            DB2.Execute("sproc_tblRoomType_FilterByRoomTypeId");
+            //temporarily until Priya integration done 
+            hotelId = 1098;
 
-            Int32 singleBed = Convert.ToInt32(DB2.DataTable.Rows[0]["SingleBed"]);
-            Int32 doubleBed = Convert.ToInt32(DB2.DataTable.Rows[0]["DoubleBed"]);
-            string description = Convert.ToString(DB2.DataTable.Rows[0]["Description "]);
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@HotelId", hotelId);
+            DB.Execute("sproc_tblRoom_SelectAllAvailableRooms");
 
-            //single bed 
-            if (singleBed != 0 && doubleBed == 0)
+            Int32 newIndex = 0;
+            while (newIndex < DB.Count)
             {
-                this.Controls.Add(new LiteralControl("<br />"));
-                pnlBooking.CssClass = "box";
-                Label lblroomType = new Label();
-                lblroomType.Text = "Single bed";
-                pnlBooking.Controls.Add(lblroomType);
-                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                Int32 roomId;
+                decimal price;
+                roomId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["RoomID"]);
+                Boolean accessible = Convert.ToBoolean(DB.DataTable.Rows[newIndex]["Accessible"]);
+                price = Convert.ToDecimal(DB.DataTable.Rows[newIndex]["Price"]);
 
-                DisplayRoomId(roomId);
+                Int32 roomTypeId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["fk2_RoomTypeId"]);
 
-                DisplaySingleBedImage();
+                clsDataConnection DB2 = new clsDataConnection();
+                DB2.AddParameter("@RoomTypeId", roomTypeId);
+                DB2.Execute("sproc_tblRoomType_FilterByRoomTypeId");
 
-                Label lblSingleBed = new Label();
-                lblSingleBed.CssClass = "rateOptions";
-                lblSingleBed.Text = "Number of single beds: " + singleBed;
-                pnlBooking.Controls.Add(lblSingleBed);
-                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                Int32 singleBed = Convert.ToInt32(DB2.DataTable.Rows[0]["SingleBed"]);
+                Int32 doubleBed = Convert.ToInt32(DB2.DataTable.Rows[0]["DoubleBed"]);
+                string description = Convert.ToString(DB2.DataTable.Rows[0]["Description "]);
 
-                DisplayDetails(description, accessible, price);            
-
-                CreateLineBreak(3);
-
-                this.Controls.Add(pnlBooking);
-            }
-
-            //double bed 
-            if (singleBed == 0 && doubleBed != 0)
-            {
-                pnlBooking.CssClass = "box";
-                Label lblroomType = new Label();
-                lblroomType.Text = "Double bed";
-                pnlBooking.Controls.Add(lblroomType);
-                pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-                DisplayRoomId(roomId);
-
-                imgDoubleBed = new Image();
-                DisplayDoubleBedImage();
-
-                Label lblDoubleBed = new Label();
-                lblDoubleBed.CssClass = "rateOptions";
-                lblDoubleBed.Text = "Number of double beds: " + doubleBed;
-                pnlBooking.Controls.Add(lblDoubleBed);
-                pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-                DisplayDetails(description, accessible, price);
-
-                CreateLineBreak(6);
-
-                this.Controls.Add(pnlBooking);
-            }
-
-            //single and double bed 
-            if (singleBed != 0 && doubleBed != 0)
-            {
-                this.Controls.Add(new LiteralControl("<br />"));
-                pnlBooking.CssClass = "box";
-                Label lblroomType = new Label();
-                lblroomType.Text = "Single and double beds";
-                pnlBooking.Controls.Add(lblroomType);
-                pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-                DisplayRoomId(roomId);
-
-                DisplaySingleBedImage();
-                
-                Label lblSingleBed = new Label();
-                lblSingleBed.CssClass = "rateOptions";
-                lblSingleBed.Text = "Number of single beds: " + singleBed;
-                pnlBooking.Controls.Add(lblSingleBed);
-                pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-                Label lblDoubleBed = new Label();
-                lblDoubleBed.CssClass = "rateOptions";
-                lblDoubleBed.Text = "Number of double beds: " + doubleBed;
-                pnlBooking.Controls.Add(lblDoubleBed);
-                pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-                DisplayDetails(description, accessible, price);
-              
-                pnlBooking.Controls.Add(new LiteralControl("<br />"));
-                pnlBooking.Controls.Add(new LiteralControl("<br />"));
-
-                DisplayDoubleBedImage();               
-
-                if (DB2.Count == 1)
+                //single bed 
+                if (singleBed != 0 && doubleBed == 0)
                 {
-                    CreateLineBreak(11);
+                    this.Controls.Add(new LiteralControl("<br />"));
+                    pnlBooking.CssClass = "box";
+                    Label lblroomType = new Label();
+                    lblroomType.Text = "Single bed";
+                    pnlBooking.Controls.Add(lblroomType);
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                    DisplayRoomId(roomId);
+
+                    DisplaySingleBedImage();
+
+                    Label lblSingleBed = new Label();
+                    lblSingleBed.CssClass = "rateOptions";
+                    lblSingleBed.Text = "Number of single beds: " + singleBed;
+                    pnlBooking.Controls.Add(lblSingleBed);
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                    DisplayDetails(description, accessible, price);
+
+                    CreateLineBreak(3);
+
+                    this.Controls.Add(pnlBooking);
                 }
 
-                this.Controls.Add(pnlBooking);
-            }
-            newIndex++;           
-        }
-    
-        clsDataConnection DBGymAndLateCheckout = new clsDataConnection();
-        DBGymAndLateCheckout.AddParameter("@HotelID", hotelId);
-        DBGymAndLateCheckout.Execute("sproc_tblHotel_GetGymAndLateCheckout");
-
-        Boolean gymAccess = Convert.ToBoolean(DBGymAndLateCheckout.DataTable.Rows[0]["GymAccess"]);
-        Boolean lateCheckout = Convert.ToBoolean(DBGymAndLateCheckout.DataTable.Rows[0]["LateCheckout"]);
-
-        if (gymAccess != false || lateCheckout != false)
-        {
-            if (gymAccess == true)
-            {                
-                pnlExtras.Visible = true;
-
-                if (lateCheckout == true)
+                //double bed 
+                if (singleBed == 0 && doubleBed != 0)
                 {
-                    for (int i = 0; i < 6; i += 1)
+                    pnlBooking.CssClass = "box";
+                    Label lblroomType = new Label();
+                    lblroomType.Text = "Double bed";
+                    pnlBooking.Controls.Add(lblroomType);
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                    DisplayRoomId(roomId);
+
+                    imgDoubleBed = new Image();
+                    DisplayDoubleBedImage();
+
+                    Label lblDoubleBed = new Label();
+                    lblDoubleBed.CssClass = "rateOptions";
+                    lblDoubleBed.Text = "Number of double beds: " + doubleBed;
+                    pnlBooking.Controls.Add(lblDoubleBed);
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                    DisplayDetails(description, accessible, price);
+
+                    CreateLineBreak(6);
+
+                    this.Controls.Add(pnlBooking);
+                }
+
+                //single and double bed 
+                if (singleBed != 0 && doubleBed != 0)
+                {
+                    this.Controls.Add(new LiteralControl("<br />"));
+                    pnlBooking.CssClass = "box";
+                    Label lblroomType = new Label();
+                    lblroomType.Text = "Single and double beds";
+                    pnlBooking.Controls.Add(lblroomType);
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                    DisplayRoomId(roomId);
+
+                    DisplaySingleBedImage();
+
+                    Label lblSingleBed = new Label();
+                    lblSingleBed.CssClass = "rateOptions";
+                    lblSingleBed.Text = "Number of single beds: " + singleBed;
+                    pnlBooking.Controls.Add(lblSingleBed);
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                    Label lblDoubleBed = new Label();
+                    lblDoubleBed.CssClass = "rateOptions";
+                    lblDoubleBed.Text = "Number of double beds: " + doubleBed;
+                    pnlBooking.Controls.Add(lblDoubleBed);
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                    DisplayDetails(description, accessible, price);
+
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
+
+                    DisplayDoubleBedImage();
+
+                    if (DB2.Count == 1)
                     {
-                        pnlExtras.Controls.Add(new LiteralControl("<br />"));
+                        CreateLineBreak(11);
+                    }
+
+                    this.Controls.Add(pnlBooking);
+                }
+                newIndex++;
+            }
+
+            clsDataConnection DBGymAndLateCheckout = new clsDataConnection();
+            DBGymAndLateCheckout.AddParameter("@HotelID", hotelId);
+            DBGymAndLateCheckout.Execute("sproc_tblHotel_GetGymAndLateCheckout");
+
+            Boolean gymAccess = Convert.ToBoolean(DBGymAndLateCheckout.DataTable.Rows[0]["GymAccess"]);
+            Boolean lateCheckout = Convert.ToBoolean(DBGymAndLateCheckout.DataTable.Rows[0]["LateCheckout"]);
+
+            if (gymAccess != false || lateCheckout != false)
+            {
+                if (gymAccess == true)
+                {
+                    pnlExtras.Visible = true;
+
+                    if (lateCheckout == true)
+                    {
+                        for (int i = 0; i < 6; i += 1)
+                        {
+                            pnlExtras.Controls.Add(new LiteralControl("<br />"));
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < 5; i += 1)
+                        {
+                            pnlExtras.Controls.Add(new LiteralControl("<br />"));
+                        }
                     }
                 }
                 else
                 {
-                    for (int i = 0; i < 5; i += 1)
+                    lblGymAccess.Visible = false;
+                    imgGym.Visible = false;
+                    lblAddGymToBooking.Visible = false;
+                    rdobtnlstGymCost.Visible = false;
+                    pnlExtras.Visible = false;
+                }
+
+                if (lateCheckout == true)
+                {
+                    lblLateCheckout.Visible = true;
+                    lblAddLateCheckoutToBooking.Visible = true;
+                    pnlExtras.Controls.Add(new LiteralControl("<br />"));
+                    imgLateCheckout.Visible = true;
+                    rdobtnlstLateCheckout.Visible = true;
+                    for (int i = 0; i < 8; i += 1)
                     {
-                        pnlExtras.Controls.Add(new LiteralControl("<br />"));
+                        pnlLateCheckout.Controls.Add(new LiteralControl("<br />"));
                     }
                 }
-            }
-            else
-            {
-                lblGymAccess.Visible = false;
-                imgGym.Visible = false;
-                lblAddGymToBooking.Visible = false;
-                rdobtnlstGymCost.Visible = false;
-                pnlExtras.Visible = false;
-            }
-
-            if (lateCheckout == true)
-            {
-                lblLateCheckout.Visible = true;
-                lblAddLateCheckoutToBooking.Visible = true;
-                pnlExtras.Controls.Add(new LiteralControl("<br />"));
-                imgLateCheckout.Visible = true;
-                rdobtnlstLateCheckout.Visible = true;
-                for (int i = 0; i < 8; i += 1)
+                else
                 {
-                    pnlLateCheckout.Controls.Add(new LiteralControl("<br />"));
+                    lblLateCheckout.Visible = false;
+                    lblAddLateCheckoutToBooking.Visible = false;
+                    imgLateCheckout.Visible = false;
+                    rdobtnlstLateCheckout.Visible = false;
                 }
+
+                pnlExtras.Visible = true;
             }
             else
             {
-                lblLateCheckout.Visible = false;
-                lblAddLateCheckoutToBooking.Visible = false;
-                imgLateCheckout.Visible = false;
-                rdobtnlstLateCheckout.Visible = false;
+                pnlMainExtras.Visible = false;
+                //pnlExtras.Visible = false;
+                //pnlLateCheckout.Visible = false;
             }
 
-            pnlExtras.Visible = true;
+            Panel pnlStaySummary = new Panel();
+            pnlStaySummary.CssClass = "box";
+
+            Label lblYourBooking = new Label();
+            lblYourBooking.Text = "Your booking";
+            pnlStaySummary.Controls.Add(lblYourBooking);
+            pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
+
+            Label lblRoomType = new Label();
+            lblRoomType.CssClass = "body";
+            lblRoomType.Text = "Room type: ";
+            pnlStaySummary.Controls.Add(lblRoomType);
+            pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
+
+            Label lblTotal = new Label();
+            lblTotal.CssClass = "body";
+            lblTotal.Text = "Total: £";
+            pnlStaySummary.Controls.Add(lblTotal);
+            pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
+
+            Button btnContinue = new Button();
+            btnContinue.CssClass = "continueButton";
+            btnContinue.Text = "CONTINUE";
+            btnContinue.Click += BtnContinue_Click;
+            pnlStaySummary.Controls.Add(btnContinue);
+
+            pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
+            pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
+
+            Label lblChooseRoom = new Label();
+            lblChooseRoom.CssClass = "body";
+            lblChooseRoom.Text = "Please choose the room that you would like: ";
+            pnlStaySummary.Controls.Add(lblChooseRoom);
+
+            Int32 index = 0;
+            while (index < DB.Count)
+            {
+                ddlRoomId.Items.Add(DB.DataTable.Rows[index]["RoomId"].ToString());
+                index++;
+            }
+            pnlStaySummary.Controls.Add(ddlRoomId);
+
+
+            Form.Controls.Add(pnlStaySummary);
+
+            if (IsPostBack == false)
+            {
+                rdobtnlstGymCost.SelectedValue = "True";
+                rdobtnlstLateCheckout.SelectedValue = "True";
+            }
         }
-        else
+        catch
         {
+            tblBookingInformation.Visible = false;
             pnlMainExtras.Visible = false;
-            //pnlExtras.Visible = false;
-            //pnlLateCheckout.Visible = false;
-        }
+            pnlError.Visible = true;
 
-        Panel pnlStaySummary = new Panel();
-        pnlStaySummary.CssClass = "box";
+            Label lblError = new Label();
+            lblError.Text = "There was a problem connecting to the database";
+            pnlError.Controls.Add(lblError);
+            pnlError.Controls.Add(new LiteralControl("<br />"));
+            pnlError.Controls.Add(new LiteralControl("<br />"));
 
-        Label lblYourBooking = new Label();
-        lblYourBooking.Text = "Your booking";
-        pnlStaySummary.Controls.Add(lblYourBooking);
-        pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
+            Label lblRedirectQuestion = new Label();
+            lblRedirectQuestion.CssClass = "body";
+            lblRedirectQuestion.Text = "Go to current bookings screen or return to home page?";
+            pnlError.Controls.Add(lblRedirectQuestion);
+            pnlError.Controls.Add(new LiteralControl("<br />"));
+            pnlError.Controls.Add(new LiteralControl("<br />"));
 
-        Label lblRoomType = new Label();
-        lblRoomType.CssClass = "body";
-        lblRoomType.Text = "Room type: ";
-        pnlStaySummary.Controls.Add(lblRoomType);
-        pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
+            Button btnReturnToBookings = new Button();
+            btnReturnToBookings.CssClass = "leftButton";
+            btnReturnToBookings.Text = "RETURN TO BOOKINGS";
+            btnReturnToBookings.Click += BtnReturnToBookings_Click;
+            pnlError.Controls.Add(btnReturnToBookings);
 
-        Label lblTotal = new Label();
-        lblTotal.CssClass = "body";
-        lblTotal.Text = "Total: £";
-        pnlStaySummary.Controls.Add(lblTotal);
-        pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
-
-        Button btnContinue = new Button();
-        btnContinue.CssClass = "continueButton";
-        btnContinue.Text = "CONTINUE";
-        btnContinue.Click += BtnContinue_Click;
-        pnlStaySummary.Controls.Add(btnContinue);
-
-        pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
-        pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
-
-        Label lblChooseRoom = new Label();
-        lblChooseRoom.CssClass = "body";
-        lblChooseRoom.Text = "Please choose the room that you would like: ";
-        pnlStaySummary.Controls.Add(lblChooseRoom);
- 
-        Int32 index = 0;
-        while (index < DB.Count)
-        {
-            ddlRoomId.Items.Add(DB.DataTable.Rows[index]["RoomId"].ToString());
-            index++;
-        }
-        pnlStaySummary.Controls.Add(ddlRoomId);
-        
-
-        Form.Controls.Add(pnlStaySummary);
-
-        if (IsPostBack == false)
-        {
-            rdobtnlstGymCost.SelectedValue = "True";
-            rdobtnlstLateCheckout.SelectedValue = "True";
+            Button btnReturnToHomePage = new Button();
+            btnReturnToHomePage.CssClass = "rightButton";
+            btnReturnToHomePage.Text = "RETURN TO HOMEPAGE";
+            btnReturnToHomePage.Click += BtnReturnToHomePage_Click;
+            pnlError.Controls.Add(btnReturnToHomePage);
+            pnlError.Controls.Add(new LiteralControl("<br />"));
+            pnlError.Controls.Add(new LiteralControl("<br />"));
         }
     }
 
@@ -396,5 +432,15 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         {
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
         }
+    }
+
+    private void BtnReturnToBookings_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ViewBooking_1.aspx");
+    }
+
+    private void BtnReturnToHomePage_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Index.aspx");
     }
 }

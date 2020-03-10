@@ -27,7 +27,7 @@ public partial class CancelBooking_1 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         //bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
-        //bookingLineId = 3;
+        bookingLineId = 3;
 
 
 
@@ -37,8 +37,8 @@ public partial class CancelBooking_1 : System.Web.UI.Page
         {
             bookingId = aBookingLine.thisBookingLine.BookingId;
             lblBookingLineId.Text = "BookingLineId: " + aBookingLine.thisBookingLine.BookingLineId;
-            lblCheckIn.Text = "Check-in: " + aBookingLine.thisBookingLine.ArrivalDate.ToShortDateString();
-            lblCheckOut.Text = "Check out: " + aBookingLine.thisBookingLine.DepartureDate.ToShortDateString();
+            lblCheckIn.Text = "Arrival date: " + aBookingLine.thisBookingLine.ArrivalDate.ToShortDateString();
+            lblCheckOut.Text = "Departure date: " + aBookingLine.thisBookingLine.DepartureDate.ToShortDateString();
             lblUnderFive.Text = "Under Five: " + aBookingLine.thisBookingLine.UnderFive;
             lblFiveToSixteen.Text = "Five to sixteen: " + aBookingLine.thisBookingLine.FiveToSixteen;
             lblSixteenUpwards.Text = "Sixteen upwards: " + aBookingLine.thisBookingLine.SixteenUpwards;

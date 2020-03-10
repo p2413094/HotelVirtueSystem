@@ -47,7 +47,7 @@
         <br />
         <br />
         <p>
-            <asp:Table CssClass="bookingTable" runat="server">
+            <asp:Table CssClass="bookingTable" ID="tblBookingInformation" runat="server">
                 <asp:TableRow CssClass="stayHeaders">
                     <asp:TableCell CssClass="stayHeaders">
                         Chosen hotel
@@ -112,7 +112,9 @@
             </asp:Panel>
 
         </asp:Panel>
-            
+
+        <asp:Panel ID="pnlError" CssClass="box" runat="server">
+        </asp:Panel>
                    
                     
     <div class="footer" id="footer">

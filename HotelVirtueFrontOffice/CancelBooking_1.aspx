@@ -99,7 +99,6 @@
             <asp:Button CssClass="continueButton" ID="btnCancelBooking" runat="server" Text="CANCEL BOOKING" OnClick="btnCancelBooking_Click" />
             <br />
             <br />
-            <br />
         </asp:Panel>
         
     </form>
