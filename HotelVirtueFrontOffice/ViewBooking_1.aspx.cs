@@ -140,7 +140,7 @@ public partial class ViewBooking_1 : System.Web.UI.Page
 
     private void BtnPayForThisBooking_Click(object sender, EventArgs e)
     {
-        Session["BookingLineId"] = "test1";//GetBookingLineId();
+        Session["BookingLineId"] = GetBookingLineId();
         Response.Redirect("PayForBooking_1.aspx");
     }
 

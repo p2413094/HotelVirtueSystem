@@ -43,11 +43,7 @@ public partial class PayForBooking_1 : System.Web.UI.Page
                 firstName = Convert.ToString(Session["FirstName"]);
                 lastName = Convert.ToString(Session["LastName"]);
                 customerId = Convert.ToInt32(Session["CustomerId"]);
-                //bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
             }
-
-            //Int32 bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
-            //Int32 bookingId = Convert.ToInt32(Session["BookingId"]);
 
             clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
             aBookingLine.thisBookingLine.Find(bookingLineId);
@@ -64,39 +60,8 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         }
         catch
         {
-            pnlBookingInformation.Visible = false;
-            pnlCardEntry.Visible = false;
-
-            Label lblError = new Label();
-            lblError.Text = "There was a problem connecting to the database";
-            errorPanel.Controls.Add(lblError);
-            errorPanel.Controls.Add(new LiteralControl("<br />"));
-            errorPanel.Controls.Add(new LiteralControl("<br />"));
-
-            Label lblRedirectQuestion = new Label();
-            lblRedirectQuestion.CssClass = "body";
-            lblRedirectQuestion.Text = "Go to current bookings screen or return to home page?";
-            errorPanel.Controls.Add(lblRedirectQuestion);
-            errorPanel.Controls.Add(new LiteralControl("<br />"));
-            errorPanel.Controls.Add(new LiteralControl("<br />"));
-
-            Button btnReturnToBookings = new Button();
-            btnReturnToBookings.CssClass = "leftButton";
-            btnReturnToBookings.Text = "RETURN TO BOOKINGS";
-            btnReturnToBookings.Click += BtnReturnToBookings_Click;
-            errorPanel.Controls.Add(btnReturnToBookings);
-
-            Button btnReturnToHomePage = new Button();
-            btnReturnToHomePage.CssClass = "rightButton";
-            btnReturnToHomePage.Text = "RETURN TO HOMEPAGE";
-            btnReturnToHomePage.Click += BtnReturnToHomePage_Click;
-            errorPanel.Controls.Add(btnReturnToHomePage);
-            errorPanel.Controls.Add(new LiteralControl("<br />"));
-            errorPanel.Controls.Add(new LiteralControl("<br />"));
-
-            errorPanel.Visible = true;
-        }
-        
+            DisplayError();
+        }  
     }
 
     protected void btnSubmit_Click(object sender, EventArgs e)
@@ -109,13 +74,11 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         clsPayment newPayment = new clsPayment();
         string error = newPayment.Valid(cardNumber, nameOnCard, cardExpiryDate, cardSecurityCode);
 
-
-        Label lblError = new Label();
-        lblError.Text = "Error";
-        errorPanel.Controls.Add(lblError);
-
         if (newPayment.ErrorList.Count != 0)
         {
+            Label lblError = new Label();
+            lblError.Text = "Error";
+            errorPanel.Controls.Add(lblError);
             errorPanel.Visible = true;
             foreach (string errorItem in newPayment.ErrorList)
             {
@@ -128,31 +91,78 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         }
         else
         {
-            clsPaymentCollection payments = new clsPaymentCollection();
-            //this should be added depending upon whether the customer chooses gust or log in checkout 
-            payments.ThisPayment.CustomerId = 1;//customerId;
-            //
-            payments.ThisPayment.BookingLineId = bookingLineId;//newBookingLineId;
-            payments.ThisPayment.DateTimeOfPayment = DateTime.Now;
-            payments.ThisPayment.Amount = total;
-            payments.ThisPayment.CardNumber = txtCardNumber.Text;
-            payments.ThisPayment.NameOnCard = txtNameOnCard.Text;
-            payments.ThisPayment.ExpiryDate = txtExpiryDate.Text;
-            payments.ThisPayment.SecurityCode = txtSecurityCode.Text;
-            payments.ThisPayment.CardType = ddlCardType.SelectedValue;
-            payments.Add();
-            Response.Redirect("PayForBooking_Success.aspx");
+            try
+            {
+                clsPaymentCollection payments = new clsPaymentCollection();
+                //this should be added depending upon whether the customer chooses gust or log in checkout 
+                payments.ThisPayment.CustomerId = 1;//customerId;
+                                                    //
+                payments.ThisPayment.BookingLineId = bookingLineId;//newBookingLineId;
+                payments.ThisPayment.DateTimeOfPayment = DateTime.Now;
+                payments.ThisPayment.Amount = total;
+                payments.ThisPayment.CardNumber = txtCardNumber.Text;
+                payments.ThisPayment.NameOnCard = txtNameOnCard.Text;
+                payments.ThisPayment.ExpiryDate = txtExpiryDate.Text;
+                payments.ThisPayment.SecurityCode = txtSecurityCode.Text;
+                payments.ThisPayment.CardType = ddlCardType.SelectedValue;
+                payments.Add();
+                Response.Redirect("PayForBooking_Success.aspx");
+            }
+            catch
+            {
+                DisplayError();
+            }
+
         }
-        
     }
 
-    private void BtnReturnToBookings_Click(object sender, EventArgs e)
+    void DisplayError()
+    {
+        pnlBookingInformation.Visible = false;
+        pnlCardEntry.Visible = false;
+
+        Label lblError = new Label();
+        lblError.Text = "There was a problem connecting to the database";
+        errorPanel.Controls.Add(lblError);
+        errorPanel.Controls.Add(new LiteralControl("<br />"));
+        errorPanel.Controls.Add(new LiteralControl("<br />"));
+
+        Label lblRedirectQuestion = new Label();
+        lblRedirectQuestion.CssClass = "body";
+        lblRedirectQuestion.Text = "Go to current bookings screen or return to home page?";
+        errorPanel.Controls.Add(lblRedirectQuestion);
+        errorPanel.Controls.Add(new LiteralControl("<br />"));
+        errorPanel.Controls.Add(new LiteralControl("<br />"));
+
+        Button btnReturnToBookingPage = new Button();
+        btnReturnToBookingPage.CssClass = "leftButton";
+        btnReturnToBookingPage.Text = "RETURN TO BOOKINGS";
+        btnReturnToBookingPage.Click += BtnReturnToBookingPage_Click;
+        errorPanel.Controls.Add(btnReturnToBookingPage);
+
+        Button btnReturnToIndex = new Button();
+        btnReturnToIndex.CssClass = "rightButton";
+        btnReturnToIndex.Text = "RETURN TO HOME PAGE";
+        btnReturnToIndex.Click += BtnReturnToIndex_Click;
+        errorPanel.Controls.Add(btnReturnToIndex);
+        errorPanel.Controls.Add(new LiteralControl("<br />"));
+        errorPanel.Controls.Add(new LiteralControl("<br />"));
+
+        errorPanel.Visible = true;
+    }
+
+    private void BtnReturnToBookingPage_Click(object sender, EventArgs e)
     {
         Response.Redirect("ViewBooking_1.aspx");
     }
 
-    private void BtnReturnToHomePage_Click(object sender, EventArgs e)
+    private void BtnReturnToIndex_Click(object sender, EventArgs e)
     {
         Response.Redirect("Index.aspx");
+    }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        DisplayError();
     }
 }
