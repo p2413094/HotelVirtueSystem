@@ -46,52 +46,8 @@
         <br />
         <br />
 
-        <div class="box">
-            <asp:Label ID="lblHotelName" runat="server" Text=""></asp:Label>
-            <p class="body">
-                <br />
-                <asp:Label ID="lblArrivalDate" runat="server" Text=""></asp:Label>
-                <br />
-                <asp:Label ID="lblDepartureDate" runat="server" Text=""></asp:Label>
-                <br />
-                <asp:Label ID="lblUnderFive" runat="server" Text=""></asp:Label>
-                <br />
-                <asp:Label ID="lblFiveToSixteen" runat="server" Text=""></asp:Label>
-                <br />
-                <asp:Label ID="lblSixteenUpwards" runat="server" Text=""></asp:Label>
-                <br />
-                <br />
-                <asp:Label ID="lblExtras" runat="server" Text="Extras:"></asp:Label>
-                <br />
-                <br />
-                <asp:Label ID="lblGymAccess" runat="server" Text=""></asp:Label>
-                <br />
-                <asp:Label ID="lblLateCheckout" runat="server" Text=""></asp:Label>
-                <br />
-                <br />
-                <asp:Label ID="lblCost" CssClass="body leftAlignCost" runat="server" Text=""></asp:Label>
-                <br />
-                <br />
-                <asp:Label ID="lblOther" runat="server" Text="Please add any notes for the booking in the field below"></asp:Label>
-                <br />
-                <br />
-                <asp:TextBox ID="txtOther" CssClass="txtOther" TextMode="MultiLine" runat="server"></asp:TextBox>
-                <br />
-            </p>
-
-            <br />
-            <asp:Button ID="btnPayNow" CssClass="leftButton" runat="server" Text="PAY NOW" OnClick="btnPayNow_Click" />
-            <asp:Button ID="btnPayLater" CssClass="rightButton" runat="server" Text="PAY LATER" OnClick="btnPayLater_Click" />
-            <br />
-            <br />
-        </div>
-
-
-
-
-
-
-
+        <asp:Panel ID="pnlBookingInformation" CssClass="box" runat="server"></asp:Panel>
+        <br />    
     <div class="footer">
             © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
     </div>

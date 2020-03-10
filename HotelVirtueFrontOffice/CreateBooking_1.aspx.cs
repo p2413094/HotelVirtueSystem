@@ -400,6 +400,7 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         Session["GymAccess"] = rdobtnlstGymCost.SelectedValue;
         Session["LateCheckout"] = rdobtnlstLateCheckout.SelectedValue;
 
-        Response.Redirect("CreateBooking_2.aspx");
+        //Response.Redirect("CreateBooking_2.aspx");
+        //response.redirect to Michael's page 
     }
 }

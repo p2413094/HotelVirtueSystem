@@ -327,3 +327,10 @@ li a {
 .btnReturnToHomePage {
     margin-left: 25%;
 }
+
+
+.guestEntryField {
+    width: 30%;
+    margin-left: 2%;
+    float: left;
+}
