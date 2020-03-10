@@ -22,7 +22,6 @@ public partial class CreateBooking_1 : System.Web.UI.Page
     Label lblTotal = new Label();
 
     Panel pnlBooking = new Panel();
-    Label lblRoomId = new Label();
     Image imgDoubleBed = new Image();
 
     protected void Page_Load(object sender, EventArgs e)
@@ -46,7 +45,6 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         clsDataConnection DB = new clsDataConnection();
         DB.AddParameter("@HotelId", hotelId);
         DB.Execute("sproc_tblRoom_SelectAllAvailableRooms");
-
 
         Int32 newIndex = 0;
         while (newIndex < DB.Count)
@@ -77,7 +75,6 @@ public partial class CreateBooking_1 : System.Web.UI.Page
                 pnlBooking.Controls.Add(lblroomType);
                 pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
-                lblRoomId = new Label();
                 DisplayRoomId(roomId);
 
                 DisplaySingleBedImage();
@@ -104,7 +101,6 @@ public partial class CreateBooking_1 : System.Web.UI.Page
                 pnlBooking.Controls.Add(lblroomType);
                 pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
-                lblRoomId = new Label();
                 DisplayRoomId(roomId);
 
                 imgDoubleBed = new Image();
@@ -176,35 +172,61 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         if (gymAccess != false || lateCheckout != false)
         {
             if (gymAccess == true)
-            {
-                lblGymAccess.Visible = true;
-                imgGym.Visible = true;
+            {                
+                pnlExtras.Visible = true;
+
+                if (lateCheckout == true)
+                {
+                    for (int i = 0; i < 6; i += 1)
+                    {
+                        pnlExtras.Controls.Add(new LiteralControl("<br />"));
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < 5; i += 1)
+                    {
+                        pnlExtras.Controls.Add(new LiteralControl("<br />"));
+                    }
+                }
             }
             else
             {
                 lblGymAccess.Visible = false;
                 imgGym.Visible = false;
+                lblAddGymToBooking.Visible = false;
+                rdobtnlstGymCost.Visible = false;
+                pnlExtras.Visible = false;
             }
 
             if (lateCheckout == true)
             {
                 lblLateCheckout.Visible = true;
+                lblAddLateCheckoutToBooking.Visible = true;
+                pnlExtras.Controls.Add(new LiteralControl("<br />"));
                 imgLateCheckout.Visible = true;
+                rdobtnlstLateCheckout.Visible = true;
+                for (int i = 0; i < 8; i += 1)
+                {
+                    pnlLateCheckout.Controls.Add(new LiteralControl("<br />"));
+                }
             }
             else
             {
                 lblLateCheckout.Visible = false;
-                lblLateCheckout.Visible = false;
-                
+                lblAddLateCheckoutToBooking.Visible = false;
+                imgLateCheckout.Visible = false;
+                rdobtnlstLateCheckout.Visible = false;
             }
 
             pnlExtras.Visible = true;
         }
         else
         {
-            pnlExtras.Visible = false;
+            pnlMainExtras.Visible = false;
+            //pnlExtras.Visible = false;
+            //pnlLateCheckout.Visible = false;
         }
-
 
         Panel pnlStaySummary = new Panel();
         pnlStaySummary.CssClass = "box";
@@ -253,8 +275,8 @@ public partial class CreateBooking_1 : System.Web.UI.Page
 
         if (IsPostBack == false)
         {
-            rdobtnlstGymCost.SelectedValue = "No";
-            rdobtnlstLateCheckout.SelectedValue = "No";
+            rdobtnlstGymCost.SelectedValue = "True";
+            rdobtnlstLateCheckout.SelectedValue = "True";
         }
     }
 
@@ -321,6 +343,7 @@ public partial class CreateBooking_1 : System.Web.UI.Page
 
     void DisplayRoomId(Int32 roomId)
     {
+        Label lblRoomId = new Label();
         lblRoomId.CssClass = "body";
         lblRoomId.Text = "RoomId: " + roomId;
         pnlBooking.Controls.Add(lblRoomId);

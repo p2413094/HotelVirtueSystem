@@ -75,55 +75,38 @@
    
         <p class="pageHeader">Room selection</p>
 
-        <div class="box">
-            <asp:Panel ID="pnlExtras" runat="server">Extras</asp:Panel>
-            <p class="body">
+
+        <asp:Panel ID="pnlMainExtras" CssClass="box" runat="server">
+            <asp:Panel ID="pnlExtras" runat="server">Extras
+                <br />
+                <br />
                 <asp:Label ID="lblGymAccess" CssClass="body" runat="server" Text="Gym access"></asp:Label>
                 <br />
-                <br />
                 <asp:Image ID="imgGym" CssClass="clearfix image" ImageUrl="~/Images/Gym.png" runat="server" />                
-                <p class="subHeader">
-                    <asp:Label ID="lblAddToBooking" CssClass="subHeader" runat="server" Text="Add to booking?"></asp:Label>  
+                    <asp:Label ID="lblAddGymToBooking" CssClass="subHeader" runat="server" Text="Add to booking?"></asp:Label>  
                     <br />
                     <asp:RadioButtonList ID="rdobtnlstGymCost" runat="server" CssClass="rateOptions">
                         <asp:ListItem Value="True">Yes - +£10.00</asp:ListItem>
                         <asp:ListItem Value="False">No - +£0.00</asp:ListItem>
                     </asp:RadioButtonList>  
-                </p>
-                    
-                <br />
-                <br />
-        
-                <br />
-                <br />
-                <br />
-                <br />
-
-
-            </p>
-            <p class="body">
-                <asp:Label ID="lblLateCheckout" runat="server" Text="Late check-out"></asp:Label>
-                <br />
+                                           
+            </asp:Panel>
+  
+            <asp:Panel ID="pnlLateCheckout" runat="server">
+                <asp:Label ID="lblLateCheckout" CssClass="body" runat="server" Text="Late check-out"></asp:Label>
                 <br />
                 <asp:Image ID="imgLateCheckout" CssClass="clearfix image" ImageUrl="~/Images/Late-Check-Out.jpg" runat="server" />
-                <p class="subHeader">
-                    <asp:Label ID="Label1" CssClass="subHeader" runat="server" Text="Add to booking?"></asp:Label>  
+                    <asp:Label ID="lblAddLateCheckoutToBooking" CssClass="subHeader" runat="server" Text="Add to booking?"></asp:Label>  
                     <br />
                     <asp:RadioButtonList ID="rdobtnlstLateCheckout" runat="server" CssClass="rateOptions">
                         <asp:ListItem Value="True">Yes - +£10.00</asp:ListItem>
                         <asp:ListItem Value="False">No - +£0.00</asp:ListItem>
-                    </asp:RadioButtonList>  
-                </p>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
+                    </asp:RadioButtonList>    
+            </asp:Panel>
 
-            </p>
-        </div>
-        
+        </asp:Panel>
+            
+                   
                     
     <div class="footer" id="footer">
             © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
