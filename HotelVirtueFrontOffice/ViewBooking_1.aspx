@@ -20,6 +20,11 @@
             </ul>
         </div>
 
+        <br />
+        <div>
+            <asp:HyperLink ID="hyplnkReturnToBookings" CssClass="returnText" NavigateUrl="~/ViewBooking_1.aspx" runat="server">Return to bookings</asp:HyperLink>
+        </div>
+
         <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="#">SEARCH FOR HOTEL</a>
@@ -37,13 +42,7 @@
               document.getElementById("mySidenav").style.width = "0";
             }
         </script>
-
-        <div>
-            <p class="returnText">
-                <a href="HomePage">Return to home page</a>  
-            </p>   
-        </div>
-
+      
         <p class="pageHeader">Current bookings</p>
 
         <br />  

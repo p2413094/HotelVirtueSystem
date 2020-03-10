@@ -21,6 +21,11 @@
             </ul>
         </div>
 
+        <br />
+        <div>
+            <asp:HyperLink ID="hyplnkHomePage" CssClass="returnText" NavigateUrl="~/Index.aspx" runat="server">Return to homepage</asp:HyperLink>
+        </div>
+
         <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="#">SEARCH FOR HOTEL</a>
@@ -39,6 +44,8 @@
             }
         </script>
 
+        <br />
+        <br />
         <p>
             <asp:Table CssClass="bookingTable" runat="server">
                 <asp:TableRow CssClass="stayHeaders">
