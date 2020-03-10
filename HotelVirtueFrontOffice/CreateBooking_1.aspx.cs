@@ -24,10 +24,6 @@ public partial class CreateBooking_1 : System.Web.UI.Page
     Panel pnlBooking = new Panel();
     Label lblRoomId = new Label();
     Image imgDoubleBed = new Image();
-    Label lblDescription = new Label();
-    Label lblAccessible = new Label();
-    Label lblPrice = new Label();
-
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -92,12 +88,9 @@ public partial class CreateBooking_1 : System.Web.UI.Page
                 pnlBooking.Controls.Add(lblSingleBed);
                 pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
-                DisplayDetails(description, accessible, price);
+                DisplayDetails(description, accessible, price);            
 
-                for (int i = 0; i < 3; i += 1)
-                {
-                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
-                }
+                CreateLineBreak(3);
 
                 this.Controls.Add(pnlBooking);
             }
@@ -125,11 +118,7 @@ public partial class CreateBooking_1 : System.Web.UI.Page
 
                 DisplayDetails(description, accessible, price);
 
-
-                for (int i = 0; i < 6; i += 1)
-                {
-                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
-                }
+                CreateLineBreak(6);
 
                 this.Controls.Add(pnlBooking);
             }
@@ -169,10 +158,7 @@ public partial class CreateBooking_1 : System.Web.UI.Page
 
                 if (DB2.Count == 1)
                 {
-                    for (int i = 0; i < 11; i += 1)
-                    {
-                        pnlBooking.Controls.Add(new LiteralControl("<br />"));
-                    }
+                    CreateLineBreak(11);
                 }
 
                 this.Controls.Add(pnlBooking);
@@ -276,22 +262,16 @@ public partial class CreateBooking_1 : System.Web.UI.Page
     {   
         CalculateCost();
         GetValues();
+        Response.Redirect("CreateBooking_2.aspx");
     }
 
     decimal CalculateCost()
     {
         arrivalDate = Convert.ToDateTime("03/03/2020");
         departureDate = Convert.ToDateTime("06/03/2020");
-
-        Response.Write(arrivalDate);
-        Response.Write("<br />");
-        Response.Write(departureDate);
-        Response.Write("<br />");
-
+     
         Int32 numberOfDays = (departureDate - arrivalDate).Days;
-        Response.Write("Number of days of stay: " + numberOfDays);
-        Response.Write("<br />");
-
+    
         roomId = Convert.ToInt32(ddlRoomId.SelectedValue);
 
         clsDataConnection DB = new clsDataConnection();
@@ -365,13 +345,14 @@ public partial class CreateBooking_1 : System.Web.UI.Page
 
     void DisplayDetails(string description, Boolean accessible, decimal price)
     {
+        Label lblDescription = new Label();
         lblDescription = new Label();
         lblDescription.CssClass = "rateOptions";
         lblDescription.Text = "Description: " + description;
         pnlBooking.Controls.Add(lblDescription);
         pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
-        lblAccessible = new Label();
+        Label lblAccessible = new Label();
         lblAccessible.CssClass = "rateOptions";
         lblAccessible.Text = "Accessible: " + accessible;
         pnlBooking.Controls.Add(lblAccessible);
@@ -380,9 +361,17 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         pnlBooking.Controls.Add(new LiteralControl("<br />"));
         pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
-        lblPrice = new Label();
+        Label lblPrice = new Label();
         lblPrice.CssClass = "rateOptions";
         lblPrice.Text = "Price: £" + price;
         pnlBooking.Controls.Add(lblPrice);
+    }
+
+    void CreateLineBreak(Int32 numberOfLines)
+    {
+        for (int i = 0; i < numberOfLines; i += 1)
+        {
+            pnlBooking.Controls.Add(new LiteralControl("<br />"));
+        }
     }
 }
