@@ -42,7 +42,7 @@ public partial class CreateBooking_1 : System.Web.UI.Page
             lblCost.Text = "HC 89.00";
 
             //temporarily until Priya integration done 
-            hotelId = 1098;
+            hotelId = 1;
 
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@HotelId", hotelId);
