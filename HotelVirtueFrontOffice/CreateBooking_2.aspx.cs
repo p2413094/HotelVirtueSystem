@@ -36,9 +36,9 @@ public partial class CreateBooking_2 : System.Web.UI.Page
     {
         //this will be implemented during integration
         //customerId = Convert.ToInt32(Session["CustomerId"]);
-
         //guest = Convert.ToBoolean(Session["Guest"]);
-        guest = false;
+
+        guest = true;
 
         if (guest != true)
         {
@@ -211,7 +211,6 @@ public partial class CreateBooking_2 : System.Web.UI.Page
 
     void Add()
     {
-        Int32 customerId = 1;
         if (guest == true)
         {
             string firstName = txtFirstName.Text;
@@ -225,6 +224,10 @@ public partial class CreateBooking_2 : System.Web.UI.Page
             DB.AddParameter("@EmailAddress", emailAddress);
             DB.AddParameter("@ContactNumber", contactNumber);
             customerId = DB.Execute("sproc_tblCustomer_Insert");
+        }
+        else
+        {
+
         }
 
 
