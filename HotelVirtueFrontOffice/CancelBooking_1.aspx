@@ -43,13 +43,14 @@
             }
         </script>
 
-        <asp:Panel ID="errorPanel" CssClass="box" runat="server"></asp:Panel>
 
         <p class="pageHeader">Cancel booking</p>
 
         <br />
+        <asp:Panel ID="errorPanel" CssClass="box" runat="server"></asp:Panel>
         <br />
-        <div class="box">
+
+        <asp:Panel ID="pnlBooking" CssClass="box" runat="server">
             <asp:Label ID="lblHotelName" runat="server" Text=""></asp:Label>
             <p class="body">
                 <asp:Label ID="lblBookingLineId" runat="server" Text=""></asp:Label>
@@ -93,25 +94,16 @@
             <asp:Label ID="lblEnterReason" CssClass="body" runat="server" Text="Please enter reason in box below"></asp:Label>
             <br />
             <asp:TextBox ID="txtReason" CssClass="multiLineTextField" TextMode="MultiLine" runat="server"></asp:TextBox>
-
+            <br />
+            <br />
             <asp:Button CssClass="continueButton" ID="btnCancelBooking" runat="server" Text="CANCEL BOOKING" OnClick="btnCancelBooking_Click" />
             <br />
             <br />
             <br />
-        </div>
+        </asp:Panel>
+        
     </form>
 
-    <script>
-        function ConfirmCancellation() {
-            var answer = confirm("Confirm cancellation?");
-            if (answer == true) {
-                Response.redirect("CancelBooking_2.aspx");
-            }
-            else {
-
-            }
-       }
-    </script>
 
 </body>
 </html>
