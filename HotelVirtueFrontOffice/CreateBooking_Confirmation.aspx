@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Confirmation</title>
     <link rel="stylesheet" href="StyleSheet.css" />
 </head>
 <body class="body">

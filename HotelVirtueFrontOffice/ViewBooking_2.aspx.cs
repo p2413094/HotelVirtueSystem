@@ -21,7 +21,7 @@ public partial class ViewBooking_2 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         updateBooking = true; //Convert.ToBoolean(Session["UpdateBooking"]);
-        bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
+        bookingLineId = 196;//Convert.ToInt32(Session["BookingLineId"]);
         pnlError.Visible = false;
 
         clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
@@ -98,24 +98,24 @@ public partial class ViewBooking_2 : System.Web.UI.Page
             pnlBooking.Controls.Add(lblOther);
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
+            other = aBookingLine.thisBookingLine.Other;
             if (updateBooking == true)
             {
-                //TextBox txtOther = new TextBox();
                 txtOther.CssClass = "multiLineTextField";
                 txtOther.TextMode = TextBoxMode.MultiLine;
+                txtOther.Text = other;
                 pnlBooking.Controls.Add(txtOther);
             }
-
             else
             {
-                other = aBookingLine.thisBookingLine.Other;
+                txtOther.Enabled = false;
                 if (other.Length == 0)
                 {
                     lblOther.Text += "BLANK";
                 }
                 else
                 {
-                    lblOther.Text += aBookingLine.thisBookingLine.Other;
+                    lblOther.Text += other;
                 }
             }
             

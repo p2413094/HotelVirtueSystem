@@ -14,6 +14,6 @@ public partial class PayForBooking_Success : System.Web.UI.Page
 
     protected void btnReturnToHomePage_Click1(object sender, EventArgs e)
     {
-        Response.Redirect("HomePage.aspx");
+        Response.Redirect("Index.aspx");
     }
 }

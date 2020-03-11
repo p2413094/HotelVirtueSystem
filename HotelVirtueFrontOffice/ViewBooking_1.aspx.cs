@@ -59,7 +59,7 @@ public partial class ViewBooking_1 : System.Web.UI.Page
                 Int32 bookingId;
                 bookingId = bookingLine.BookingId;
                 aBooking.Find(bookingId);
-                lblTotal.Text = "Total: £" + aBooking.Total; //allBookings.BookingList[index].Total;
+                lblTotal.Text = "Total: £" + aBooking.Total; 
                 pnlBooking.Controls.Add(lblTotal);
                 pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
@@ -112,7 +112,7 @@ public partial class ViewBooking_1 : System.Web.UI.Page
         pnlChooseBooking.CssClass = "box";
 
         Label lblChooseBookingOption = new Label();
-        lblChooseBookingOption.Text = "Please choose the booking that you wish to access";
+        lblChooseBookingOption.Text = "Please choose the bookingLine that you wish to interact with";
         pnlChooseBooking.Controls.Add(lblChooseBookingOption);
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));

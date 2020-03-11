@@ -210,6 +210,56 @@ namespace HotelVirtueClasses
             return error;
         }
 
+        public List<string> BillingErrors = new List<string>();
+        public void ValidateBillingDetails(string firstName, string lastName, string emailAddress, string contactNumber)
+        {
+            string error;
+
+            if (firstName.Length == 0)
+            {
+                error = "First name length must be bigger than 0 characters";
+                BillingErrors.Add(error);
+            }
+            if (firstName.Length > 10)
+            {
+                error = "First name length must be not be bigger than 10 characters";
+                BillingErrors.Add(error);
+            }
+
+            if (lastName.Length == 0)
+            {
+                error = "Last name length must be bigger than 0 characters";
+                BillingErrors.Add(error);
+            }
+            if (lastName.Length > 10)
+            {
+                error = "Last name length must be not be bigger than 10 characters";
+                BillingErrors.Add(error);
+            }
+
+            if (emailAddress.Length == 0)
+            {
+                error = "Email address length must be not be bigger than 50 characters";
+                BillingErrors.Add(error);
+            }
+
+            if (emailAddress.Length > 50)
+            {
+                error = "Email address length must be not be bigger than 50 characters";
+                BillingErrors.Add(error);
+            }
+
+            try
+            {
+                Int32 convertedContactNumber = Convert.ToInt32(contactNumber);
+            }
+            catch
+            {
+                error = "Contact number must be in an integer format";
+                BillingErrors.Add(error);
+            }
+        }
+
         public bool Find(int paymentId)
         {          
             clsDataConnection DB = new clsDataConnection();

@@ -9,9 +9,6 @@ using HotelVirtueClasses;
 public partial class PayForBooking_1 : System.Web.UI.Page
 {
     Boolean guest;
-    string firstName;
-    string lastName;
-    string hotelName;
     Int32 customerId;
     decimal total;
     Int32 bookingLineId;
@@ -24,14 +21,14 @@ public partial class PayForBooking_1 : System.Web.UI.Page
             errorPanel.Visible = false;
             pnlBillingDetails.Visible = false;
             guest = Convert.ToBoolean(Session["Guest"]);
-            firstName = Convert.ToString(Session["firstName"]);
-            lastName = Convert.ToString(Session["LastName"]);
-            hotelName = "Birmingham";//Convert.ToString(Session["Name"]);
+            string firstName = Convert.ToString(Session["firstName"]);
+            string lastName = Convert.ToString(Session["LastName"]);
+            string hotelName = "Birmingham";//Convert.ToString(Session["Name"]);
             customerId = Convert.ToInt32(Session["customerId"]);
             bookingLineId = Convert.ToInt32(Session["bookingLineId"]);
             total = Convert.ToDecimal(Session["Total"]);
 
-            guest = false;
+            guest = true;
 
             if (guest == true)
             {
@@ -91,6 +88,31 @@ public partial class PayForBooking_1 : System.Web.UI.Page
                 lblErrorItem.CssClass = "body";
                 errorPanel.Controls.Add(lblErrorItem);
             }
+            errorPanel.Controls.Add(new LiteralControl("<br />"));
+            errorPanel.Controls.Add(new LiteralControl("<br />"));
+
+            newPayment.ValidateBillingDetails(txtFirstName.Text, txtLastName.Text, txtEmailAddress.Text, txtContactNumber.Text);
+            if (pnlBillingDetails.Visible == true)
+            {
+                if (newPayment.BillingErrors.Count != 0)
+                {
+                    Label lblBillingDetailsErrors = new Label();
+                    lblBillingDetailsErrors.CssClass = "body";
+                    lblBillingDetailsErrors.Text = "Billing details errors: ";
+                    errorPanel.Controls.Add(lblBillingDetailsErrors);
+                    errorPanel.Controls.Add(new LiteralControl("<br />"));
+                    errorPanel.Controls.Add(new LiteralControl("<br />"));
+
+                    foreach (string errorItem in newPayment.BillingErrors)
+                    {
+                        Label lblErrorItem = new Label();
+                        lblErrorItem.Text = errorItem;
+                        lblErrorItem.CssClass = "body";
+                        errorPanel.Controls.Add(lblErrorItem);
+                        errorPanel.Controls.Add(new LiteralControl("<br />"));
+                    }
+                }               
+            }
         }
         else
         {
@@ -115,11 +137,9 @@ public partial class PayForBooking_1 : System.Web.UI.Page
                     customerId = DB.Execute("sproc_tblCustomer_Insert");
                 }
 
-
                 clsPaymentCollection payments = new clsPaymentCollection();
-                //this should be added depending upon whether the customer chooses gust or log in checkout 
                 payments.ThisPayment.CustomerId = customerId;                                                    
-                payments.ThisPayment.BookingLineId = bookingLineId;//newBookingLineId;
+                payments.ThisPayment.BookingLineId = bookingLineId;
                 payments.ThisPayment.DateTimeOfPayment = DateTime.Now;
                 payments.ThisPayment.Amount = total;
                 payments.ThisPayment.CardNumber = txtCardNumber.Text;
@@ -134,7 +154,6 @@ public partial class PayForBooking_1 : System.Web.UI.Page
             {
                 DisplayError();
             }
-
         }
     }
 
