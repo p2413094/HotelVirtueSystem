@@ -46,29 +46,37 @@ namespace HotelVirtueClasses
 
         public clsAccountCollection()
         {
-            //create an instance of the customer class to store a customer
+            //var for the index 
+            Int32 Index = 0;
+            //var to store the rcord count
+            Int32 RecordCount = 0;
+            //object for data connection
             clsDataConnection DB = new clsDataConnection();
             //execute the stored procedure 
             DB.Execute("sproc_tblAccount_SelectAll");
             //get the count of records
-            Int32 RecordCount = DB.Count;
-            //set up the index for the loop
-            Int32 Index = 0;
+            RecordCount = DB.Count;
             //while there are records to process
-            while (Index < RecordCount) ;
+            while (Index < RecordCount)
             {
-                //create a new instance of the customer class
+                //create a blank customer
                 clsAccount AAccount = new clsAccount();
-                //get the customer name
-                AAccount.City = DB.DataTable.Rows[Index]["City"].ToString();
-                //get the primary key
-                AAccount.AccountId = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerId"]);
+                //read in fields from the current record
+                AAccount.AccountId = Convert.ToInt32(DB.DataTable.Rows[Index]["AccountId"]);
+                AAccount.CustomerId = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerId"]);
+                AAccount.City = Convert.ToString(DB.DataTable.Rows[Index]["City"]);
+                AAccount.HouseNumber = Convert.ToString(DB.DataTable.Rows[Index]["HouseNo"]);
+                AAccount.PostCode = Convert.ToString(DB.DataTable.Rows[Index]["PostCode"]);
+                AAccount.Street = Convert.ToString(DB.DataTable.Rows[Index]["Street"]);
+                AAccount.Town = Convert.ToString(DB.DataTable.Rows[Index]["Town"]);
+                AAccount.Password = Convert.ToString(DB.DataTable.Rows[Index]["Password"]);
                 //add the customer to the private data member
                 mAllAccounts.Add(AAccount);
                 //increment the Index
                 Index++;
             }
         }
+
 
     }
 }

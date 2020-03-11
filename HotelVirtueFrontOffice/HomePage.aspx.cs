@@ -18,7 +18,28 @@ public partial class HomePage : System.Web.UI.Page
         newButton.Click += evh;
 
         
+            //if this is the first time the page is displayed
+            if (IsPostBack == false)
+            {
+            DisplayAccounts();
+            }
+        
     }
+
+    void DisplayAccounts()
+    {
+        //create an instance of Account Collection
+        HotelVirtueClasses.clsAccountCollection Accounts = new HotelVirtueClasses.clsAccountCollection();
+        //Set the data source to the list of accounts
+        ListBox1.DataSource = Accounts.AllAccounts;
+        //set name of the primary key
+        ListBox1.DataValueField = "AccountId";
+        //set the data field to display
+        ListBox1.DataTextField = "AccountId";
+        //bind the data to list
+        ListBox1.DataBind();
+    }
+
 
     void btn_Click(object sender, EventArgs e)
     {
@@ -81,6 +102,11 @@ public partial class HomePage : System.Web.UI.Page
 
 
     protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }

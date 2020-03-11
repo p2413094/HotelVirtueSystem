@@ -119,5 +119,35 @@ namespace Hotel_Virtue_Testing
             //test to see two values are the same
             Assert.AreEqual(AAccount.Town, testData);
         }
+
+        [TestMethod]
+        public void AddNethodOK()
+        {
+            //create an instance of the class nwe want to create
+            clsAccountCollection AllAccounts = new clsAccountCollection();
+            //create the item of test data
+            clsAccount TestItem = new clsAccount();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.AccountId = 1;
+            TestItem.CustomerId = 1;
+            TestItem.City = "London";
+            TestItem.Town = "Newham	";
+            TestItem.PostCode = "LON 32S";
+            TestItem.Street = "Hopkins st";
+            TestItem.HouseNo = "Order house 33";
+            TestItem.Password = "ghghsghdag3";
+            //set ThisAccount to the testData
+            AllAccounts.ThisAccount = TestItem;
+            //add the record 
+            PrimaryKey = AllAccounts.Add();
+            //set the primary key of the test data 
+            TestItem.AccountId = PrimaryKey;
+            //finf the record
+            AllAccounts.ThisAccount.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllAccounts.ThisAccount, TestItem);
+        }
     }
 }

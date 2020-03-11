@@ -759,5 +759,31 @@ namespace Hotel_Virtue_Testing
             Assert.AreEqual(Error, "");
         }
 
+        [TestMethod]
+        public void AddNethodOK()
+        {
+            //create an instance of the class nwe want to create
+            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+            //create the item of test data
+            clsCustomer TestItem = new clsCustomer();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.CustomerId = 1;
+            TestItem.ContactNumber = 1;
+            TestItem.FirstName = "Gerald";
+            TestItem.LastName = "Johnson";
+            TestItem.EmailAddress = "charlie@gmail.com";
+            //set ThisAccount to the testData
+            AllCustomers.ThisCustomer = TestItem;
+            //add the record 
+            PrimaryKey = AllCustomer.Add();
+            //set the primary key of the test data 
+            TestItem.CustomerId = PrimaryKey;
+            //finf the record
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
+        }
     }
 }
