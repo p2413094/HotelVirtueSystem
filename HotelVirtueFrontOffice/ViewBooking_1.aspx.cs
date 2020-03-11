@@ -108,7 +108,7 @@ public partial class ViewBooking_1 : System.Web.UI.Page
         pnlChooseBooking.CssClass = "box";
 
         Label lblChooseBookingOption = new Label();
-        lblChooseBookingOption.Text = "Please choose the booking that you wish to view/ cancel/ delete";
+        lblChooseBookingOption.Text = "Please choose the booking that you wish to access";
         pnlChooseBooking.Controls.Add(lblChooseBookingOption);
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
         pnlChooseBooking.Controls.Add(new LiteralControl("<br />"));
@@ -171,13 +171,36 @@ public partial class ViewBooking_1 : System.Web.UI.Page
     private void BtnPayForThisBooking_Click(object sender, EventArgs e)
     {
         GetAndSaveBookingLineId();
-        Response.Redirect("PayForBooking_1.aspx");
+
+        clsPayment aPayment = new clsPayment();
+        Boolean paymentExists = aPayment.Find(bookingLineId);
+
+        if (paymentExists)
+        {
+            Label lblError = new Label();
+            lblError.Text = "Error";
+            pnlError.Controls.Add(lblError);
+            pnlError.Controls.Add(new LiteralControl("<br />"));
+
+            Label lblPaymentExistsMessage = new Label();
+            lblPaymentExistsMessage.CssClass = "body";
+            lblPaymentExistsMessage.Text = "A payment already exists for this booking. Please try again";
+            pnlError.Controls.Add(lblPaymentExistsMessage);
+            pnlError.Controls.Add(new LiteralControl("<br />"));
+
+            pnlError.Visible = true;
+        }
+        else
+        {
+            Response.Redirect("PayForBooking_1.aspx");
+        }
+
     }
 
     private void BtnUpdate_Click(object sender, EventArgs e)
     {
         Session["updateBooking"] = true;
-        Session["BookingLineId"] = bookingLineId;
+        GetAndSaveBookingLineId();
         Response.Redirect("ViewBooking_2.aspx");
     }
 

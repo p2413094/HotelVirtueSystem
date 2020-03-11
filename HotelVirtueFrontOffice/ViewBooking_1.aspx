@@ -47,6 +47,7 @@
         <br />  
         <br />
         <asp:Panel ID="pnlError" CssClass="box" runat="server"></asp:Panel>
+        <br />
     </form>
 </body>
 </html>
