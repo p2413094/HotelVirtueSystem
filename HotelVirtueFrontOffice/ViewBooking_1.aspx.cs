@@ -170,7 +170,7 @@ public partial class ViewBooking_1 : System.Web.UI.Page
 
     private void BtnPayForThisBooking_Click(object sender, EventArgs e)
     {
-        Session["BookingLineId"] = GetBookingLineId();
+        GetAndSaveBookingLineId();
         Response.Redirect("PayForBooking_1.aspx");
     }
 
@@ -183,7 +183,7 @@ public partial class ViewBooking_1 : System.Web.UI.Page
 
     private void BtnDelete_Click(object sender, EventArgs e)
     {
-        Session["BookingLineId"] = GetBookingLineId();
+        GetAndSaveBookingLineId();
         allBookingLines.thisBookingLine.Find(bookingLineId);
         Int32 bookingId = allBookingLines.thisBookingLine.BookingId;
         Session["BookingId"] = bookingId;
@@ -192,19 +192,22 @@ public partial class ViewBooking_1 : System.Web.UI.Page
 
     private void BtnCancelThisBooking_Click(object sender, EventArgs e)
     {
-        Session["BookingLineId"] = GetBookingLineId();
+        GetAndSaveBookingLineId();
         Response.Redirect("CancelBooking_1.aspx");
     }
 
     private void BtnViewThisBooking_Click(object sender, EventArgs e)
     {
-        Session["BookingLineId"] = GetBookingLineId();
+        GetAndSaveBookingLineId();
         Response.Redirect("ViewBooking_2.aspx");
     }
 
-    Int32 GetBookingLineId()
+    Int32 GetAndSaveBookingLineId()
     {
         bookingLineId = Convert.ToInt32(ddlBookingLineId.SelectedValue);
+        Session["BookingLineId"] = bookingLineId;
         return bookingLineId;
     }
+
+  
 }

@@ -21,7 +21,7 @@ public partial class ViewBooking_2 : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         updateBooking = true; //Convert.ToBoolean(Session["UpdateBooking"]);
-        bookingLineId = 169;//Convert.ToInt32(Session["BookingLineId"]);
+        bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
         pnlError.Visible = false;
 
         clsBookingLineCollection aBookingLine = new clsBookingLineCollection();

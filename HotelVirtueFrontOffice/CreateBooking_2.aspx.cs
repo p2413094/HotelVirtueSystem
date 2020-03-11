@@ -264,38 +264,35 @@ public partial class CreateBooking_2 : System.Web.UI.Page
         else
         {
             clsBookingCollection allBookings = new clsBookingCollection();
-            clsBooking newBooking = new clsBooking();
-            newBooking.HotelId = hotelId;
+            allBookings.ThisBooking.HotelId = hotelId;
 
             //this needs looking at 
-            newBooking.AdminId = 1;
+            allBookings.ThisBooking.AdminId = 1;
             //
             //this needs looking at
-            newBooking.CustomerId = customerId;
+            allBookings.ThisBooking.CustomerId = customerId;
 
-            newBooking.DateTimeOfBooking = DateTime.Now;
-            newBooking.Total = total;
-            allBookings.ThisBooking = newBooking;
+            allBookings.ThisBooking.DateTimeOfBooking = DateTime.Now;
+            allBookings.ThisBooking.Total = total;
             Int32 createdBookingId = allBookings.Add();
 
             clsBookingLineCollection allBookingLines = new clsBookingLineCollection();
-            clsBookingLine newBookingLine = new clsBookingLine();
-            newBookingLine.ArrivalDate = Convert.ToDateTime(arrivalDate);
-            newBookingLine.DepartureDate = Convert.ToDateTime(departureDate);
-            newBookingLine.BookingId = createdBookingId;
-            newBookingLine.RoomId = roomId;
-            newBookingLine.UnderFive = underFive;
-            newBookingLine.FiveToSixteen = fiveToSixteen;
-            newBookingLine.SixteenUpwards = sixteenUpwards;
-            newBookingLine.GymAccess = gymAccess;
-            newBookingLine.LateCheckout = lateCheckout;
-            newBookingLine.Other = txtOther.Text;
+            allBookingLines.thisBookingLine.ArrivalDate = Convert.ToDateTime(arrivalDate);
+            allBookingLines.thisBookingLine.DepartureDate = Convert.ToDateTime(departureDate);
+            allBookingLines.thisBookingLine.BookingId = createdBookingId;
+            allBookingLines.thisBookingLine.RoomId = roomId;
+            allBookingLines.thisBookingLine.UnderFive = underFive;
+            allBookingLines.thisBookingLine.FiveToSixteen = fiveToSixteen;
+            allBookingLines.thisBookingLine.SixteenUpwards = sixteenUpwards;
+            allBookingLines.thisBookingLine.GymAccess = gymAccess;
+            allBookingLines.thisBookingLine.LateCheckout = lateCheckout;
+            allBookingLines.thisBookingLine.Other = txtOther.Text;
 
-            allBookingLines.thisBookingLine = newBookingLine;
+            
             createdBookingLineId = allBookingLines.Add();
 
-            Boolean newBookingFound = newBooking.Find(createdBookingId);
-            Boolean newBookingLineIdFound = newBookingLine.Find(createdBookingLineId);
+            //Boolean newBookingFound = newBooking.Find(createdBookingId);
+            //Boolean newBookingLineIdFound = newBookingLine.Find(createdBookingLineId);
         } 
     }
 
