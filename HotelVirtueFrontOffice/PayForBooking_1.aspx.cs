@@ -28,7 +28,7 @@ public partial class PayForBooking_1 : System.Web.UI.Page
             bookingLineId = Convert.ToInt32(Session["bookingLineId"]);
             total = Convert.ToDecimal(Session["Total"]);
 
-            guest = true;
+            guest = false;
 
             if (guest == true)
             {
@@ -138,6 +138,7 @@ public partial class PayForBooking_1 : System.Web.UI.Page
                 }
 
                 clsPaymentCollection payments = new clsPaymentCollection();
+                clsSecurity securityGate = new clsSecurity();
                 payments.ThisPayment.CustomerId = customerId;                                                    
                 payments.ThisPayment.BookingLineId = bookingLineId;
                 payments.ThisPayment.DateTimeOfPayment = DateTime.Now;
@@ -145,7 +146,7 @@ public partial class PayForBooking_1 : System.Web.UI.Page
                 payments.ThisPayment.CardNumber = txtCardNumber.Text;
                 payments.ThisPayment.NameOnCard = txtNameOnCard.Text;
                 payments.ThisPayment.ExpiryDate = txtExpiryDate.Text;
-                payments.ThisPayment.SecurityCode = txtSecurityCode.Text;
+                payments.ThisPayment.SecurityCode = securityGate.GetHashSecurityCode(txtSecurityCode.Text);
                 payments.ThisPayment.CardType = ddlCardType.SelectedValue;
                 payments.Add();
                 Response.Redirect("PayForBooking_Success.aspx");
