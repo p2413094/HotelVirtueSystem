@@ -57,10 +57,7 @@
                     </asp:TableCell>
                     <asp:TableCell CssClass="stayHeaders">
                         Guests
-                    </asp:TableCell>
-                    <asp:TableCell CssClass="stayHeaders">
-                        Sub-total
-                    </asp:TableCell>
+                    </asp:TableCell>                    
                 </asp:TableRow>
                 
                 <asp:TableRow>
@@ -72,10 +69,7 @@
                     </asp:TableCell>
                     <asp:TableCell CssClass="stayGeneralText">
                         <asp:Label ID="lblbreakdownOfGuests" runat="server" Text=""></asp:Label>
-                    </asp:TableCell>
-                    <asp:TableCell CssClass="stayGeneralText">
-                        <asp:Label ID="lblCost" runat="server" Text=""></asp:Label>
-                    </asp:TableCell>
+                    </asp:TableCell>                  
                 </asp:TableRow>
             </asp:Table>
         </p>
