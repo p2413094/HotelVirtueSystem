@@ -206,6 +206,7 @@ public partial class ViewBooking_1 : System.Web.UI.Page
             aBooking.Find(bookingId);
             total = aBooking.Total;
             Session["Total"] = total;
+            Response.Redirect("PayForBooking_1.aspx");
         }
     }
 
