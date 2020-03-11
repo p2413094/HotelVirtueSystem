@@ -140,13 +140,49 @@
                     <br />
                     <br />
             </div>
+                <br />
+                <br />
+
+                <asp:Panel ID="pnlBillingDetails" CssClass="body" runat="server">
+                    <p class="centreSlantedHeader">Billing details</p>
+                    <div class="left">
+                        First name 
+                    </div>
+                    <div class="right">
+                        <asp:TextBox ID="txtFirstName" CssClass="fieldBoxSize" runat="server"></asp:TextBox>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="left">
+                        Last name 
+                    </div>
+                    <div class="right">
+                        <asp:TextBox ID="txtLastName" CssClass="fieldBoxSize" runat="server"></asp:TextBox>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="left">
+                        Email address 
+                    </div>
+                    <div class="right">
+                        <asp:TextBox ID="txtEmailAddress" CssClass="fieldBoxSize" runat="server"></asp:TextBox>
+                    </div>
+                    <br />
+                    <br />
+                    <div class="left">
+                        Contact number 
+                    </div>
+                    <div class="right">
+                        <asp:TextBox ID="txtContactNumber" CssClass="fieldBoxSize" runat="server"></asp:TextBox>
+                    </div>
+                </asp:Panel>
+
          </div>
             <br />
             <br />
             <asp:Button ID="btnSubmit" CssClass="rightButton" runat="server" OnClick="btnSubmit_Click" Text="SUBMIT" />
             <br />
             <br />
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
         </asp:Panel>
    
     </form>

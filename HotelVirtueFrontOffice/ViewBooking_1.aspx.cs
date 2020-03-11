@@ -55,7 +55,11 @@ public partial class ViewBooking_1 : System.Web.UI.Page
 
                 Label lblTotal = new Label();
                 lblTotal.CssClass = "extrasHeader";
-                lblTotal.Text = "Total: £" + allBookings.BookingList[index].Total;
+                clsBooking aBooking = new clsBooking();
+                Int32 bookingId;
+                bookingId = bookingLine.BookingId;
+                aBooking.Find(bookingId);
+                lblTotal.Text = "Total: £" + aBooking.Total; //allBookings.BookingList[index].Total;
                 pnlBooking.Controls.Add(lblTotal);
                 pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
@@ -172,10 +176,11 @@ public partial class ViewBooking_1 : System.Web.UI.Page
     {
         GetAndSaveBookingLineId();
 
-        clsPayment aPayment = new clsPayment();
-        Boolean paymentExists = aPayment.Find(bookingLineId);
+        clsDataConnection DB = new clsDataConnection();
+        DB.AddParameter("@BookingLineId", bookingLineId);
+        DB.Execute("sproc_tblPayment_GetPaymentId");
 
-        if (paymentExists)
+        if (DB.Count == 1)
         {
             Label lblError = new Label();
             lblError.Text = "Error";
@@ -192,9 +197,16 @@ public partial class ViewBooking_1 : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("PayForBooking_1.aspx");
-        }
+            decimal total;
+            clsBookingLine aBookingLine = new clsBookingLine();
+            aBookingLine.Find(bookingLineId);
+            Int32 bookingId = aBookingLine.BookingId;
 
+            clsBooking aBooking = new clsBooking();
+            aBooking.Find(bookingId);
+            total = aBooking.Total;
+            Session["Total"] = total;
+        }
     }
 
     private void BtnUpdate_Click(object sender, EventArgs e)
@@ -231,6 +243,4 @@ public partial class ViewBooking_1 : System.Web.UI.Page
         Session["BookingLineId"] = bookingLineId;
         return bookingLineId;
     }
-
-  
 }

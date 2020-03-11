@@ -22,6 +22,7 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         try
         {
             errorPanel.Visible = false;
+            pnlBillingDetails.Visible = false;
             guest = Convert.ToBoolean(Session["Guest"]);
             firstName = Convert.ToString(Session["firstName"]);
             lastName = Convert.ToString(Session["LastName"]);
@@ -37,6 +38,8 @@ public partial class PayForBooking_1 : System.Web.UI.Page
                 lblFullName.Text = "Welcome, Guest";
                 lblFullName.CssClass = "centreSlantedHeader";
                 lblFullName.Visible = true;
+
+                pnlBillingDetails.Visible = true;
             }
             else
             {
@@ -93,10 +96,29 @@ public partial class PayForBooking_1 : System.Web.UI.Page
         {
             try
             {
+                string firstName;
+                string lastName;
+                string emailAddress;
+                Int32 contactNumber;
+
+                if (guest == true)
+                {
+                    firstName = txtFirstName.Text;
+                    lastName = txtLastName.Text;
+                    emailAddress = txtEmailAddress.Text;
+                    contactNumber = Convert.ToInt32(txtContactNumber.Text);
+                    clsDataConnection DB = new clsDataConnection();
+                    DB.AddParameter("@FirstName", firstName);
+                    DB.AddParameter("@LastName", lastName);
+                    DB.AddParameter("@EmailAddress", emailAddress);
+                    DB.AddParameter("@ContactNumber", contactNumber);
+                    customerId = DB.Execute("sproc_tblCustomer_Insert");
+                }
+
+
                 clsPaymentCollection payments = new clsPaymentCollection();
                 //this should be added depending upon whether the customer chooses gust or log in checkout 
-                payments.ThisPayment.CustomerId = 1;//customerId;
-                                                    //
+                payments.ThisPayment.CustomerId = customerId;                                                    
                 payments.ThisPayment.BookingLineId = bookingLineId;//newBookingLineId;
                 payments.ThisPayment.DateTimeOfPayment = DateTime.Now;
                 payments.ThisPayment.Amount = total;
