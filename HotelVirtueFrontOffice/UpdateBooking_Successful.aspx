@@ -1,14 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ViewBooking_1.aspx.cs" Inherits="ViewBooking_1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UpdateBooking_Successful.aspx.cs" Inherits="UpdateBooking_Successful" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>View booking</title>
-    <link rel="stylesheet" = href="StyleSheet.css" />
+    <title>Success</title>
+    <link rel="stylesheet" href="StyleSheet.css" />
 </head>
 <body class="body">
-    <form runat="server">
+    <form id="form1" runat="server">
         <div class="logo">
             Hotel Virtue           
         </div>
@@ -44,10 +44,18 @@
         </script>
 
         <br />
-        <asp:Label ID="lblPageHeader" CssClass="pageHeader" runat="server" Text="Bookings"></asp:Label>
+        <asp:Label ID="lblPageHeader" CssClass="pageHeader" runat="server" Text="Update successful!"></asp:Label>
         <br />
         <br />
-        <asp:Panel ID="pnlError" CssClass="box" runat="server"></asp:Panel>
+        <asp:Panel ID="Panel1" CssClass="box" runat="server">
+            <div class="body">
+                Your booking has been succesfully updated.
+            </div>
+            <br />
+            <asp:Button ID="btnReturnToHomePage" CssClass="leftButton" runat="server" Text="RETURN TO HOME PAGE" OnClick="btnReturnToHomePage_Click" />
+            <br />
+            <br />
+        </asp:Panel>
         <br />
     </form>
 </body>

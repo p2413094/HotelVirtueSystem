@@ -204,11 +204,12 @@ public partial class DeleteBookingLine_1 : System.Web.UI.Page
     private void BtnYes_Click(object sender, EventArgs e)
     {
         DeleteBooking();
+        Response.Redirect("DeleteBooking_Confirmation.aspx");
     }
 
     private void BtnNo_Click(object sender, EventArgs e)
     {
-        
+        Response.Redirect("ViewBooking_1.aspx");
     }   
 
     Int32 GetRoomTypeId()

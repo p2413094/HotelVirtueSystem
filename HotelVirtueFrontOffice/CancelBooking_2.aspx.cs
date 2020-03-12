@@ -14,6 +14,6 @@ public partial class CancelBooking_2 : System.Web.UI.Page
 
     protected void btnReturnToHomeScreen_Click(object sender, EventArgs e)
     {
-        Response.Redirect("HomePage.aspx");
+        Response.Redirect("Index.aspx");
     }
 }

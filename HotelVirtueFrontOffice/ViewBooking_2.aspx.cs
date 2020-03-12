@@ -20,8 +20,8 @@ public partial class ViewBooking_2 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        updateBooking = true; //Convert.ToBoolean(Session["UpdateBooking"]);
-        bookingLineId = 196;//Convert.ToInt32(Session["BookingLineId"]);
+        updateBooking = false; //Convert.ToBoolean(Session["UpdateBooking"]);
+        bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
         pnlError.Visible = false;
 
         clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
@@ -103,22 +103,16 @@ public partial class ViewBooking_2 : System.Web.UI.Page
             {
                 txtOther.CssClass = "multiLineTextField";
                 txtOther.TextMode = TextBoxMode.MultiLine;
-                txtOther.Text = other;
-                pnlBooking.Controls.Add(txtOther);
+                txtOther.Enabled = true;
             }
             else
             {
                 txtOther.Enabled = false;
-                if (other.Length == 0)
-                {
-                    lblOther.Text += "BLANK";
-                }
-                else
-                {
-                    lblOther.Text += other;
-                }
             }
-            
+            txtOther.Text = other;
+            pnlBooking.Controls.Add(txtOther);
+
+
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
@@ -236,7 +230,7 @@ public partial class ViewBooking_2 : System.Web.UI.Page
             DB.AddParameter("@BookingLineId", bookingLineId);
             DB.AddParameter("@Other", other);
             DB.Execute("sproc_tblBookingLine_Update");
-           
+            Response.Redirect("UpdateBooking_Successful.aspx");
         }
     }
 

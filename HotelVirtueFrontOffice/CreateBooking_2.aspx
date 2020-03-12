@@ -51,10 +51,11 @@
         <br />
         <br />
 
-        <asp:Panel ID="pnlBookingInformation" CssClass="box" runat="server"></asp:Panel>
-        <br />    
-        
+
         <asp:Panel ID="pnlError" CssClass="box" runat="server"></asp:Panel>
+        <br />    
+        <asp:Panel ID="pnlBookingInformation" CssClass="box" runat="server"></asp:Panel>
+        
 
 
     <div class="footer">

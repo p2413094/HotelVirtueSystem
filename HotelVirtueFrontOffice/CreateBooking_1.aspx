@@ -84,7 +84,7 @@
                 <asp:Label ID="lblGymAccess" CssClass="body" runat="server" Text="Gym access"></asp:Label>
                 <br />
                 <asp:Image ID="imgGym" CssClass="clearfix image" ImageUrl="~/Images/Gym.png" runat="server" />                
-                    <asp:Label ID="lblAddGymToBooking" CssClass="subHeader" runat="server" Text="Add to booking?"></asp:Label>  
+                    <asp:Label ID="lblAddGymToBooking" CssClass="extrasHeader" runat="server" Text="Add to booking?"></asp:Label>  
                     <br />
                     <asp:RadioButtonList ID="rdobtnlstGymCost" runat="server" CssClass="rateOptions">
                         <asp:ListItem Value="True">Yes - +£10.00</asp:ListItem>
@@ -97,7 +97,7 @@
                 <asp:Label ID="lblLateCheckout" CssClass="body" runat="server" Text="Late check-out"></asp:Label>
                 <br />
                 <asp:Image ID="imgLateCheckout" CssClass="clearfix image" ImageUrl="~/Images/Late-Check-Out.jpg" runat="server" />
-                    <asp:Label ID="lblAddLateCheckoutToBooking" CssClass="subHeader" runat="server" Text="Add to booking?"></asp:Label>  
+                    <asp:Label ID="lblAddLateCheckoutToBooking" CssClass="extrasHeader" runat="server" Text="Add to booking?"></asp:Label>  
                     <br />
                     <asp:RadioButtonList ID="rdobtnlstLateCheckout" runat="server" CssClass="rateOptions">
                         <asp:ListItem Value="True">Yes - +£10.00</asp:ListItem>

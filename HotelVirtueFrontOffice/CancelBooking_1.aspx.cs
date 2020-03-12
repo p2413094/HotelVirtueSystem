@@ -26,11 +26,7 @@ public partial class CancelBooking_1 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
-        bookingLineId = 3;
-
-
-
+        bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
         clsBookingLineCollection aBookingLine = new clsBookingLineCollection();
         Boolean bookingLineIdFound = aBookingLine.thisBookingLine.Find(bookingLineId);
         if (bookingLineIdFound == true)
@@ -54,9 +50,7 @@ public partial class CancelBooking_1 : System.Web.UI.Page
         {
             pnlBooking.Visible = false;
             DisplayError();
-        }
-
-        
+        }        
     }
 
     protected void btnCancelBooking_Click(object sender, EventArgs e)
@@ -110,14 +104,12 @@ public partial class CancelBooking_1 : System.Web.UI.Page
     }
 
     protected void ddlCancellationReason_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        
+    {       
         if (ddlCancellationReason.SelectedIndex == 5)
         {
             lblEnterReason.Visible = true;
             txtReason.Visible = true;
-        }
-        
+        }       
     }
 
     void DisplayError()

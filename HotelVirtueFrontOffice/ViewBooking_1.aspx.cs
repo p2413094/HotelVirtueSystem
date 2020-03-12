@@ -22,52 +22,64 @@ public partial class ViewBooking_1 : System.Web.UI.Page
             Int32 index = 0;
             Int32 recordCount = allBookings.BookingList.Count;
 
-            foreach (clsBookingLine bookingLine in allBookingLines.BookingLineList)
+            if (allBookingLines.BookingLineList.Count > 0)
             {
-                Int32 calculatedNoOfGuests;
+                foreach (clsBookingLine bookingLine in allBookingLines.BookingLineList)
+                {
+                    Int32 calculatedNoOfGuests;
 
-                Panel pnlBooking = new Panel();
-                pnlBooking.CssClass = "box";
+                    Panel pnlBooking = new Panel();
+                    pnlBooking.CssClass = "box";
 
-                Label lblBookingLineId = new Label();
-                lblBookingLineId.Text = "BookingLineId: " + bookingLine.BookingLineId;
-                pnlBooking.Controls.Add(lblBookingLineId);
-                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                    Label lblBookingLineId = new Label();
+                    lblBookingLineId.Text = "BookingLineId: " + bookingLine.BookingLineId;
+                    pnlBooking.Controls.Add(lblBookingLineId);
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
-                Label lblCheckIn = new Label();
-                lblCheckIn.CssClass = "body";
-                lblCheckIn.Text = "Check-in: " + bookingLine.ArrivalDate.ToShortDateString();
-                pnlBooking.Controls.Add(lblCheckIn);
-                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                    Label lblCheckIn = new Label();
+                    lblCheckIn.CssClass = "body";
+                    lblCheckIn.Text = "Check-in: " + bookingLine.ArrivalDate.ToShortDateString();
+                    pnlBooking.Controls.Add(lblCheckIn);
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
-                Label lblCheckout = new Label();
-                lblCheckout.CssClass = "body";
-                lblCheckout.Text = "Check-out: " + bookingLine.DepartureDate.ToShortDateString();
-                pnlBooking.Controls.Add(lblCheckout);
-                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                    Label lblCheckout = new Label();
+                    lblCheckout.CssClass = "body";
+                    lblCheckout.Text = "Check-out: " + bookingLine.DepartureDate.ToShortDateString();
+                    pnlBooking.Controls.Add(lblCheckout);
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
-                Label lblNoOfGuests = new Label();
-                lblNoOfGuests.CssClass = "body";
-                calculatedNoOfGuests = bookingLine.UnderFive + bookingLine.FiveToSixteen + bookingLine.SixteenUpwards;
-                lblNoOfGuests.Text = "Number of guests: " + Convert.ToString(calculatedNoOfGuests);
-                pnlBooking.Controls.Add(lblNoOfGuests);
-                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                    Label lblNoOfGuests = new Label();
+                    lblNoOfGuests.CssClass = "body";
+                    calculatedNoOfGuests = bookingLine.UnderFive + bookingLine.FiveToSixteen + bookingLine.SixteenUpwards;
+                    lblNoOfGuests.Text = "Number of guests: " + Convert.ToString(calculatedNoOfGuests);
+                    pnlBooking.Controls.Add(lblNoOfGuests);
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
-                Label lblTotal = new Label();
-                lblTotal.CssClass = "extrasHeader";
-                clsBooking aBooking = new clsBooking();
-                Int32 bookingId;
-                bookingId = bookingLine.BookingId;
-                aBooking.Find(bookingId);
-                lblTotal.Text = "Total: £" + aBooking.Total; 
-                pnlBooking.Controls.Add(lblTotal);
-                pnlBooking.Controls.Add(new LiteralControl("<br />"));
+                    Label lblTotal = new Label();
+                    lblTotal.CssClass = "extrasHeader";
+                    clsBooking aBooking = new clsBooking();
+                    Int32 bookingId;
+                    bookingId = bookingLine.BookingId;
+                    aBooking.Find(bookingId);
+                    lblTotal.Text = "Total: £" + aBooking.Total;
+                    pnlBooking.Controls.Add(lblTotal);
+                    pnlBooking.Controls.Add(new LiteralControl("<br />"));
 
-                this.Controls.Add(pnlBooking);
-                this.Controls.Add(new LiteralControl("<br />"));
+                    this.Controls.Add(pnlBooking);
+                    this.Controls.Add(new LiteralControl("<br />"));
 
-                index++;
+                    index++;
+                }
+                CreateViewBookingSection();
             }
+            else
+            {
+                Label lblNoBookingsToBeDisplayed = new Label();
+                lblNoBookingsToBeDisplayed.Text = "There are no bookings to display";
+                pnlError.Controls.Add(lblNoBookingsToBeDisplayed);
+                pnlError.Visible = true;
+            }
+            
         }
         catch
         {
@@ -94,7 +106,6 @@ public partial class ViewBooking_1 : System.Web.UI.Page
 
             pnlError.Visible = true;
         }
-        CreateViewBookingSection();
     }
 
 
@@ -229,7 +240,30 @@ public partial class ViewBooking_1 : System.Web.UI.Page
     private void BtnCancelThisBooking_Click(object sender, EventArgs e)
     {
         GetAndSaveBookingLineId();
-        Response.Redirect("CancelBooking_1.aspx");
+
+        clsDataConnection DB = new clsDataConnection();
+        DB.AddParameter("@BookingLineId", bookingLineId);
+        DB.Execute("sproc_tblCancellation_GetCancellationId");
+
+        if (DB.Count >= 1)
+        {
+            Label lblError = new Label();
+            lblError.Text = "Error";
+            pnlError.Controls.Add(lblError);
+            pnlError.Controls.Add(new LiteralControl("<br />"));
+
+            Label lblCancellationExistsMessage = new Label();
+            lblCancellationExistsMessage.CssClass = "body";
+            lblCancellationExistsMessage.Text = "A cancellation already exists for this booking. Please try again";
+            pnlError.Controls.Add(lblCancellationExistsMessage);
+            pnlError.Controls.Add(new LiteralControl("<br />"));
+
+            pnlError.Visible = true;
+        }
+        else
+        {
+            Response.Redirect("CancelBooking_1.aspx");
+        }
     }
 
     private void BtnViewThisBooking_Click(object sender, EventArgs e)

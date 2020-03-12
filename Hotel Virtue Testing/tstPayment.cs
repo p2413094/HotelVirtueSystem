@@ -488,7 +488,7 @@ namespace Hotel_Virtue_Testing
             Boolean ok = true;
             Int32 PaymentId = 3;
             found = aPayment.Find(PaymentId);
-            if (aPayment.SecurityCode != "123")
+            if (aPayment.SecurityCode != "000")
             {
                 ok = false;
             }

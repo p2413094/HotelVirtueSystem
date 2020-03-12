@@ -53,16 +53,12 @@ namespace HotelVirtueClasses
 
         public int Add()
         {
-            Int32 bookingId;
-            clsBookingCollection bookings = new clsBookingCollection();
-            bookings.ThisBooking.CustomerId = 1;
-            bookings.ThisBooking.HotelId = 1;
-            bookings.ThisBooking.AdminId = 1;
-            bookings.ThisBooking.DateTimeOfBooking = DateTime.Now;
-            bookingId = bookings.Add();
+            //Int32 bookingId;
+            //clsBookingCollection bookings = new clsBookingCollection();
+            //bookingId = bookings.ThisBooking.BookingId;//bookings.Add();
 
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@BookingId", bookingId);
+            DB.AddParameter("@BookingId", mThisBookingLine.BookingId);
             DB.AddParameter("@RoomId", mThisBookingLine.RoomId);
             DB.AddParameter("@UnderFive", mThisBookingLine.UnderFive);
             DB.AddParameter("@FiveToSixteen", mThisBookingLine.FiveToSixteen);

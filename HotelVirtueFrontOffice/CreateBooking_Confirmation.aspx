@@ -52,7 +52,7 @@
         <asp:Label ID="lblBookingSuccessInformation" CssClass="lblSuccessInformation" runat="server" Text="Your booking has been created and your chosen hotel has been sent the booking"></asp:Label>
         <br />
         <br />
-        <asp:Button ID="btnReturnToHomePage" CssClass="returnToHomeScreenButton" runat="server" Text="RETURN TO HOMEPAGE" />
+        <asp:Button ID="btnReturnToHomePage" CssClass="returnToHomeScreenButton" runat="server" Text="RETURN TO HOMEPAGE" OnClick="btnReturnToHomePage_Click" />
         <br />
         <br />
         <br />

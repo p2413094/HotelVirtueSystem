@@ -28,6 +28,7 @@ public partial class CreateBooking_1 : System.Web.UI.Page
     {
         try
         {
+            pnlError.Visible = false;
             hotelId = Convert.ToInt32(Session["hotelId"]); //fine
             hotelName = Convert.ToString(Session["hotelName"]); //never changed 
             arrivalDate = Convert.ToDateTime(Session["arrivalDate"]); //never changed
@@ -237,27 +238,6 @@ public partial class CreateBooking_1 : System.Web.UI.Page
             pnlStaySummary.Controls.Add(lblYourBooking);
             pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
 
-            Label lblRoomType = new Label();
-            lblRoomType.CssClass = "body";
-            lblRoomType.Text = "Room type: ";
-            pnlStaySummary.Controls.Add(lblRoomType);
-            pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
-
-            Label lblTotal = new Label();
-            lblTotal.CssClass = "body";
-            lblTotal.Text = "Total: £";
-            pnlStaySummary.Controls.Add(lblTotal);
-            pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
-
-            Button btnContinue = new Button();
-            btnContinue.CssClass = "continueButton";
-            btnContinue.Text = "CONTINUE";
-            btnContinue.Click += BtnContinue_Click;
-            pnlStaySummary.Controls.Add(btnContinue);
-
-            pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
-            pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
-
             Label lblChooseRoom = new Label();
             lblChooseRoom.CssClass = "body";
             lblChooseRoom.Text = "Please choose the room that you would like: ";
@@ -270,7 +250,17 @@ public partial class CreateBooking_1 : System.Web.UI.Page
                 index++;
             }
             pnlStaySummary.Controls.Add(ddlRoomId);
+            pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
+            pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
 
+            Button btnContinue = new Button();
+            btnContinue.CssClass = "continueButton";
+            btnContinue.Text = "CONTINUE";
+            btnContinue.Click += BtnContinue_Click;
+            pnlStaySummary.Controls.Add(btnContinue);
+
+            pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
+            pnlStaySummary.Controls.Add(new LiteralControl("<br />"));
 
             Form.Controls.Add(pnlStaySummary);
 

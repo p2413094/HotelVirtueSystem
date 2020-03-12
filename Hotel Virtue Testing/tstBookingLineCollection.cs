@@ -351,7 +351,7 @@ namespace Hotel_Virtue_Testing
             clsBookingLineCollection allBookings = new clsBookingLineCollection();
             clsBookingLine testBookingLine = new clsBookingLine();
             Int32 primaryKey = 0;
-            testBookingLine.BookingId = 3;
+            testBookingLine.BookingId = 1;
             testBookingLine.RoomId = 1;
             testBookingLine.UnderFive = 1;
             testBookingLine.FiveToSixteen = 1;

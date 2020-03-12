@@ -1,16 +1,16 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ViewBooking_1.aspx.cs" Inherits="ViewBooking_1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="DeleteBooking_Confirmation.aspx.cs" Inherits="DeleteBooking_Confirmation" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>View booking</title>
-    <link rel="stylesheet" = href="StyleSheet.css" />
+    <title>Confirmation</title>
+    <link rel="stylesheet" href="StyleSheet.css" />
 </head>
 <body class="body">
-    <form runat="server">
+    <form id="form1" runat="server">
         <div class="logo">
-            Hotel Virtue           
+            Hotel Virtue
         </div>
 
         <div>
@@ -22,7 +22,7 @@
 
         <br />
         <div>
-            <asp:HyperLink ID="hyplnkReturnToBookings" CssClass="returnText" NavigateUrl="~/ViewBooking_1.aspx" runat="server">Return to bookings</asp:HyperLink>
+            <asp:HyperLink ID="hyplnkHomePage" CssClass="returnText" NavigateUrl="~/Index.aspx" runat="server">Return to homepage</asp:HyperLink>
         </div>
 
         <div id="mySidenav" class="sidenav">
@@ -35,7 +35,7 @@
 
         <script>
             function openNav() {
-              document.getElementById("mySidenav").style.width = "30%";
+              document.getElementById("mySidenav").style.width = "25%";
             }
 
             function closeNav() {
@@ -44,11 +44,19 @@
         </script>
 
         <br />
-        <asp:Label ID="lblPageHeader" CssClass="pageHeader" runat="server" Text="Bookings"></asp:Label>
         <br />
         <br />
-        <asp:Panel ID="pnlError" CssClass="box" runat="server"></asp:Panel>
+        <div class="pageHeader">Delete booking success!</div>
         <br />
+        <br />
+        <asp:Label ID="lblBookingSuccessInformation" CssClass="lblSuccessInformation" runat="server" Text="The booking has been deleted."></asp:Label>
+        <br />
+        <br />
+        <asp:Button ID="btnReturnToHomePage" CssClass="returnToHomeScreenButton" runat="server" Text="RETURN TO HOMEPAGE" OnClick="btnReturnToHomePage_Click" />
+        <br />
+        <br />
+        <br />
+
     </form>
 </body>
 </html>

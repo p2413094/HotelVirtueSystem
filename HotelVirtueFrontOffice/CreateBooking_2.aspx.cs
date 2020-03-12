@@ -38,12 +38,12 @@ public partial class CreateBooking_2 : System.Web.UI.Page
         {
             pnlError.Visible = false;
             //this will be implemented during integration
-            //customerId = Convert.ToInt32(Session["CustomerId"]);
             //guest = Convert.ToBoolean(Session["Guest"]);
 
+            guest = false;
             if (guest != true)
             {
-                customerId = Convert.ToInt32(Session["CustomerId"]);
+                customerId = 1;//Convert.ToInt32(Session["CustomerId"]);
             }
 
             //these are temporary
@@ -230,7 +230,48 @@ public partial class CreateBooking_2 : System.Web.UI.Page
 
     private void BtnPayLater_Click(object sender, EventArgs e)
     {
-        Add();
+        if (guest == true)
+        {
+            string firstName = txtFirstName.Text;
+            string lastName = txtLastName.Text;
+            string contactNumber = txtContactNumber.Text;
+            string emailAddress = txtEmailAddress.Text;
+
+            clsPayment aPayment = new clsPayment();
+            aPayment.ValidateBillingDetails(firstName, lastName, emailAddress, contactNumber);
+
+            if (aPayment.BillingErrors.Count != 0)
+            {
+                Label lblBillingDetailsErrors = new Label();
+                lblBillingDetailsErrors.Text = "Billing details errors: ";
+                pnlError.Controls.Add(lblBillingDetailsErrors);
+                pnlError.Controls.Add(new LiteralControl("<br />"));
+
+                foreach (string errorItem in aPayment.BillingErrors)
+                {
+                    Label lblErrorItem = new Label();
+                    lblErrorItem.Text = errorItem;
+                    lblErrorItem.CssClass = "body";
+                    pnlError.Controls.Add(lblErrorItem);
+                    pnlError.Controls.Add(new LiteralControl("<br />"));
+                }
+                pnlError.Visible = true;
+            }
+            else
+            {
+                clsDataConnection DB = new clsDataConnection();
+                DB.AddParameter("@FirstName", firstName);
+                DB.AddParameter("@LastName", lastName);
+                DB.AddParameter("@EmailAddress", emailAddress);
+                DB.AddParameter("@ContactNumber", contactNumber);
+                customerId = DB.Execute("sproc_tblCustomer_Insert");
+                Add();
+            }
+        }
+        else
+        {
+            Add();
+        }
         Response.Redirect("CreateBooking_Confirmation.aspx");
     }
 
@@ -246,54 +287,28 @@ public partial class CreateBooking_2 : System.Web.UI.Page
 
     void Add()
     {
-        if (guest == true)
-        {
-            string firstName = txtFirstName.Text;
-            string lastName = txtLastName.Text;
-            string contactNumber = txtContactNumber.Text;
-            string emailAddress = txtEmailAddress.Text;
+        clsBookingCollection allBookings = new clsBookingCollection();
+        
+        allBookings.ThisBooking.CustomerId = customerId;
+        allBookings.ThisBooking.HotelId = hotelId;
+        allBookings.ThisBooking.AdminId = 1;
+        allBookings.ThisBooking.DateTimeOfBooking = DateTime.Now;
+        allBookings.ThisBooking.Total = total;
+        Int32 createdBookingId = allBookings.Add();
 
-            clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@FirstName", firstName);
-            DB.AddParameter("@LastName", lastName);
-            DB.AddParameter("@EmailAddress", emailAddress);
-            DB.AddParameter("@ContactNumber", contactNumber);
-            customerId = DB.Execute("sproc_tblCustomer_Insert");
-        }
-        //if they're a registered customer 
-        else
-        {
-            clsBookingCollection allBookings = new clsBookingCollection();
-            allBookings.ThisBooking.HotelId = hotelId;
+        clsBookingLineCollection allBookingLines = new clsBookingLineCollection();
+        allBookingLines.thisBookingLine.ArrivalDate = Convert.ToDateTime(arrivalDate);
+        allBookingLines.thisBookingLine.DepartureDate = Convert.ToDateTime(departureDate);
+        allBookingLines.thisBookingLine.BookingId = createdBookingId;
+        allBookingLines.thisBookingLine.RoomId = roomId;
+        allBookingLines.thisBookingLine.UnderFive = underFive;
+        allBookingLines.thisBookingLine.FiveToSixteen = fiveToSixteen;
+        allBookingLines.thisBookingLine.SixteenUpwards = sixteenUpwards;
+        allBookingLines.thisBookingLine.GymAccess = gymAccess;
+        allBookingLines.thisBookingLine.LateCheckout = lateCheckout;
+        allBookingLines.thisBookingLine.Other = txtOther.Text;
 
-            //this needs looking at 
-            allBookings.ThisBooking.AdminId = 1;
-            //
-            //this needs looking at
-            allBookings.ThisBooking.CustomerId = customerId;
-
-            allBookings.ThisBooking.DateTimeOfBooking = DateTime.Now;
-            allBookings.ThisBooking.Total = total;
-            Int32 createdBookingId = allBookings.Add();
-
-            clsBookingLineCollection allBookingLines = new clsBookingLineCollection();
-            allBookingLines.thisBookingLine.ArrivalDate = Convert.ToDateTime(arrivalDate);
-            allBookingLines.thisBookingLine.DepartureDate = Convert.ToDateTime(departureDate);
-            allBookingLines.thisBookingLine.BookingId = createdBookingId;
-            allBookingLines.thisBookingLine.RoomId = roomId;
-            allBookingLines.thisBookingLine.UnderFive = underFive;
-            allBookingLines.thisBookingLine.FiveToSixteen = fiveToSixteen;
-            allBookingLines.thisBookingLine.SixteenUpwards = sixteenUpwards;
-            allBookingLines.thisBookingLine.GymAccess = gymAccess;
-            allBookingLines.thisBookingLine.LateCheckout = lateCheckout;
-            allBookingLines.thisBookingLine.Other = txtOther.Text;
-
-            
-            createdBookingLineId = allBookingLines.Add();
-
-            //Boolean newBookingFound = newBooking.Find(createdBookingId);
-            //Boolean newBookingLineIdFound = newBookingLine.Find(createdBookingLineId);
-        } 
+        createdBookingLineId = allBookingLines.Add();
     }
 
     private void BtnReturnToBookings_Click(object sender, EventArgs e)
