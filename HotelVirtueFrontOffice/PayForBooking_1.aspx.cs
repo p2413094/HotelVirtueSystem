@@ -42,7 +42,7 @@ public partial class PayForBooking_1 : System.Web.UI.Page
             {
                 firstName = Convert.ToString(Session["FirstName"]);
                 lastName = Convert.ToString(Session["LastName"]);
-                customerId = 1;//Convert.ToInt32(Session["CustomerId"]);
+                customerId = Convert.ToInt32(Session["CustomerId"]);
             }
 
             clsBookingLineCollection aBookingLine = new clsBookingLineCollection();

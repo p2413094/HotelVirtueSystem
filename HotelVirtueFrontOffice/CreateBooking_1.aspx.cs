@@ -225,9 +225,7 @@ public partial class CreateBooking_1 : System.Web.UI.Page
             }
             else
             {
-                pnlMainExtras.Visible = false;
-                //pnlExtras.Visible = false;
-                //pnlLateCheckout.Visible = false;
+                pnlMainExtras.Visible = false;            
             }
 
             Panel pnlStaySummary = new Panel();

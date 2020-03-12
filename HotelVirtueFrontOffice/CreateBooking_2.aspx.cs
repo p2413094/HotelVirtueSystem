@@ -40,7 +40,7 @@ public partial class CreateBooking_2 : System.Web.UI.Page
             //this will be implemented during integration
             //guest = Convert.ToBoolean(Session["Guest"]);
 
-            guest = false;
+            guest = true;
             if (guest != true)
             {
                 customerId = 1;//Convert.ToInt32(Session["CustomerId"]);
@@ -230,6 +230,66 @@ public partial class CreateBooking_2 : System.Web.UI.Page
 
     private void BtnPayLater_Click(object sender, EventArgs e)
     {
+        ValidateCustomerDetailsAndAdd();
+        Response.Redirect("CreateBooking_Confirmation.aspx");
+    }
+
+    private void BtnPayNow_Click(object sender, EventArgs e)
+    {
+        Session["CustomerId"] = ValidateCustomerDetailsAndAdd();
+
+        if (pnlError.Visible == false)
+        {
+            Session["BookingId"] = createdBookingId;
+            Session["BookingLineId"] = createdBookingLineId;
+            Session["Total"] = total;
+
+            Response.Redirect("PayForBooking_1.aspx");
+        }   
+    }
+
+    void Add()
+    {
+        clsBookingCollection allBookings = new clsBookingCollection();
+        
+        allBookings.ThisBooking.CustomerId = customerId;
+        allBookings.ThisBooking.HotelId = hotelId;
+        allBookings.ThisBooking.AdminId = 1;
+        allBookings.ThisBooking.DateTimeOfBooking = DateTime.Now;
+        allBookings.ThisBooking.Total = total;
+        Int32 createdBookingId = allBookings.Add();
+
+        clsBookingLineCollection allBookingLines = new clsBookingLineCollection();
+        allBookingLines.thisBookingLine.ArrivalDate = Convert.ToDateTime(arrivalDate);
+        allBookingLines.thisBookingLine.DepartureDate = Convert.ToDateTime(departureDate);
+        allBookingLines.thisBookingLine.BookingId = createdBookingId;
+        allBookingLines.thisBookingLine.RoomId = roomId;
+        allBookingLines.thisBookingLine.UnderFive = underFive;
+        allBookingLines.thisBookingLine.FiveToSixteen = fiveToSixteen;
+        allBookingLines.thisBookingLine.SixteenUpwards = sixteenUpwards;
+        allBookingLines.thisBookingLine.GymAccess = gymAccess;
+        allBookingLines.thisBookingLine.LateCheckout = lateCheckout;
+        allBookingLines.thisBookingLine.Other = txtOther.Text;
+
+        createdBookingLineId = allBookingLines.Add();
+
+        clsDataConnection DB = new clsDataConnection();
+        DB.AddParameter("RoomId", roomId);
+        DB.Execute("sproc_tblRoom_UpdateRoomAvailableToFalse");
+    }
+
+    private void BtnReturnToBookings_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ViewBooking_1.aspx");
+    }
+
+    private void BtnReturnToHomePage_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Index.aspx");
+    }
+
+    Int32 ValidateCustomerDetailsAndAdd()
+    {
         if (guest == true)
         {
             string firstName = txtFirstName.Text;
@@ -272,52 +332,7 @@ public partial class CreateBooking_2 : System.Web.UI.Page
         {
             Add();
         }
-        Response.Redirect("CreateBooking_Confirmation.aspx");
-    }
 
-    private void BtnPayNow_Click(object sender, EventArgs e)
-    {
-        Add();
-        Session["BookingId"] = createdBookingId;
-        Session["BookingLineId"] = createdBookingLineId;
-        Session["Total"] = total;
-
-        Response.Redirect("PayForBooking_1.aspx");
-    }
-
-    void Add()
-    {
-        clsBookingCollection allBookings = new clsBookingCollection();
-        
-        allBookings.ThisBooking.CustomerId = customerId;
-        allBookings.ThisBooking.HotelId = hotelId;
-        allBookings.ThisBooking.AdminId = 1;
-        allBookings.ThisBooking.DateTimeOfBooking = DateTime.Now;
-        allBookings.ThisBooking.Total = total;
-        Int32 createdBookingId = allBookings.Add();
-
-        clsBookingLineCollection allBookingLines = new clsBookingLineCollection();
-        allBookingLines.thisBookingLine.ArrivalDate = Convert.ToDateTime(arrivalDate);
-        allBookingLines.thisBookingLine.DepartureDate = Convert.ToDateTime(departureDate);
-        allBookingLines.thisBookingLine.BookingId = createdBookingId;
-        allBookingLines.thisBookingLine.RoomId = roomId;
-        allBookingLines.thisBookingLine.UnderFive = underFive;
-        allBookingLines.thisBookingLine.FiveToSixteen = fiveToSixteen;
-        allBookingLines.thisBookingLine.SixteenUpwards = sixteenUpwards;
-        allBookingLines.thisBookingLine.GymAccess = gymAccess;
-        allBookingLines.thisBookingLine.LateCheckout = lateCheckout;
-        allBookingLines.thisBookingLine.Other = txtOther.Text;
-
-        createdBookingLineId = allBookingLines.Add();
-    }
-
-    private void BtnReturnToBookings_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("ViewBooking_1.aspx");
-    }
-
-    private void BtnReturnToHomePage_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("Index.aspx");
+        return customerId;
     }
 }

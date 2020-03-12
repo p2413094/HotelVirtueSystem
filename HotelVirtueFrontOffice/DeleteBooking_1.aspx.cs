@@ -186,7 +186,7 @@ public partial class DeleteBookingLine_1 : System.Web.UI.Page
 
             Button btnNo = new Button();
             btnNo.CssClass = "rightButton";
-            btnNo.Text = "No";
+            btnNo.Text = "NO";
             btnNo.Click += BtnNo_Click;
             pnlBooking.Controls.Add(btnNo);
             pnlBooking.Controls.Add(new LiteralControl("<br />"));

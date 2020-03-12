@@ -269,7 +269,7 @@ namespace Hotel_Virtue_Testing
             Boolean ok = true;
             Int32 bookingLineId = 3;
             found = aBookingLine.Find(bookingLineId);
-            if (aBookingLine.Other != "Test1")
+            if (aBookingLine.Other != "15:37")
             {
                 ok = false;
             }

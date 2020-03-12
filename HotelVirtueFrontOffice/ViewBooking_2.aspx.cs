@@ -20,7 +20,7 @@ public partial class ViewBooking_2 : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        updateBooking = false; //Convert.ToBoolean(Session["UpdateBooking"]);
+        updateBooking = Convert.ToBoolean(Session["UpdateBooking"]);
         bookingLineId = Convert.ToInt32(Session["BookingLineId"]);
         pnlError.Visible = false;
 
@@ -164,11 +164,11 @@ public partial class ViewBooking_2 : System.Web.UI.Page
             string status = aBooking.Cancelled.ToString();
             if (status == "True")
             {
-                lblStatus.Text += "Active";
+                lblStatus.Text += "Cancelled";
             }
             else
             {
-                lblStatus.Text += "Cancelled";
+                lblStatus.Text += "Active";
             }
             pnlBooking.Controls.Add(lblStatus);
             pnlBooking.Controls.Add(new LiteralControl("<br />"));
