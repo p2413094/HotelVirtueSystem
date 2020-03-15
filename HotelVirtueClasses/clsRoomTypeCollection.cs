@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace HotelVirtueClasses
 {
-    class clsRoomTypeCollection
+    public class clsRoomTypeCollection
     {
+        List<clsRoomType> mAllRoomTypesList = new List<clsRoomType>();
+        clsRoomType mThisRoomType = new clsRoomType();
     }
 }
