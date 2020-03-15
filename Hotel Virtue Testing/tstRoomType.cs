@@ -1,4 +1,5 @@
 ﻿using System;
+using HotelVirtueClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Hotel_Virtue_Testing
@@ -47,13 +48,24 @@ namespace Hotel_Virtue_Testing
             //create some test data to assign to the property 
             Int32 SingleBed = 1;
             //assign the data to the property 
-            aRoomType.SingleBed = DoubleBed;
+            aRoomType.SingleBed = SingleBed;
             //test to see that the two values are the same 
             Assert.AreEqual(aRoomType.SingleBed, SingleBed);
 
         }
 
-
+        [TestMethod]
+        public void DescriptionPropertyOK()
+        {
+            //create an instance of the class we want to create 
+            clsRoomType aRoomType = new clsRoomType();
+            //create some test data to assign to the property 
+            string someRoomType = "This room consists of a single bed";
+            //assign the data to the property 
+            aRoomType.Description = someRoomType;
+            //test to see that the two values are the same 
+            Assert.AreEqual(aRoomType.Descripton, someRoomType);
+        }
 
     }
 }

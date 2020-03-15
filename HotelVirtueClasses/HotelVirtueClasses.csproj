@@ -48,6 +48,7 @@
     <Compile Include="clsDataConnection.cs" />
     <Compile Include="clsPayment.cs" />
     <Compile Include="clsPaymentCollection.cs" />
+    <Compile Include="clsRoomType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
