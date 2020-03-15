@@ -11,8 +11,26 @@ namespace HotelVirtueClasses
     {
         //private data member for the allCustomers list
         public List<clsAccount> mAllAccounts = new List<clsAccount>();
+        //private data member thismAccount
+        clsAccount mThisAccount = new clsAccount();
 
-        //public property for Count
+
+
+        //public property for ThisAccount
+        public clsAccount ThisAccount
+        {
+            get
+            {
+                return mThisAccount;
+            }
+            set
+            {
+                mThisAccount = value;
+            }
+        }
+
+
+            //public property for Count
         public int Count
         {
             get
@@ -65,7 +83,7 @@ namespace HotelVirtueClasses
                 AAccount.AccountId = Convert.ToInt32(DB.DataTable.Rows[Index]["AccountId"]);
                 AAccount.CustomerId = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerId"]);
                 AAccount.City = Convert.ToString(DB.DataTable.Rows[Index]["City"]);
-                AAccount.HouseNumber = Convert.ToString(DB.DataTable.Rows[Index]["HouseNo"]);
+                AAccount.HouseNo = Convert.ToString(DB.DataTable.Rows[Index]["HouseNo"]);
                 AAccount.PostCode = Convert.ToString(DB.DataTable.Rows[Index]["PostCode"]);
                 AAccount.Street = Convert.ToString(DB.DataTable.Rows[Index]["Street"]);
                 AAccount.Town = Convert.ToString(DB.DataTable.Rows[Index]["Town"]);
@@ -77,6 +95,23 @@ namespace HotelVirtueClasses
             }
         }
 
+        public int Add()
+        {
+            //adds a new record to the database based on the values of ThisAddress
+            //set the primary key value of the new record
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@AccountId", mThisAccount.AccountId);
+            DB.AddParameter("@CustomerId", mThisAccount.CustomerId);
+            DB.AddParameter("@City", mThisAccount.City);
+            DB.AddParameter("@HouseNo", mThisAccount.HouseNo);
+            DB.AddParameter("@PostCode", mThisAccount.PostCode);
+            DB.AddParameter("@Street", mThisAccount.Street);
+            DB.AddParameter("@Town", mThisAccount.Town);
+            DB.AddParameter("@Password", mThisAccount.Password);
+            //return the primary key of the new record
+            return DB.Execute("sproc_tblAccount_Insert");
+        }
 
     }
 }

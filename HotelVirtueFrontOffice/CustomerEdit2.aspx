@@ -1,4 +1,4 @@
-﻿<<<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CustomerEdit.aspx.cs" Inherits="CustomerEdit" %>
+﻿<<<%@ Page Language="C#" AutoEventWireup="true" CodeFile="CustomerEdit2.aspx.cs" Inherits="CustomerEdit2" %>
 
 <!DOCTYPE html>
 <script runat="server">
@@ -30,7 +30,7 @@
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="#">SEARCH FOR HOTEL</a>
           <a href="#">OFFERS</a>
-          <a href="#">CONTACT DETAILS</a>
+          <a href="#">CONTACT
           <a hOTHER OPT
         </div>
 
@@ -53,23 +53,45 @@
 
 
                <div id="myregistration" class="registration">
+
                    <br />
-                   <asp:ListBox ID="ListBox1" runat="server" Height="319px" Width="511px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged"></asp:ListBox>
+                   <asp:Label ID="Label1" runat="server" Text="CustomerId"></asp:Label>
+                   <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                   <asp:Label ID="Label1" runat="server" Text="Enter AccountId "></asp:Label>
+                   <asp:Label ID="Label3" runat="server" Text="City"></asp:Label>
                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                   <asp:Button ID="Button4" runat="server" Text="Apply" />
-                   <asp:Button ID="Button5" runat="server" Text="Display All" />
+                   <asp:Label ID="Label4" runat="server" Text="HouseNo"></asp:Label>
+                   <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                    <asp:Button ID="Button1" runat="server" Text="Add" type="submit" value="Confirm" OnClick="Button1_Click1" />
-                    <asp:Button ID="Button2" runat="server" Text="Edit" type="submit" value="Confirm" OnClick="Button1_Click1" />
-                    <asp:Button ID="Button3" runat="server" Text="Delete" type="submit" value="Confirm" OnClick="Button1_Click1" />
+                   <asp:Label ID="Label5" runat="server" Text="Password"></asp:Label>
+                   <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
                    <br />
-             </div>
+                   <br />
+                   <asp:Label ID="Label6" runat="server" Text="PostCode"></asp:Label>
+                   <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                   <br />
+                   <br />
+                   <asp:Label ID="Label7" runat="server" Text="Street"></asp:Label>
+                   <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                   <br />
+                   <br />
+                   <asp:Label ID="Label8" runat="server" Text="Town"></asp:Label>
+                   <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                   <br />
+                   <br />
+                     <asp:Label ID="Label9" runat="server" Text="[lblError]"></asp:Label>
+                   <br />
+                   <br />
+                   <asp:Button ID="Button1" runat="server" Text="OK" OnClick="Button1_Click" />
+                   <asp:Button ID="Button2" runat="server" Text="Cancel" OnClick="Button2_Click" />
+                   </div>
+      
+
+        
 
     </form>
 
@@ -79,6 +101,7 @@
      purposes.
     poses.
     s.
+        s.
     </div>
 </body>
 </html>

@@ -1,6 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="HomePage.aspx.cs" Inherits="HomePage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Guest Login.aspx.cs" Inherits="Guest_Login" %>
 
 <!DOCTYPE html>
+<script runat="server">
+
+
+</script>
+
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">

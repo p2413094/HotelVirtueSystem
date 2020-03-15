@@ -56,16 +56,16 @@ namespace Hotel_Virtue_Testing
         }
 
         [TestMethod]
-        public void HouseNumberPropertyOk()
+        public void HouseNoPropertyOk()
         {
             //create an instance of the class
             clsAccount AAccount = new clsAccount();
             //create some test data 
             string TestData = "2 hopkins haven";
             //assign the data to the property
-            AAccount.HouseNumber = TestData;
+            AAccount.HouseNo = TestData;
             //test to see two values are the same
-            Assert.AreEqual(AAccount.HouseNumber, TestData);
+            Assert.AreEqual(AAccount.HouseNo, TestData);
         }
 
         [TestMethod]

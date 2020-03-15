@@ -1,4 +1,4 @@
-﻿<<<%@ Page Language="C#" AutoEventWireup="true" CodeFile="HomePage.aspx.cs" Inherits="HomePage" %>
+﻿<<<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditpersonalDetails1.aspx.cs" Inherits="EditpersonalDetails1" %>
 
 <!DOCTYPE html>
 
@@ -25,7 +25,7 @@
           <a href="#">SEARCH FOR HOTEL</a>
           <a href="#">OFFERS</a>
           <a href="#">CONTACT DETAILS</a>
-          <a href="#">OTHER OPT
+          OTHER OPT
         </div>
 
         <asp:Panel ID="Panel1" runat="server"></asp:Panel>
@@ -73,7 +73,8 @@
                     <asp:TextBox ID="TextBox7" runat="server"  required ="required" placeholder="Edit Town.."> </asp:TextBox>
                    <br />
                    <br />
-                   <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+                   <asp:DropDownList ID="DropDownList1" runat="server" 
+                       OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
                    <br />
                    <br />
                    <asp:Button ID="Button1" runat="server" Text="Edit" type="submit" value="Confirm" OnClick="Button1_Click1" />
@@ -85,6 +86,7 @@
 
     <div class="footer">
             © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
+    poses.
     poses.
     </div>
 </body>

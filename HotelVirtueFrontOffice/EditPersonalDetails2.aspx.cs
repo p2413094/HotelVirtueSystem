@@ -11,4 +11,16 @@ public partial class EditPersonalDetails2 : System.Web.UI.Page
     {
 
     }
+
+    protected void Button2_Click2(object sender, EventArgs e)
+    {
+        //Redirect to the homepage 
+        Response.Redirect("EditPersonalDetails3.aspx");
+    }
+
+    protected void Button1_Click2(object sender, EventArgs e)
+    {
+        //Redirect to the homepage 
+        Response.Redirect("EditpersonalDetails1.aspx");
+    }
 }

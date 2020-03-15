@@ -9,7 +9,24 @@ namespace HotelVirtueClasses
     {
         //private data member for the allCustomers list
         public List<clsCustomer> mAllCustomers = new List<clsCustomer>();
-        
+        //private data member thismAccount
+        clsCustomer mThisCustomer = new clsCustomer();
+
+
+        //public property for ThisAccount
+        public clsCustomer ThisCustomer
+        {
+            get
+            {
+                return mThisCustomer;
+            }
+            set
+            {
+                mThisCustomer = value;
+            }
+        }
+
+
         //public property for Count
         public int Count
         {

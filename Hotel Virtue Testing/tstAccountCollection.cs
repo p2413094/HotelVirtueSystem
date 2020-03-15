@@ -47,7 +47,7 @@ namespace Hotel_Virtue_Testing
             TestItem.AccountId = 1;
             TestItem.CustomerId = 1;
             TestItem.City = "Gerald";
-            TestItem.HouseNumber = "Johnson street 3";
+            TestItem.HouseNo = "Johnson street 3";
             TestItem.Password = "csgjhgvcjhgs";
             TestItem.PostCode = "LE3 56D";
             TestItem.Street = "Johnson street 3";
@@ -88,6 +88,27 @@ namespace Hotel_Virtue_Testing
             Assert.AreEqual(AllAccounts.Count, TestList.Count);
         }
 
-        
+        [TestMethod]
+        public void ThisAccountPropertyOk()
+        {
+            //create an instance of the class we want to create
+            clsAccountCollection AllAccounts = new clsAccountCollection();
+            //create some test data to assign to the property
+            //in this case the data needs to be a list of objects
+            List<clsAccount> TestAccount = new List<clsAccount>();
+            //set its properties 
+            TestAccount.AccountId = 1;
+            TestAccount.CustomerId = 1;
+            TestAccount.City = "Gerald";
+            TestAccount.HouseNo = "Johnson street 3";
+            TestAccount.Password = "csgjhgvcjhgs";
+            TestAccount.PostCode = "LE3 56D";
+            TestAccount.Street = "Johnson street 3";
+            TestAccount.Town = "Manchester";
+            //assign the data to the property
+            AllAccounts.ThisAccount = TestAccount;
+            //test to see that the two values are the same
+            Assert.AreEqual(AllAccounts.ThisAccounts, TestAccount);
+        }
     }
 }

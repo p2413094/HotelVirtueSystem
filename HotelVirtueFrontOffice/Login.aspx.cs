@@ -11,4 +11,22 @@ public partial class Login : System.Web.UI.Page
     {
 
     }
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        //Redirect to the homepage 
+        Response.Redirect("PayForBooking_1.aspx");
+    }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        //Redirect to the homepage 
+        Response.Redirect("Registration.aspx");
+    }
+
+    protected void Button3_Click(object sender, EventArgs e)
+    {
+        //Redirect to the homepage 
+        Response.Redirect("Guest Login.aspx");
+    }
 }
