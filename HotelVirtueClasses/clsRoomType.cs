@@ -7,5 +7,6 @@
         public object SingleBed { get; set; }
         public string Description { get; set; }
         public string Descripton { get; set; }
+        public int MaximumOccupancy { get; set; }
     }
 }
