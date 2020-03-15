@@ -50,5 +50,13 @@ namespace HotelVirtueClasses
 
         }
 
+        public clsRoomType ThisRoomType
+        {
+            get { return mThisRoomType; }
+            set { mThisRoomType = value; }
+        }
+
+
+
     }
 }
