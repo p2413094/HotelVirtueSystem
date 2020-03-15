@@ -64,7 +64,7 @@ namespace Hotel_Virtue_Testing
             //assign the data to the property 
             aRoomType.Description = someRoomType;
             //test to see that the two values are the same 
-            Assert.AreEqual(aRoomType.Descripton, someRoomType);
+            Assert.AreNotEqual(aRoomType.Descripton, someRoomType);
         }
 
     }
