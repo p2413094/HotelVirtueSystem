@@ -56,7 +56,17 @@ namespace HotelVirtueClasses
             set { mThisRoomType = value; }
         }
 
+        public int Add()
+        {
 
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("RoomTypeId", mThisRoomType.RoomTypeId);
+            DB.AddParameter("SingleBed", mThisRoomType.SingleBed);
+            DB.AddParameter("DoubleBed", mThisRoomType.DoubleBed);
+            DB.AddParameter("Description", mThisRoomType.Description);
+            DB.AddParameter("MaximumOccupancy", mThisRoomType.MaximumOccupancy);
+            return DB.Execute("sproc_tblRoomType_Insert");
+        }
 
     }
 }
