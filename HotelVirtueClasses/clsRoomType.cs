@@ -24,7 +24,7 @@ namespace HotelVirtueClasses
                 //otherwise return an error message
                 return "The room type may not be blank!";
             }
-            
+
         }
     }
 }
