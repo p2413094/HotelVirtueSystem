@@ -13,17 +13,20 @@ namespace HotelVirtueClasses
 
         public string Valid(string someRoomType)
         {
-            //if the name of the county is not blank 
-            if (someRoomType != "")
-            {
-                //return a blank string 
-                return "";
-            }
-            else
-            {
-                //otherwise return an error message
-                return "The room type may not be blank!";
-            }
+            //string variable to store the error message 
+            string Error = "";
+            //if the name of the Room Description is more than 300 characters 
+           if (someRoomType.Length > 300)
+           {
+                //return an error message
+                Error = "The Room Description cannot have more than 300 characters";
+           }
+           if (someRoomType.Length ==0)
+           {
+                //return an error message
+                Error = "The Room Description may not be blank!";
+           }
+            return Error;
 
         }
     }
