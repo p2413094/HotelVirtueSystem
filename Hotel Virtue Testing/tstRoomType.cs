@@ -187,5 +187,150 @@ namespace Hotel_Virtue_Testing
             //test to see that the result is OK i.e. there was no error message returned
             Assert.AreNotEqual(Error, "");
         }
+
+        [TestMethod]
+        public void RoomDescriptionMid()
+        {
+            //create an instance of the class we want to create 
+            clsRoomType aRoomType = new clsRoomType();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test the method 
+            string someRoomType = "Each room is contemporary  design and extremely comfortable featuring a super-comfy King bed, modern en-suite bathroom with walk in rainfall shower he";
+            //invoke the method 
+            Error = aRoomType.Valid(someRoomType);
+            //test to see that the result is OK i.e. there was no error message returned
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomDescriptionExtremeMax()
+        {
+            //create an instance of the class we want to create 
+            clsRoomType aRoomType = new clsRoomType();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test the method 
+            string someRoomType = "";
+            //pad the string with characters
+            someRoomType = someRoomType.PadRight(500, 'a');
+            //invoke the method 
+            Error = aRoomType.Valid(someRoomType);
+            //test to see that the result is OK i.e. there was no error message returned
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomTypeIdLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsRoomType aRoomType = new clsRoomType();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test the method 
+            string someRoomType = "";
+            //invoke the method 
+            Error = aRoomType.Valid(someRoomType);
+            //test to see that the result is OK i.e. there was no error message returned
+            Assert.AreNotEqual(Error, "");
+        }
+
+        
+        [TestMethod]
+        public void RoomTypeIdMinBoundary()
+        {
+            clsRoomType aRoomType = new clsRoomType();
+            string Error = "";
+            string RoomTypeId = "1";
+            Error = aRoomType.Valid(RoomTypeId);
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomTypeIdMinPlusOne()
+        {
+            clsRoomType aRoomType = new clsRoomType();
+            string Error = "";
+            string RoomTypeId = "2";
+            Error = aRoomType.Valid(RoomTypeId);
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomTypeIdMaxLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsRoomType aRoomType = new clsRoomType();
+            string Error = "";
+            string RoomTypeId = "999";
+            Error = aRoomType.Valid(RoomTypeId);
+            //test to see that the result is OK i.e. there was no error message returned
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomTypeIdMaxBoundary()
+        {
+            //create an instance of the class we want to create 
+            clsRoomType aRoomType = new clsRoomType();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test the method 
+            string someRoomType = "1000";
+            //invoke the method 
+            Error = aRoomType.Valid(someRoomType);
+            //test to see that the result is OK i.e. there was no error message returned
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomTypeIdMaxPlusOne()
+        {
+            //create an instance of the class we want to create 
+            clsRoomType aRoomType = new clsRoomType();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test the method 
+            string someRoomType = "1001";
+            //invoke the method 
+            Error = aRoomType.Valid(someRoomType);
+            //test to see that the result is OK i.e. there was no error message returned
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomTypeMid()
+        {
+            //create an instance of the class we want to create 
+            clsRoomType aRoomType = new clsRoomType();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test the method 
+            string someRoomType = "500";
+            //invoke the method 
+            Error = aRoomType.Valid(someRoomType);
+            //test to see that the result is OK i.e. there was no error message returned
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void RoomTypeIdExtremeMax()
+        {
+            //create an instance of the class we want to create 
+            clsRoomType aRoomType = new clsRoomType();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test the method 
+            string someRoomType = "";
+            //pad the string with characters
+            someRoomType = someRoomType.PadRight(500, 'a');
+            //invoke the method 
+            Error = aRoomType.Valid(someRoomType);
+            //test to see that the result is OK i.e. there was no error message returned
+            Assert.AreEqual(Error, "");
+        }
+
+
     }
+    
 }
