@@ -21,7 +21,7 @@ public partial class Registration : System.Web.UI.Page
         //create an instance of Account Collection
         HotelVirtueClasses.clsAccountCollection Accounts = new HotelVirtueClasses.clsAccountCollection();
         //Set the data source to the list of accounts
-        DropDownList1.DataSource = Accounts.AllAccounts;
+        DropDownList1.DataSource = Accounts.AccountList;
         //set name of the primary key
         DropDownList1.DataValueField = "AccountId";
         //set the data field to display

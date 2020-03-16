@@ -10,5 +10,10 @@
         public string HouseNo { get; set; }
         public string Password { get; set; }
         public string Town { get; set; }
+        public string UserName { get; set; }
+
+        
     }
+
+    
 }

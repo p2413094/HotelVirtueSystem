@@ -52,9 +52,9 @@ namespace Hotel_Virtue_Testing
             //add the item to the test list
             TestList.Add(TestItem);
             //assign the data to the property
-            Customers.AllCustomers = TestList;
+            Customers.CustomerList = TestList;
             //test to see that the two values are the same
-            Assert.AreEqual(Customers.AllCustomers, TestList);
+            Assert.AreEqual(Customers.CustomerList, TestList);
         }
 
        [TestMethod]
@@ -89,7 +89,7 @@ namespace Hotel_Virtue_Testing
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
             //create some test data to assign to the property
             //in this case the data needs to be a list of objects
-            List<clsCustomer> TestCustomer = new List<clsCustomer>();
+            clsCustomer TestCustomer = new clsCustomer();
             //set its properties 
             TestCustomer.CustomerId = 1;
             TestCustomer.FirstName = "John";
@@ -99,7 +99,7 @@ namespace Hotel_Virtue_Testing
             //assign the data to the property
             AllCustomers.ThisCustomer = TestCustomer;
             //test to see that the two values are the same
-            Assert.AreEqual(AllCustomers.ThisCustomers, TestCustomer);
+            Assert.AreEqual(AllCustomers.ThisCustomer, TestCustomer);
         }
     }
 }

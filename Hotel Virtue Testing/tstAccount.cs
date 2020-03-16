@@ -17,6 +17,21 @@ namespace Hotel_Virtue_Testing
         }
 
         [TestMethod]
+        public void UserNamePropertyOk()
+        {
+            //create an instance of the class
+            clsAccount AAccount = new clsAccount();
+            //create test data
+            string TestData = "clockerz23";
+            //assogn data to property
+            AAccount.UserName = TestData;
+            //test to see two values
+            Assert.AreEqual(AAccount.UserName, TestData);
+        }
+
+
+
+        [TestMethod]
         public void AccountIdPropertyOk()
         {
             //create an instance of the class
@@ -120,8 +135,9 @@ namespace Hotel_Virtue_Testing
             Assert.AreEqual(AAccount.Town, testData);
         }
 
+
         [TestMethod]
-        public void AddNethodOK()
+        public void AddMethodOK()
         {
             //create an instance of the class nwe want to create
             clsAccountCollection AllAccounts = new clsAccountCollection();
@@ -138,6 +154,7 @@ namespace Hotel_Virtue_Testing
             TestItem.Street = "Hopkins st";
             TestItem.HouseNo = "Order house 33";
             TestItem.Password = "ghghsghdag3";
+            TestItem.UserName = "clockerz23";
             //set ThisAccount to the testData
             AllAccounts.ThisAccount = TestItem;
             //add the record 

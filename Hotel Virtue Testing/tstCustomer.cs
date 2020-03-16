@@ -760,7 +760,7 @@ namespace Hotel_Virtue_Testing
         }
 
         [TestMethod]
-        public void AddNethodOK()
+        public void AddMethodOK()
         {
             //create an instance of the class nwe want to create
             clsCustomerCollection AllCustomers = new clsCustomerCollection();
@@ -777,7 +777,7 @@ namespace Hotel_Virtue_Testing
             //set ThisAccount to the testData
             AllCustomers.ThisCustomer = TestItem;
             //add the record 
-            PrimaryKey = AllCustomer.Add();
+            PrimaryKey = AllCustomers.Add();
             //set the primary key of the test data 
             TestItem.CustomerId = PrimaryKey;
             //finf the record

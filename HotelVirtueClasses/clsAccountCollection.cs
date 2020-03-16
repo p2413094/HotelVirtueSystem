@@ -10,7 +10,7 @@ namespace HotelVirtueClasses
     public class clsAccountCollection
     {
         //private data member for the allCustomers list
-        public List<clsAccount> mAllAccounts = new List<clsAccount>();
+         List<clsAccount> mAccountList = new List<clsAccount>();
         //private data member thismAccount
         clsAccount mThisAccount = new clsAccount();
 
@@ -36,7 +36,7 @@ namespace HotelVirtueClasses
             get
             {
                 //return the count properly of the private list
-                return mAllAccounts.Count;
+                return mAccountList.Count;
             }
             set
             {
@@ -46,21 +46,23 @@ namespace HotelVirtueClasses
         }
 
         //public property for allCustomers
-        public List<clsAccount> AllAccounts
+        public List<clsAccount> AccountList
         {
             //getter sends data to requesting code
             get
             {
                 //return the private data member
-                return mAllAccounts;
+                return mAccountList;
             }
             //setter accepts data from other objects
             set
             {
                 //assign the incoming value to the private data member
-                mAllAccounts = value;
+                mAccountList = value;
             }
         }
+
+     
 
         public clsAccountCollection()
         {
@@ -89,7 +91,7 @@ namespace HotelVirtueClasses
                 AAccount.Town = Convert.ToString(DB.DataTable.Rows[Index]["Town"]);
                 AAccount.Password = Convert.ToString(DB.DataTable.Rows[Index]["Password"]);
                 //add the customer to the private data member
-                mAllAccounts.Add(AAccount);
+                mAccountList.Add(AAccount);
                 //increment the Index
                 Index++;
             }
@@ -109,6 +111,7 @@ namespace HotelVirtueClasses
             DB.AddParameter("@Street", mThisAccount.Street);
             DB.AddParameter("@Town", mThisAccount.Town);
             DB.AddParameter("@Password", mThisAccount.Password);
+            DB.AddParameter("@UserName", mThisAccount.UserName);
             //return the primary key of the new record
             return DB.Execute("sproc_tblAccount_Insert");
         }
