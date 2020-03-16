@@ -10,7 +10,8 @@
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">Hotel Virtue</title>
+<head runat="server">
+Hotel Virtue</title>
     <link rel="stylesheet" = href="StyleSheet2.css" />
 </head>
 <body class="body">

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using HotelVirtueClasses;
 
 public partial class Login : System.Web.UI.Page
 {
@@ -14,6 +15,7 @@ public partial class Login : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        
         //Redirect to the homepage 
         Response.Redirect("PayForBooking_1.aspx");
     }

@@ -759,6 +759,8 @@ namespace Hotel_Virtue_Testing
             Assert.AreEqual(Error, "");
         }
 
+        
+
         [TestMethod]
         public void AddMethodOK()
         {
@@ -781,7 +783,7 @@ namespace Hotel_Virtue_Testing
             //set the primary key of the test data 
             TestItem.CustomerId = PrimaryKey;
             //finf the record
-            AllCustomers.ThisCustomer.Find(PrimaryKey);
+            //AllCustomers.ThisCustomer.Find(PrimaryKey);
             //test to see that the two values are the same
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }

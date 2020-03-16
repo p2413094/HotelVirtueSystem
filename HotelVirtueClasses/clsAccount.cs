@@ -1,4 +1,6 @@
-﻿namespace HotelVirtueClasses
+﻿using System;
+
+namespace HotelVirtueClasses
 {
     public class clsAccount
     {
@@ -12,8 +14,32 @@
         public string Town { get; set; }
         public string UserName { get; set; }
 
-        
+        public int Valid(int testData)
+        {
+            //if the number field is not blank
+            if (testData != 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public string Valid(string testData)
+        {
+            //if the number field is not blank
+            if (testData != "")
+            {
+                return "";
+            }
+            else
+            {
+                return "The first name may not be blank";
+            }
+        }
     }
 
-    
+   
 }

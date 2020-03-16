@@ -146,7 +146,7 @@ namespace Hotel_Virtue_Testing
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.AccountId = 1;
+            TestItem.AccountId = 101;
             TestItem.CustomerId = 1;
             TestItem.City = "London";
             TestItem.Town = "Newham	";
@@ -162,9 +162,1235 @@ namespace Hotel_Virtue_Testing
             //set the primary key of the test data 
             TestItem.AccountId = PrimaryKey;
             //finf the record
-            AllAccounts.ThisAccount.Find(PrimaryKey);
+            //AllAccounts.ThisAccount.Find(PrimaryKey);
             //test to see that the two values are the same
             Assert.AreEqual(AllAccounts.ThisAccount, TestItem);
         }
+
+        [TestMethod]
+        public void ValidMethodOk()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 1;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+
+        [TestMethod]
+        public void AccountIdMinLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 0;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+        [TestMethod]
+        public void AccountIdMinBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 1;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+        [TestMethod]
+        public void AccountIdMinPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 2;
+            //create some test data to test method
+            Int32 TestData = 2;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+        [TestMethod]
+        public void AccountIdMaxLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 99;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+        [TestMethod]
+        public void AccountIdMaxBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 100;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+        [TestMethod]
+        public void AccountIdMaxPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 101;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+
+        [TestMethod]
+        public void AccountIdMid()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 50;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+        [TestMethod]
+        public void AccountIdExtremeMax()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 1000000;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+
+        [TestMethod]
+        public void SecondValidMethodOk()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "Gerald";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void UserNameMinLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void UserNameMinBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "a";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void UserNameMinPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void UserNameMaxLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void UserNameMaxBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void UserNameMaxPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void UserNameMid()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void UserNameExtremeMax()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void ThirdValidMethodOk()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "Gerald";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CityMinLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CityMinBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "a";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CityMinPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CityMaxLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CityMaxBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CityMaxPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CityMid()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void CityExtremeMax()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FourthValidMethodOk()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "Gerald";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNoMinLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNoMinBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "a";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNoMinPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNoMaxLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNoMaxBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNoMaxPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNoMid()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HouseNoExtremeMax()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void FifthValidMethodOk()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "Gerald";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PasswordMinLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PasswordMinBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "a";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PasswordMinPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PasswordMaxLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PasswordMaxBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PasswordMaxPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PasswordMid()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PasswordExtremeMax()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SixthValidMethodOk()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "Gerald";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMinLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMinBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "a";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMinPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMaxLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMaxBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMaxPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeMid()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void PostCodeExtremeMax()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void SeventhValidMethodOk()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "Gerald";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetMinLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetMinBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "a";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetMinPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetMaxLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetMaxBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetMaxPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetMid()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void StreetExtremeMax()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void EigthValidMethodOk()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "Gerald";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownMinLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownMinBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "a";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownMinPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownMaxLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownMaxBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownMaxPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownMid()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void TownExtremeMax()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test method
+            String TestData = "aaaaaaaaaaaaaaaaaaaaaaa";
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void NinthValidMethodOk()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 1;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+
+        [TestMethod]
+        public void CustomerIdMinLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 0;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+        [TestMethod]
+        public void CustomerIdMinBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 1;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+        [TestMethod]
+        public void CustomerIdMinPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 2;
+            //create some test data to test method
+            Int32 TestData = 2;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+        [TestMethod]
+        public void CustomerIdMaxLessOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 99;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+        [TestMethod]
+        public void CustomerIdMaxBoundary()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 100;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+        [TestMethod]
+        public void CustomerIdMaxPlusOne()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 101;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+
+        [TestMethod]
+        public void CustomerIdMid()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 50;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+        [TestMethod]
+        public void CustomerIdExtremeMax()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Int32 Error = 0;
+            //create some test data to test method
+            Int32 TestData = 1000000;
+            //invoke the method
+            Error = AAccount.Valid(TestData);
+            //test to see that the result is OK
+            Assert.AreEqual(Error, 0);
+        }
+
+
+
     }
+
+
+
 }

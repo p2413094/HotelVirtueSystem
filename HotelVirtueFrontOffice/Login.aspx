@@ -45,10 +45,12 @@
 
          
              <br />
-            <asp:TextBox ID="text" runat="server"></asp:TextBox>
+             <asp:Label ID="Label1" runat="server" Text="UserName"></asp:Label>
+            <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
              <br />
              <br />
-            <asp:TextBox ID="Password" runat="server" type="password"></asp:TextBox>
+             <asp:Label ID="Label3" runat="server" Text="Password"></asp:Label>
+            <asp:TextBox ID="txtPassword" runat="server" type="password"></asp:TextBox>
              <br />
              <br />
              <asp:Button ID="Button1" runat="server" Text="Login" type="submit" OnClick="Button1_Click"  />
