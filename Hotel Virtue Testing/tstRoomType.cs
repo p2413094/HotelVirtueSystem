@@ -143,6 +143,19 @@ namespace Hotel_Virtue_Testing
             Assert.AreEqual(Error, "");
         }
 
-
+        [TestMethod]
+        public void RoomDescriptionMaxLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsRoomType aRoomType = new clsRoomType();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test the method 
+            string someRoomType = "Each room is contemporary  design and extremely comfortable featuring a super-comfy King bed, modern en-suite bathroom with walk in rainfall shower head, large flat screen TV, tea and coffee facilities, Alexa Dot technology and free Wi-Fi. Access to Health & Fitness Club is £5.00 per room per night..";
+            //invoke the method 
+            Error = aRoomType.Valid(someRoomType);
+            //test to see that the result is OK i.e. there was no error message returned
+            Assert.AreEqual(Error, "");
+        }
     }
 }
