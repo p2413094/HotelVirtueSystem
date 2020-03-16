@@ -96,5 +96,37 @@ namespace Hotel_Virtue_Testing
             Assert.AreEqual(Error, "");
         }
 
+
+        [TestMethod]
+        public void RoomDescriptionLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsRoomType aRoomType = new clsRoomType();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test the method 
+            string someRoomType = "";
+            //invoke the method 
+            Error = aRoomType.Valid(someRoomType);
+            //test to see that the result is OK i.e. there was no error message returned
+            Assert.AreNotEqual(Error, "");
+        }
+
+
+        [TestMethod]
+        public void RoomDescriptionMinBoundary()
+        {
+            //create an instance of the class we want to create 
+            clsRoomType aRoomType = new clsRoomType();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test the method 
+            string someRoomType = "This room consists of a single bed.";
+            //invoke the method 
+            Error = aRoomType.Valid(someRoomType);
+            //test to see that the result is OK i.e. there was no error message returned
+            Assert.AreEqual(Error, "");
+        }
+
     }
 }
