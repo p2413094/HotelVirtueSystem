@@ -10,7 +10,8 @@
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">Hotel Virtue</title>
+<head runat="server">
+Hotel Virtue</title>
     <link rel="stylesheet" = href="StyleSheet2.css" />
 </head>
 <body class="body">
@@ -66,8 +67,8 @@
                    <br />
                    <br />
                     <asp:Button ID="Button1" runat="server" Text="Add" type="submit" value="Confirm" OnClick="Button1_Click1" />
-                    <asp:Button ID="Button2" runat="server" Text="Edit" type="submit" value="Confirm" OnClick="Button1_Click1" />
-                    <asp:Button ID="Button3" runat="server" Text="Delete" type="submit" value="Confirm" OnClick="Button1_Click1" />
+                    <asp:Button ID="Button2" runat="server" Text="Edit" type="submit" value="Confirm" OnClick="Button2_Click1" />
+                    <asp:Button ID="Button3" runat="server" Text="Delete" type="submit" value="Confirm" OnClick="Button3_Click1" />
                    <br />
              </div>
 

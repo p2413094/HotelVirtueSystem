@@ -17,4 +17,30 @@ public partial class Guest_Login : System.Web.UI.Page
         //Redirect to the homepage 
         Response.Redirect("PayForBooking_1.aspx");
     }
+
+    void Add()
+    {
+        //create an instance of account
+        HotelVirtueClasses.clsCustomerCollection Customer= new HotelVirtueClasses.clsCustomerCollection();
+        //validate the data on the web form
+        String Error = Customer.ThisCustomer.Valid(FirstNametxt, LastNametxt, EmailAddresstxt, ContactNumbertxt);
+        //if the data is OK then add it to the object
+        if (Error == "")
+        {
+            //get data entered by the user
+            Customer.ThisCustomer.EmailAddress = Convert.ToString(EmailAddresstxt);
+            Customer.ThisCustomer.FirstName = Convert.ToString(FirstNametxt);
+            Customer.ThisCustomer.LastName = Convert.ToString(LastNametxt);
+            Customer.ThisCustomer.ContactNumber= Convert.ToInt32(ContactNumbertxt);
+            //add the record
+            Customer.Add();
+            //all done so redirect back to the main page
+            Response.Redirect("PayForBooking_1.aspx");
+        }
+        else
+        {
+            //report an error
+
+        }
+    }
 }

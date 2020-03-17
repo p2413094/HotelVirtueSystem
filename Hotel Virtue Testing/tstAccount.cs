@@ -162,8 +162,41 @@ namespace Hotel_Virtue_Testing
             //set the primary key of the test data 
             TestItem.AccountId = PrimaryKey;
             //finf the record
-            //AllAccounts.ThisAccount.Find(PrimaryKey);
+            AllAccounts.ThisAccount.Find(PrimaryKey);
             //test to see that the two values are the same
+            Assert.AreEqual(AllAccounts.ThisAccount, TestItem);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class nwe want to create
+            clsAccountCollection AllAccounts = new clsAccountCollection();
+            //create the item of test data
+            clsAccount TestItem = new clsAccount();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.AccountId = 101;
+            TestItem.CustomerId = 1;
+            TestItem.City = "London";
+            TestItem.Town = "Newham	";
+            TestItem.PostCode = "LON 32S";
+            TestItem.Street = "Hopkins st";
+            TestItem.HouseNo = "Order house 33";
+            TestItem.Password = "ghghsghdag3";
+            TestItem.UserName = "clockerz23";
+            //set ThisAccount to the testData
+            AllAccounts.ThisAccount = TestItem;
+            //add the record 
+            PrimaryKey = AllAccounts.Add();
+            //set the primary key of the test data 
+            TestItem.AccountId = PrimaryKey;
+            //finf the record
+            AllAccounts.ThisAccount.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Boolean Found = AllAccounts.ThisAccount.Find(PrimaryKey);
+            //test to see that he recod is not found
             Assert.AreEqual(AllAccounts.ThisAccount, TestItem);
         }
 
@@ -1387,7 +1420,20 @@ namespace Hotel_Virtue_Testing
             Assert.AreEqual(Error, 0);
         }
 
-
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the customer class
+            clsAccount AAccount = new clsAccount();
+            //create a string variable to store the result of the validation
+            Boolean Found = false;
+            //create some test data to test method
+            Int32 AccountId = 1;
+            //invoke the method
+            Found = AAccount.Find(AccountId);
+            //test to see that the result is OK
+            Assert.IsTrue(Found);
+        }
 
     }
 

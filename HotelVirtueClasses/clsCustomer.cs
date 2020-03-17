@@ -49,5 +49,13 @@ namespace HotelVirtueClasses
                 return "The first name may not be blank";
             }
         }
+
+        public bool Find(int customerId)
+        {
+ 
+                //always return true
+                return true;
+        
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace HotelVirtueClasses
         public string Town { get; set; }
         public string UserName { get; set; }
 
-        public int Valid(int testData)
+        public int Valid(int testData )
         {
             //if the number field is not blank
             if (testData != 0)
@@ -27,6 +27,8 @@ namespace HotelVirtueClasses
             }
         }
 
+     
+
         public string Valid(string testData)
         {
             //if the number field is not blank
@@ -38,6 +40,14 @@ namespace HotelVirtueClasses
             {
                 return "The first name may not be blank";
             }
+        }
+
+       
+
+        public bool Find(int accountId)
+        {
+            //always return true
+            return true;
         }
     }
 

@@ -50,16 +50,20 @@
 
          
              <br />
-             <asp:TextBox ID="TextBox2" runat="server"  required ="required" placeholder="Your Email Address here.."> </asp:TextBox>
+             <asp:Label ID="FirstNamelbl" runat="server" Text="FirstName"></asp:Label>
+             <asp:TextBox ID="FirstNametxt" runat="server"  required ="required" placeholder="Your Email Address here.."> </asp:TextBox>
              <br />
              <br />
-             <asp:TextBox ID="TextBox1" runat="server"  required ="required" placeholder="Your FirstName here.."> </asp:TextBox>
+             <asp:Label ID="LastNamelbl" runat="server" Text="LastName"></asp:Label>
+             <asp:TextBox ID="LastNametxt" runat="server"  required ="required" placeholder="Your FirstName here.."> </asp:TextBox>
              <br />
              <br />
-              <asp:TextBox ID="TextBox3" runat="server"  required ="required" placeholder="Your LastName here.."> </asp:TextBox>
+             <asp:Label ID="EmailAddresslbl" runat="server" Text="EmailAddress"></asp:Label>
+              <asp:TextBox ID="EmailAddresstxt" runat="server"  required ="required" placeholder="Your LastName here.."> </asp:TextBox>
              <br />
              <br />
-              <asp:TextBox ID="TextBox4" runat="server"  required ="required" placeholder=" ContactNumber here.."> </asp:TextBox>
+             <asp:Label ID="ContactNumberlbl" runat="server" Text="ContactNumber"></asp:Label>
+              <asp:TextBox ID="ContactNumbertxt" runat="server"  required ="required" placeholder=" ContactNumber here.."> </asp:TextBox>
              <br />
              <br />
              <asp:Button ID="Button2" runat="server" Text="Register" type="submit" value="Register" OnClick="Button2_Click1" />

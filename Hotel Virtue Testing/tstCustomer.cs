@@ -783,9 +783,27 @@ namespace Hotel_Virtue_Testing
             //set the primary key of the test data 
             TestItem.CustomerId = PrimaryKey;
             //finf the record
-            //AllCustomers.ThisCustomer.Find(PrimaryKey);
+            AllCustomers.ThisCustomer.Find(PrimaryKey);
             //test to see that the two values are the same
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
         }
+
+       
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the customer class
+            clsCustomer ACustomer = new clsCustomer();
+            //create a string variable to store the result of the validation
+            Boolean Found = false;
+            //create some test data to test method
+            Int32 CustomerId = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerId);
+            //test to see that the result is OK
+            Assert.IsTrue(Found);
+        }
+
     }
 }

@@ -57,34 +57,38 @@ Hotel Virtue</title>
 
                    <br />
                    <asp:Label ID="Label1" runat="server" Text="CustomerId"></asp:Label>
-                   <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtCustomerId" runat="server"></asp:TextBox>
                    <br />
                    <br />
                    <asp:Label ID="Label3" runat="server" Text="City"></asp:Label>
-                   <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
                    <br />
                    <br />
                    <asp:Label ID="Label4" runat="server" Text="HouseNo"></asp:Label>
-                   <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtHouseNo" runat="server"></asp:TextBox>
                    <br />
                    <br />
                    <asp:Label ID="Label5" runat="server" Text="Password"></asp:Label>
-                   <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
                    <br />
                    <br />
                    <asp:Label ID="Label6" runat="server" Text="PostCode"></asp:Label>
-                   <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtPostCode" runat="server"></asp:TextBox>
                    <br />
                    <br />
                    <asp:Label ID="Label7" runat="server" Text="Street"></asp:Label>
-                   <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtStreet" runat="server"></asp:TextBox>
                    <br />
                    <br />
                    <asp:Label ID="Label8" runat="server" Text="Town"></asp:Label>
-                   <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+                   <asp:TextBox ID="txtTown" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                     <asp:Label ID="Label9" runat="server" Text="[lblError]"></asp:Label>
+                   <asp:Label ID="Label10" runat="server" Text="UserName"></asp:Label>
+                   <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                   <br />
+                   <br />
+                     <asp:Label ID="lblErrorText" runat="server" Text="[lblError]"></asp:Label>
                    <br />
                    <br />
                    <asp:Button ID="Button1" runat="server" Text="OK" OnClick="Button1_Click" />

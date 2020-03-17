@@ -116,5 +116,14 @@ namespace HotelVirtueClasses
             return DB.Execute("sproc_tblAccount_Insert");
         }
 
+        public void Delete()
+        {
+            //deletes record
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters
+            DB.AddParameter("@AccountId", mThisAccount.AccountId);
+            //execute 
+            DB.Execute("sproc_tblAccount_Delete");
+        }
     }
 }
