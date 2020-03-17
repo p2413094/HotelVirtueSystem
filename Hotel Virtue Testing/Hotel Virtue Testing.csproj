@@ -56,6 +56,7 @@
     <Compile Include="tstCancellationCollection.cs" />
     <Compile Include="tstPayment.cs" />
     <Compile Include="tstPaymentCollection.cs" />
+    <Compile Include="tstRoom.cs" />
     <Compile Include="tstRoomType.cs" />
   </ItemGroup>
   <ItemGroup>
