@@ -49,7 +49,7 @@ namespace HotelVirtueClasses
             }
         }
 
-        public int Add()
+        public int AddRoom()
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@CustomerId", mThisPayment.CustomerId);
@@ -64,7 +64,7 @@ namespace HotelVirtueClasses
             return DB.Execute("sproc_tblPayment_Insert");
         }
 
-        public void Delete()
+        public void DeleteRoom()
         {
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@PaymentId", mThisPayment.PaymentId);

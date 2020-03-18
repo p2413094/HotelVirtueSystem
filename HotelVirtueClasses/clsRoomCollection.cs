@@ -62,5 +62,12 @@ namespace HotelVirtueClasses
             DB.AddParameter("@Available", mThisRoom.Available);
             return DB.Execute("sproc_tblRoom_Insert");
         }
+
+        public void Delete()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@RoomId", mThisRoom.RoomId);
+            DB.Execute("sproc_tblRoom_Delete");
+        }
     }
 }
