@@ -31,19 +31,19 @@ protected void Button1_Click(object sender, EventArgs e)
         //create an instance of account
         HotelVirtueClasses.clsAccountCollection Account = new HotelVirtueClasses.clsAccountCollection();
         //validate the data on the web form
-        String Error = Account.ThisAccount.Valid(txtCustomerId, txtHouseNo, txtCity, txtPassword, txtPostCode, txtStreet, txtTown, txtUserName);
+        String Error = Account.ThisAccount.Valid(txtCustomerId.Text, txtHouseNo.Text, txtCity.Text, txtPassword.Text, txtPostCode.Text, txtStreet.Text, txtTown.Text, txtUserName.Text);
         //if the data is OK then add it to the object
         if (Error == "")
         {
             //get data entered by the user
-            Account.ThisAccount.CustomerId = Convert.ToInt32(txtCustomerId);
-            Account.ThisAccount.HouseNo = Convert.ToString(txtHouseNo);
-            Account.ThisAccount.City = Convert.ToString(txtCity);
-            Account.ThisAccount.Password = Convert.ToString(txtPassword);
-            Account.ThisAccount.PostCode = Convert.ToString(txtPostCode);
-            Account.ThisAccount.Street = Convert.ToString(txtStreet);
-            Account.ThisAccount.Town = Convert.ToString(txtTown);
-            Account.ThisAccount.UserName = Convert.ToString(txtUserName);
+            Account.ThisAccount.CustomerId = Convert.ToInt32(txtCustomerId.Text);
+            Account.ThisAccount.HouseNo = Convert.ToString(txtHouseNo.Text);
+            Account.ThisAccount.City = Convert.ToString(txtCity.Text);
+            Account.ThisAccount.Password = Convert.ToString(txtPassword.Text);
+            Account.ThisAccount.PostCode = Convert.ToString(txtPostCode.Text);
+            Account.ThisAccount.Street = Convert.ToString(txtStreet.Text);
+            Account.ThisAccount.Town = Convert.ToString(txtTown.Text);
+            Account.ThisAccount.UserName = Convert.ToString(txtUserName.Text);
             //add the record
             Account.Add();
             //all done so redirect back to the main page

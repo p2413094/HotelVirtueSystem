@@ -14,6 +14,9 @@ namespace HotelVirtueClasses
         public string Town { get; set; }
         public string UserName { get; set; }
 
+
+
+    
         public int Valid(int testData )
         {
             //if the number field is not blank
@@ -42,7 +45,10 @@ namespace HotelVirtueClasses
             }
         }
 
-       
+        public string Valid(string text1, string text2, string text3, string text4, string text5, string text6, string text7, string text8)
+        {
+            throw new NotImplementedException();
+        }
 
         public bool Find(int accountId)
         {

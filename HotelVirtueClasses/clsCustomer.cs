@@ -37,6 +37,11 @@ namespace HotelVirtueClasses
             }
         }
 
+        public string Valid(string text1, string text2, string text3, string text4)
+        {
+            throw new NotImplementedException();
+        }
+
         public string Valid(string someFirstName)
         {
             //if the number field is not blank
