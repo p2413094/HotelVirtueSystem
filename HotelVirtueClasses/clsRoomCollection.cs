@@ -55,13 +55,12 @@ namespace HotelVirtueClasses
             DB.AddParameter("@RoomId", mThisRoom.RoomId);
             DB.AddParameter("@Accessible", mThisRoom.Accessible);
             DB.AddParameter("@HotelId", mThisRoom.HotelId);
-            DB.AddParameter("@Amount", mThisPayment.Amount);
-            DB.AddParameter("@CardNumber", mThisPayment.CardNumber);
-            DB.AddParameter("@NameOnCard", mThisPayment.NameOnCard);
-            DB.AddParameter("@ExpiryDate", mThisPayment.ExpiryDate);
-            DB.AddParameter("@SecurityCode", mThisPayment.SecurityCode);
-            DB.AddParameter("@CardType", mThisPayment.CardType);
-            return DB.Execute("sproc_tblPayment_Insert");
+            DB.AddParameter("@Price", mThisRoom.Price);
+            DB.AddParameter("@RoomFloor", mThisRoom.RoomFloor);
+            DB.AddParameter("@RoomNo", mThisRoom.RoomNo);
+            DB.AddParameter("@RoomTypeId", mThisRoom.RoomTypeId);
+            DB.AddParameter("@Available", mThisRoom.Available);
+            return DB.Execute("sproc_tblRoom_Insert");
         }
     }
 }
