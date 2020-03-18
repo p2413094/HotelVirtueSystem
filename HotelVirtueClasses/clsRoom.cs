@@ -10,6 +10,8 @@ namespace HotelVirtueClasses
         public int RoomId { get; set; }
         public int RoomNo { get; set; }
         public int RoomTypeId { get; set; }
+        public bool Accessible { get; set; }
+        public bool Available { get; internal set; }
 
         public string Valid(string someRoom)
         {
