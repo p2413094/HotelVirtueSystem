@@ -51,6 +51,7 @@
     <Compile Include="clsPayment.cs" />
     <Compile Include="clsPaymentCollection.cs" />
     <Compile Include="clsRoom.cs" />
+    <Compile Include="clsRoomCollection.cs" />
     <Compile Include="clsRoomType.cs" />
     <Compile Include="clsRoomTypeCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
