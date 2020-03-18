@@ -24,7 +24,7 @@
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="#">SEARCH FOR HOTEL</a>
           <a href="#">OFFERS</a>
-          <a href="#">CONTACT DETAILS</a>
+          <a href="#">CONTACT
           OTHER OPT
         </div>
 
@@ -47,44 +47,51 @@
 
 
                <div id="myregistration" class="registration">
-
-             <br />
-                   <asp:TextBox ID="TextBox2" runat="server"  required ="required" placeholder="Your Email Address.."> </asp:TextBox>
-             <br />
-             <br />
-                    <asp:TextBox ID="TextBox3" runat="server"  required ="required" placeholder="Your Password here.."> </asp:TextBox>
+               <br />
+                   <asp:Label ID="Label1" runat="server" Text="CustomerId"></asp:Label>
+                   <asp:TextBox ID="txtCustomerId" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                 <asp:TextBox ID="TextBox4" runat="server"  required ="required" placeholder="Your FirstName here.."> </asp:TextBox>
+                   <asp:Label ID="Label3" runat="server" Text="City"></asp:Label>
+                   <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                    <asp:TextBox ID="TextBox5" runat="server"  required ="required" placeholder="Your LastName here.."> </asp:TextBox>
+                   <asp:Label ID="Label4" runat="server" Text="HouseNo"></asp:Label>
+                   <asp:TextBox ID="txtHouseNo" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                    <asp:TextBox ID="TextBox6" runat="server"  required ="required" placeholder="Your PostCode here.."> </asp:TextBox>
-                   <br />
-                    <br />
-                    <asp:TextBox ID="TextBox1" runat="server"  required ="required" placeholder="Your HouseNo here.."> </asp:TextBox>
-                   <br />
-                    <br />
-                    <asp:TextBox ID="TextBox8" runat="server"  required ="required" placeholder="Your Street here.."> </asp:TextBox>
+                   <asp:Label ID="Label5" runat="server" Text="Password"></asp:Label>
+                   <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                    <asp:TextBox ID="TextBox7" runat="server"  required ="required" placeholder="Your Town here.."> </asp:TextBox>
+                   <asp:Label ID="Label6" runat="server" Text="PostCode"></asp:Label>
+                   <asp:TextBox ID="txtPostCode" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                   <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
+                   <asp:Label ID="Label7" runat="server" Text="Street"></asp:Label>
+                   <asp:TextBox ID="txtStreet" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                   <asp:Button ID="Button1" runat="server" Text="Button" type="submit" value="Register" OnClick="Button1_Click3" />
+                   <asp:Label ID="Label8" runat="server" Text="Town"></asp:Label>
+                   <asp:TextBox ID="txtTown" runat="server"></asp:TextBox>
                    <br />
-
+                   <br />
+                   <asp:Label ID="Label10" runat="server" Text="UserName"></asp:Label>
+                   <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                   <br />
+                   <br />
+                     <asp:Label ID="lblErrorText" runat="server" Text="[lblError]"></asp:Label>
+                   <br />
+                   <br />
+                   <asp:Button ID="Button1" runat="server" Text="Register" OnClick="Button1_Click" />
+                   <br />
              </div>
 
     </form>
 
     <div class="footer">
             © 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.
+    poses.
     poses.
     poses.
     </div>

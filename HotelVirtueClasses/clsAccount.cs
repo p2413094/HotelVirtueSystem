@@ -47,7 +47,17 @@ namespace HotelVirtueClasses
 
         public string Valid(string text1, string text2, string text3, string text4, string text5, string text6, string text7, string text8)
         {
-            throw new NotImplementedException();
+            //if the number field is not blank
+            if ( text1 != "")
+            {
+                return "";
+            }
+            else
+            {
+                return "The first name may not be blank";
+            }
+
+           
         }
 
         public bool Find(int accountId)

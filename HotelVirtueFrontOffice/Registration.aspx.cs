@@ -9,35 +9,47 @@ public partial class Registration : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        //if this is the first time the page is displayed
-        if (IsPostBack == false)
+        
+    }
+
+
+
+
+    void Add()
+    {
+        //create an instance of account
+        HotelVirtueClasses.clsAccountCollection Account = new HotelVirtueClasses.clsAccountCollection();
+        //validate the data on the web form
+        String Error = Account.ThisAccount.Valid(txtCustomerId.Text, txtHouseNo.Text, txtCity.Text, txtPassword.Text, txtPostCode.Text, txtStreet.Text, txtTown.Text, txtUserName.Text);
+        //if the data is OK then add it to the object
+        if (Error == "")
         {
-            DisplayAccounts();
+            //get data entered by the user
+
+            Account.ThisAccount.CustomerId = Convert.ToInt32(txtCustomerId.Text);
+            Account.ThisAccount.HouseNo = Convert.ToString(txtHouseNo.Text);
+            Account.ThisAccount.City = Convert.ToString(txtCity.Text);
+            Account.ThisAccount.Password = Convert.ToString(txtPassword.Text);
+            Account.ThisAccount.PostCode = Convert.ToString(txtPostCode.Text);
+            Account.ThisAccount.Street = Convert.ToString(txtStreet.Text);
+            Account.ThisAccount.Town = Convert.ToString(txtTown.Text);
+            Account.ThisAccount.UserName = Convert.ToString(txtUserName.Text);
+            //add the record
+            Account.Add();
+            //all done so redirect back to the main page
+            Response.Redirect("Login.aspx");
+        }
+        else
+        {
+            //report an error
+
         }
     }
 
-    void DisplayAccounts()
-    {
-        //create an instance of Account Collection
-        HotelVirtueClasses.clsAccountCollection Accounts = new HotelVirtueClasses.clsAccountCollection();
-        //Set the data source to the list of accounts
-        DropDownList1.DataSource = Accounts.AccountList;
-        //set name of the primary key
-        DropDownList1.DataValueField = "AccountId";
-        //set the data field to display
-        DropDownList1.DataTextField = "City";
-        //bind the data to list
-        DropDownList1.DataBind();
-    }
 
-    protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+    protected void Button1_Click(object sender, EventArgs e)
     {
-
-    }
-
-    protected void Button1_Click3(object sender, EventArgs e)
-    {
-        //Redirect to the homepage 
-        Response.Redirect("Registration2.aspx");
+        Add();
+        Response.Redirect("Login.aspx");
     }
 }

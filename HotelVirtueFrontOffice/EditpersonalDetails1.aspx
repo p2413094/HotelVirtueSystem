@@ -48,33 +48,43 @@
 
                <div id="myregistration" class="registration">
 
-             <br />
-                   <asp:TextBox ID="TextBox2" runat="server"  required ="required" placeholder="Edit Email Address.."> </asp:TextBox>
-             <br />
-             <br />
-                    <asp:TextBox ID="TextBox3" runat="server"  required ="required" placeholder="Edit Password .."> </asp:TextBox>
+                            <br />
+                   <asp:Label ID="Label1" runat="server" Text="CustomerId"></asp:Label>
+                   <asp:TextBox ID="txtCustomerId" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                 <asp:TextBox ID="TextBox4" runat="server"  required ="required" placeholder="Edit FirstName.."> </asp:TextBox>
+                   <asp:Label ID="Label3" runat="server" Text="City"></asp:Label>
+                   <asp:TextBox ID="txtCity" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                    <asp:TextBox ID="TextBox5" runat="server"  required ="required" placeholder="Edit LastName.."> </asp:TextBox>
+                   <asp:Label ID="Label4" runat="server" Text="HouseNo"></asp:Label>
+                   <asp:TextBox ID="txtHouseNo" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                    <asp:TextBox ID="TextBox6" runat="server"  required ="required" placeholder="Edit PostCode.."> </asp:TextBox>
-                   <br />
-                    <br />
-                    <asp:TextBox ID="TextBox1" runat="server"  required ="required" placeholder="Edit City .."> </asp:TextBox>
-                   <br />
-                    <br />
-                    <asp:TextBox ID="TextBox8" runat="server"  required ="required" placeholder="Edit Street .."> </asp:TextBox>
+                   <asp:Label ID="Label5" runat="server" Text="Password"></asp:Label>
+                   <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                    <asp:TextBox ID="TextBox7" runat="server"  required ="required" placeholder="Edit Town.."> </asp:TextBox>
+                   <asp:Label ID="Label6" runat="server" Text="PostCode"></asp:Label>
+                   <asp:TextBox ID="txtPostCode" runat="server"></asp:TextBox>
                    <br />
                    <br />
-                   <asp:DropDownList ID="DropDownList1" runat="server" 
-                       OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
+                   <asp:Label ID="Label7" runat="server" Text="Street"></asp:Label>
+                   <asp:TextBox ID="txtStreet" runat="server"></asp:TextBox>
+                   <br />
+                   <br />
+                   <asp:Label ID="Label8" runat="server" Text="Town"></asp:Label>
+                   <asp:TextBox ID="txtTown" runat="server"></asp:TextBox>
+                   <br />
+                   <br />
+                   <asp:Label ID="Label10" runat="server" Text="UserName"></asp:Label>
+                   <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
+                   <br />
+                   <br />
+                     <asp:Label ID="lblErrorText" runat="server" Text="[lblError]"></asp:Label>
+                   <br />
+                   <br />
+          
                    <br />
                    <br />
                    <asp:Button ID="Button1" runat="server" Text="Edit" type="submit" value="Confirm" OnClick="Button1_Click1" />

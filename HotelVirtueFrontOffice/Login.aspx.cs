@@ -22,7 +22,9 @@ public partial class Login : System.Web.UI.Page
 
     protected void Button2_Click(object sender, EventArgs e)
     {
-        //Redirect to the homepage 
+        //store -1 imto the session object to indicate this is a new record
+        Session["AccountId"] = -1;
+        //redirect to the data entry page 
         Response.Redirect("Registration.aspx");
     }
 
