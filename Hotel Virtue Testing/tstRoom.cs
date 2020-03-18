@@ -165,5 +165,54 @@ namespace Hotel_Virtue_Testing
             //test to see that the result is OK i.e. there was no error message returned
             Assert.AreEqual(Error, "");
         }
+
+        [TestMethod]
+        public void HotelIdMaxPlusOne()
+        {
+            //create an instance of the class we want to create 
+            clsRoom aRoom = new clsRoom();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test the method 
+            string someRoom = "1001";
+            //invoke the method 
+            Error = aRoom.Valid(someRoom);
+            //test to see that the result is OK i.e. there was no error message returned
+            Assert.AreNotEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HotelIdMid()
+        {
+            //create an instance of the class we want to create 
+            clsRoom aRoom = new clsRoom();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test the method 
+            string someRoom = "500";
+            //invoke the method 
+            Error = aRoom.Valid(someRoom);
+            //test to see that the result is OK i.e. there was no error message returned
+            Assert.AreEqual(Error, "");
+        }
+
+        [TestMethod]
+        public void HotelIdExtremeMax()
+        {
+            //create an instance of the class we want to create 
+            clsRoom aRoom = new clsRoom();
+            //create a string variable to store the result of the validation
+            String Error = "";
+            //create some test data to test the method 
+            string someRoom = "";
+            //pad the string with characters
+            someRoom = someRoom.PadRight(500, 'a');
+            //invoke the method 
+            Error = aRoom.Valid(someRoom);
+            //test to see that the result is OK i.e. there was no error message returned
+            Assert.AreNotEqual(Error, "");
+        }
+
+
     }
 }
