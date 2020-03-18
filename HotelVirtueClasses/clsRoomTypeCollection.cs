@@ -56,7 +56,7 @@ namespace HotelVirtueClasses
             set { mThisRoomType = value; }
         }
 
-        public int Add()
+        public int AddRoomType()
         {
 
             clsDataConnection DB = new clsDataConnection();
@@ -67,6 +67,14 @@ namespace HotelVirtueClasses
             DB.AddParameter("MaximumOccupancy", mThisRoomType.MaximumOccupancy);
             return DB.Execute("sproc_tblRoomType_Insert");
         }
+        public void DeleteRoomType()
+        {
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@RoomTypeId", mThisRoomType.RoomTypeId);
+            DB.Execute("sproc_tblRoomType_Delete");
+        }
+
+
 
     }
 }
