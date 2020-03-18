@@ -55,6 +55,7 @@
     <Compile Include="tstCancellation.cs" />
     <Compile Include="tstCancellationCollection.cs" />
     <Compile Include="tstHotel.cs" />
+    <Compile Include="tstHotelCollection.cs" />
     <Compile Include="tstPayment.cs" />
     <Compile Include="tstPaymentCollection.cs" />
     <Compile Include="tstRoom.cs" />

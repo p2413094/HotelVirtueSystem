@@ -5,14 +5,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Hotel_Virtue_Testing
 {
     [TestClass]
-    public class tstHotel
+    public class tstHotelCollection
     {
         [TestMethod]
         public void InstanceOk()
         {
-            clsHotel aHotel = new clsHotel();
-            Assert.IsNotNull(aHotel);
+            clsHotelCollection allHotels = new clsHotelCollection();
+            Assert.IsNotNull(allHotels);
         }
-
     }
 }
