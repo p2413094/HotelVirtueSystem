@@ -39,7 +39,7 @@ namespace HotelVirtueClasses
                 aRoom.HotelId = Convert.ToInt32(DB.DataTable.Rows[Index]["HotelId"]);
                 aRoom.Price = Convert.ToDecimal(DB.DataTable.Rows[Index]["Price"]);
                 aRoom.RoomFloor = Convert.ToInt32(DB.DataTable.Rows[Index]["RoomFloor"]);
-                aRoom.RoomNo = Convert.ToInt32(DB.DataTable.Rows[Index]["RoomNo"]);
+                aRoom.RoomNumber = Convert.ToInt32(DB.DataTable.Rows[Index]["RoomNumber"]);
                 aRoom.RoomTypeId = Convert.ToInt32(DB.DataTable.Rows[Index]["RoomTypeId"]);
                 aRoom.Available = Convert.ToBoolean(DB.DataTable.Rows[Index]["Available"]);
               
@@ -57,17 +57,28 @@ namespace HotelVirtueClasses
             DB.AddParameter("@HotelId", mThisRoom.HotelId);
             DB.AddParameter("@Price", mThisRoom.Price);
             DB.AddParameter("@RoomFloor", mThisRoom.RoomFloor);
-            DB.AddParameter("@RoomNo", mThisRoom.RoomNo);
+            DB.AddParameter("@RoomNo", mThisRoom.RoomNumber);
             DB.AddParameter("@RoomTypeId", mThisRoom.RoomTypeId);
             DB.AddParameter("@Available", mThisRoom.Available);
             return DB.Execute("sproc_tblRoom_Insert");
         }
 
+        //public void Delete()
+        //{
+        //    clsDataConnection DB = new clsDataConnection();
+        //    DB.DeleteParameter("@RoomId", mThisRoom.RoomId);
+        //   return  DB.Execute("sproc_tblRoom_Delete");
+        //}
         public void Delete()
+        ///it is a void function and returns no value
         {
+            //initialise the DBConnection
             clsDataConnection DB = new clsDataConnection();
+            //add the parameter data used by the stored procedure
             DB.AddParameter("@RoomId", mThisRoom.RoomId);
+            //execute the stored procedure to delete the address
             DB.Execute("sproc_tblRoom_Delete");
         }
     }
+
 }

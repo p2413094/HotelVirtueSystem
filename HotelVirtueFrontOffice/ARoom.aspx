@@ -15,8 +15,6 @@
     <form id="form1" runat="server">
         <div>
         </div>
-        <asp:Button ID="lblEdit" runat="server" OnClick="lblEdit_Click" style="z-index: 1; left: 318px; top: 293px; position: absolute" Text="Edit" />
-        <asp:ListBox ID="lstRooms" runat="server" style="z-index: 1; left: 131px; top: 168px; position: absolute"></asp:ListBox>
         <p>
             &nbsp;</p>
         <p>
