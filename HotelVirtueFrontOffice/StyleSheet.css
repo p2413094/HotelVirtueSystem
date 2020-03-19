@@ -272,7 +272,8 @@ li a {
 
 #skylinepicture {
     position: absolute;
-    top: 200px;
+    top: 140px;
+    left: 62px;
 }
 
 #picturetitle {
@@ -286,8 +287,8 @@ li a {
 
 .hotel{
     top: 64%;
-    width: 1091px;
+    width: 1207px;
     position: absolute;
-    left: 38%;
-   
+    left: 30%;
+    height: 141px;
 }

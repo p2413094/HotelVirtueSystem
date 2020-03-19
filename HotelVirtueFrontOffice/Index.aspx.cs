@@ -23,4 +23,21 @@ public partial class Index : System.Web.UI.Page
         Response.Redirect("http://www.google.co.uk");
     }
 
+
+    protected void btnSearch_Click(object sender, EventArgs e)
+    {
+        string Location = txtLocation.Text;
+        string ArrivalDate = txtDepartureDate.Text;
+        string DepartureDate = txtDepartureDate.Text;
+        string NumberOfGuests = txtNumberOfGuests.Text;
+        string NumberOfRooms = txtNumberOfRooms.Text;
+
+        Session["Location"] = Location;
+        Session["ArrivalDate"] = ArrivalDate;
+        Session["DepartureDate"] = DepartureDate;
+        Session["NumberofGuests"] = NumberOfGuests;
+        Session["NumberofRooms"] = NumberOfRooms;
+
+
+    }
 }
