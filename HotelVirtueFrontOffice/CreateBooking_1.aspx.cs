@@ -38,11 +38,11 @@ public partial class CreateBooking_1 : System.Web.UI.Page
             sixteenUpwards = Convert.ToInt32(Session["sixteenUpwards"]); //never changed 
 
             lblHotelName.Text = "HC Birmingham";
-            lblArrivalDepartureDate.Text = "HC 01/03/2020-03/03/2020";
-            lblbreakdownOfGuests.Text = "HC 1 under five, 1 between five and sixteen and 3 over sixteen";
+            lblArrivalDepartureDate.Text = arrivalDate + "-" + departureDate;
+            lblbreakdownOfGuests.Text = underFive + " under five" + fiveToSixteen + " between five and sixteen" + sixteenUpwards + " and 3 over sixteen";
 
             //temporarily 
-            hotelId = 1;
+            //hotelId = 1;
 
             clsDataConnection DB = new clsDataConnection();
             DB.AddParameter("@HotelId", hotelId);

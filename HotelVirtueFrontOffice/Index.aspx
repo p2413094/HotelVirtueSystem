@@ -6,6 +6,14 @@
 <head runat="server">
     <title>Hotel Virtue</title>
     <link rel="stylesheet" = href="StyleSheet.css" />
+    <style type="text/css">
+        .auto-style1 {
+            z-index: 1;
+            left: 1497px;
+            top: 170px;
+            position: absolute;
+        }
+    </style>
 </head>
 
 <body>
@@ -47,7 +55,6 @@
     <form runat="server">
 
     <div id="skylinepicture">
-        <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" style="z-index: 1; left: 1454px; top: 283px; position: absolute" Text="Search" />
         &nbsp;</div>
     
     <div id="picturetitle">
@@ -56,7 +63,9 @@
 
        
             <div id="Labels" class="hotel">
-            <label> Location:<asp:TextBox ID="txtLocation" runat="server" placeholder="Leicester" ></asp:TextBox> Arrival Date: <asp:TextBox ID="txtArrivalDate" runat="server" placeholder="DD/MM/YYYY"></asp:TextBox>Departure Date:<asp:TextBox ID="txtDepartureDate" runat="server" placeholder="DD/MM/YYYY"></asp:TextBox>Number of Guests: <asp:TextBox ID="txtNumberOfGuests" runat="server"></asp:TextBox></label>
+            <label> Location:<asp:TextBox ID="txtLocation" runat="server" placeholder="Leicester" ></asp:TextBox> Arrival Date: <asp:TextBox ID="txtArrivalDate" runat="server" placeholder="DD/MM/YYYY"></asp:TextBox>Departure Date:<asp:TextBox ID="txtDepartureDate" runat="server" placeholder="DD/MM/YYYY"></asp:TextBox>Number of Guests: <asp:TextBox ID="txtNumberOfGuests" runat="server"></asp:TextBox>
+        <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" CssClass="continueButton" />
+                </label>
                 <br />
                 <label> &nbsp;</label>Under Five:<asp:TextBox ID="txtUnderFive" runat="server" style="z-index: 1; left: 746px; top: 31px; position: absolute"></asp:TextBox>
                 <br />

@@ -55,6 +55,7 @@
              <asp:Button ID="Button3" runat="server" Text="Create Booking" type="submit" OnClick="Button3_Click" />
              <br />
              <br />
+             <asp:Button ID="Button2" runat="server" Text="View bookings" OnClick="Button2_Click" />
         
            </div>
 

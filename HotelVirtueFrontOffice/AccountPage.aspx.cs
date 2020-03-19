@@ -26,4 +26,9 @@ public partial class AccountPage : System.Web.UI.Page
     {
         Response.Redirect("Logout1.aspx");
     }
+
+    protected void Button2_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("ViewBooking_1.aspx");
+    }
 }

@@ -26,12 +26,12 @@ public partial class Index : System.Web.UI.Page
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        string Location = "Leicester";//txtLocation.Text;
-        string ArrivalDate = "19/03/2020";//txtDepartureDate.Text;
-        string DepartureDate = "21/03/2020"; //txtDepartureDate.Text;
-        int underFive = 1;
-        int fiveToSixteen = 1;
-        int sixteenUpwards = 1;
+        string Location = txtLocation.Text;
+        string ArrivalDate = txtArrivalDate.Text;
+        string DepartureDate = txtDepartureDate.Text;
+        int underFive = Convert.ToInt32(txtUnderFive.Text);
+        int fiveToSixteen = Convert.ToInt32(txtFivetoSixteen.Text);
+        int sixteenUpwards = Convert.ToInt32(txtSixteenUpwards.Text);
 
         Session["Location"] = Location;
         Session["ArrivalDate"] = ArrivalDate;

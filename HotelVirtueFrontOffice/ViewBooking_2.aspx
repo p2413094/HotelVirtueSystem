@@ -17,7 +17,7 @@
         <div>
             <ul class="ul" >
                 <li><span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span></li>
-                <li class="signInRight"><a href="ViewBooking_1.aspx">SIGN IN/ REGISTER</a></li>
+                <li class="signInRight"><a href="Login.aspx">SIGN IN/ REGISTER</a></li>
             </ul>
         </div>
 

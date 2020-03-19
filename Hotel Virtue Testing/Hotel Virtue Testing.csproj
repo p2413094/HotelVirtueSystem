@@ -63,7 +63,10 @@
     <Compile Include="tstCustomerCollection.cs" />
     <Compile Include="tstPayment.cs" />
     <Compile Include="tstPaymentCollection.cs" />
+    <Compile Include="tstRoom.cs" />
+    <Compile Include="tstRoomCollection.cs" />
     <Compile Include="tstRoomType.cs" />
+    <Compile Include="tstRoomTypeCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
