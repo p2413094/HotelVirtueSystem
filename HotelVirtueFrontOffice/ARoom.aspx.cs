@@ -13,6 +13,7 @@ public partial class ARoom : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         RoomId = Convert.ToInt32(Session["RoomId"]);
+        DisplayRoom();
     }
 
    
@@ -40,14 +41,14 @@ public partial class ARoom : System.Web.UI.Page
                 //set the house number property of the object
                 RoomList.ThisRoom.Accessible = chkAccessible.Checked;
                 //set the street property
-                RoomList.ThisRoom.HotelId = Convert.ToInt32(txtHotelId.Text);
+                RoomList.ThisRoom.HotelId = Convert.ToString(txtHotelId.Text);
                 //set the town property
                 RoomList.ThisRoom.Price = Convert.ToDecimal(txtPrice.Text);
                 //set the post code property
                 RoomList.ThisRoom.RoomFloor = Convert.ToInt32(txtRoomFloor.Text);
                 //set the data added
                 RoomList.ThisRoom.RoomNumber = Convert.ToInt32(txtRoomNumber.Text);
-                RoomList.ThisRoom.RoomTypeId = Convert.ToInt32(txtRoomTypeId.Text);
+                RoomList.ThisRoom.RoomTypeId = Convert.ToString(txtRoomTypeId.Text);
                 //set the county code
                 RoomList.ThisRoom.Available = chkAvailable.Checked;
                 
@@ -59,14 +60,14 @@ public partial class ARoom : System.Web.UI.Page
                 RoomList.ThisRoom.Find(RoomId);
                 //set the house no property
                 RoomList.ThisRoom.Accessible = chkAccessible.Checked;
-                RoomList.ThisRoom.HotelId = Convert.ToInt32(txtHotelId.Text);
+                RoomList.ThisRoom.HotelId = Convert.ToString(txtHotelId.Text);
                 //set the town property
                 RoomList.ThisRoom.Price = Convert.ToDecimal(txtPrice.Text);
                 //set the post code property
                 RoomList.ThisRoom.RoomFloor = Convert.ToInt32(txtRoomFloor.Text);
                 //set the data added
                 RoomList.ThisRoom.RoomNumber = Convert.ToInt32(txtRoomNumber.Text);
-                RoomList.ThisRoom.RoomTypeId = Convert.ToInt32(txtRoomTypeId.Text);
+                RoomList.ThisRoom.RoomTypeId = Convert.ToString(txtRoomTypeId.Text);
                 //set the county code
                 RoomList.ThisRoom.Available = chkAvailable.Checked;
                 //RoomList.Update();
