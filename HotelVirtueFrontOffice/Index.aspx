@@ -49,19 +49,15 @@
 
     <div id="skylinepicture">
         <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" style="z-index: 1; left: 1454px; top: 283px; position: absolute" Text="Search" />
-        <img src="Images/skyline.jpg" height="500" width="1900" />
-    </div>
+        &nbsp;</div>
     
     <div id="picturetitle">
         <p>Enjoy a Luxury Experience</p>
     </div>
 
-        <div class="form-box">
-            <input type="text" class="search-field" placeholder="Destination, City, Postcode..." />
-        </div>
-            <button class ="search-btn" type="button">Search</button>
+       
             <div id="Labels" class="hotel">
-            <label> Location:<asp:TextBox ID="txtLocation" runat="server"></asp:TextBox> Arrival Date: <asp:TextBox ID="txtArrivalDate" runat="server"></asp:TextBox>Departure Date:<asp:TextBox ID="txtDepartureDate" runat="server"></asp:TextBox>Number of Guests: <asp:TextBox ID="txtNumberOfGuests" runat="server"></asp:TextBox></label>
+            <label> Location:<asp:TextBox ID="txtLocation" runat="server" placeholder="Leicester" ></asp:TextBox> Arrival Date: <asp:TextBox ID="txtArrivalDate" runat="server" placeholder="DD/MM/YYYY"></asp:TextBox>Departure Date:<asp:TextBox ID="txtDepartureDate" runat="server" placeholder="DD/MM/YYYY"></asp:TextBox>Number of Guests: <asp:TextBox ID="txtNumberOfGuests" runat="server"></asp:TextBox></label>
                 <br />
                 <label> &nbsp;</label>Under Five:<asp:TextBox ID="txtUnderFive" runat="server" style="z-index: 1; left: 746px; top: 31px; position: absolute"></asp:TextBox>
                 <br />
@@ -76,6 +72,8 @@
     </form>
 
      <!-- footer -->
+        <p>
+        <img src="Images/skyline.jpg" height="500" width="1900" /></p>
         <div id="footer">
             <!--Text within footer -->
             <p>© 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.</p>
