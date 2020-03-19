@@ -284,9 +284,10 @@ li a {
     position: absolute;
 }
 
-.labels {
-    top: 48%;
-    width: 400px;
+.hotel{
+    top: 64%;
+    width: 1091px;
     position: absolute;
-    left: 35%;
+    left: 38%;
+   
 }

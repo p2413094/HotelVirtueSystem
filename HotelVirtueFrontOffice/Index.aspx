@@ -58,21 +58,21 @@
             <input type="text" class="search-field" placeholder="Destination, City, Postcode..." />
         </div>
             <button class ="search-btn" type="button">Search</button>
-            <div id="Labels">
-            <label> Date: <asp:TextBox ID="Date" runat="server"></asp:TextBox></label>
-            <label> Date of Stay: <asp:TextBox ID="DateofStay" runat="server"></asp:TextBox></label>
-            <label> Number of Guests: <asp:TextBox ID="NoOfGuests" runat="server"></asp:TextBox></label>
-            <label> Number of Rooms: <asp:TextBox ID="NoOfRooms" runat="server"></asp:TextBox></label>
-            </div>
+            <div id="Labels" class="hotel">
+            <label> Date: <asp:TextBox ID="Date" runat="server"></asp:TextBox>Date of Stay<asp:TextBox ID="DateofStay" runat="server"></asp:TextBox>:Number of Guests: <asp:TextBox ID="NoOfGuests" runat="server"></asp:TextBox>Number of Rooms:<asp:TextBox ID="NoOfRooms" runat="server"></asp:TextBox></label>
+                <br />
+                <label> &nbsp;</label><br />
+            <br />
+                <label> &nbsp;</label></div>
             
             <br />
-            &nbsp;
+            
     </form>
 
      <!-- footer -->
         <div id="footer">
             <!--Text within footer -->
-            <p>© 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.</p>
-        </div>
+            <p>© 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.<p>
+                </div>
 </body>
 </html>
