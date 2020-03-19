@@ -66,7 +66,7 @@ public partial class ARoom : System.Web.UI.Page
                 //set the post code property
                 RoomList.ThisRoom.RoomFloor = Convert.ToInt32(txtRoomFloor.Text);
                 //set the data added
-                RoomList.ThisRoom.RoomNo = Convert.ToInt32(txtRoomNumber.Text);
+                RoomList.ThisRoom.RoomNumber = Convert.ToInt32(txtRoomNumber.Text);
                 RoomList.ThisRoom.RoomTypeId = Convert.ToInt32(txtRoomTypeId.Text);
                 //set the county code
                 RoomList.ThisRoom.Available = chkAvailable.Checked;
@@ -85,7 +85,7 @@ public partial class ARoom : System.Web.UI.Page
                 //set the post code property
                 RoomList.ThisRoom.RoomFloor = Convert.ToInt32(txtRoomFloor.Text);
                 //set the data added
-                RoomList.ThisRoom.RoomNo = Convert.ToInt32(txtRoomNumber.Text);
+                RoomList.ThisRoom.RoomNumber = Convert.ToInt32(txtRoomNumber.Text);
                 RoomList.ThisRoom.RoomTypeId = Convert.ToInt32(txtRoomTypeId.Text);
                 //set the county code
                 RoomList.ThisRoom.Available = chkAvailable.Checked;
@@ -99,5 +99,27 @@ public partial class ARoom : System.Web.UI.Page
             //display the error message
             lblError.Text = ErrorMsg;
         }
+    }
+
+    void DisplayRoom()
+    {
+        //create an instance of the addresses class
+        clsRoomCollection MyRoom = new clsRoomCollection();
+        //find the record we want to display
+        MyRoom.ThisRoom.Find(RoomId);
+        //display the house no
+        chkAccessible.Checked = MyRoom.ThisRoom.Accessible; 
+        //diaplay the street
+        txtHotelId.Text = Convert.ToString(MyRoom.ThisRoom.HotelId);
+        //display the town
+        txtPrice.Text = Convert.ToString(MyRoom.ThisRoom.Price);
+        //display the post code
+        txtRoomFloor.Text = Convert.ToString(MyRoom.ThisRoom.RoomFloor);
+        //diaply the data added
+        txtRoomNumber.Text = Convert.ToString(MyRoom.ThisRoom.RoomNumber);
+        txtRoomTypeId.Text = Convert.ToString(MyRoom.ThisRoom.RoomTypeId);
+        chkAvailable.Checked = MyRoom.ThisRoom.Available;
+
+        
     }
 }

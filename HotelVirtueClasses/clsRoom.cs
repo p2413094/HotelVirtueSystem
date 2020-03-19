@@ -8,7 +8,7 @@ namespace HotelVirtueClasses
         public decimal Price { get; set; }
         public int RoomFloor { get; set; }
         public int RoomId { get; set; }
-        public int RoomNo { get; set; }
+        public int RoomNumber { get; set; }
         public int RoomTypeId { get; set; }
         public bool Accessible { get; set; }
         public bool Available { get; set; }
