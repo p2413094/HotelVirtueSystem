@@ -60,6 +60,19 @@ namespace HotelVirtueClasses
            
         }
 
+        public string Valid(string text1, string text2)
+        {
+            //if the number field is not blank
+            if (text1 != "")
+            {
+                return "";
+            }
+            else
+            {
+                return "The first name may not be blank";
+            }
+        }
+
         public bool Find(int accountId)
         {
             //always return true

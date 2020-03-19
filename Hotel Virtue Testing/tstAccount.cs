@@ -137,6 +137,51 @@ namespace Hotel_Virtue_Testing
 
 
         [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create an instance of the class nwe want to create
+            clsAccountCollection AllAccounts = new clsAccountCollection();
+            //create the item of test data
+            clsAccount TestItem = new clsAccount();
+            //var to store the primary key
+            Int32 PrimaryKey = 0;
+            //set its properties
+            TestItem.AccountId = 101;
+            TestItem.CustomerId = 1;
+            TestItem.City = "London";
+            TestItem.Town = "Newham	";
+            TestItem.PostCode = "LON 32S";
+            TestItem.Street = "Hopkins st";
+            TestItem.HouseNo = "Order house 33";
+            TestItem.Password = "ghghsghdag3";
+            TestItem.UserName = "clockerz23";
+            //set ThisAccount to the testData
+            AllAccounts.ThisAccount = TestItem;
+            //add the record 
+            PrimaryKey = AllAccounts.Add();
+            //set the primary key of the test data 
+            TestItem.AccountId = PrimaryKey;
+            //modify the test data 
+            TestItem.AccountId = 11;
+            TestItem.CustomerId = 1;
+            TestItem.City = "Londn";
+            TestItem.Town = "Newha	";
+            TestItem.PostCode = "LOw 32S";
+            TestItem.Street = "Hopkins t";
+            TestItem.HouseNo = "Order hoe 33";
+            TestItem.Password = "ghghsgh3";
+            TestItem.UserName = "clockz23";
+            //set record
+            AllAccounts.ThisAccount = TestItem;
+            //update record
+            AllAccounts.Update();
+            //finf the record
+            AllAccounts.ThisAccount.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllAccounts.ThisAccount, TestItem);
+        }
+
+        [TestMethod]
         public void AddMethodOK()
         {
             //create an instance of the class nwe want to create

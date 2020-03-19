@@ -71,6 +71,21 @@ public partial class CustomerEdit : System.Web.UI.Page
 
     protected void Button2_Click1(object sender, EventArgs e)
     {
+        //var to store 
+        Int32 AccountId;
+        //if a record has been selected
+        if (ListBox1.SelectedIndex != -1)
+        {
+            //get the priary key
+            AccountId = Convert.ToInt32(ListBox1.SelectedValue);
+            //store the data
+            Session["AccountId"] = AccountId;
+            //redirect to delete page
+            Response.Redirect("EditpersonalDetails1.aspx");
+        }
+        else
+        {
 
+        }
     }
 }

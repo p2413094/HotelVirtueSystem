@@ -14,8 +14,8 @@ public partial class Guest_Login : System.Web.UI.Page
 
     protected void Button2_Click1(object sender, EventArgs e)
     {
-        //Redirect to the homepage 
-        Response.Redirect("PayForBooking_1.aspx");
+        Add();
+        Response.Redirect("Login.aspx");
     }
 
     void Add()
@@ -35,7 +35,7 @@ public partial class Guest_Login : System.Web.UI.Page
             //add the record
             Customer.Add();
             //all done so redirect back to the main page
-            Response.Redirect("PayForBooking_1.aspx");
+            Response.Redirect("Login.aspx");
         }
         else
         {
