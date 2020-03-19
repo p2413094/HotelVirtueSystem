@@ -31,7 +31,7 @@ public partial class ARoom : System.Web.UI.Page
         //create an instance of the room class
         clsRoomCollection RoomList = new clsRoomCollection();
         //use the objects validation method to test the data
-        ErrorMsg = RoomList.ThisRoom.Valid(txtHotelId.Text, txtPrice.Text, txtRoomFloor.Text, txtRoomNumber.Text, txtRoomTypeId.Text);
+        ErrorMsg = RoomList.ThisRoom.Valid(RoomId.ToString(), txtPrice.Text, txtRoomFloor.Text, txtRoomNumber.Text, txtRoomTypeId.Text);
         //if there is no error message
         if (ErrorMsg == "")
         {
@@ -41,14 +41,15 @@ public partial class ARoom : System.Web.UI.Page
                 //set the Accessible property of the object
                 RoomList.ThisRoom.Accessible = chkAccessible.Checked;
                 //set the HotelId property
-                RoomList.ThisRoom.HotelId = Convert.ToString(txtHotelId.Text);
+ 
+             RoomList.ThisRoom.HotelId = Convert.ToInt32(txtHotelId.Text);
                 //set the Price property
                 RoomList.ThisRoom.Price = Convert.ToDecimal(txtPrice.Text);
                 //set the RoomFloor property
                 RoomList.ThisRoom.RoomFloor = Convert.ToInt32(txtRoomFloor.Text);
                 //set the RoomNumber
                 RoomList.ThisRoom.RoomNumber = Convert.ToInt32(txtRoomNumber.Text);
-                RoomList.ThisRoom.RoomTypeId = Convert.ToString(txtRoomTypeId.Text);
+                RoomList.ThisRoom.RoomTypeId = Convert.ToInt32(txtRoomTypeId.Text);
                 //set the available 
                 RoomList.ThisRoom.Available = chkAvailable.Checked;
                 
@@ -60,14 +61,14 @@ public partial class ARoom : System.Web.UI.Page
                 RoomList.ThisRoom.Find(RoomId);
                 //set the Accessible property
                 RoomList.ThisRoom.Accessible = chkAccessible.Checked;
-                RoomList.ThisRoom.HotelId = Convert.ToString(txtHotelId.Text);
+                RoomList.ThisRoom.HotelId = Convert.ToInt32(txtHotelId.Text);
                 //set the Price property
                 RoomList.ThisRoom.Price = Convert.ToDecimal(txtPrice.Text);
                 //set the RoomFloor property
                 RoomList.ThisRoom.RoomFloor = Convert.ToInt32(txtRoomFloor.Text);
                 //set the RoomNumber
                 RoomList.ThisRoom.RoomNumber = Convert.ToInt32(txtRoomNumber.Text);
-                RoomList.ThisRoom.RoomTypeId = Convert.ToString(txtRoomTypeId.Text);
+                RoomList.ThisRoom.RoomTypeId = Convert.ToInt32(txtRoomTypeId.Text);
                 //set the Available
                 RoomList.ThisRoom.Available = chkAvailable.Checked;
                 //RoomList.Update();
