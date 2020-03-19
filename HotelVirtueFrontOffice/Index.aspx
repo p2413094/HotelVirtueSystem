@@ -10,9 +10,9 @@
 
 <body>
 
-    <form runat="server">
+    <%--<form runat="server">--%>
 
-    <%--</form>--%>
+    <form>
         
     <div id="Logo">
            <img src="Images/HotelVirtueLogo.png" alt="HotelVirtueLogo" height="200" width="300"/>       
@@ -53,16 +53,20 @@
         <p>Enjoy a Luxury Experience</p>
     </div>
 
-    <form>
+    <form runat="server">
         <div class="form-box">
             <input type="text" class="search-field" placeholder="Destination, City, Postcode..." />
-
-            <button class ="search-btn" type="button">Search</button>
-
-            <label> Date: </label>
-            <input type="month" min="2020-01-01" max="2025-01-01" /><br />
-            <input type="submit" />
         </div>
+            <button class ="search-btn" type="button">Search</button>
+            <div id="Labels">
+            <label> Date: <asp:TextBox ID="Date" runat="server"></asp:TextBox></label>
+            <label> Date of Stay: <asp:TextBox ID="DateofStay" runat="server"></asp:TextBox></label>
+            <label> Number of Guests: <asp:TextBox ID="NoOfGuests" runat="server"></asp:TextBox></label>
+            <label> Number of Rooms: <asp:TextBox ID="NoOfRooms" runat="server"></asp:TextBox></label>
+            </div>
+            
+            <br />
+            &nbsp;
     </form>
 
      <!-- footer -->
