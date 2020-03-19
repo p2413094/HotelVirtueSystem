@@ -48,7 +48,7 @@
     <form runat="server">
 
     <div id="skylinepicture">
-        <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" style="z-index: 1; left: 1454px; top: 284px; position: absolute" Text="Search" />
+        <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" style="z-index: 1; left: 1454px; top: 283px; position: absolute" Text="Search" />
         <img src="Images/skyline.jpg" height="500" width="1900" />
     </div>
     
@@ -61,7 +61,7 @@
         </div>
             <button class ="search-btn" type="button">Search</button>
             <div id="Labels" class="hotel">
-            <label> Location:<asp:TextBox ID="txtLocation" runat="server"></asp:TextBox> Arrival Date: <asp:TextBox ID="txtArrivalDate" runat="server"></asp:TextBox>Departure Date:<asp:TextBox ID="txtDepartureDate" runat="server"></asp:TextBox>Number of Guests: <asp:TextBox ID="txtNumberOfGuests" runat="server"></asp:TextBox>Number of Rooms:<asp:TextBox ID="txtNumberOfRooms" runat="server"></asp:TextBox></label>
+            <label> Location:<asp:TextBox ID="txtLocation" runat="server"></asp:TextBox> Arrival Date: <asp:TextBox ID="txtArrivalDate" runat="server"></asp:TextBox>Departure Date:<asp:TextBox ID="txtDepartureDate" runat="server"></asp:TextBox>Number of Guests: <asp:TextBox ID="txtNumberOfGuests" runat="server"></asp:TextBox></label>
                 <br />
                 <label> &nbsp;</label>Under Five:<asp:TextBox ID="txtUnderFive" runat="server" style="z-index: 1; left: 746px; top: 31px; position: absolute"></asp:TextBox>
                 <br />

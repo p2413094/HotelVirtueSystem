@@ -29,7 +29,7 @@ public partial class ARoom : System.Web.UI.Page
         else
         {
             //display an error
-            lblError.Text = "You must select an Room off the list first to edit it.";
+            //lblError.Text = "You must select an Room off the list first to edit it.";
         }
 
     }
