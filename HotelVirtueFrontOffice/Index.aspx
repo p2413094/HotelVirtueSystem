@@ -10,13 +10,12 @@
 
 <body>
 
-    <form runat="server">
+    <%--<form runat="server">--%>
 
-    <%--</form>--%>
+    <form>
         
     <div id="Logo">
-           <img src="Images/HotelVirtueLogo.png" alt="HotelVirtueLogo" height="200" width="300"/>       
-        </div>
+           &nbsp;</div>
 
         <div>
            <ul class="ul" >
@@ -28,9 +27,9 @@
        <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="Index.aspx">SEARCH FOR HOTEL</a>
-          <a href="#">OFFERS</a>
-          <a href="#">CONTACT DETAILS</a>
-          <a href="#">OTHER OPTION HERE</a>
+          <a href="Offers.aspx">OFFERS</a>
+          <a href="ContactDetails.aspx">CONTACT DETAILS</a>
+          
      </div>
            
     <asp:Panel ID="Panel1" runat="server"></asp:Panel>
@@ -45,30 +44,38 @@
             }
         </script>
 
+    <form runat="server">
+
     <div id="skylinepicture">
-        <img src="Images/skyline.jpg" height="500" width="1900" />
-    </div>
+        <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" style="z-index: 1; left: 1454px; top: 283px; position: absolute" Text="Search" />
+        &nbsp;</div>
     
     <div id="picturetitle">
         <p>Enjoy a Luxury Experience</p>
     </div>
 
-    <form>
-        <div class="form-box">
-            <input type="text" class="search-field" placeholder="Destination, City, Postcode..." />
-
-            <button class ="search-btn" type="button">Search</button>
-
-            <label> Date: </label>
-            <input type="month" min="2020-01-01" max="2025-01-01" /><br />
-            <input type="submit" />
-        </div>
+       
+            <div id="Labels" class="hotel">
+            <label> Location:<asp:TextBox ID="txtLocation" runat="server" placeholder="Leicester" ></asp:TextBox> Arrival Date: <asp:TextBox ID="txtArrivalDate" runat="server" placeholder="DD/MM/YYYY"></asp:TextBox>Departure Date:<asp:TextBox ID="txtDepartureDate" runat="server" placeholder="DD/MM/YYYY"></asp:TextBox>Number of Guests: <asp:TextBox ID="txtNumberOfGuests" runat="server"></asp:TextBox></label>
+                <br />
+                <label> &nbsp;</label>Under Five:<asp:TextBox ID="txtUnderFive" runat="server" style="z-index: 1; left: 746px; top: 31px; position: absolute"></asp:TextBox>
+                <br />
+            <br />
+                <label> &nbsp;Five to Sixteen:<br />
+                <asp:TextBox ID="txtFivetoSixteen" runat="server" style="z-index: 1; left: 747px; top: 62px; position: absolute"></asp:TextBox>
+                Sixteen Upwards:<asp:TextBox ID="txtSixteenUpwards" runat="server" style="z-index: 1; left: 747px; top: 94px; position: absolute"></asp:TextBox>
+                </label></div>
+            
+            <br />
+            
     </form>
 
      <!-- footer -->
+        <p>
+        <img src="Images/skyline.jpg" height="500" width="1900" /></p>
         <div id="footer">
             <!--Text within footer -->
             <p>© 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.</p>
-        </div>
+                </div>
 </body>
 </html>
