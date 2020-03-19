@@ -38,12 +38,12 @@ public partial class CreateBooking_2 : System.Web.UI.Page
         {
             pnlError.Visible = false;
             //this will be implemented during integration
-            //guest = Convert.ToBoolean(Session["Guest"]);
+            guest = Convert.ToBoolean(Session["Guest"]);
 
             guest = true;
             if (guest != true)
             {
-                customerId = 1;//Convert.ToInt32(Session["CustomerId"]);
+                customerId = Convert.ToInt32(Session["CustomerId"]);
             }
 
             //these are temporary

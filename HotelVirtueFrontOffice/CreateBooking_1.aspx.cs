@@ -57,7 +57,7 @@ public partial class CreateBooking_1 : System.Web.UI.Page
                 Boolean accessible = Convert.ToBoolean(DB.DataTable.Rows[newIndex]["Accessible"]);
                 price = Convert.ToDecimal(DB.DataTable.Rows[newIndex]["Price"]);
 
-                Int32 roomTypeId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["fk2_RoomTypeId"]);
+                Int32 roomTypeId = Convert.ToInt32(DB.DataTable.Rows[newIndex]["RoomTypeId"]);
 
                 clsDataConnection DB2 = new clsDataConnection();
                 DB2.AddParameter("@RoomTypeId", roomTypeId);
@@ -360,8 +360,8 @@ public partial class CreateBooking_1 : System.Web.UI.Page
         Session["GymAccess"] = rdobtnlstGymCost.SelectedValue;
         Session["LateCheckout"] = rdobtnlstLateCheckout.SelectedValue;
 
-        //Response.Redirect("CreateBooking_2.aspx");
-        //response.redirect to Michael's page 
+        Session["createBooking"] = true;
+        Response.Redirect("Login.aspx");
     }
 
     void DisplayRoomId(Int32 roomId)
