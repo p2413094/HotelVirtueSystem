@@ -79,6 +79,19 @@ namespace HotelVirtueClasses
             //execute the stored procedure to delete the address
             DB.Execute("sproc_tblRoom_Delete");
         }
+
+        public void ReportByRoomId(string RoomId)
+        ///it accepts a single parameter PostCode and returns no value
+        {
+            //initialise the DBConnection
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter data used by the stored procedure
+            DB.AddParameter("@RoomId", RoomId);
+            //execute the stored procedure to delete the address
+            DB.Execute("sproc_tblRoom_FilterByRoomId");
+        }
+
     }
+
 
 }

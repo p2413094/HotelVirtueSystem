@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using HotelVirtueClasses;
 public partial class EditRoom : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -50,13 +50,13 @@ public partial class EditRoom : System.Web.UI.Page
         clsRoomCollection MyRoom = new clsRoomCollection();
         //var to store the count of records
         Int32 RecordCount;
-        
+        string RoomId;
         //var to store the index
         Int32 Index = 0;
         //clear the list of any existing items
         lstRooms.Items.Clear();
         //call the filter by post code method
-        MyRoom.ReportByPostCode(RoomIdFilter);
+        MyRoom.ReportByRoomId(RoomIdFilter);
         //get the count of records found
         RecordCount = MyRoom.Count;
         //loop through each record found using the index to point to each record in the data table
@@ -64,7 +64,7 @@ public partial class EditRoom : System.Web.UI.Page
         {
             
             //get the address no from the query results
-            RoomId = Convert.ToString(MyRoom.AddressList[Index].RoomId);
+            RoomId = Convert.ToString(MyRoom.RoomList[Index].RoomId);
             //set up a new object of class list item 
             ListItem NewItem = new ListItem(RoomId);
             //add the new item to the list
