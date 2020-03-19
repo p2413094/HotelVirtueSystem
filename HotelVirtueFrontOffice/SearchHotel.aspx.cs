@@ -8,14 +8,21 @@ using HotelVirtueClasses;
 
 public partial class SearchHotel : System.Web.UI.Page
 {
+    Int32 underFive;
+    Int32 fivetoSixteen;
+    Int32 sixteenUpwards;
+    DateTime arrivalDate;
+    DateTime departureDate;
+    string hotelName;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         string location = "Leicester";//Convert.ToString(Session["Location"]);
-        DateTime arrivalDate = Convert.ToDateTime("19/03/2020");  //(Session["ArrivalDate"]);
-        DateTime departureDate = Convert.ToDateTime("21/03/2020");   //(Session["DepartureDate"]);
-        Int32 underFive = 1; //Convert.ToInt32(Session["underFive"]);
-        Int32 fivetoSixteen = 1; //Convert.ToInt32(Session["FivetoSixteen"]);
-        Int32 sixteenUpwards = 1;  //Convert.ToInt32(Session["SixteenUpwards"]);
+        arrivalDate = Convert.ToDateTime("19/03/2020");  //(Session["ArrivalDate"]);
+        departureDate = Convert.ToDateTime("21/03/2020");   //(Session["DepartureDate"]);
+        underFive = 1; //Convert.ToInt32(Session["underFive"]);
+        fivetoSixteen = 1; //Convert.ToInt32(Session["FivetoSixteen"]);
+        sixteenUpwards = 1;  //Convert.ToInt32(Session["SixteenUpwards"]);
 
         clsDataConnection DB = new clsDataConnection();
         DB.AddParameter("@Location", location);
@@ -95,12 +102,14 @@ public partial class SearchHotel : System.Web.UI.Page
                 pnlhotel.Controls.Add(lblLateCheckout);
                 pnlhotel.Controls.Add(new LiteralControl("<br />"));
 
+
+               
                 this.Controls.Add(pnlhotel);
                 this.Controls.Add(new LiteralControl("<br />"));
                 this.Controls.Add(new LiteralControl("<br />"));
                 this.Controls.Add(new LiteralControl("<br />"));
 
-                ddlHotelId.Items.Add(Convert.ToString(DB.DataTable.Rows[index]["Name"]));
+                ddlHotelId.Items.Add(Convert.ToString(DB.DataTable.Rows[index]["HotelId"]));
 
                 index++;
             }
@@ -109,5 +118,16 @@ public partial class SearchHotel : System.Web.UI.Page
         }
 
         
+    }
+
+    protected void Buttonchoosebooking_Click(object sender, EventArgs e)
+    {
+        Int32 hotelId = Convert.ToInt32(ddlHotelId.SelectedValue);
+        Session["hotelId"] = hotelId;
+        Session["underFive"] = underFive;
+        Session["fiveToSixteen"] = fivetoSixteen;
+        Session["sixteenUpwards"] = sixteenUpwards;
+        Session["arrivalDate"] = arrivalDate;
+        Session["departureDate"] = departureDate;
     }
 }

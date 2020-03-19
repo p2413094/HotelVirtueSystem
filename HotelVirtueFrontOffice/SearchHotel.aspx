@@ -18,6 +18,7 @@
             <br />
             <asp:DropDownList ID="ddlHotelId" runat="server"></asp:DropDownList>
             <br />
+            <asp:Button ID="Buttonchoosebooking" CssClass="continueButton" runat="server" Text="choose this hotel" OnClick="Buttonchoosebooking_Click" />
 
         </asp:Panel>
     </form>

@@ -8,6 +8,11 @@ namespace HotelVirtueClasses
         List<clsRoom> mRoomList = new List<clsRoom>();
         clsRoom mThisRoom = new clsRoom();
 
+        clsDataConnection DB = new clsDataConnection();
+        //private data member for the current address
+
+
+
         public List<clsRoom> RoomList
         {
             get { return mRoomList; }
@@ -63,12 +68,7 @@ namespace HotelVirtueClasses
             return DB.Execute("sproc_tblRoom_Insert");
         }
 
-        //public void Delete()
-        //{
-        //    clsDataConnection DB = new clsDataConnection();
-        //    DB.DeleteParameter("@RoomId", mThisRoom.RoomId);
-        //   return  DB.Execute("sproc_tblRoom_Delete");
-        //}
+       
         public void Delete()
         ///it is a void function and returns no value
         {
@@ -86,9 +86,9 @@ namespace HotelVirtueClasses
             //initialise the DBConnection
             clsDataConnection DB = new clsDataConnection();
             //add the parameter data used by the stored procedure
-            DB.AddParameter("@RoomId", RoomId);
+            DB.AddParameter("@RoomId", mThisRoom.RoomId);
             //execute the stored procedure to delete the address
-            DB.Execute("sproc_tblRoom_FilterByRoomId");
+           DB.Execute("sproc_tblRoom_FilterByRoomId");
         }
 
     }
