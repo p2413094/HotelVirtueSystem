@@ -1,4 +1,4 @@
-﻿<<%@ Page Language="C#" AutoEventWireup="true" CodeFile="EditPersonalDetails2.aspx.cs" Inherits="EditPersonalDetails2" %>
+﻿<<<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Logout1.aspx.cs" Inherits="Logout1" %>
 
 <!DOCTYPE html>
 
@@ -42,7 +42,7 @@
         </script>
     
           <div id="myregistrationlabel" class="editlabel">
-            <asp:Label ID="Label2" runat="server" Text="Are you sure you want to change these details"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Are you sure you want to logout"></asp:Label>
                <br />
              <asp:Button ID="Button2" runat="server" Text="Yes" type="submit" value="Submit" OnClick="Button2_Click2" />
 

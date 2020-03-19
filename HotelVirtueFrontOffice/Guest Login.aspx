@@ -72,7 +72,7 @@
            </div>
 
         <div id="mysignup" class="signup">
-            <asp:Label ID="Label2" runat="server" Text="Guest Login"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Guest SignUp"></asp:Label>
              </div>
     </form>
     

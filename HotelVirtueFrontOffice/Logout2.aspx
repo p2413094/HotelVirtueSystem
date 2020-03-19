@@ -1,4 +1,4 @@
-﻿<<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Registration2.aspx.cs" Inherits="Registration2" %>
+﻿<<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Logout2.aspx.cs" Inherits="Logout2" %>
 
 <!DOCTYPE html>
 
@@ -42,7 +42,7 @@
         </script>
     
           <div id="myregistrationlabel" class="editlabel">
-            <asp:Label ID="Label2" runat="server" Text="Your account has been made successfully"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="You've logged out  succesfully"></asp:Label>
       
              </div>
 

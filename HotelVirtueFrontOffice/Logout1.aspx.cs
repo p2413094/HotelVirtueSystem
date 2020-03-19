@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class EditPersonalDetails2 : System.Web.UI.Page
+public partial class Logout1 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -14,13 +14,11 @@ public partial class EditPersonalDetails2 : System.Web.UI.Page
 
     protected void Button2_Click2(object sender, EventArgs e)
     {
-        //Redirect to the homepage 
-        Response.Redirect("EditPersonalDetails3.aspx");
+        Response.Redirect("Logout2.aspx");
     }
 
     protected void Button1_Click2(object sender, EventArgs e)
     {
-        //Redirect to the homepage 
-        Response.Redirect("EditpersonalDetails1.aspx");
+        Response.Redirect("AccountPage.aspx");
     }
 }

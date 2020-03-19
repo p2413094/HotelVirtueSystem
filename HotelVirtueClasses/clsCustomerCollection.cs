@@ -98,7 +98,7 @@ namespace HotelVirtueClasses
             //set the primary key value of the new record
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
-            DB.AddParameter("@CustomerId", mThisCustomer.CustomerId);
+            //DB.AddParameter("@CustomerId", mThisCustomer.CustomerId);
             DB.AddParameter("@FirstName", mThisCustomer.FirstName);
             DB.AddParameter("@LastName", mThisCustomer.LastName);
             DB.AddParameter("@EmailAddress", mThisCustomer.EmailAddress);

@@ -771,7 +771,7 @@ namespace Hotel_Virtue_Testing
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.CustomerId = 1;
+            //TestItem.CustomerId = 25;
             TestItem.ContactNumber = 1;
             TestItem.FirstName = "Gerald";
             TestItem.LastName = "Johnson";

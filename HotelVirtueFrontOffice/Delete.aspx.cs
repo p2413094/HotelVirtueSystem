@@ -19,6 +19,7 @@ public partial class Delete : System.Web.UI.Page
         clsAccountCollection Account = new clsAccountCollection();
         //find therecord
         Account.ThisAccount.Find(AccountId);
+        Account.ThisAccount.AccountId = AccountId;
         //delete
         Account.Delete();
     }

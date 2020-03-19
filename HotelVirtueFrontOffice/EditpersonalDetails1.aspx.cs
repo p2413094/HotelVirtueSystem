@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using HotelVirtueClasses;
 
 public partial class EditpersonalDetails1 : System.Web.UI.Page
 {
@@ -15,6 +16,11 @@ public partial class EditpersonalDetails1 : System.Web.UI.Page
         if (IsPostBack == false)
         {
             DisplayAccounts();
+            //if this not a record
+            if (AccountId != -1)
+            {
+                DisplayAccounts();
+            }
         }
     }
 
@@ -29,6 +35,7 @@ public partial class EditpersonalDetails1 : System.Web.UI.Page
         if (Error == "")
         {
             //get data entered by the user
+            Account.ThisAccount.AccountId = AccountId;
             Account.ThisAccount.CustomerId = Convert.ToInt32(txtCustomerId.Text);
             Account.ThisAccount.HouseNo = Convert.ToString(txtHouseNo.Text);
             Account.ThisAccount.City = Convert.ToString(txtCity.Text);
@@ -40,7 +47,7 @@ public partial class EditpersonalDetails1 : System.Web.UI.Page
             //add the record
             Account.Update();
             //all done so redirect back to the main page
-            Response.Redirect("EditPersonalDetails2.aspx");
+            Response.Redirect("EditPersonalDetails3.aspx");
         }
         else
         {
@@ -49,10 +56,33 @@ public partial class EditpersonalDetails1 : System.Web.UI.Page
         }
     }
 
-
+    void DisplayAccounts()
+    {
+        //create am instance
+        clsAccountCollection Account = new clsAccountCollection();
+        //find
+        Account.ThisAccount.Find(AccountId);
+        //Display 
+        txtCustomerId.Text = Account.ThisAccount.CustomerId.ToString();
+        txtHouseNo.Text = Account.ThisAccount.HouseNo;
+        txtCity.Text = Account.ThisAccount.City;
+        txtPassword.Text = Account.ThisAccount.Password;
+        txtPostCode.Text = Account.ThisAccount.PostCode;
+        txtStreet.Text = Account.ThisAccount.Street;
+        txtTown.Text = Account.ThisAccount.Town;
+        txtUserName.Text = Account.ThisAccount.UserName;
+    }
 
     protected void Button1_Click1(object sender, EventArgs e)
     {
-
+       // AccountId == -1
+        Update();
+        
+        
+        //Redirect to the homepage 
+        Response.Redirect("EditPersonalDetails3.aspx");
     }
+
+   
+    
 }

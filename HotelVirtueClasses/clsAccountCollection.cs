@@ -116,6 +116,8 @@ namespace HotelVirtueClasses
             return DB.Execute("sproc_tblAccount_Insert");
         }
 
+
+
         public void Delete()
         {
             //deletes record

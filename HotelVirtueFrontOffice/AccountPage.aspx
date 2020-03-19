@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Login.aspx.cs" Inherits="Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AccountPage.aspx.cs" Inherits="AccountPage" %>
 
 <!DOCTYPE html>
 
@@ -44,29 +44,22 @@
          <div id="mylogin" class="login" >
 
          
+
              <br />
-             <asp:Label ID="Label1" runat="server" Text="UserName"></asp:Label>
-            <asp:TextBox ID="txtUserName" runat="server" ></asp:TextBox>
-             <br />
-             <br />
-             <asp:Label ID="Label3" runat="server" Text="Password"></asp:Label>
-            <asp:TextBox ID="txtPassword" runat="server" type="password"></asp:TextBox>
+             <asp:Button ID="Button1" runat="server" Text="Edit Details" type="submit" OnClick="Button1_Click"  />
              <br />
              <br />
-             <asp:Button ID="Button1" runat="server" Text="Login" type="submit" OnClick="Button1_Click"  />
+             <asp:Button ID="Button4" runat="server" Text="Logout" type="submit" OnClick="Button4_Click" />
              <br />
              <br />
-             <asp:Button ID="Button2" runat="server" Text="Register" type="submit" OnClick="Button2_Click" />
+             <asp:Button ID="Button3" runat="server" Text="Create Booking" type="submit" OnClick="Button3_Click" />
              <br />
              <br />
-             <asp:Button ID="Button3" runat="server" Text="Sign up as Guest" type="submit" OnClick="Button3_Click" />
-             <br />
-             <br />
-             <asp:Button ID="Button4" runat="server" Text="Continue as guest" OnClick="Button4_Click" />
+        
            </div>
 
         <div id="mysignup" class="signup">
-            <asp:Label ID="Label2" runat="server" Text="Sign up"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Account Page"></asp:Label>
              </div>
     </form>
     

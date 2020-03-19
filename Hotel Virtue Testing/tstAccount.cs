@@ -146,7 +146,7 @@ namespace Hotel_Virtue_Testing
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.AccountId = 101;
+            TestItem.AccountId = 25;
             TestItem.CustomerId = 1;
             TestItem.City = "London";
             TestItem.Town = "Newham	";
@@ -191,7 +191,7 @@ namespace Hotel_Virtue_Testing
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.AccountId = 101;
+            TestItem.AccountId = 7;
             TestItem.CustomerId = 1;
             TestItem.City = "London";
             TestItem.Town = "Newham	";
@@ -222,7 +222,7 @@ namespace Hotel_Virtue_Testing
             //var to store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-            TestItem.AccountId = 1;
+            TestItem.AccountId = 19;
             TestItem.CustomerId = 1;
             TestItem.City = "London";
             TestItem.Town = "Newham	";
