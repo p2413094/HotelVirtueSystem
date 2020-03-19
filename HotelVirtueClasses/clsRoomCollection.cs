@@ -9,7 +9,7 @@ namespace HotelVirtueClasses
         clsRoom mThisRoom = new clsRoom();
 
         clsDataConnection DB = new clsDataConnection();
-        //private data member for the current address
+        
 
 
 
@@ -76,18 +76,18 @@ namespace HotelVirtueClasses
             clsDataConnection DB = new clsDataConnection();
             //add the parameter data used by the stored procedure
             DB.AddParameter("@RoomId", mThisRoom.RoomId);
-            //execute the stored procedure to delete the address
+            //execute the stored procedure to delete the room
             DB.Execute("sproc_tblRoom_Delete");
         }
 
         public void ReportByRoomId(string RoomId)
-        ///it accepts a single parameter PostCode and returns no value
+        ///it accepts a single parameter RoomId and returns no value
         {
             //initialise the DBConnection
             clsDataConnection DB = new clsDataConnection();
             //add the parameter data used by the stored procedure
             DB.AddParameter("@RoomId", mThisRoom.RoomId);
-            //execute the stored procedure to delete the address
+            //execute the stored procedure to delete the room
            DB.Execute("sproc_tblRoom_FilterByRoomId");
         }
 

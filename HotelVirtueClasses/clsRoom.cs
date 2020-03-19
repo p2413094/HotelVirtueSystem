@@ -9,14 +9,10 @@ namespace HotelVirtueClasses
         
        
        
-        //public int RoomNumber { get; set; }
-        //public int RoomTypeId { get; set; }
-        //public bool Accessible { get; set; }
-        //public bool Available { get; set; }
-
-        //houseNo private member variable
+       
+        //HotelId private member variable
         private string mHotelId;
-        //HouseNo public property
+        //HotelId public property
         public string HotelId
         {
             get
@@ -29,9 +25,9 @@ namespace HotelVirtueClasses
             }
         }
 
-        //houseNo private member variable
+        //Price private member variable
         private decimal mPrice;
-        //HouseNo public property
+        //Price  public property
         public decimal Price
         {
             get
@@ -44,11 +40,11 @@ namespace HotelVirtueClasses
             }
         }
 
-        //houseNo private member variable
+        //RoomFloor private member variable
         private int mRoomFloor;
-       
 
-        //HouseNo public property
+
+        //RoomFloor public property
         public int RoomFloor
         {
             get
@@ -61,9 +57,9 @@ namespace HotelVirtueClasses
             }
         }
 
-        //houseNo private member variable
+        //RoomId private member variable
         private string mRoomId;
-        //HouseNo public property
+        //RoomId public property
         public string RoomId
         {
             get
@@ -76,9 +72,9 @@ namespace HotelVirtueClasses
             }
         }
 
-        //houseNo private member variable
+        //RoomNumber private member variable
         private int mRoomNumber;
-        //HouseNo public property
+        //RoomNumber public property
         public int RoomNumber
         {
             get
@@ -91,9 +87,9 @@ namespace HotelVirtueClasses
             }
         }
 
-        //houseNo private member variable
+        //RoomTypeId private member variable
         private string mRoomTypeId;
-        //HouseNo public property
+        //RoomTypeId public property
         public string RoomTypeId
         {
             get
@@ -106,9 +102,9 @@ namespace HotelVirtueClasses
             }
         }
 
-        //houseNo private member variable
+        //Accessible private member variable
         private Boolean mAccessible;
-        //HouseNo public property
+        //Accessible public property
         public bool Accessible
         {
             get
@@ -121,11 +117,11 @@ namespace HotelVirtueClasses
             }
         }
 
-        //houseNo private member variable
+        //Available private member variable
         private Boolean mAvailable;
-        
 
-        //HouseNo public property
+
+        //Available public property
         public bool Available
         {
             get
@@ -147,26 +143,26 @@ namespace HotelVirtueClasses
         {
             //initialise the DBConnection
             clsDataConnection DB = new clsDataConnection();
-            //add the address no parameter
+            //add the room id parameter
             DB.AddParameter("@RoomId", RoomId);
             //execute the query
             DB.Execute("sproc_tblRoom_FilterByRoomId");
             //if the record was found
             if (DB.Count == 1)
             {
-                
-               
-                //get the house no
+
+
+                //get the HotelId
                 mHotelId = Convert.ToString(DB.DataTable.Rows[0]["HotelId"]);
-                //get the street
+                //get the Price
                 mPrice = Convert.ToInt32(DB.DataTable.Rows[0]["Price"]);
-                //get the town
+                //get the RoomFloor
                 mRoomFloor = Convert.ToInt32(DB.DataTable.Rows[0]["RoomFloor"]);
-                //get the post code
+                //get the RoomNumber
                 mRoomNumber = Convert.ToInt32(DB.DataTable.Rows[0]["RoomNumber"]);
-                //get the county code
+                //get the room type id
                 mRoomTypeId = Convert.ToString(DB.DataTable.Rows[0]["RoomTypeId"]);
-                //get the date added
+                //get the available added
                
                 try
                 {

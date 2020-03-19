@@ -12,13 +12,13 @@ public partial class DeleteRoom : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        //get the number of the address to be deleted from the session object
+        //get the number of the roomid to be deleted from the session object
         RoomId = Convert.ToInt32(Session["RoomId"]);
     }
 
     protected void btnYes_Click(object sender, EventArgs e)
     {
-        //create instance of clsAddress called AnAddress used to control addresses in the database
+        //create instance of clsAddress called ARoom used to control addresses in the database
         clsRoomCollection MyRoom = new clsRoomCollection();
         //find the record to be deleted
         MyRoom.ThisRoom.Find(RoomId);
