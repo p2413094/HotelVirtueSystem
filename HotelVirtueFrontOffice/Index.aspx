@@ -15,8 +15,7 @@
     <form>
         
     <div id="Logo">
-           <img src="Images/HotelVirtueLogo.png" alt="HotelVirtueLogo" height="200" width="300"/>       
-        </div>
+           &nbsp;</div>
 
         <div>
            <ul class="ul" >
