@@ -11,11 +11,11 @@ namespace HotelVirtueClasses
         public int RoomNo { get; set; }
         public int RoomTypeId { get; set; }
         public bool Accessible { get; set; }
-        public bool Available { get; internal set; }
+        public bool Available { get; set; }
 
-        public string Valid(string someRoom)
+        public string Valid( string hotelId, string price, string roomFloor, string roomNo, string roomTypeId)
         {
-            throw new NotImplementedException();
+            return "";
         }
 
         public bool Find(int roomId)

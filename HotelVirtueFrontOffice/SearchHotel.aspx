@@ -13,9 +13,10 @@
         </div>
 
 
-        <asp:Panel ID="Panel1" CssClass="box" runat="server">
-            <asp:Label ID="lblHotelName" runat="server" Text=""></asp:Label>
+        <asp:Panel ID="pnlchoosebooking" CssClass="box" runat="server">
+            <asp:Label ID="lblchoosehotel" runat="server" Text="Choose the hotel"></asp:Label>
             <br />
+            <asp:DropDownList ID="ddlHotelId" runat="server"></asp:DropDownList>
             <br />
 
         </asp:Panel>

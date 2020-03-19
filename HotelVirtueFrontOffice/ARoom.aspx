@@ -27,12 +27,15 @@
         <asp:Label ID="lblRoomFloor" runat="server" style="z-index: 1; left: 545px; top: 379px; position: absolute" Text="Room Floor:"></asp:Label>
         <asp:TextBox ID="txtRoomFloor" runat="server" style="z-index: 1; left: 635px; top: 374px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblRoomNumber" runat="server" style="z-index: 1; left: 541px; top: 401px; position: absolute; height: 25px" Text="Room Number:"></asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server" style="z-index: 1; left: 640px; top: 401px; position: absolute"></asp:TextBox>
+        <asp:TextBox ID="txtRoomNumber" runat="server" style="z-index: 1; left: 640px; top: 401px; position: absolute"></asp:TextBox>
         <asp:Label ID="lblRoomTypeId" runat="server" style="z-index: 1; left: 541px; top: 427px; position: absolute" Text="Room Type Id:"></asp:Label>
         <asp:TextBox ID="txtRoomTypeId" runat="server" style="z-index: 1; left: 640px; top: 427px; position: absolute"></asp:TextBox>
         <asp:CheckBox ID="chkAvailable" runat="server" style="z-index: 1; left: 636px; top: 453px; position: absolute" Text="Available" />
         <asp:Label ID="lblHotelId" runat="server" style="z-index: 1; left: 547px; top: 320px; position: absolute" Text="Hotel Id:"></asp:Label>
         <asp:TextBox ID="txtHotelId" runat="server" style="z-index: 1; left: 608px; top: 319px; position: absolute"></asp:TextBox>
+        <asp:Button ID="btnOK" runat="server" OnClick="btnOK_Click" style="z-index: 1; left: 537px; top: 499px; position: absolute" Text="OK" />
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 542px; top: 473px; position: absolute"></asp:Label>
+        <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" style="z-index: 1; left: 616px; top: 501px; position: absolute" Text="Cancel" />
     </form>
 </body>
 </html>
