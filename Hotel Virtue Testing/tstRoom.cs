@@ -53,8 +53,8 @@ namespace Hotel_Virtue_Testing
         {
             clsRoom aRoom = new clsRoom();
             Int32 testData = 1;
-            aRoom.RoomNo = testData;
-            Assert.AreEqual(aRoom.RoomNo, testData);
+            aRoom.RoomNumber = testData;
+            Assert.AreEqual(aRoom.RoomNumber, testData);
         }
 
         [TestMethod]
@@ -76,7 +76,7 @@ namespace Hotel_Virtue_Testing
             //create some test data to test the method 
             string someRoom = "1";
             //invoke the method 
-            Error = aRoom.Valid(someRoom);
+            Error = aRoom.Valid("1", "45", "6", "7", "8");
             //test to see that the result is OK i.e. there was no error message returned
             Assert.AreEqual(Error, "");
         }
@@ -102,7 +102,7 @@ namespace Hotel_Virtue_Testing
             //create some test data to test the method 
             string someRoom = "";
             //invoke the method 
-            Error = aRoom.Valid(someRoom);
+            Error = aRoom.Valid("0", "45", "6", "7", "8");
             //test to see that the result is OK i.e. there was no error message returned
             Assert.AreNotEqual(Error, "");
         }
@@ -117,7 +117,7 @@ namespace Hotel_Virtue_Testing
             //create some test data to test the method 
             string someRoom = "1";
             //invoke the method 
-            Error = aRoom.Valid(someRoom);
+            Error = aRoom.Valid(someRoom, "45", "6", "7", "8");
             //test to see that the result is OK i.e. there was no error message returned
             Assert.AreEqual(Error, "");
         }
@@ -132,7 +132,7 @@ namespace Hotel_Virtue_Testing
             //create some test data to test the method 
             string someRoom = "2";
             //invoke the method 
-            Error = aRoom.Valid(someRoom);
+            Error = aRoom.Valid(someRoom, "45", "6", "7", "8");
             //test to see that the result is OK i.e. there was no error message returned
             Assert.AreEqual(Error, "");
         }
@@ -147,7 +147,7 @@ namespace Hotel_Virtue_Testing
             //create some test data to test the method 
             string someRoom = "999";
             //invoke the method 
-            Error = aRoom.Valid(someRoom);
+            Error = aRoom.Valid(someRoom, "55", "7", "8", "9");
             //test to see that the result is OK i.e. there was no error message returned
             Assert.AreEqual(Error, "");
         }
@@ -161,7 +161,7 @@ namespace Hotel_Virtue_Testing
             //create some test data to test the method 
             string someRoom = "1000";
             //invoke the method 
-            Error = aRoom.Valid(someRoom);
+            Error = aRoom.Valid(someRoom, "45", "6", "7", "8");
             //test to see that the result is OK i.e. there was no error message returned
             Assert.AreEqual(Error, "");
         }
@@ -176,7 +176,7 @@ namespace Hotel_Virtue_Testing
             //create some test data to test the method 
             string someRoom = "1001";
             //invoke the method 
-            Error = aRoom.Valid(someRoom);
+            Error = aRoom.Valid(someRoom, "77", "2", "1", "9");
             //test to see that the result is OK i.e. there was no error message returned
             Assert.AreNotEqual(Error, "");
         }
@@ -191,7 +191,7 @@ namespace Hotel_Virtue_Testing
             //create some test data to test the method 
             string someRoom = "500";
             //invoke the method 
-            Error = aRoom.Valid(someRoom);
+            Error = aRoom.Valid(someRoom, "5", "6", "7", "8");
             //test to see that the result is OK i.e. there was no error message returned
             Assert.AreEqual(Error, "");
         }
@@ -208,7 +208,7 @@ namespace Hotel_Virtue_Testing
             //pad the string with characters
             someRoom = someRoom.PadRight(500, 'a');
             //invoke the method 
-            Error = aRoom.Valid(someRoom);
+            Error = aRoom.Valid(someRoom, "3", "9", "7", "19");
             //test to see that the result is OK i.e. there was no error message returned
             Assert.AreNotEqual(Error, "");
         }

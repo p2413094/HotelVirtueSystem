@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using HotelVirtueClasses;
+
 
 public partial class SearchHotel : System.Web.UI.Page
 {
