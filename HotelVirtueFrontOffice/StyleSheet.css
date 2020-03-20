@@ -334,3 +334,28 @@ li a {
     margin-left: 2%;
     float: left;
 }
+
+#picturetitle {
+    font-family: Arial;
+    color: #000;
+    font-size: 200%;
+    top: 70%;
+    left: 38%;
+    position: absolute;
+}
+
+#footer {
+    position: absolute;
+    width: 100%;
+    color: white;
+    text-align: center;
+    top: 1000px;
+    left: 40px;
+    margin-right: 25%;
+}
+
+#labels.hotel {
+    position: absolute;
+    top: 82%;
+    left: 39%;
+}

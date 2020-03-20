@@ -6,14 +6,6 @@
 <head runat="server">
     <title>Hotel Virtue</title>
     <link rel="stylesheet" = href="StyleSheet.css" />
-    <style type="text/css">
-        .auto-style1 {
-            z-index: 1;
-            left: 1497px;
-            top: 170px;
-            position: absolute;
-        }
-    </style>
 </head>
 
 <body>
@@ -44,17 +36,18 @@
         </form>
         <script>
             function openNav() {
-                document.getElementById("mySidenav").style.width = "30%";
+              document.getElementById("mySidenav").style.width = "30%";
             }
 
             function closeNav() {
-                document.getElementById("mySidenav").style.width = "0";
+              document.getElementById("mySidenav").style.width = "0";
             }
         </script>
 
     <form runat="server">
 
     <div id="skylinepicture">
+        <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" style="z-index: 1; left: 1336px; top: 144px; position: absolute" Text="Search" />
         &nbsp;</div>
     
     <div id="picturetitle">
@@ -62,29 +55,29 @@
     </div>
 
        
+                   
             <div id="Labels" class="hotel">
-            <label> Location:<asp:TextBox ID="txtLocation" runat="server" placeholder="Leicester" ></asp:TextBox> Arrival Date: <asp:TextBox ID="txtArrivalDate" runat="server" placeholder="DD/MM/YYYY"></asp:TextBox>Departure Date:<asp:TextBox ID="txtDepartureDate" runat="server" placeholder="DD/MM/YYYY"></asp:TextBox>Number of Guests: <asp:TextBox ID="txtNumberOfGuests" runat="server"></asp:TextBox>
-        <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="Search" CssClass="continueButton" />
-                </label>
+            <label> Location:<asp:TextBox ID="txtLocation" runat="server" placeholder="Leicester" ></asp:TextBox> Arrival Date: <asp:TextBox ID="txtArrivalDate" runat="server" placeholder="DD/MM/YYYY"></asp:TextBox>Departure Date:<asp:TextBox ID="txtDepartureDate" runat="server" placeholder="DD/MM/YYYY"></asp:TextBox>Number of Guests: <asp:TextBox ID="txtNumberOfGuests" runat="server"></asp:TextBox></label>
                 <br />
-                <label> &nbsp;</label>Under Five:<asp:TextBox ID="txtUnderFive" runat="server" style="z-index: 1; left: 746px; top: 31px; position: absolute"></asp:TextBox>
+                <label> &nbsp;</label>Under Five:<asp:TextBox ID="txtUnderFive" runat="server" style="z-index: 1; left: 149px; top: 176px; position: absolute"></asp:TextBox>
                 <br />
             <br />
                 <label> &nbsp;Five to Sixteen:<br />
-                <asp:TextBox ID="txtFivetoSixteen" runat="server" style="z-index: 1; left: 747px; top: 62px; position: absolute"></asp:TextBox>
-                Sixteen Upwards:<asp:TextBox ID="txtSixteenUpwards" runat="server" style="z-index: 1; left: 747px; top: 94px; position: absolute"></asp:TextBox>
+                <asp:TextBox ID="txtFivetoSixteen" runat="server" style="z-index: 1; left: 176px; top: 230px; position: absolute"></asp:TextBox>
+                Sixteen Upwards:<asp:TextBox ID="txtSixteenUpwards" runat="server" style="z-index: 1; left: 189px; top: 262px; position: absolute"></asp:TextBox>
                 </label></div>
-            
-            <br />
             
     </form>
 
-     <!-- footer -->
         <p>
         <img src="Images/skyline.jpg" height="500" width="1900" /></p>
-        <div id="footer">
+        
+
+    
+            
+    <div id="footer">
             <!--Text within footer -->
             <p>© 2020 HOTEL VIRTUE. All rights are reserved. Site NOT for rollout unless for demonstration purposes.</p>
                 </div>
-</body>
+    </body>
 </html>
