@@ -18,8 +18,8 @@ public partial class SearchHotel : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         string location = "Leicester";//Convert.ToString(Session["Location"]);
-        arrivalDate = Convert.ToDateTime("19/03/2020");  //(Session["ArrivalDate"]);
-        departureDate = Convert.ToDateTime("21/03/2020");   //(Session["DepartureDate"]);
+        arrivalDate = Convert.ToDateTime/*("19/03/2020");  //*/(Session["ArrivalDate"]);
+        departureDate = Convert.ToDateTime/*("21/03/2020"); */ (Session["DepartureDate"]);
         underFive = 1; //Convert.ToInt32(Session["underFive"]);
         fivetoSixteen = 1; //Convert.ToInt32(Session["FivetoSixteen"]);
         sixteenUpwards = 1;  //Convert.ToInt32(Session["SixteenUpwards"]);

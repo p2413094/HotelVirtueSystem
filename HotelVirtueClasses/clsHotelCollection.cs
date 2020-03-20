@@ -25,7 +25,8 @@ namespace HotelVirtueClasses
                 aHotel.HotelId = Convert.ToInt32(DB.DataTable.Rows[Index]["HotelId"]);
                 aHotel.Address = Convert.ToString(DB.DataTable.Rows[Index]["Address"]);
                 aHotel.City = Convert.ToString(DB.DataTable.Rows[Index]["City"]);
-                aHotel.DateofStay = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateofStay"]);
+                aHotel.ArrivalDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["ArrivalDate"]);
+                aHotel.DepartureDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["DepartureDate"]);
                 aHotel.Location = Convert.ToString(DB.DataTable.Rows[Index]["Location"]);
 
                 mAllHotelsList.Add(aHotel);
@@ -35,5 +36,22 @@ namespace HotelVirtueClasses
 
         }
 
+        public List<clsHotel> HotelList
+        {
+            get { return mAllHotelsList; }
+            set { mAllHotelsList = value; }
+        }
+
+        public int Count
+        {
+            get { return mAllHotelsList.Count; }
+            set { }
+        }
+
+        public clsHotel ThisHotel
+        {
+            get { return mThisHotel; }
+            set { mThisHotel = value; }
+        }
     }
 }

@@ -10,6 +10,7 @@ namespace HotelVirtueClasses
         public string Description { get; set; }
         public string Descripton { get; set; }
         public int MaximumOccupancy { get; set; }
+        public string someRoomType { get; set; }
 
         public string Valid(string someRoomType)
         {
