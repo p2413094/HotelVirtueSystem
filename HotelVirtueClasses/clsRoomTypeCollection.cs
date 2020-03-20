@@ -56,6 +56,9 @@ namespace HotelVirtueClasses
             set { mThisRoomType = value; }
         }
 
+        public clsRoomType thisRoomType { get; set; }
+        public List<clsRoomType> RoomTypeList { get; set; }
+
         public int AddRoomType()
         {
 

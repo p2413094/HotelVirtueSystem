@@ -4,15 +4,8 @@ namespace HotelVirtueClasses
 {
     public class clsRoom
     {
-
-
-
-
-
-        //HotelId private member variable
-        private string mHotelId;
-        //HotelId public property
-        public string HotelId
+        private Int32 mHotelId;
+        public int HotelId
         {
             get
             {
@@ -23,10 +16,7 @@ namespace HotelVirtueClasses
                 mHotelId = value;
             }
         }
-
-        //Price private member variable
         private decimal mPrice;
-        //Price  public property
         public decimal Price
         {
             get
@@ -38,12 +28,7 @@ namespace HotelVirtueClasses
                 mPrice = value;
             }
         }
-
-        //RoomFloor private member variable
         private int mRoomFloor;
-
-
-        //RoomFloor public property
         public int RoomFloor
         {
             get
@@ -55,11 +40,8 @@ namespace HotelVirtueClasses
                 mRoomFloor = value;
             }
         }
-
-        //RoomId private member variable
-        private string mRoomId;
-        //RoomId public property
-        public string RoomId
+        private int mRoomId;
+        public int RoomId
         {
             get
             {
@@ -70,10 +52,7 @@ namespace HotelVirtueClasses
                 mRoomId = value;
             }
         }
-
-        //RoomNumber private member variable
         private int mRoomNumber;
-        //RoomNumber public property
         public int RoomNumber
         {
             get
@@ -86,10 +65,8 @@ namespace HotelVirtueClasses
             }
         }
 
-        //RoomTypeId private member variable
-        private string mRoomTypeId;
-        //RoomTypeId public property
-        public string RoomTypeId
+        private int mRoomTypeId;
+        public int RoomTypeId
         {
             get
             {
@@ -97,13 +74,11 @@ namespace HotelVirtueClasses
             }
             set
             {
-                mHotelId = value;
+                mRoomTypeId = value;
             }
         }
 
-        //Accessible private member variable
         private Boolean mAccessible;
-        //Accessible public property
         public bool Accessible
         {
             get
@@ -116,16 +91,7 @@ namespace HotelVirtueClasses
             }
         }
 
-        public string Valid(string someRoom)
-        {
-            throw new NotImplementedException();
-        }
-
-        //Available private member variable
         private Boolean mAvailable;
-
-
-        //Available public property
         public bool Available
         {
             get
@@ -138,12 +104,56 @@ namespace HotelVirtueClasses
             }
         }
 
-        public string Valid(string hotelId, string price, string roomFloor, string roomNumber, string roomTypeId)
+        public string Valid(string RoomId, string Price, string RoomFloor, string RoomNumber, string RoomTypeId)
         {
-            return "";
+            try
+            {
+                if (RoomId == "")
+                {
+                    //return a blank string
+                    return "No Room Id Entered";
+                }
+                else
+                {
+                    int value = Convert.ToInt32(RoomId);
+                    if (value > 1000)
+                    {
+                        //return a blank string
+                        return "Room Id > 1000";
+                    }
+
+                }
+
+                if (Convert.ToDecimal(Price) > 100)
+                {
+                    return "Price > 1000";
+                }
+
+                if (Convert.ToInt32(RoomFloor) > 10)
+                {
+                    return "RoomFloor > 10";
+                }
+
+                if (Convert.ToInt32(RoomNumber) > 200)
+                {
+                    return "RoomNumber > 200";
+                }
+
+                if (Convert.ToInt32(RoomTypeId) > 1000)
+                {
+                    return "RoomTypeId > 1000";
+                }
+
+                return "";
+            }
+            catch (Exception ex)
+            {
+                //return a blank string
+                return "Generic Error : " + ex.Message;
+            }
         }
 
-        public bool Find(int roomId)
+        public bool Find(int RoomId)
         {
             //initialise the DBConnection
             clsDataConnection DB = new clsDataConnection();
@@ -157,7 +167,7 @@ namespace HotelVirtueClasses
 
 
                 //get the HotelId
-                mHotelId = Convert.ToString(DB.DataTable.Rows[0]["HotelId"]);
+                mHotelId = Convert.ToInt32(DB.DataTable.Rows[0]["HotelId"]);
                 //get the Price
                 mPrice = Convert.ToInt32(DB.DataTable.Rows[0]["Price"]);
                 //get the RoomFloor
@@ -165,7 +175,7 @@ namespace HotelVirtueClasses
                 //get the RoomNumber
                 mRoomNumber = Convert.ToInt32(DB.DataTable.Rows[0]["RoomNumber"]);
                 //get the room type id
-                mRoomTypeId = Convert.ToString(DB.DataTable.Rows[0]["RoomTypeId"]);
+                mRoomTypeId = Convert.ToInt32(DB.DataTable.Rows[0]["RoomTypeId"]);
                 //get the available added
 
                 try
@@ -187,8 +197,8 @@ namespace HotelVirtueClasses
             }
 
         }
-
-
-
     }
+
+
+
 }

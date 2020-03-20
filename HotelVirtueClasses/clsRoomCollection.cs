@@ -39,13 +39,13 @@ namespace HotelVirtueClasses
             while (Index < recordCount)
             {
                 clsRoom aRoom = new clsRoom();
-                aRoom.RoomId = Convert.ToString(DB.DataTable.Rows[Index]["RoomId"]);
+                aRoom.RoomId = Convert.ToInt32(DB.DataTable.Rows[Index]["RoomId"]);
                 aRoom.Accessible = Convert.ToBoolean(DB.DataTable.Rows[Index]["Accessible"]);
-                aRoom.HotelId = Convert.ToString(DB.DataTable.Rows[Index]["HotelId"]);
+                aRoom.HotelId = Convert.ToInt32(DB.DataTable.Rows[Index]["HotelId"]);
                 aRoom.Price = Convert.ToDecimal(DB.DataTable.Rows[Index]["Price"]);
                 aRoom.RoomFloor = Convert.ToInt32(DB.DataTable.Rows[Index]["RoomFloor"]);
                 aRoom.RoomNumber = Convert.ToInt32(DB.DataTable.Rows[Index]["RoomNumber"]);
-                aRoom.RoomTypeId = Convert.ToString(DB.DataTable.Rows[Index]["RoomTypeId"]);
+                aRoom.RoomTypeId = Convert.ToInt32(DB.DataTable.Rows[Index]["RoomTypeId"]);
                 aRoom.Available = Convert.ToBoolean(DB.DataTable.Rows[Index]["Available"]);
 
                 mRoomList.Add(aRoom);
